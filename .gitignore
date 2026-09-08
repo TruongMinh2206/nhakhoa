@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Temp & build artifacts
+scratch/
+.system_generated/

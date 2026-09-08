@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array to string conversion</title>
+    <meta name="description" content="">
+
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Nha Khoa Kim Dung – Nha Khoa Uy Tín Hàng Đầu Thái Nguyên | Công Nghệ Hiện Đại, Bác Sĩ Giỏi</title>
+<meta name="description" content="Nha Khoa Kim Dung Thái Nguyên – địa chỉ nha khoa uy tín hàng đầu với đội ngũ bác sĩ chuyên môn cao, ứng dụng công nghệ hiện đại, dịch vụ niềng răng, implant, dán sứ thẩm mỹ chuẩn quốc tế.">
+<meta name="keywords" content="nha khoa Thái Nguyên, nha khoa Kim Dung, nha khoa uy tín Thái Nguyên, nha khoa công nghệ cao, nha khoa hiện đại">
+<meta name="robots" content="index,follow,noodp">
+<link rel="icon" type="image/x-icon" href="https://nhakhoakimdung.vn/upload/photo/url-1-1753346947.webp">
+<meta name="google-site-verification" content="zAtkrv4zVQijYNM4MEkuEXEN7Q6fU9BiGaRzlVVvxOg" />
+
+
+<meta name="geo.region" content="VN">
+<meta name="geo.placename" content="Hồ Chí Minh">
+<meta name="geo.position" content="10.823099;106.629664">
+<meta name="ICBM" content="10.823099, 106.629664">
+<meta name='revisit-after' content='1 days'>
+<meta name="author" content="NHA KHOA KIM DUNG">
+<meta name="copyright" content="NHA KHOA KIM DUNG - [Tungthanh1511@gmail.com]">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NHA KHOA KIM DUNG">
+<meta property="og:title" content="Nha Khoa Kim Dung – Nha Khoa Uy Tín Hàng Đầu Thái Nguyên | Công Nghệ Hiện Đại, Bác Sĩ Giỏi">
+<meta property="og:description" content="Nha Khoa Kim Dung Thái Nguyên – địa chỉ nha khoa uy tín hàng đầu với đội ngũ bác sĩ chuyên môn cao, ứng dụng công nghệ hiện đại, dịch vụ niềng răng, implant, dán sứ thẩm mỹ chuẩn quốc tế.">
+<meta property="og:url" content="https://nhakhoakimdung.vn">
+<meta property="og:image" content="https://nhakhoakimdung.vn/thumbs/600x400x1/upload/seopage/bannerseo-1753694289.png.webp">
+<meta property="og:image:alt" content="Nha Khoa Kim Dung – Nha Khoa Uy Tín Hàng Đầu Thái Nguyên | Công Nghệ Hiện Đại, Bác Sĩ Giỏi">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="400">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="Tungthanh1511@gmail.com">
+<meta name="twitter:creator" content="NHA KHOA KIM DUNG">
+<meta name="google-site-verification" content="2iTLdUb3xfxzrx5tlUrIwlYKWa9ecpQImqhetlKbEzc" />
+<link rel="canonical" href="https://nhakhoakimdung.vn/" />
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href="https://nhakhoakimdung.vn/assets/css/animate.min.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/css/style-tailwind.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/fontawesome640/all.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/fotorama/fotorama.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/fotorama/fotorama-style.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/photobox/photobox.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/slick/slick.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/slick/slick-theme.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/slick/slick-style.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/css/cart.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/css/css_effect.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/css/fonts.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/css/style.css" rel="stylesheet">
+<link href="https://nhakhoakimdung.vn/assets/css/media.css" rel="stylesheet">
+
+        <link href="https://nhakhoakimdung.vn/assets/css/hotline.css" rel="stylesheet">     <link href="https://nhakhoakimdung.vn/assets/css/social.css" rel="stylesheet">
+ 
+<link rel="preload" href="https://nhakhoakimdung.vn/assets/holdon/HoldOn.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://nhakhoakimdung.vn/assets/holdon/HoldOn.css"></noscript>
+<link rel="preload" href="https://nhakhoakimdung.vn/assets/holdon/HoldOn-style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://nhakhoakimdung.vn/assets/holdon/HoldOn-style.css"></noscript>
+<link rel="preload" href="https://nhakhoakimdung.vn/assets/simplenotify/simple-notify.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://nhakhoakimdung.vn/assets/simplenotify/simple-notify.css"></noscript>
+<link rel="preload" href="https://nhakhoakimdung.vn/assets/fancybox5/fancybox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://nhakhoakimdung.vn/assets/fancybox5/fancybox.css"></noscript> 
+</head>
+<body>
+<header>
+ <div class="header z-100">
+ <div class="head-bottom">
+ <div class="wrap-content">
+ <div class="logo-banner">
+ <div class="logo">
+ <a class="logo-head peShine bgstart-animate" href="index.html">
+ <img src="https://nhakhoakimdung.vn/upload/photo/url-1-1753346899.webp" alt="NHA KHOA KIM DUNG">
+ <img class="start-animate" src="https://nhakhoakimdung.vn/assets/images/saolaplanh.webp" alt="">
+ <img class="start-animate1" src="https://nhakhoakimdung.vn/assets/images/saolaplanh.webp" alt="">
+ <img class="start-animate2" src="https://nhakhoakimdung.vn/assets/images/saolaplanh.webp" alt="">
+ </a>
+ </div>
+ <div class="banner">
+ <a class="banner-head" href="index.html">
+ <img src="https://nhakhoakimdung.vn/upload/photo/nha-khoa-kim-dung-1753686177.png" alt="NHA KHOA KIM DUNG">
+ </a>
+ </div>
+ </div>
+ <div class="content-menu">
+ <div class="v1">
+ <div class="info-head"><img src="https://nhakhoakimdung.vn/assets/images/main/ic-address.webp" alt=""> Số 15, đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên</div>
+  <ul class="social-header flex flex-wrap !justify-start p-0 m-0">
+  <li class="mr-2">
+ <a href="http://zalo.me/0862960886" target="_blank" class="block group"><img class="transition-all group-hover:animate__bounceIn" src="https://nhakhoakimdung.vn/upload/photo/group-356-1753347195.webp" alt="Zalo"></a>
+ </li>    
+  <li class="mr-2">
+ <a href="https://www.facebook.com/nkkimdung" target="_blank" class="block group"><img class="transition-all group-hover:animate__bounceIn" src="https://nhakhoakimdung.vn/upload/photo/group-354-1753347195.webp" alt="Facebook"></a>
+ </li>    
+  </ul>
+  </div>
+ <div class="v2">
+ <div class="search">
+ <input type="text" id="keyword" class="search-auto flex-1"
+ placeholder="Bạn cần tìm dịch vụ gì" onkeypress="doEnter(event,'keyword');">
+ <label for="keyword" class="mb-0" onclick="onSearch('keyword');"><i class="fa fa-search"></i></label>
+ </div>
+ <div class="item-hotline">
+ <div class="img-hotline"><img src="https://nhakhoakimdung.vn/assets/images/main/ic-call.webp" alt=""></div>
+ <div>
+ <p class="mb-0">Hotline 24/7</p>
+ <a href="tel::0862960886">0862960886</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <section class="wrap-menu">
+ <nav class="menu w-menu  ">
+ <div class="wrap-content">
+ <ul class="flex flex-wrap items-center justify-between ulmn gap-10">
+ <li><a class="transition active" href="index.html" title="Trang chủ">Trang chủ</a></li>
+ <li><a class="transition " href="gioi-thieu.html" title="Giới thiệu">Giới thiệu</a></li>
+ <li><a class="transition " href="dich-vu.html" title="Dịch vụ">Dịch vụ</a>
+  </li>
+ <li><a class="transition " href="doi-ngu.html" title="Đội ngũ">Đội ngũ</a></li>
+ <li><a class="transition " href="dat-lich.html" title="Đặt lịch">Đặt lịch</a></li>
+ <li><a class="transition " href="tin-tuc.html" title="Tin tức">Tin tức</a></li>
+ <li><a class="transition " href="lien-he.html" title="Liên hệ">Liên hệ</a></li>
+ </ul>   
+ </div>
+</nav> </section>
+ <div class="offcanvas offcanvas-start" id="menu-mobile">
+ <div class="offcanvas-body">
+ <span class="btn-close btn-close-menu" data-bs-dismiss="offcanvas"></span>
+ <nav class="menu-mobile">
+ <div class="head-menu">
+ <a class="logo-header" href="index.html">
+ <img src="https://nhakhoakimdung.vn/upload/photo/url-1-1753346899.webp"
+ alt="NHA KHOA KIM DUNG">
+ </a>
+ <div class="search-menu">
+ <label for="keyword-mobile" class="mb-2">Bạn cần tìm dịch vụ gì</label>
+ <div class="form-floating form-floating-cus">
+ <input type="text" id="keyword-mobile" class="" placeholder="Bạn cần tìm dịch vụ gì"
+ onkeypress="doEnter(event,'keyword-mobile');">
+ </div>
+ <p class="mb-0" onclick="onSearch('keyword-mobile');"><i class="fal fa-search"></i></p>
+ </div>
+ </div>
+ <ul>
+ <li><a class="transition" href="index.html" title="Trang chủ"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
+ <li><a class="transition " href="gioi-thieu.html" title="Giới thiệu"><i class="fa-solid fa-address-card"></i> Giới thiệu</a></li>
+ <li><a class="transition" href="dich-vu.html" title="Dịch vụ"><i class="fa-brands fa-product-hunt"></i> Dịch vụ</a>
+ <span data-bs-toggle="collapse" data-bs-target="#menu-product" class="scroll"><i class="ml-auto fa-solid fa-angle-right"></i></span>
+ <ul class="collapse" id="menu-product">
+  </ul>
+ </li>
+ <li class="group"><a class="transition" href="doi-ngu.html" title="Đội ngũ"><i class="fa-solid fa-newspaper"></i> Đội ngũ</a></li>
+ <li class="group"><a class="transition" href="dat-lich.html" title="Đặt lịch"><i class="fa-solid fa-newspaper"></i> Đặt lịch</a></li>
+ <li class="group"><a class="transition" href="tin-tuc.html" title="Tin tức"><i class="fa-solid fa-newspaper"></i> Tin tức</a></li>
+ <li class="group"><a class="transition" href="lien-he.html" title="Liên hệ"><i class="fa-solid fa-address-book"></i> Liên hệ</a></li>
+ </ul>
+ <div class="company">
+ <p>Địa chỉ: <span>Số 15, đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên</span></p>
+ <p>Điện thoại: <span>0862960886</span></p>
+ <p>Email: <span>Tungthanh1511@gmail.com</span></p>
+ <p>Website: <span>http://nhakhoakimdung.vn/</span></p>
+ </div>
+ </nav>
+ </div>
+</div>  </div>
+</header>
+<main id="main-content">
+<!-- The noscript representation is for HTTP client like Postman that have JS disabled. -->
+
+
+<div id="app"><main class="mx-auto mt-20 mb-10 px-6 lg:px-10 max-w-4xl lg:max-w-[90rem] grid grid-cols-1 gap-10"><div><section class="@container | bg-white dark:shadow-none dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20"><div class="@4xl:flex items-stretch"><main id="exception" class="z-10 flex-grow min-w-0"><div class="overflow-hidden"><div class="px-6 @lg:px-10 py-8 overflow-x-auto"><div class="
+                my-4 font-semibold leading-snug text-xl
+                
+            "><div class="line-clamp-2">Array to string conversion</div></div></div></div></main></div></section></div><section class=""><a id="stack" class="scroll-target"></a><div class="@container bg-gray-25 dark:shadow-none dark:bg-gray-800/50 bg-gradient-to-bl from-white dark:from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20"><div class="grid grid-cols-1 @4xl:grid-cols-[33.33%_66.66%] @4xl:grid-rows-[57rem] items-stretch overflow-hidden"><section class="flex flex-col border-t @4xl:border-t-0 ~border-gray-200 relative"><main class="flex items-stretch flex-grow overflow-x-auto overflow-y-hidden scrollbar-hidden-x mask-fade-r text-sm"><div class="flex-grow pr-10"><pre style="background: transparent;"><code class="language-php" style="white-space: pre;"><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:20" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="hljs-keyword">use</span><span class=""> </span><span class="hljs-title">NINACORE</span><span class="">\</span><span class="hljs-title">Core</span><span class="">\</span><span class="hljs-title">Support</span><span class="">\</span><span class="hljs-title">Facades</span><span class="">\</span><span class="hljs-title">BreadCrumbs</span><span class="">;
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:21" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class=""></span><span class="hljs-keyword">use</span><span class=""> </span><span class="hljs-title">NINACORE</span><span class="">\</span><span class="hljs-title">Models</span><span class="">\</span><span class="hljs-title">NewsSubModel</span><span class="">;
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:22" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class="">
+</span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:23" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class=""></span><span class="hljs-class hljs-keyword">class</span><span class="hljs-class"> </span><span class="hljs-class hljs-title">NewsController</span><span class="hljs-class"> </span><span class="hljs-class hljs-keyword">extends</span><span class="hljs-class"> </span><span class="hljs-class hljs-title">Controller</span><span class="hljs-class">
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:24" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="hljs-class"></span><span class="">{
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:25" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">    </span><span class="hljs-keyword">public</span><span class=""> </span><span class="hljs-function hljs-keyword">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">index</span><span class="hljs-function">(</span><span class="hljs-function">)
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:26" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="hljs-function">    </span><span class="">{
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:27" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">        </span><span class="hljs-variable">$news</span><span class=""> = NewsModel::select(</span><span class="hljs-string">'id'</span><span class="">, </span><span class="hljs-string">'name'</span><span class=""> . </span><span class="hljs-keyword">$this</span><span class="">-&gt;lang, </span><span class="hljs-string">'desc'</span><span class=""> . </span><span class="hljs-keyword">$this</span><span class="">-&gt;lang,  </span><span class="hljs-string">'slug'</span><span class=""> . </span><span class="hljs-keyword">$this</span><span class="">-&gt;lang, </span><span class="hljs-string">'photo'</span><span class="">, </span><span class="hljs-string">'link'</span><span class="">, </span><span class="hljs-string">'link_video'</span><span class="">)
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:28" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">            -&gt;where(</span><span class="hljs-string">'type'</span><span class="">, </span><span class="hljs-keyword">$this</span><span class="">-&gt;type)
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:29" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">            -&gt;whereRaw(</span><span class="hljs-string">"FIND_IN_SET(?,status)"</span><span class="">, [</span><span class="hljs-string">'hienthi'</span><span class="">])
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:30" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class="">            -&gt;datePublish()
+</span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:31" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">            -&gt;orderBy(</span><span class="hljs-string">'numb'</span><span class="">, </span><span class="hljs-string">'asc'</span><span class="">)
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:32" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">            -&gt;orderBy(</span><span class="hljs-string">'id'</span><span class="">, </span><span class="hljs-string">'desc'</span><span class="">)
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:33" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">            -&gt;paginate(</span><span class="hljs-number">12</span><span class="">);
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:34" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class="">
+</span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                 ~bg-red-500/20
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:35" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">        </span><span class="hljs-variable">$titleMain</span><span class=""> =  __(</span><span class="hljs-string">'web.'</span><span class="">.</span><span class="hljs-keyword">$this</span><span class="">-&gt;infoSeo(</span><span class="hljs-string">'news'</span><span class="">, </span><span class="hljs-keyword">$this</span><span class="">-&gt;type, </span><span class="hljs-string">'title'</span><span class="">));
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:36" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class="">
+</span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:37" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">        BreadCrumbs::setBreadcrumb(type: </span><span class="hljs-keyword">$this</span><span class="">-&gt;type, title: </span><span class="hljs-variable">$titleMain</span><span class="">);
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:38" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">        </span><span class="hljs-keyword">$this</span><span class="">-&gt;seoPage(</span><span class="hljs-variable">$titleMain</span><span class="">, </span><span class="hljs-keyword">$this</span><span class="">-&gt;infoSeo(</span><span class="hljs-string">'news'</span><span class="">, </span><span class="hljs-keyword">$this</span><span class="">-&gt;type, </span><span class="hljs-string">'type'</span><span class="">, </span><span class="hljs-string">'index'</span><span class="">));
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:39" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class="">
+</span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:40" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">        </span><span class="hljs-keyword">if</span><span class=""> (</span><span class="hljs-keyword">$this</span><span class="">-&gt;type == </span><span class="hljs-string">'video'</span><span class="">) {
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:41" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">            </span><span class="hljs-variable">$template</span><span class=""> = </span><span class="hljs-string">'video'</span><span class="">;
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:42" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">        } </span><span class="hljs-keyword">else</span><span class=""> {
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:43" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">            </span><span class="hljs-variable">$template</span><span class=""> = </span><span class="hljs-string">'news'</span><span class="">;
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:44" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class="">        }
+</span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:45" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class="">
+</span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:46" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">        </span><span class="hljs-keyword">return</span><span class=""> View::share([</span><span class="hljs-string">'com'</span><span class=""> =&gt; </span><span class="hljs-keyword">$this</span><span class="">-&gt;type])-&gt;view(</span><span class="hljs-string">'news.'</span><span class=""> . </span><span class="hljs-variable">$template</span><span class="">, compact(</span><span class="hljs-string">'news'</span><span class="">, </span><span class="hljs-string">'titleMain'</span><span class="">));
+</span></span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:47" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class="">    }
+</span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:48" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class="">
+</span></span></span><span class="
+                flex group leading-loose hover:~bg-red-500/10
+                
+            "><span class="z-30 opacity-0 group-hover:opacity-100 sticky left-10 w-0 h-full"><a href="vscode://file/%2Fhome%2Fnn00785525%2Fdomains%2Fnhakhoakimdung.vn%2Fpublic_html%2Fsrc%2FControllers%2FWeb%2FNewsController.php:49" class="-ml-3 block"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" class="svg-inline--fa fa-pencil text-xs" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></button></a></span><span class="pl-6"><span class=""><span class="">    </span><span class="hljs-keyword">public</span><span class=""> </span><span class="hljs-function hljs-keyword">function</span><span class="hljs-function"> </span><span class="hljs-function hljs-title">list</span><span class="hljs-function">(</span><span class="hljs-function hljs-params hljs-variable">$slug</span><span class="hljs-function">)</span></span></span></span></code></pre></div></main></section></div></div></section><section class=""><a id="context" class="scroll-target"></a><div class="@container flex items-stretch"><div class="overflow-hidden grid grid-cols-1 gap-px bg-white dark:shadow-none dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 flex-grow"><section class="py-10 ~bg-white px-6 @lg:px-10 min-w-0"><a id="context-request" class="scroll-target"></a><h2 class="font-bold text-xs ~text-gray-500 uppercase tracking-wider">Request</h2><div class="mt-3 grid grid-cols-1 gap-10"><div><div class="text-lg font-semibold flex items-center gap-2"><span class="~text-indigo-600">https://nhakhoakimdung.vn/bang-gia</span><div class=" ~text-indigo-600 border-indigo-500/50 px-1.5 py-0.5 rounded-sm bg-opacity-20 border text-xs font-medium uppercase tracking-wider">GET</div></div><div class="mt-2"><div class="
+                cursor-pointer
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            mask-fade-y -mb-2
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal"><pre style="background: transparent;"><code class="language-curl" style="white-space: pre;"><span class="hljs-keyword">curl</span><span> </span><span class="hljs-string">"https://nhakhoakimdung.vn/bang-gia"</span><span> \
+</span><span>   </span><span class="hljs-literal">-X </span><span class="hljs-literal hljs-symbol">GET</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'host: nhakhoakimdung.vn'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'priority: u=0, i'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'accept-language: en-US,en;q=0.9'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'accept-encoding: gzip, deflate, br, zstd'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'referer: https://www.google.com/'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'sec-fetch-dest: document'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'sec-fetch-user: ?1'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'sec-fetch-mode: navigate'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'sec-fetch-site: cross-site'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'upgrade-insecure-requests: 1'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'sec-ch-ua-platform: "Linux"'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'sec-ch-ua-mobile: ?0'</span><span> \
+</span><span>   </span><span class="hljs-literal">-H</span><span> </span><span class="hljs-string">'sec-ch-ua: "Chromium";v="152", "Not?A_Brand";v="24", "Google Chrome";v="152"'</span><span>;</span></code></pre></code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                        absolute -bottom-3 left-1/2 -translate-x-1/2
+                        opacity-0 group-hover:opacity-100 scale-80 group-hover:scale-100 delay-100
+                    
+            "><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down transition-transform duration-300 transform " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M169.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 274.7 54.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg></button></div></div></div><div><a id="context-request-browser" class="scroll-target"></a><h1 class="mb-2 flex items-center gap-2 font-semibold text-lg ~text-indigo-600">Browser<span class="opacity-50 ~text-indigo-600 text-sm"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="window-maximize" class="svg-inline--fa fa-window-maximize fa-fw " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM96 96H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg></span></h1><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></div><div><a id="context-request-headers" class="scroll-target"></a><h1 class="mb-2 flex items-center gap-2 font-semibold text-lg ~text-indigo-600">Headers<span class="opacity-50 ~text-indigo-600 text-sm"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="right-left" class="svg-inline--fa fa-right-left fa-fw " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"></path></svg></span></h1><dl class="grid grid-cols-1 gap-2 "><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">host</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">nhakhoakimdung.vn</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">priority</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">u=0, i</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">accept-language</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">en-US,en;q=0.9</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">accept-encoding</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">gzip, deflate, br, zstd</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">referer</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">https://www.google.com/</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">sec-fetch-dest</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">document</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">sec-fetch-user</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">?1</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">sec-fetch-mode</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">navigate</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">sec-fetch-site</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">cross-site</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">accept</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">user-agent</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">upgrade-insecure-requests</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">1</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">sec-ch-ua-platform</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">"Linux"</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">sec-ch-ua-mobile</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">?0</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">sec-ch-ua</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">"Chromium";v="152", "Not?A_Brand";v="24", "Google Chrome";v="152"</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div></dl></div><div><a id="context-request-body" class="scroll-target"></a><h1 class="mb-2 flex items-center gap-2 font-semibold text-lg ~text-indigo-600">Body<span class="opacity-50 ~text-indigo-600 text-sm"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" class="svg-inline--fa fa-code fa-fw " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></h1><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">[]</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></div></div></section><section class="py-10 ~bg-white px-6 @lg:px-10 min-w-0"><a id="context-context" class="scroll-target"></a><h2 class="font-bold text-xs ~text-gray-500 uppercase tracking-wider">Context</h2><div class="mt-3 grid grid-cols-1 gap-10"><div><a id="context-context-versions" class="scroll-target"></a><h1 class="mb-2 flex items-center gap-2 font-semibold text-lg ~text-indigo-600">Versions<span class="opacity-50 ~text-indigo-600 text-sm"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sliders" class="svg-inline--fa fa-sliders fa-fw " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 416c0-17.7 14.3-32 32-32l54.7 0c12.3-28.3 40.5-48 73.3-48s61 19.7 73.3 48L480 384c17.7 0 32 14.3 32 32s-14.3 32-32 32l-246.7 0c-12.3 28.3-40.5 48-73.3 48s-61-19.7-73.3-48L32 448c-17.7 0-32-14.3-32-32zm192 0a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM384 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm-32-80c32.8 0 61 19.7 73.3 48l54.7 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-54.7 0c-12.3 28.3-40.5 48-73.3 48s-61-19.7-73.3-48L32 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l246.7 0c12.3-28.3 40.5-48 73.3-48zM192 64a32 32 0 1 0 0 64 32 32 0 1 0 0-64zm73.3 0L480 64c17.7 0 32 14.3 32 32s-14.3 32-32 32l-214.7 0c-12.3 28.3-40.5 48-73.3 48s-61-19.7-73.3-48L32 128C14.3 128 0 113.7 0 96S14.3 64 32 64l86.7 0C131 35.7 159.2 16 192 16s61 19.7 73.3 48z"></path></svg></span></h1><dl class="grid grid-cols-1 gap-2 "><div class="flex items-baseline gap-10  "><dt class="
+                flex-none truncate w-[8rem]
+            ">Php Version</dt><dd class="flex-grow min-w-0"><div class="
+                
+                ~bg-gray-500/5
+                group py-2 relative"><div class="mask-fade-x"><pre class="
+                            pl-4
+                            
+                            overflow-y-hidden max-h-32
+                            overflow-x-scroll scrollbar-hidden-x pr-12
+                        "><code class="font-mono leading-relaxed text-sm font-normal">8.3.24</code></pre></div><div class="absolute top-2 right-3"><button type="button" class="w-6 h-6 rounded-full flex items-center justify-center
+            text-xs ~bg-white text-indigo-500 hover:~text-indigo-600 
+            transform transition-animation shadow-md hover:shadow-lg
+            active:shadow-sm active:translate-y-px&quot;
+                
+                    opacity-0 transform scale-80 transition-animation delay-100
+                    group-hover:opacity-100 group-hover:scale-100
+                
+            " title="Copy to clipboard"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"></path></svg></button></div></div></dd></div></dl></div></div></section></div></div></section><section class=""></section></main></div>
+
+
+
+
+
+
+<!--
+ErrorException: Array to string conversion in file /home/nn00785525/domains/nhakhoakimdung.vn/public_html/src/Controllers/Web/NewsController.php on line 35
+
+#0 /home/nn00785525/domains/nhakhoakimdung.vn/public_html/src/Controllers/Web/NewsController.php(35): Spatie\Ignition\Ignition-&gt;renderError()
+#1 [internal function]: NINACORE\Controllers\Web\NewsController-&gt;index()
+#2 /home/nn00785525/domains/nhakhoakimdung.vn/public_html/src/Core/Routing/ClassLoaderCustom.php(1) : eval()&#039;d code(1) : eval()&#039;d code(30): call_user_func_array()
+#3 /home/nn00785525/domains/nhakhoakimdung.vn/public_html/src/Core/Pecee/SimpleRouter/Route/Route.php(1) : eval()&#039;d code(1) : eval()&#039;d code(125): NINACORE\Core\Routing\ClassLoaderCustom-&gt;loadClassMethod()
+#4 /home/nn00785525/domains/nhakhoakimdung.vn/public_html/src/Core/Pecee/SimpleRouter/Router.php(1) : eval()&#039;d code(1) : eval()&#039;d code(426): Pecee\SimpleRouter\Route\Route-&gt;renderRoute()
+#5 /home/nn00785525/domains/nhakhoakimdung.vn/public_html/src/Core/Pecee/SimpleRouter/Router.php(1) : eval()&#039;d code(1) : eval()&#039;d code(356): Pecee\SimpleRouter\Router-&gt;routeRequest()
+#6 /home/nn00785525/domains/nhakhoakimdung.vn/public_html/src/Core/Routing/NINARouter.php(1) : eval()&#039;d code(1) : eval()&#039;d code(34): Pecee\SimpleRouter\Router-&gt;start()
+#7 /home/nn00785525/domains/nhakhoakimdung.vn/public_html/src/Core/App.php(1) : eval()&#039;d code(1) : eval()&#039;d code(380): NINACORE\Core\Routing\NINARouter::runRouter()
+#8 /home/nn00785525/domains/nhakhoakimdung.vn/public_html/index.php(16): NINACORE\Core\App-&gt;run()
+#9 {main}
+-->
+</main>
+<footer class="wrap-footer">
+ <div class="info-footer">
+ <div class="wrap-content">
+ <div class="flex-footer">
+ <div class="box-footer">
+  <div class="logo-footer">
+ <a class="logoft peShine bgstart-animate" href="index.html">
+ <img src="https://nhakhoakimdung.vn/upload/news/group-358-1753429953.png" alt="NHA KHOA KIM DUNG">
+ <img class="start-animate" src="https://nhakhoakimdung.vn/assets/images/saolaplanh.webp" alt="">
+ <img class="start-animate1" src="https://nhakhoakimdung.vn/assets/images/saolaplanh.webp" alt="">
+ <img class="start-animate2" src="https://nhakhoakimdung.vn/assets/images/saolaplanh.webp" alt="">
+ </a>
+ </div>
+ <h2 class="name-company">Nha Khoa Kim Dung Thái Nguyên | Chăm Sóc & Điều Trị Răng Miệng Uy Tín</h2>
+ <div class="content-footer"> <p><img alt="" height="30" src="https://nhakhoakimdung.vn/upload/filemanager/files/Group%20347.png" width="30" /> Địa chỉ: Số 15, đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên</p>
+
+<p><img alt="" height="30" src="https://nhakhoakimdung.vn/upload/filemanager/files/Group%20348.png" width="30" /> Hotline: 0862 960 886</p>
+
+<p><img alt="" height="30" src="https://nhakhoakimdung.vn/upload/filemanager/files/Group%20349.png" width="30" /> Email: nhakhoakimdung@gmail.com</p>
+
+<p><img alt="" height="30" src="https://nhakhoakimdung.vn/upload/filemanager/files/Group%20350.png" width="30" /> Website: www.nhakhoakimdung.vn</p>
+</div>
+   <ul class="social-footer flex flex-wrap !justify-start p-0 m-0">
+ <li class="text">Mạng xã hội: </li>
+  <li class="mr-2">
+ <a href="https://www.tiktok.com/@nhakhoakimdungofficial" target="_blank" class="block group"><img class="transition-all group-hover:animate__bounceIn" src="https://nhakhoakimdung.vn/upload/photo/group-357-1753429844.png" alt="Tiktok"></a>
+ </li>    
+  <li class="mr-2">
+ <a href="http://zalo.me/0862960886" target="_blank" class="block group"><img class="transition-all group-hover:animate__bounceIn" src="https://nhakhoakimdung.vn/upload/photo/group-356-1753429844.png" alt="Zalo"></a>
+ </li>    
+  <li class="mr-2">
+ <a href="https://www.facebook.com/nkkimdung" target="_blank" class="block group"><img class="transition-all group-hover:animate__bounceIn" src="https://nhakhoakimdung.vn/upload/photo/group-354-1753429844.png" alt="Facebook"></a>
+ </li>    
+  </ul>
+  </div>
+ <div class="box-footer">
+ <div class="title-footer">Danh mục</div>
+ <ul class="p-0 m-0 footer-ul">
+ <li><a href="index.html">Trang chủ</a></li>
+ <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+ <li><a href="dich-vu.html">Dịch vụ</a></li>
+ <li><a href="doi-ngu.html">Đội ngũ</a></li>
+ <li><a href="bang-gia.html">Bảng giá</a></li>
+ <li><a href="kien-thuc.html">Kiến thức</a></li>
+ <li><a href="lien-he.html">Liên hệ</a></li>
+ </ul>
+ </div>
+ <div class="box-footer">
+ <div class="title-footer">CHÍNH SÁCH</div>
+ <ul class="p-0 m-0 footer-ul">
+  <li><a href="trong-rang-nho-rang.html">Trồng răng Nhổ răng</a></li>
+  <li><a href="chinh-sach-dich-vu.html">Chính sách dịch vụ </a></li>
+  <li><a href="chinh-sach-thanh-toan.html">Chính sách thanh toán </a></li>
+  <li><a href="chinh-sach-dang-ky.html">Chính sách đăng ký </a></li>
+  </ul>
+ </div>
+ <div class="box-footer">
+ <div class="map-footer d-block">
+ <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.015522819932!2d105.82090457472937!3d21.58531716843156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313527215ddf2b1d%3A0x16cdc2be58540180!2sNha%20Khoa%20Kim%20Dung!5e0!3m2!1svi!2s!4v1753432423301!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ </div>
+ </div>
+ </div>
+ <div class="footer-powered">
+ <p class="copyright  mb-0">Copyright @ <b>NHA KHOA KIM DUNG</b>. All rights reserved. Designed by NiNa Co.,Ltd</p>
+ <div class="statistic d-none">
+ <span>Online: 1</span>
+ <span>Ngày: 150</span>
+ <span>Tuần: 189</span>
+ <span>Tháng: 712</span>
+ <span>Tổng: 20131</span>
+ </div> 
+ </div>
+ </div>
+ </div>
+</footer>
+div
+<script>
+ var NN_FRAMEWORK = NN_FRAMEWORK || {};
+ var ASSET = 'https://nhakhoakimdung.vn/assets/';
+ var BASE = 'https://nhakhoakimdung.vn/';
+ var CSRF_TOKEN = '0fe0f53b8f3d07ca0167bc2da01521a97713ed670d896f8df4ea0ffa063ad5bd';
+ var WEBSITE_NAME = 'NHA KHOA KIM DUNG';
+ var RECAPTCHA_ACTIVE = true;
+ var RECAPTCHA_SITEKEY = '6LeZzJIrAAAAANycUEeJQDkZHZUV8yk0gcpy49dX';
+ var GOTOP = ASSET + 'images/top.png';
+ var CART_URL = {
+ 'ADD_CART' : '/cart/add-to-cart/vi',
+ 'UPDATE_CART' : '/cart/update-cart/vi',
+ 'DELETE_CART' : '/cart/delete-cart/vi',
+ 'DELETE_ALL_CART' : '/cart/delete-all-cart/vi',
+ 'PAGE_CART':'/giohang/vi',
+ };
+</script>
+<script  src="https://nhakhoakimdung.vn/assets/js/jquery.min.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/bootstrap/bootstrap.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/holdon/HoldOn.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/simplenotify/simple-notify.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/fancybox5/fancybox.umd.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/fotorama/fotorama.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/swiper/swiper-bundle.min.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/photobox/photobox.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/js/jquery.pixelentity.shiner.min.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/wow/wow.min.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/slick/slick.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/js/functions.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/js/cart.js"></script>
+<script  src="https://nhakhoakimdung.vn/assets/js/apps.js"></script>
+<script type="text/javascript">            $('#hotline').show(500);        </script>
+<script type="text/javascript">
+ $('#social').show(500);
+ </script>
+<script>
+ if (isExist($("#form-newsletter")) || isExist($("#form-contact"))) {
+ $('<script>').attr({
+ 'src': "https://www.google.com/recaptcha/api.js?render=6LeZzJIrAAAAANycUEeJQDkZHZUV8yk0gcpy49dX",
+ 'async': ''
+ }).insertBefore($('script:first'))
+ /* Newsletter */
+ document.getElementById('form-newsletter')?.addEventListener("submit", function(event) {
+ event.preventDefault();
+ grecaptcha.ready(async function() {
+ await generateCaptcha('newsletter', 'recaptchaResponseNewsletter', 'form-newsletter');
+ });
+ }, false);
+ document.getElementById('form-newsletter1')?.addEventListener("submit", function(event) {
+ event.preventDefault();
+ grecaptcha.ready(async function() {
+ await generateCaptcha('newsletter', 'recaptchaResponseNewsletter', 'form-newsletter1');
+ });
+ }, false);
+ /* Contact */
+ document.getElementById('form-contact')?.addEventListener("submit", function(event) {
+ event.preventDefault();
+ grecaptcha.ready(async function() {
+ await generateCaptcha('contact', 'recaptchaResponseContact', 'form-contact');
+ });
+ }, false);
+ }
+ </script>
+<script src="https://nhakhoakimdung.vn/assets/js/alpinejs.js" defer></script>
+<script>
+ window.addEventListener('load', function () {
+ (function(d, s, id) {
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) return;
+ js = d.createElement(s);
+ js.id = id;
+ js.async = true;
+ js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0";
+ fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+ });
+ </script>
+<script>
+ if (isExist($(".slider_slick"))) {
+ $('.slider_for').slick({
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ arrows: false,
+ fade: true,
+ asNavFor: '.slider_nav'
+ });
+ $('.slider_nav').slick({ 
+ slidesToShow: 5,
+ slidesToScroll: 1,
+ asNavFor: '.slider_for',
+ dots: false,
+ prevArrow: '<img class="slide-arrow prev-arrow" src="https://nhakhoakimdung.vn/assets/images/page-prev.png">',
+ nextArrow: '<img class="slide-arrow next-arrow" src="https://nhakhoakimdung.vn/assets/images/page-next.png">', 
+ arrows: false,
+ infinite: true, 
+ loop: true,
+ autoplay: true,
+ swipeToSlide: true,
+ autoplaySpeed: 3000,
+ speed: 1000,
+ focusOnSelect: true,
+ responsive: [
+ {
+ breakpoint: 768,
+ settings: {
+ arrows: false,
+ slidesToShow: 3
+ }
+ },
+ {
+ breakpoint: 480,
+ settings: {
+ arrows: false,
+ slidesToShow: 2
+ }
+ }
+ ]
+ });
+ };
+ </script>
+<script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "NHA KHOA KIM DUNG",
+ "url": "https://nhakhoakimdung.vn/",
+ "sameAs": [
+  
+   "http://zalo.me/0862960886",
+  "https://www.facebook.com/nkkimdung"
+   ],
+ "address": {
+ "@type": "PostalAddress",
+ "streetAddress": "Số 15, đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên",
+ "addressLocality": "Ho Chi Minh",
+ "addressRegion": "Ho Chi Minh",
+ "postalCode": "70000",
+ "addressCountry": "vi"
+ }
+ }
+</script>
+</body>
+</html>
