@@ -123,8 +123,47 @@ def rewrite_assets_and_links(html_text):
 
     return html_text
 
+def remove_addtoany(text):
+    while True:
+        start = text.find('<div id="addtoany"')
+        if start == -1:
+            start = text.find("<div id='addtoany'")
+        if start == -1:
+            break
+        
+        pos = start
+        depth = 0
+        end_pos = -1
+        while pos < len(text):
+            if text[pos:pos+4] == '<div':
+                depth += 1
+                pos += 4
+            elif text[pos:pos+6] == '</div>':
+                depth -= 1
+                pos += 6
+                if depth == 0:
+                    end_pos = pos
+                    break
+            else:
+                pos += 1
+        
+        if end_pos != -1:
+            text = text[:start].rstrip(' \t') + text[end_pos:]
+        else:
+            break
+    return text
+
+def remove_debug_panels(text):
+    # Error pages from the source site can append Laravel debug panels to the crawled body.
+    debug_start = re.search(r'<section[^>]*>\s*<a[^>]+id=["\'](?:stack|context)["\'][^>]*>', text, re.IGNORECASE)
+    if debug_start:
+        text = text[:debug_start.start()].rstrip()
+    return text
+
 if header_block:
     header_block = rewrite_assets_and_links(header_block)
+    # Remove hardcoded active class so page-specific matching works cleanly
+    header_block = re.sub(r'(<a\s+class="[^"]*?)active\s*([^"]*?"\s+href="index\.html")', r'\1\2', header_block)
 if footer_block:
     footer_block = rewrite_assets_and_links(footer_block)
 
@@ -143,7 +182,9 @@ for jf, data, html_name, page_url, slug in file_entries:
     else:
         content = raw_html
 
-    # Clean recaptcha / iframe bloat
+    # Clean recaptcha / iframe / AddToAny bloat
+    content = remove_addtoany(content)
+    content = remove_debug_panels(content)
     content = re.sub(r'<div class="rc-anchor.*?</div></div></div>', '', content, flags=re.DOTALL)
     content = re.sub(r'<textarea id="g-recaptcha-response.*?</textarea>', '', content, flags=re.DOTALL)
     content = re.sub(r'<div style="display: none;" data-original-tag="iframe"></div>', '', content)
@@ -166,6 +207,8 @@ for jf, data, html_name, page_url, slug in file_entries:
     <title>{title}</title>
     <meta name="description" content="{desc}">
 {head_inner}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+    <link href="assets/css/ui-ux-pro-max.css" rel="stylesheet">
 </head>
 <body>
 {page_header}
@@ -174,6 +217,7 @@ for jf, data, html_name, page_url, slug in file_entries:
 </main>
 {page_footer}
 {bottom_scripts}
+<script src="assets/js/ui-ux-pro-max.js" defer></script>
 </body>
 </html>
 """
