@@ -4,11 +4,11 @@ Dự án website Nha Khoa Kim Dung đầy đủ các trang dịch vụ, bảng g
 
 ## Điểm nâng cấp UI/UX Pro Max
 - **Phong cách**: **Soft UI Evolution** dành riêng cho phòng khám nha khoa (Dental Practice) với chiều sâu tinh tế, bóng đổ đa tầng mềm mại và góc bo chuẩn y tế `rounded-2xl`.
-- **Hệ màu y tế**: 
-  - Primary: `#0EA5E9` (Sky Blue)
-  - Dark: `#0284C7`
-  - Accent / Gold: `#F59E0B` (Nụ cười rạng rỡ)
-  - Surface: `#FFFFFF` (Thẻ card nổi khối với viền mờ)
+- **Hệ màu nhận diện thương hiệu Kim Dung**: 
+  - Primary / Main: `#EABF0E` (Vàng hoàng kim sang trọng)
+  - Dark: `#B89307`
+  - Hover: `#D4AC0B`
+  - Accent / Glow: `#FDE047`
 - **Kiểu chữ**: `Plus Jakarta Sans` cho tiêu đề và `Noto Sans` cho nội dung (hỗ trợ tiếng Việt 100% không lỗi font).
 - **Thanh liên hệ nổi thông minh (Floating Quick Action Dock)**:
   - 📞 Hotline 24/7 (`0862960886`)

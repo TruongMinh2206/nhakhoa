@@ -21,7 +21,7 @@
     toast.className = `uupm-toast toast-${type}`;
     const icon = type === 'success' ? '✓' : 'ℹ';
     toast.innerHTML = `
-      <span style="font-weight: 800; font-size: 16px; color: ${type === 'success' ? '#10B981' : '#0EA5E9'};">${icon}</span>
+      <span style="font-weight: 800; font-size: 16px; color: ${type === 'success' ? '#10B981' : '#EABF0E'};">${icon}</span>
       <div style="font-size: 14px; font-weight: 500; line-height: 1.4;">${message}</div>
     `;
 
@@ -186,8 +186,12 @@
       }
     });
 
-    // Delegate all "Đặt lịch" buttons on the page to open this modal
+    // Delegate action buttons (excluding navbar navigation tabs) to open modal
     document.querySelectorAll('a[href*="dat-lich"], button:not(#uupm-open-booking)').forEach((btn) => {
+      // Do NOT hijack navigation tabs in header, mobile menu, footer, or dat-lich.html dedicated form
+      if (btn.closest('nav') || btn.closest('.menu') || btn.closest('.menu-mobile') || btn.closest('.wrap-menu') || btn.closest('.ulmn') || btn.closest('.footer-ul') || btn.closest('#gf-main-booking-form') || btn.closest('.gf-booking-section') || btn.closest('#booking-receipt')) {
+        return;
+      }
       const txt = (btn.textContent || '').trim().toLowerCase();
       if (txt.includes('đặt lịch') || txt.includes('tư vấn') || txt.includes('đăng ký khám')) {
         btn.addEventListener('click', (e) => {

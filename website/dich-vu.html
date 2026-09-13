@@ -69,8 +69,167 @@
 <noscript><link rel="stylesheet" href="https://nhakhoakimdung.vn/assets/fancybox5/fancybox.css"></noscript> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
     <link href="assets/css/ui-ux-pro-max.css" rel="stylesheet">
+    <style>
+      /* Unified Luxury Service Grid Styles for Tab Dịch vụ */
+      .grid-news {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 28px !important;
+      }
+
+      @media (max-width: 992px) {
+        .grid-news {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 20px !important;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .grid-news {
+          grid-template-columns: 1fr !important;
+          gap: 18px !important;
+        }
+      }
+
+      /* Disable old cheap flash and yellow overlay effects */
+      .hover_sang2::before,
+      .hover_sang2::after,
+      .hover_sang::before,
+      .hover_sang::after,
+      .hover_sang2:hover::before,
+      .hover_sang:hover::before {
+        display: none !important;
+        content: none !important;
+        opacity: 0 !important;
+      }
+
+      .box-service::after,
+      .box-service:hover::after {
+        display: none !important;
+        opacity: 0 !important;
+        content: none !important;
+      }
+
+      /* Modern Greenfield-aligned Service Card */
+      .box-service {
+        background: #FFFFFF !important;
+        border-radius: 16px !important;
+        border: 1.5px solid rgba(234, 191, 14, 0.28) !important;
+        box-shadow: 0 10px 25px -5px rgba(234, 191, 14, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04) !important;
+        overflow: hidden !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+        cursor: pointer !important;
+      }
+
+      .box-service:hover {
+        transform: translateY(-8px) !important;
+        border-color: #EABF0E !important;
+        box-shadow: 0 20px 40px -5px rgba(234, 191, 14, 0.32), 0 10px 20px -3px rgba(0, 0, 0, 0.08) !important;
+      }
+
+      .pic-service {
+        position: relative !important;
+        width: 100% !important;
+        overflow: hidden !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .pic-service a {
+        display: block !important;
+        overflow: hidden !important;
+        position: relative !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+      }
+
+      .pic-service img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+        transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .box-service:hover .pic-service img {
+        transform: scale(1.08) !important;
+      }
+
+      /* Non-jumping Info Overlay */
+      .info-service {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 3 !important;
+        background: linear-gradient(to top, rgba(13, 27, 42, 0.94) 0%, rgba(13, 27, 42, 0.65) 55%, transparent 100%) !important;
+        padding: 48px 18px 18px !important;
+        border-radius: 0 0 15px 15px !important;
+        transition: background 0.35s ease, box-shadow 0.35s ease !important;
+      }
+
+      .box-service:hover .info-service {
+        padding-bottom: 18px !important; /* Zero layout shift */
+        background: linear-gradient(to top, rgba(13, 27, 42, 0.98) 0%, rgba(13, 27, 42, 0.75) 60%, transparent 100%) !important;
+        box-shadow: inset 0 -3px 0 0 #EABF0E !important;
+      }
+
+      .name-service {
+        font-family: 'MontserratBold', 'Montserrat', sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: #FFFFFF !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.02em !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        text-decoration: none !important;
+        transition: color 0.3s ease !important;
+        width: 100% !important;
+      }
+
+      .box-service:hover .name-service {
+        color: #FDE047 !important;
+      }
+
+      .name-service span {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 34px !important;
+        height: 34px !important;
+        border-radius: 50% !important;
+        background: rgba(234, 191, 14, 0.2) !important;
+        border: 1.5px solid #EABF0E !important;
+        color: #EABF0E !important;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        flex-shrink: 0 !important;
+        margin-left: 8px !important;
+      }
+
+      .name-service i {
+        border: none !important;
+        font-size: 12px !important;
+        color: inherit !important;
+        width: auto !important;
+        height: auto !important;
+      }
+
+      .box-service:hover .name-service span {
+        background: #EABF0E !important;
+        color: #0D1B2A !important;
+        transform: translateX(4px) !important;
+        box-shadow: 0 4px 12px rgba(234, 191, 14, 0.5) !important;
+      }
+    </style>
 </head>
-<body>
+<body class="page-dich-vu">
 <header>
  <div class="header z-100">
  <div class="head-bottom">

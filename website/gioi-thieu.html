@@ -69,8 +69,123 @@
 <noscript><link rel="stylesheet" href="https://nhakhoakimdung.vn/assets/fancybox5/fancybox.css"></noscript> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
     <link href="assets/css/ui-ux-pro-max.css" rel="stylesheet">
+    <style>
+      /* Page Header Title (.title-detail h1) */
+      .title-detail h1 {
+        font-family: 'MontserratBold', 'Montserrat', sans-serif !important;
+        font-size: 30px !important;
+        line-height: 1.35 !important;
+        font-weight: 700 !important;
+        color: #0D1B2A !important;
+        margin-bottom: 1.25rem !important;
+      }
+      @media (max-width: 768px) {
+        .title-detail h1 {
+          font-size: 24px !important;
+        }
+      }
+
+      /* Tab Giới thiệu - Content section font-family: Arial, Helvetica, sans-serif */
+      .page-gioi-thieu .content-main,
+      .page-gioi-thieu .content-main *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i),
+      .page-gioi-thieu #toc-content,
+      .page-gioi-thieu #toc-content *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i),
+      .page-gioi-thieu .meta-toc,
+      .page-gioi-thieu .meta-toc *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i),
+      .page-gioi-thieu .box-readmore,
+      .page-gioi-thieu .box-readmore *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i),
+      .content-main,
+      .content-main *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i),
+      #toc-content,
+      #toc-content *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i) {
+        font-family: Arial, Helvetica, sans-serif !important;
+      }
+
+      /* Article Headings inside .content-main with clear visual hierarchy */
+      .content-main h1,
+      .content-main h1 *,
+      #toc-content h1,
+      #toc-content h1 * {
+        font-size: 26px !important;
+        line-height: 1.35 !important;
+        font-weight: 700 !important;
+        color: #111827 !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 0.85rem !important;
+        display: block !important;
+      }
+
+      .content-main h2,
+      .content-main h2 *,
+      #toc-content h2,
+      #toc-content h2 * {
+        font-size: 22px !important;
+        line-height: 1.4 !important;
+        font-weight: 700 !important;
+        color: #111827 !important;
+        margin-top: 1.75rem !important;
+        margin-bottom: 0.75rem !important;
+        display: block !important;
+      }
+
+      .content-main h3,
+      .content-main h3 *,
+      #toc-content h3,
+      #toc-content h3 * {
+        font-size: 19px !important;
+        line-height: 1.45 !important;
+        font-weight: 700 !important;
+        color: #1f2937 !important;
+        margin-top: 1.25rem !important;
+        margin-bottom: 0.5rem !important;
+        display: block !important;
+      }
+
+      .content-main h4,
+      .content-main h4 *,
+      #toc-content h4,
+      #toc-content h4 * {
+        font-size: 17px !important;
+        line-height: 1.5 !important;
+        font-weight: 700 !important;
+        color: #1f2937 !important;
+        margin-top: 1rem !important;
+        margin-bottom: 0.5rem !important;
+        display: block !important;
+      }
+
+      /* Body Text & Paragraphs inside .content-main */
+      .content-main p,
+      .content-main p span,
+      .content-main a,
+      .content-main li,
+      .content-main li span,
+      .content-main td,
+      .content-main td span,
+      .content-main th {
+        font-size: 16px !important;
+        line-height: 1.8 !important;
+        color: #374151 !important;
+      }
+
+      .content-main p {
+        margin-bottom: 1rem !important;
+      }
+
+      @media (max-width: 768px) {
+        .content-main h1, .content-main h1 *, #toc-content h1, #toc-content h1 * {
+          font-size: 22px !important;
+        }
+        .content-main h2, .content-main h2 *, #toc-content h2, #toc-content h2 * {
+          font-size: 20px !important;
+        }
+        .content-main h3, .content-main h3 *, #toc-content h3, #toc-content h3 * {
+          font-size: 18px !important;
+        }
+      }
+    </style>
 </head>
-<body>
+<body class="page-gioi-thieu">
 <header>
  <div class="header z-100">
  <div class="head-bottom">

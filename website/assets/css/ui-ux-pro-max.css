@@ -1,14 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
+
+@font-face {
+  font-family: 'MontserratBold';
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+       url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratRegular';
+  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+       url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
 
 :root {
   /* Core Color Tokens */
-  --uupm-primary: #0EA5E9;
-  --uupm-primary-hover: #0284C7;
-  --uupm-primary-dark: #0369A1;
-  --uupm-primary-light: #F0F9FF;
-  --uupm-primary-100: #E0F2FE;
-  --uupm-secondary: #38BDF8;
+  --uupm-primary: #EABF0E;
+  --uupm-primary-hover: #D4AC0B;
+  --uupm-primary-dark: #B89307;
+  --uupm-primary-light: #FEFCE8;
+  --uupm-primary-100: #FEF08A;
+  --uupm-secondary: #FDE047;
   --uupm-accent: #F59E0B;
   --uupm-accent-hover: #D97706;
   --uupm-accent-light: #FEF3C7;
@@ -19,21 +39,21 @@
   --uupm-bg: #F8FAFC;
   --uupm-card: #FFFFFF;
   --uupm-border: #E2E8F0;
-  --uupm-border-focus: #0EA5E9;
+  --uupm-border-focus: #EABF0E;
   --uupm-text: #0D1B2A;
   --uupm-text-secondary: #334155;
   --uupm-text-muted: #64748B;
 
   /* Typography: Montserrat */
-  --uupm-font-heading: 'Montserrat', "Montserrat Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --uupm-font-body: 'Montserrat', "Montserrat Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --uupm-font-heading: 'MontserratBold', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --uupm-font-body: 'MontserratRegular', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Shadows (Soft UI Evolution) */
   --uupm-shadow-xs: 0 1px 2px rgba(13, 27, 42, 0.05);
-  --uupm-shadow-sm: 0 4px 6px -1px rgba(14, 165, 233, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
-  --uupm-shadow-md: 0 10px 25px -5px rgba(14, 165, 233, 0.08), 0 6px 12px -3px rgba(0, 0, 0, 0.04);
-  --uupm-shadow-lg: 0 20px 35px -8px rgba(14, 165, 233, 0.12), 0 10px 18px -4px rgba(0, 0, 0, 0.05);
-  --uupm-shadow-float: 0 15px 35px -5px rgba(14, 165, 233, 0.22);
+  --uupm-shadow-sm: 0 4px 6px -1px rgba(234, 191, 14, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --uupm-shadow-md: 0 10px 25px -5px rgba(234, 191, 14, 0.08), 0 6px 12px -3px rgba(0, 0, 0, 0.04);
+  --uupm-shadow-lg: 0 20px 35px -8px rgba(234, 191, 14, 0.12), 0 10px 18px -4px rgba(0, 0, 0, 0.05);
+  --uupm-shadow-float: 0 15px 35px -5px rgba(234, 191, 14, 0.22);
 
   /* Radius */
   --uupm-radius-sm: 8px;
@@ -54,19 +74,47 @@ html {
 /* Enforce Montserrat on all headings with !important */
 h1, h2, h3, h4, h5, h6,
 .title-main, .title-about-us, .name-service, .title-detail h1,
-[class*="title-"], [class*="heading-"], .name-doctor, .name-news {
-  font-family: 'Montserrat', "Montserrat Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+[class*="title-"], [class*="heading-"], .name-doctor, .name-news,
+.gf-title-display, .gf-hero-title, .gf-service-title, .gf-why-title,
+.gf-patient-name, .gf-doctor-name, .gf-cta-box h3, .gf-calc-label {
+  font-family: 'MontserratBold', 'Montserrat', sans-serif !important;
   font-weight: 700 !important;
   letter-spacing: -0.01em;
-  color: var(--uupm-text) !important;
+}
+
+/* Global Heading Sizes to counteract Tailwind Preflight (font-size: inherit) */
+h1:not([class*="text-"]):not(.content-main h1) {
+  font-size: 28px !important;
+  line-height: 1.35 !important;
+}
+h2:not([class*="text-"]):not(.content-main h2) {
+  font-size: 24px !important;
+  line-height: 1.4 !important;
+}
+h3:not([class*="text-"]):not(.content-main h3) {
+  font-size: 20px !important;
+  line-height: 1.45 !important;
+}
+h4:not([class*="text-"]):not(.content-main h4) {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+.title-detail h1 {
+  font-size: 30px !important;
+  line-height: 1.35 !important;
+  color: #0D1B2A !important;
+  margin-bottom: 1.25rem !important;
 }
 
 /* Enforce Montserrat on all body text, buttons, links, inputs */
 body, button, input, select, textarea, label,
 p, a, span:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(.scroll),
 div:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(.swiper-button-prev):not(.swiper-button-next),
-li:not(.fa):not([class*="fa-"]), td, th {
-  font-family: 'Montserrat', "Montserrat Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+li:not(.fa):not([class*="fa-"]), td, th,
+.gf-desc-lead, .gf-hero-desc, .gf-service-desc, .gf-why-desc,
+.gf-quote-text, .gf-review-text, .gf-doctor-desc, .gf-calc-detail {
+  font-family: 'MontserratRegular', 'Montserrat', sans-serif !important;
 }
 
 body {
@@ -74,6 +122,97 @@ body {
   background-color: var(--uupm-bg) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   GIỚI THIỆU TAB - CONTENT SECTION FONT & HEADING HIERARCHY
+   User requested: "ở tab Giới thiệu phần content dùng font font-family:Arial,Helvetica,sans-serif;"
+   ============================================================ */
+.page-gioi-thieu .content-main,
+.page-gioi-thieu .content-main *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i),
+.page-gioi-thieu #toc-content,
+.page-gioi-thieu #toc-content *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i),
+.page-gioi-thieu .meta-toc,
+.page-gioi-thieu .meta-toc *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i),
+.page-gioi-thieu .box-readmore,
+.page-gioi-thieu .box-readmore *:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(i) {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Article Headings inside Giới thiệu content with clear visual hierarchy */
+.page-gioi-thieu .content-main h1,
+.page-gioi-thieu .content-main h1 *,
+.page-gioi-thieu #toc-content h1,
+.page-gioi-thieu #toc-content h1 * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 26px !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.85rem !important;
+  display: block !important;
+}
+
+.page-gioi-thieu .content-main h2,
+.page-gioi-thieu .content-main h2 *,
+.page-gioi-thieu #toc-content h2,
+.page-gioi-thieu #toc-content h2 * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 22px !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin-top: 1.75rem !important;
+  margin-bottom: 0.75rem !important;
+  display: block !important;
+}
+
+.page-gioi-thieu .content-main h3,
+.page-gioi-thieu .content-main h3 *,
+.page-gioi-thieu #toc-content h3,
+.page-gioi-thieu #toc-content h3 * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 19px !important;
+  line-height: 1.45 !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+  display: block !important;
+}
+
+.page-gioi-thieu .content-main h4,
+.page-gioi-thieu .content-main h4 *,
+.page-gioi-thieu #toc-content h4,
+.page-gioi-thieu #toc-content h4 * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 17px !important;
+  line-height: 1.5 !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.5rem !important;
+  display: block !important;
+}
+
+/* Body Text & Paragraphs inside Giới thiệu content */
+.page-gioi-thieu .content-main p,
+.page-gioi-thieu .content-main p span,
+.page-gioi-thieu .content-main a,
+.page-gioi-thieu .content-main li,
+.page-gioi-thieu .content-main li span,
+.page-gioi-thieu .content-main td,
+.page-gioi-thieu .content-main td span,
+.page-gioi-thieu .content-main th {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.8 !important;
+  color: #374151 !important;
+}
+
+.page-gioi-thieu .content-main p {
+  margin-bottom: 1rem !important;
 }
 
 /* ============================================================
@@ -133,8 +272,8 @@ body {
   content: '' !important;
   width: 10px !important;
   height: 10px !important;
-  border-left: 3px solid #0EA5E9 !important;
-  border-bottom: 3px solid #0EA5E9 !important;
+  border-left: 3px solid #EABF0E !important;
+  border-bottom: 3px solid #EABF0E !important;
   transform: rotate(45deg) translate(2px, -2px) !important;
   display: block !important;
 }
@@ -143,8 +282,8 @@ body {
   content: '' !important;
   width: 10px !important;
   height: 10px !important;
-  border-right: 3px solid #0EA5E9 !important;
-  border-top: 3px solid #0EA5E9 !important;
+  border-right: 3px solid #EABF0E !important;
+  border-top: 3px solid #EABF0E !important;
   transform: rotate(45deg) translate(-2px, 2px) !important;
   display: block !important;
 }
@@ -162,8 +301,8 @@ body {
 }
 
 .wrap-menu {
-  background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%) !important;
-  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
+  background: linear-gradient(135deg, #EABF0E 0%, #D4AC0B 100%) !important;
+  box-shadow: 0 4px 15px rgba(234, 191, 14, 0.2);
 }
 
 .menu ul.ulmn > li > a {
@@ -173,7 +312,7 @@ body {
   padding: 12px 18px !important;
   border-radius: var(--uupm-radius-full);
   transition: var(--uupm-transition);
-  color: #FFFFFF !important;
+  color: #1a1a1a !important;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -226,7 +365,7 @@ body {
 
 .item-service:hover, .item-news:hover, .item-doctor:hover {
   transform: translateY(-6px) !important;
-  border-color: rgba(14, 165, 233, 0.35) !important;
+  border-color: rgba(234, 191, 14, 0.35) !important;
   box-shadow: var(--uupm-shadow-lg) !important;
 }
 
@@ -325,18 +464,18 @@ input[type="submit"].btn-primary,
 input[type="submit"]:not([type="reset"]):not(.btn-secondary),
 .btn-primary,
 .uupm-modal-submit {
-  background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%) !important;
-  color: #FFFFFF !important;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35) !important;
+  background: linear-gradient(135deg, #EABF0E 0%, #D4AC0B 100%) !important;
+  color: #122417 !important;
+  box-shadow: 0 4px 14px rgba(234, 191, 14, 0.35);
+  box-shadow: 0 4px 14px rgba(234, 191, 14, 0.35) !important;
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
 }
 
 .uupm-btn-primary:hover {
   background: linear-gradient(135deg, var(--uupm-primary-hover) 0%, var(--uupm-primary-dark) 100%);
-  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.45);
+  box-shadow: 0 6px 20px rgba(234, 191, 14, 0.45);
   transform: translateY(-2px);
-  color: #FFFFFF !important;
+  color: #122417 !important;
 /* Secondary / Reset Button Variant (Light Slate Refined) */
 .uupm-btn-secondary,
 .uupm-btn-outline,
@@ -403,10 +542,10 @@ button.view-button span::after,
   input[type="submit"]:not([type="reset"]):not(.btn-secondary):hover,
   .btn-primary:hover,
   .uupm-modal-submit:hover {
-    background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%) !important;
+    background: linear-gradient(135deg, #D4AC0B 0%, #B89307 100%) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 24px -4px rgba(14, 165, 233, 0.5) !important;
-    color: #FFFFFF !important;
+    box-shadow: 0 8px 24px -4px rgba(234, 191, 14, 0.5) !important;
+    color: #122417 !important;
   }
 
   button.view-button:hover span::after,
@@ -451,7 +590,7 @@ input[type="reset"]:active,
 .uupm-dock-btn:active,
 .uupm-btn-pressed {
   transform: scale(0.97) translateY(0) !important;
-  box-shadow: 0 2px 6px rgba(14, 165, 233, 0.25) !important;
+  box-shadow: 0 2px 6px rgba(234, 191, 14, 0.25) !important;
   filter: brightness(0.95) !important;
 }
 
@@ -465,7 +604,7 @@ input[type="submit"]:focus-visible,
 input[type="reset"]:focus-visible,
 .btn-primary:focus-visible,
 .uupm-modal-submit:focus-visible {
-  outline: 3px solid rgba(14, 165, 233, 0.55) !important;
+  outline: 3px solid rgba(234, 191, 14, 0.55) !important;
   outline-offset: 3px !important;
 }
 
@@ -551,11 +690,11 @@ button.view-button::after,
 
 .uupm-dock-btn:hover {
   transform: translateX(-4px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.3);
+  box-shadow: 0 20px 40px rgba(234, 191, 14, 0.3);
 }
 
 .uupm-dock-btn.btn-call {
-  background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  background: linear-gradient(135deg, #EABF0E 0%, #D4AC0B 100%);
   color: #FFFFFF !important;
   border: none;
 }
@@ -634,14 +773,14 @@ button.view-button::after,
 }
 
 .uupm-modal-header {
-  background: linear-gradient(135deg, #0EA5E9 0%, #0369A1 100%);
+  background: linear-gradient(135deg, #EABF0E 0%, #B89307 100%);
   padding: 22px 26px;
   color: #FFFFFF;
   position: relative;
 }
 
 .uupm-modal-header h3 {
-  color: #FFFFFF !important;
+  color: #122417 !important;
   font-size: 20px;
   margin: 0 0 4px 0 !important;
 }
@@ -713,7 +852,7 @@ button.view-button::after,
   outline: none;
   border-color: var(--uupm-primary);
   background: #FFFFFF;
-  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+  box-shadow: 0 0 0 4px rgba(234, 191, 14, 0.15);
 }
 
 /* Toast Notifications */
@@ -1053,6 +1192,671 @@ a, button, input, select, textarea {
   padding: 0 !important;
   border: none !important;
   overflow: hidden !important;
+}
+
+/* ==========================================================================
+   UNIFIED LUXURY CARD & GRID SYSTEM (ACROSS ENTIRE WEBSITE)
+   Eliminating outdated, ugly flashes, murky overlays, and layout jank.
+   Standardizing on Greenfield Dental Luxury Hover:
+   - Smooth elevation (translateY -8px)
+   - Brand Gold (#EABF0E) accent border & glow
+   - Silky smooth image zoom (scale 1.08)
+   - Modern dark-gradient information overlay with zero jumping
+   - Interactive gold chevron badge
+   ========================================================================== */
+
+/* 1. Eliminate cheap/outdated sweep flash effects globally */
+.hover_sang2::before,
+.hover_sang2::after,
+.hover_sang::before,
+.hover_sang::after,
+.hover_sang2:hover::before,
+.hover_sang:hover::before {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 2. Eliminate muddy yellow overlay on service cards */
+.box-service::after,
+.box-service:hover::after {
+  display: none !important;
+  opacity: 0 !important;
+  content: none !important;
+  pointer-events: none !important;
+}
+
+/* 3. Unified Grid Container */
+.grid-news {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+}
+
+@media (max-width: 992px) {
+  .grid-news {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-news {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+}
+
+/* 4. Unified Service Card (.box-service) */
+.box-service {
+  background: #FFFFFF !important;
+  border-radius: 16px !important;
+  border: 1.5px solid rgba(234, 191, 14, 0.28) !important;
+  box-shadow: 0 10px 25px -5px rgba(234, 191, 14, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+  cursor: pointer !important;
+}
+
+.box-service:hover {
+  transform: translateY(-8px) !important;
+  border-color: #EABF0E !important;
+  box-shadow: 0 20px 40px -5px rgba(234, 191, 14, 0.32), 0 10px 20px -3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.pic-service {
+  position: relative !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.pic-service a {
+  display: block !important;
+  overflow: hidden !important;
+  position: relative !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+.pic-service img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.box-service:hover .pic-service img {
+  transform: scale(1.08) !important;
+}
+
+/* Service Info Overlay with zero layout jumping */
+.info-service {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 3 !important;
+  background: linear-gradient(to top, rgba(13, 27, 42, 0.94) 0%, rgba(13, 27, 42, 0.65) 55%, transparent 100%) !important;
+  padding: 48px 18px 18px !important;
+  border-radius: 0 0 15px 15px !important;
+  transition: background 0.35s ease, box-shadow 0.35s ease !important;
+  pointer-events: auto !important;
+}
+
+.box-service:hover .info-service {
+  padding-bottom: 18px !important; /* Stays stable, completely removes janky 54px jumping */
+  background: linear-gradient(to top, rgba(13, 27, 42, 0.98) 0%, rgba(13, 27, 42, 0.75) 60%, transparent 100%) !important;
+  box-shadow: inset 0 -3px 0 0 #EABF0E !important;
+}
+
+.name-service {
+  font-family: 'MontserratBold', 'Montserrat', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+  width: 100% !important;
+}
+
+.box-service:hover .name-service {
+  color: #FDE047 !important;
+}
+
+.name-service span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  background: rgba(234, 191, 14, 0.2) !important;
+  border: 1.5px solid #EABF0E !important;
+  color: #EABF0E !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  flex-shrink: 0 !important;
+  margin-left: 8px !important;
+}
+
+.name-service i {
+  border: none !important;
+  font-size: 12px !important;
+  color: inherit !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.box-service:hover .name-service span {
+  background: #EABF0E !important;
+  color: #0D1B2A !important;
+  transform: translateX(4px) !important;
+  box-shadow: 0 4px 12px rgba(234, 191, 14, 0.5) !important;
+}
+
+/* 5. Unified News Card (.item-news) */
+.item-news {
+  background: #FFFFFF !important;
+  border-radius: 16px !important;
+  border: 1.5px solid rgba(234, 191, 14, 0.22) !important;
+  box-shadow: 0 10px 25px -5px rgba(234, 191, 14, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+
+.item-news:hover {
+  transform: translateY(-8px) !important;
+  border-color: #EABF0E !important;
+  box-shadow: 0 20px 40px -5px rgba(234, 191, 14, 0.28), 0 10px 18px -3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.item-news .img {
+  overflow: hidden !important;
+  border-radius: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 220px !important;
+}
+
+.item-news .img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.item-news:hover .img img {
+  transform: scale(1.08) !important;
+}
+
+.item-news .ds-news {
+  padding: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+
+.item-news .ds-news h3 {
+  font-family: 'MontserratBold', 'Montserrat', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  color: #0D1B2A !important;
+  transition: color 0.25s ease !important;
+  margin-bottom: 8px !important;
+}
+
+.item-news:hover .ds-news h3 {
+  color: #B89307 !important;
+}
+
+.item-news .desc-news {
+  font-size: 14px !important;
+  color: #64748B !important;
+  line-height: 1.6 !important;
+}
+
+/* 6. Unified Team Card (.box-main-team) */
+.box-main-team {
+  background: #FFFFFF !important;
+  border-radius: 16px !important;
+  border: 1.5px solid rgba(234, 191, 14, 0.22) !important;
+  box-shadow: 0 10px 25px -5px rgba(234, 191, 14, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden !important;
+  padding: 20px !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.box-main-team:hover {
+  transform: translateY(-8px) !important;
+  border-color: #EABF0E !important;
+  box-shadow: 0 20px 40px -5px rgba(234, 191, 14, 0.28), 0 10px 18px -3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.pic-main-team {
+  width: 100% !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+}
+
+.pic-main-team a {
+  display: block !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+}
+
+.pic-main-team img {
+  width: 100% !important;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: block !important;
+}
+
+.box-main-team:hover .pic-main-team img {
+  transform: scale(1.06) !important;
+}
+
+.info-main-team h3 a {
+  font-family: 'MontserratBold', 'Montserrat', sans-serif !important;
+  color: #0D1B2A !important;
+  transition: color 0.25s ease !important;
+}
+
+.box-main-team:hover .info-main-team h3 a {
+  color: #B89307 !important;
+}
+
+.info-main-team .view {
+  margin-top: 20px;
+  display: flex;
+}
+
+.info-main-team .view a,
+.gf-team-btn {
+  background-color: #EABF0E !important;
+  color: #18181b !important;
+  font-family: 'MontserratBold', 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+  border-radius: 12px !important;
+  padding: 12px 28px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 6px 18px rgba(234, 191, 14, 0.35) !important;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.info-main-team .view a i,
+.gf-team-btn i {
+  font-size: 0.88rem !important;
+  transition: transform 0.25s ease !important;
+}
+
+.info-main-team .view a:hover,
+.gf-team-btn:hover {
+  background-color: #D4AC0B !important;
+  color: #18181b !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 30px rgba(234, 191, 14, 0.5) !important;
+}
+
+.info-main-team .view a:hover i,
+.gf-team-btn:hover i {
+  transform: translateX(5px) !important;
+}
+
+.info-main-team .view a:active,
+.gf-team-btn:active {
+  transform: translateY(-1px) scale(0.99) !important;
+  box-shadow: 0 4px 12px rgba(234, 191, 14, 0.35) !important;
+}
+
+/* ==========================================================================
+   PAGE ĐẶT LỊCH HẸN KHÁM CHUYÊN NGHIỆP (DAT-LICH.HTML)
+   ========================================================================== */
+.gf-booking-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 15px 60px;
+}
+
+.gf-booking-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .gf-booking-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+.gf-booking-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(234, 191, 14, 0.3) !important;
+  border-radius: 20px !important;
+  padding: 36px 32px !important;
+  box-shadow: 0 18px 45px -10px rgba(0, 0, 0, 0.08), 0 0 20px rgba(234, 191, 14, 0.1) !important;
+  position: relative;
+}
+
+.gf-booking-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(234, 191, 14, 0.16);
+  border: 1px solid #EABF0E;
+  color: #8C7000;
+  font-family: 'MontserratBold', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.gf-booking-title {
+  font-family: 'MontserratBold', 'Montserrat', sans-serif !important;
+  font-size: 1.65rem !important;
+  font-weight: 800 !important;
+  color: #18181b !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+
+.gf-booking-desc {
+  font-family: 'MontserratRegular', sans-serif !important;
+  color: #52525b !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 26px !important;
+}
+
+.gf-book-group {
+  margin-bottom: 18px;
+}
+
+.gf-book-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 576px) {
+  .gf-book-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gf-book-label {
+  display: block;
+  font-family: 'MontserratBold', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #27272a;
+  margin-bottom: 6px;
+}
+
+.gf-book-label span.req {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.gf-book-input,
+.gf-book-select,
+.gf-book-textarea {
+  width: 100% !important;
+  padding: 13px 16px !important;
+  border-radius: 12px !important;
+  background: #FFFDF6 !important;
+  border: 1.5px solid #e4e4e7 !important;
+  color: #18181b !important;
+  font-family: 'MontserratRegular', sans-serif !important;
+  font-size: 0.93rem !important;
+  outline: none !important;
+  transition: all 0.22s ease !important;
+  box-sizing: border-box !important;
+}
+
+.gf-book-input:focus,
+.gf-book-select:focus,
+.gf-book-textarea:focus {
+  border-color: #EABF0E !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 0 0 3.5px rgba(234, 191, 14, 0.25) !important;
+}
+
+.gf-book-textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.gf-book-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(234, 191, 14, 0.12);
+  border-left: 3.5px solid #EABF0E;
+  border-radius: 8px;
+  margin-bottom: 22px;
+  font-size: 0.86rem;
+  color: #713f12;
+  line-height: 1.4;
+}
+
+.gf-book-submit-btn {
+  width: 100% !important;
+  padding: 15px 24px !important;
+  border-radius: 12px !important;
+  background-color: #EABF0E !important;
+  color: #18181b !important;
+  font-family: 'MontserratBold', sans-serif !important;
+  font-size: 1.02rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 8px 24px rgba(234, 191, 14, 0.4) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+}
+
+.gf-book-submit-btn:hover {
+  background-color: #D4AC0B !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 32px rgba(234, 191, 14, 0.5) !important;
+}
+
+.gf-book-submit-btn i {
+  transition: transform 0.25s ease;
+}
+
+.gf-book-submit-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* Right Side: Trust & Info cards */
+.gf-side-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(234, 191, 14, 0.25);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+.gf-side-title {
+  font-family: 'MontserratBold', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #18181b;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1.5px solid rgba(234, 191, 14, 0.25);
+  padding-bottom: 12px;
+}
+
+.gf-side-title i {
+  color: #EABF0E;
+  font-size: 1.2rem;
+}
+
+.gf-side-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gf-side-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #3f3f46;
+}
+
+.gf-side-item .icon-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(234, 191, 14, 0.16);
+  color: #926C00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.95rem;
+}
+
+.gf-side-item strong {
+  color: #18181b;
+  display: block;
+  font-family: 'MontserratBold', sans-serif;
+  font-size: 0.92rem;
+  margin-bottom: 2px;
+}
+
+.gf-perk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FEF9C3;
+  color: #854D0E;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+.gf-hotline-box {
+  background: linear-gradient(135deg, #FFFDF5 0%, #FEF9C3 100%);
+  border: 1.5px solid #EABF0E;
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(234, 191, 14, 0.18);
+}
+
+.gf-hotline-box h4 {
+  font-family: 'MontserratBold', sans-serif;
+  font-size: 1.05rem;
+  color: #18181b;
+  margin-bottom: 6px;
+}
+
+.gf-hotline-box p {
+  font-size: 0.88rem;
+  color: #52525b;
+  margin-bottom: 14px;
+}
+
+.gf-hotline-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #EABF0E;
+  color: #18181b !important;
+  font-family: 'MontserratBold', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  box-shadow: 0 6px 18px rgba(234, 191, 14, 0.4);
+  transition: all 0.25s ease;
+}
+
+.gf-hotline-call:hover {
+  background: #D4AC0B;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(234, 191, 14, 0.5);
+}
+
+/* Success Receipt Overlay/Box */
+.gf-booking-success-receipt {
+  display: none;
+  background: #FFFFFF;
+  border: 2px solid #10B981;
+  border-radius: 16px;
+  padding: 28px;
+  margin-top: 20px;
+  box-shadow: 0 12px 36px rgba(16, 185, 129, 0.15);
+  animation: gfFadeIn 0.35s ease;
+}
+
+.gf-booking-success-receipt.active {
+  display: block;
+}
+
+@keyframes gfFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 
