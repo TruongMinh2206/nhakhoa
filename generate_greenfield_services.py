@@ -474,6 +474,7 @@ def build_greenfield_main(filename, data):
   <section class="relative min-h-[85vh] flex items-center overflow-hidden" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="absolute inset-0 z-0">
       <img src="{hero['bg_img']}" alt="{hero['title']}" class="w-full h-full object-cover object-center"/>
+      <div class="hero-overlay-subtle absolute inset-0"></div>
     </div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
       <div class="max-w-[640px]">

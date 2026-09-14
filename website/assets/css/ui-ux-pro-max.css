@@ -903,6 +903,35 @@ button.view-button::after,
   transform: scale(0.97) !important;
 }
 
+/* Subtle Luxury Overlay for Hero Banners (Preserves background photo clarity, ensures text readability) */
+.gf-hero-overlay,
+.hero-overlay-subtle {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  display: block !important;
+  background: linear-gradient(
+    to right,
+    rgba(255, 253, 246, 0.72) 0%,
+    rgba(255, 253, 246, 0.52) 45%,
+    rgba(255, 253, 246, 0.18) 75%,
+    rgba(255, 253, 246, 0) 100%
+  ) !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+  .gf-hero-overlay,
+  .hero-overlay-subtle {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 253, 246, 0.78) 0%,
+      rgba(255, 253, 246, 0.62) 55%,
+      rgba(255, 253, 246, 0.25) 100%
+    ) !important;
+  }
+}
+
 /* Hide conflicting legacy telephone button */
 #hotline, .btn-phone.btn-frame {
   display: none !important;
@@ -2767,21 +2796,42 @@ a[onclick*="selectDoctor"] svg,
 }
 
 /* ==========================================================================
-   HERO BANNER OVERLAY REMOVAL (ALL TABS)
-   Keep background image intact, only remove blurry/gradient overlays (lớp phủ bóng mờ)
-   per user request.
+   HERO BANNER SUBTLE LUXURY OVERLAY (ALL TABS)
+   Keep background photo fully clear and crisp, while ensuring high contrast
+   readability for titles, descriptions, and CTA buttons.
    ========================================================================== */
-.gf-hero-overlay,
-.gf-theme-root > section.relative:first-of-type > .z-0 > div,
-section.relative:has(.max-w-\[640px\]) > .z-0 > div,
-.z-0 > div[style*="linear-gradient"],
-.z-0 > .bg-gradient-to-t {
-  display: none !important;
-}
-
 .gf-hero-bg,
 .gf-theme-root > section.relative:first-of-type > .z-0,
 section.relative:has(.max-w-\[640px\]) > .z-0,
 section.relative > .absolute.inset-0.z-0 {
   display: block !important;
 }
+
+.gf-hero-overlay,
+.hero-overlay-subtle {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  display: block !important;
+  background: linear-gradient(
+    to right,
+    rgba(255, 253, 246, 0.82) 0%,
+    rgba(255, 253, 246, 0.70) 38%,
+    rgba(255, 253, 246, 0.35) 65%,
+    rgba(255, 253, 246, 0) 100%
+  ) !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+  .gf-hero-overlay,
+  .hero-overlay-subtle {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 253, 246, 0.82) 0%,
+      rgba(255, 253, 246, 0.68) 55%,
+      rgba(255, 253, 246, 0.25) 100%
+    ) !important;
+  }
+}
+

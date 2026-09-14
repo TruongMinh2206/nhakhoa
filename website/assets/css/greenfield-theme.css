@@ -373,22 +373,39 @@
   object-position: center;
 }
 
-/* Lớp phủ bóng mờ overlay bị loại bỏ hoàn toàn theo yêu cầu */
-.gf-hero-overlay {
-  display: none !important;
+/* Lớp phủ bán trong suốt cao cấp (hiển thị rõ hình nền, chữ dễ đọc, không mờ quá) */
+.gf-hero-overlay,
+.hero-overlay-subtle {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  display: block !important;
+  background: linear-gradient(
+    to right,
+    rgba(255, 253, 246, 0.82) 0%,
+    rgba(255, 253, 246, 0.70) 38%,
+    rgba(255, 253, 246, 0.35) 65%,
+    rgba(255, 253, 246, 0) 100%
+  ) !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+  .gf-hero-overlay,
+  .hero-overlay-subtle {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 253, 246, 0.82) 0%,
+      rgba(255, 253, 246, 0.68) 55%,
+      rgba(255, 253, 246, 0.25) 100%
+    ) !important;
+  }
 }
 
 .gf-theme-root > section.relative:first-of-type > .z-0,
 section.relative:has(.max-w-\[640px\]) > .z-0,
 section.relative > .absolute.inset-0.z-0 {
   display: block !important;
-}
-
-.gf-theme-root > section.relative:first-of-type > .z-0 > div,
-section.relative:has(.max-w-\[640px\]) > .z-0 > div,
-.z-0 > div[style*="linear-gradient"],
-.z-0 > .bg-gradient-to-t {
-  display: none !important;
 }
 
 .gf-hero-content {
