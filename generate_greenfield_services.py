@@ -471,8 +471,11 @@ def build_greenfield_main(filename, data):
     # Combine into Exact 10 Sections HTML matching Greenfield Dental DOM structure
     main_html = f"""<main id="main-content" class="min-h-screen gf-theme-root" style="background: var(--gf-bg-main-gradient) !important;">
   <!-- 1. HERO SECTION -->
-  <section class="relative flex items-center overflow-hidden" style="background: var(--gf-bg-main-gradient) !important;">
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-16 sm:py-20">
+  <section class="relative min-h-[85vh] flex items-center overflow-hidden" style="background: var(--gf-bg-main-gradient) !important;">
+    <div class="absolute inset-0 z-0">
+      <img src="{hero['bg_img']}" alt="{hero['title']}" class="w-full h-full object-cover object-center"/>
+    </div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
       <div class="max-w-[640px]">
         <p class="text-xs font-bold tracking-[0.18em] uppercase mb-5" style="color:#B89307">{hero['tagline']}</p>
         <h1 class="text-[2.6rem] lg:text-[3.5rem] leading-[1.15] mb-6 font-bold text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">{hero['title']}</h1>
