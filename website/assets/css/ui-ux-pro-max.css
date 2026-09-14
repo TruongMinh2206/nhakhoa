@@ -2573,11 +2573,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Mobile Dropdown Styling in Offcanvas */
-#menu-mobile .dropdown-service-mobile {
+#menu-mobile .dropdown-service-mobile,
+#menu-mobile #menu-product {
   padding: 6px 12px 12px 16px !important;
   margin: 6px 0 10px 10px !important;
   border-left: 3px solid #EABF0E !important;
   display: none !important;
+  visibility: visible !important;
   flex-direction: column !important;
   gap: 8px !important;
   list-style: none !important;
@@ -2585,8 +2587,11 @@ h1, h2, h3, h4, h5, h6,
   border-radius: 0 10px 10px 0 !important;
 }
 
-#menu-mobile .dropdown-service-mobile.show {
+#menu-mobile .dropdown-service-mobile.show,
+#menu-mobile #menu-product.show {
   display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   animation: uupmFadeInSub 0.25s ease-out !important;
 }
 

@@ -491,25 +491,51 @@
       });
     });
 
-    // Submenu accordion toggle for "Dịch vụ"
-    const collapseToggles = mobileMenu.querySelectorAll('[data-bs-toggle="collapse"], .scroll');
-    collapseToggles.forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const targetSelector = toggle.getAttribute('data-bs-target') || '#menu-product';
-        const targetEl = mobileMenu.querySelector(targetSelector);
-        if (targetEl) {
-          const isOpen = targetEl.classList.contains('show');
-          if (isOpen) {
-            targetEl.classList.remove('show');
-            toggle.classList.remove('is-expanded');
-          } else {
-            targetEl.classList.add('show');
-            toggle.classList.add('is-expanded');
-          }
+    // Submenu accordion toggle for "Dịch vụ" (tapping "Dịch vụ" or arrow opens dropdown)
+    const serviceItems = mobileMenu.querySelectorAll('nav.menu-mobile > ul > li');
+    serviceItems.forEach(li => {
+      const subMenu = li.querySelector('.dropdown-service-mobile, #menu-product');
+      if (!subMenu) return;
+
+      const toggleScroll = li.querySelector('.scroll, [data-bs-toggle="collapse"]');
+      const serviceLink = li.querySelector(':scope > div > a, :scope > a');
+      const serviceRow = li.querySelector('.flex.items-center.justify-between');
+
+      const toggleServiceDropdown = (e) => {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
         }
+        const isOpen = subMenu.classList.contains('show');
+        if (isOpen) {
+          subMenu.classList.remove('show');
+          if (toggleScroll) toggleScroll.classList.remove('is-expanded');
+        } else {
+          subMenu.classList.add('show');
+          if (toggleScroll) toggleScroll.classList.add('is-expanded');
+        }
+      };
+
+      // Tapping arrow toggles dropdown
+      if (toggleScroll) {
+        toggleScroll.addEventListener('click', toggleServiceDropdown);
+      }
+
+      // Tapping "Dịch vụ" text link ALSO toggles dropdown (as requested: "khi ấn vào dịch vụ phải mở dropdown")
+      if (serviceLink) {
+        serviceLink.addEventListener('click', toggleServiceDropdown);
+      }
+
+      // Prepend "Tất cả dịch vụ" to submenu if not already present
+      const hasAllServices = Array.from(subMenu.querySelectorAll('a')).some(a => {
+        const h = a.getAttribute('href') || '';
+        return (h.includes('dich-vu.html') || h.endsWith('dich-vu')) && !h.includes('#');
       });
+      if (!hasAllServices) {
+        const allLi = document.createElement('li');
+        allLi.innerHTML = '<a href="dich-vu.html"><strong>Tất cả dịch vụ</strong><span>Xem tổng quan các dịch vụ nha khoa</span></a>';
+        subMenu.insertBefore(allLi, subMenu.firstChild);
+      }
     });
 
     // Ensure "Bảng giá" is present in mobile menu if missing
@@ -532,8 +558,13 @@
       }
     }
 
-    // Close when clicking any navigation link inside mobile menu (except submenu toggles)
+    // Close when clicking navigation links, BUT EXCLUDE the parent "Dịch vụ" toggle link!
     mobileMenu.querySelectorAll('a').forEach(a => {
+      const isParentServiceToggle = a.closest('li')?.querySelector('.dropdown-service-mobile') && 
+                                    !a.closest('.dropdown-service-mobile');
+      if (isParentServiceToggle) {
+        return; // Don't close on clicking the parent service toggle
+      }
       a.addEventListener('click', () => {
         closeMobileMenu();
       });
