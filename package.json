@@ -1,0 +1,13 @@
+{
+  "name": "nhakhoa-kimdung",
+  "version": "1.0.0",
+  "description": "Nha Khoa Kim Dung Static Website",
+  "scripts": {
+    "dev": "python -m http.server 8000 --directory website",
+    "start": "python -m http.server 8000 --directory website",
+    "serve": "python -m http.server 8000 --directory website"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
