@@ -680,6 +680,26 @@
     });
   }
 
+  // 12. Lightweight Video Facade (Zero-lag YouTube loader)
+  function initVideoFacades() {
+    const facades = document.querySelectorAll('.video-facade');
+    facades.forEach(facade => {
+      facade.addEventListener('click', function () {
+        const vid = this.getAttribute('data-video-id');
+        if (!vid) return;
+        const start = this.getAttribute('data-video-start') || '0';
+        const iframe = document.createElement('iframe');
+        iframe.className = 'absolute inset-0 w-full h-full';
+        iframe.src = `https://www.youtube.com/embed/${vid}?autoplay=1&start=${start}`;
+        iframe.title = 'Video player';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        this.innerHTML = '';
+        this.appendChild(iframe);
+      });
+    });
+  }
+
   // 11. DOM Initialization
   function init() {
     initHeaderScroll();
@@ -690,6 +710,7 @@
     initUnifiedButtons();
     initDropdownMenu();
     initFaqAccordion();
+    initVideoFacades();
   }
 
   if (document.readyState === 'loading') {
@@ -698,3 +719,4 @@
     init();
   }
 })();
+
