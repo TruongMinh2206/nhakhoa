@@ -335,7 +335,34 @@
  <ul class="flex flex-wrap items-center justify-between ulmn gap-10">
 <li><a class="transition " href="index.html" title="Trang chủ">Trang chủ</a></li>
 <li><a class="transition " href="gioi-thieu.html" title="Giới thiệu">Giới thiệu</a></li>
-<li><a class="transition active" href="dich-vu.html" title="Dịch vụ">Dịch vụ</a></li>
+<li class="has-dropdown"><a class="transition" href="dich-vu.html" title="Dịch vụ">Dịch vụ <i class="fa-solid fa-chevron-down dropdown-chevron"></i></a>
+<div class="dropdown-menu-service">
+  <a href="trong-rang-implant.html" class="dropdown-service-item">
+    <span class="dropdown-service-title">Implant</span>
+    <span class="dropdown-service-sub">Cấy ghép răng implant</span>
+  </a>
+  <a href="boc-rang-su.html" class="dropdown-service-item">
+    <span class="dropdown-service-title">Răng sứ</span>
+    <span class="dropdown-service-sub">Bọc răng sứ, mặt dán sứ</span>
+  </a>
+  <a href="nieng-rang-tham-my.html" class="dropdown-service-item">
+    <span class="dropdown-service-title">Invisalign</span>
+    <span class="dropdown-service-sub">Niềng răng máng trong suốt</span>
+  </a>
+  <a href="nieng-rang-mac-cai.html" class="dropdown-service-item">
+    <span class="dropdown-service-title">Niềng răng mắc cài</span>
+    <span class="dropdown-service-sub">Niềng răng kim loại & sứ</span>
+  </a>
+  <a href="tay-trang-rang.html" class="dropdown-service-item">
+    <span class="dropdown-service-title">Tẩy trắng</span>
+    <span class="dropdown-service-sub">Tẩy trắng răng an toàn</span>
+  </a>
+  <a href="nha-khoa-tong-quat.html" class="dropdown-service-item">
+    <span class="dropdown-service-title">Nha khoa tổng quát</span>
+    <span class="dropdown-service-sub">Khám, vệ sinh, trám răng</span>
+  </a>
+</div>
+</li>
 <li><a class="transition " href="bang-gia.html" title="Bảng giá">Bảng giá</a></li>
 <li><a class="transition " href="doi-ngu.html" title="Đội ngũ">Đội ngũ</a></li>
 <li><a class="transition " href="dat-lich.html" title="Đặt lịch">Đặt lịch</a></li>
@@ -365,11 +392,20 @@
  <ul>
  <li><a class="transition" href="index.html" title="Trang chủ"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
  <li><a class="transition " href="gioi-thieu.html" title="Giới thiệu"><i class="fa-solid fa-address-card"></i> Giới thiệu</a></li>
- <li><a class="transition" href="dich-vu.html" title="Dịch vụ"><i class="fa-brands fa-product-hunt"></i> Dịch vụ</a>
- <span data-bs-toggle="collapse" data-bs-target="#menu-product" class="scroll"><i class="ml-auto fa-solid fa-angle-right"></i></span>
- <ul class="collapse" id="menu-product">
+ <li>
+  <div class="flex items-center justify-between">
+    <a class="transition" href="dich-vu.html" title="Dịch vụ"><i class="fa-brands fa-product-hunt"></i> Dịch vụ</a>
+    <span data-bs-toggle="collapse" data-bs-target="#menu-product" class="scroll cursor-pointer"><i class="ml-auto fa-solid fa-angle-right"></i></span>
+  </div>
+  <ul class="collapse dropdown-service-mobile" id="menu-product">
+    <li><a href="trong-rang-implant.html"><strong>Implant</strong><span>Cấy ghép răng implant</span></a></li>
+    <li><a href="boc-rang-su.html"><strong>Răng sứ</strong><span>Bọc răng sứ, mặt dán sứ</span></a></li>
+    <li><a href="nieng-rang-tham-my.html"><strong>Invisalign</strong><span>Niềng răng máng trong suốt</span></a></li>
+    <li><a href="nieng-rang-mac-cai.html"><strong>Niềng răng mắc cài</strong><span>Niềng răng kim loại & sứ</span></a></li>
+    <li><a href="tay-trang-rang.html"><strong>Tẩy trắng</strong><span>Tẩy trắng răng an toàn</span></a></li>
+    <li><a href="nha-khoa-tong-quat.html"><strong>Nha khoa tổng quát</strong><span>Khám, vệ sinh, trám răng</span></a></li>
   </ul>
- </li>
+</li>
  <li class="group"><a class="transition" href="doi-ngu.html" title="Đội ngũ"><i class="fa-solid fa-newspaper"></i> Đội ngũ</a></li>
  <li class="group"><a class="transition" href="dat-lich.html" title="Đặt lịch"><i class="fa-solid fa-newspaper"></i> Đặt lịch</a></li>
  <li class="group"><a class="transition" href="tin-tuc.html" title="Tin tức"><i class="fa-solid fa-newspaper"></i> Tin tức</a></li>

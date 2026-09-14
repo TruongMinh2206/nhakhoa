@@ -451,7 +451,56 @@
     });
   }
 
-  // 9. DOM Initialization
+  // 9. Dropdown Menu Controller (Greenfield Style)
+  function initDropdownMenu() {
+    const dropdownParents = document.querySelectorAll('.menu ul li.has-dropdown');
+    dropdownParents.forEach(parent => {
+      const link = parent.querySelector(':scope > a');
+      const dropdown = parent.querySelector('.dropdown-menu-service');
+      if (!link || !dropdown) return;
+
+      // Handle click on touch devices
+      link.addEventListener('click', (e) => {
+        // If on small device or clicked to open
+        if (window.innerWidth <= 1024) {
+          e.preventDefault();
+          parent.classList.toggle('is-open');
+        }
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      dropdownParents.forEach(parent => {
+        if (!parent.contains(e.target)) {
+          parent.classList.remove('is-open');
+        }
+      });
+    });
+  }
+
+  // 10. FAQ Accordion Controller (Greenfield Style)
+  function initFaqAccordion() {
+    const faqItems = document.querySelectorAll('.gf-faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.gf-faq-question');
+      if (!question) return;
+
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        // Close siblings
+        const parent = item.parentElement;
+        if (parent) {
+          parent.querySelectorAll('.gf-faq-item.active').forEach(sibling => {
+            if (sibling !== item) sibling.classList.remove('active');
+          });
+        }
+        item.classList.toggle('active', !isActive);
+      });
+    });
+  }
+
+  // 11. DOM Initialization
   function init() {
     initHeaderScroll();
     initFloatingDock();
@@ -459,6 +508,8 @@
     initActiveNavigation();
     initSearchAndArrowIcons();
     initUnifiedButtons();
+    initDropdownMenu();
+    initFaqAccordion();
   }
 
   if (document.readyState === 'loading') {

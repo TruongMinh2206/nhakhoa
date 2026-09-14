@@ -588,26 +588,8 @@ body {
   color: var(--uupm-accent-hover);
 }
 
-/* Modern Button Classes */
-.uupm-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: var(--uupm-radius-full);
-  font-family: var(--uupm-font-heading);
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  transition: var(--uupm-transition);
 /* ==========================================================================
    UNIFIED BUTTON SYSTEM (HỆ THỐNG BUTTON ĐỒNG NHẤT TOÀN DIỆN)
-   Standardizing: .uupm-btn, input[type="submit"], input[type="reset"], input[type="button"],
-   button[type="submit"], .btn-primary, .btn-secondary, .view-button, .more button,
-   .newsletter-button input, .contact-form input, .uupm-modal-submit
    ========================================================================== */
 
 /* Base Unified Button Reset & Core Structure */
@@ -642,7 +624,6 @@ input[type="reset"],
   outline: none !important;
   border: none !important;
   text-decoration: none !important;
-  min-height: 46px;
   box-sizing: border-box !important;
   user-select: none !important;
   touch-action: manipulation !important;
@@ -652,9 +633,7 @@ input[type="reset"],
   overflow: hidden !important;
 }
 
-.uupm-btn-primary {
-  background: linear-gradient(135deg, var(--uupm-primary) 0%, var(--uupm-primary-hover) 100%);
-/* Primary Button Variant (Sky Blue Luxury Gradient) */
+/* Primary Button Variant (Gold Luxury Gradient) */
 .uupm-btn-primary,
 .uupm-btn:not(.uupm-btn-secondary):not(.uupm-btn-accent):not(.uupm-btn-outline),
 button.view-button,
@@ -667,17 +646,21 @@ input[type="submit"]:not([type="reset"]):not(.btn-secondary),
 .uupm-modal-submit {
   background: linear-gradient(135deg, #EABF0E 0%, #D4AC0B 100%) !important;
   color: #122417 !important;
-  box-shadow: 0 4px 14px rgba(234, 191, 14, 0.35);
   box-shadow: 0 4px 14px rgba(234, 191, 14, 0.35) !important;
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
 }
 
-.uupm-btn-primary:hover {
-  background: linear-gradient(135deg, var(--uupm-primary-hover) 0%, var(--uupm-primary-dark) 100%);
-  box-shadow: 0 6px 20px rgba(234, 191, 14, 0.45);
-  transform: translateY(-2px);
+.uupm-btn-primary:hover,
+button.view-button:hover,
+.more button:hover,
+.btn-primary:hover {
+  background: linear-gradient(135deg, #D4AC0B 0%, #B89307 100%) !important;
+  box-shadow: 0 6px 20px rgba(234, 191, 14, 0.45) !important;
+  transform: translateY(-2px) !important;
   color: #122417 !important;
-/* Secondary / Reset Button Variant (Light Slate Refined) */
+}
+
+/* Secondary / Reset Button Variant */
 .uupm-btn-secondary,
 .uupm-btn-outline,
 .newsletter-button input[type="reset"],
@@ -691,21 +674,25 @@ input[type="reset"],
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
 }
 
-.uupm-btn-accent {
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-/* Accent Button Variant (Amber / Gold Radiance) */
+.uupm-btn-secondary:hover,
+.btn-secondary:hover {
+  background: #E2E8F0 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Accent Button Variant */
 .uupm-btn-accent,
 .btn-warning {
   background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
   box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
 }
 
 .uupm-btn-accent:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45) !important;
+}
 /* Eradicate old .view-button rotating dark blob */
 button.view-button > div,
 .more button > div {
@@ -2149,4 +2136,151 @@ h1, h2, h3, h4, h5, h6,
 .content-main, .info-introduce, .info-introduce p, .content-main p,
 .desc-introduce, .desc-introduce p, .content-text, .content-text p, .content-main * {
   font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* ==========================================================================
+   NAVIGATION DROPDOWN - GREENFIELD DENTAL STYLE
+   ========================================================================== */
+.menu ul li.has-dropdown {
+  position: relative !important;
+}
+
+.menu ul li.has-dropdown > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.menu ul li.has-dropdown .dropdown-chevron {
+  font-size: 11px !important;
+  transition: transform 0.25s ease !important;
+}
+
+.menu ul li.has-dropdown:hover .dropdown-chevron {
+  transform: rotate(180deg) !important;
+}
+
+/* Dropdown Card Container */
+.menu ul li .dropdown-menu-service,
+.menu .dropdown-menu-service,
+.dropdown-menu-service {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  width: 265px !important;
+  min-width: 265px !important;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border-radius: 18px !important;
+  box-shadow: 0 20px 45px -8px rgba(0, 0, 0, 0.18), 0 4px 14px rgba(0, 0, 0, 0.06) !important;
+  border: 1.5px solid rgba(234, 191, 14, 0.35) !important;
+  padding: 12px 10px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(12px) !important;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  box-sizing: border-box !important;
+}
+
+/* Hover to Show */
+.menu ul li.has-dropdown:hover .dropdown-menu-service,
+.menu ul li.has-dropdown:focus-within .dropdown-menu-service,
+.menu ul li.has-dropdown.is-open .dropdown-menu-service {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(6px) !important;
+}
+
+/* Dropdown Item */
+.menu ul li .dropdown-menu-service a.dropdown-service-item,
+.menu .dropdown-service-item,
+.dropdown-service-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  border: none !important;
+  background: transparent !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+  margin: 0 !important;
+  width: 100% !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+  border-left: 3px solid transparent !important;
+}
+
+.menu ul li .dropdown-menu-service a.dropdown-service-item:hover,
+.menu .dropdown-service-item:hover {
+  background: #F8FAFC !important;
+  border-left-color: #EABF0E !important;
+  transform: translateX(3px) !important;
+}
+
+.menu ul li .dropdown-menu-service a.dropdown-service-item::before,
+.menu ul li .dropdown-menu-service a.dropdown-service-item::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+}
+
+.dropdown-service-title {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  color: #18181b !important;
+  line-height: 1.3 !important;
+  margin-bottom: 2px !important;
+  text-transform: none !important;
+  display: block !important;
+}
+
+.menu ul li .dropdown-menu-service a.dropdown-service-item:hover .dropdown-service-title {
+  color: #B89307 !important;
+}
+
+.dropdown-service-sub {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #64748b !important;
+  line-height: 1.3 !important;
+  text-transform: none !important;
+  display: block !important;
+}
+
+/* Mobile Dropdown Styling in Offcanvas */
+#menu-mobile .dropdown-service-mobile {
+  padding-left: 16px !important;
+  margin-top: 6px !important;
+  border-left: 2px solid rgba(234, 191, 14, 0.4) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+#menu-mobile .dropdown-service-mobile a {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  text-decoration: none !important;
+}
+
+#menu-mobile .dropdown-service-mobile a strong {
+  font-size: 14px !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+#menu-mobile .dropdown-service-mobile a span {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
