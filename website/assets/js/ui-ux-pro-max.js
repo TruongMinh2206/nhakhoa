@@ -479,16 +479,52 @@
     });
   }
 
-  // 10. FAQ Accordion Controller (Greenfield Style)
+  // 10. FAQ Accordion Controller (Greenfield Native & Class-based)
   function initFaqAccordion() {
+    // Greenfield native button pattern
+    const faqButtons = document.querySelectorAll('.faq-accordion-btn, .space-y-3 button');
+    faqButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const card = btn.closest('.rounded-2xl');
+        if (!card) return;
+        const answer = card.querySelector('.faq-accordion-content, .faq-answer');
+        const icon = btn.querySelector('svg, i');
+        const isExpanded = card.classList.contains('is-open');
+
+        // Close other items in the same container
+        const container = card.parentElement;
+        if (container) {
+          container.querySelectorAll('.rounded-2xl.is-open').forEach(sibling => {
+            if (sibling !== card) {
+              sibling.classList.remove('is-open');
+              const sibAnswer = sibling.querySelector('.faq-accordion-content, .faq-answer');
+              const sibIcon = sibling.querySelector('svg, i');
+              if (sibAnswer) sibAnswer.style.display = 'none';
+              if (sibIcon) sibIcon.style.transform = '';
+            }
+          });
+        }
+
+        if (isExpanded) {
+          card.classList.remove('is-open');
+          if (answer) answer.style.display = 'none';
+          if (icon) icon.style.transform = '';
+        } else {
+          card.classList.add('is-open');
+          if (answer) answer.style.display = 'block';
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Also support legacy .gf-faq-item
     const faqItems = document.querySelectorAll('.gf-faq-item');
     faqItems.forEach(item => {
       const question = item.querySelector('.gf-faq-question');
       if (!question) return;
-
       question.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        // Close siblings
         const parent = item.parentElement;
         if (parent) {
           parent.querySelectorAll('.gf-faq-item.active').forEach(sibling => {

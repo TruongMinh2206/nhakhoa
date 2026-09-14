@@ -1389,8 +1389,21 @@ def build_page(target_filename, data, template_html):
             '<link href="assets/css/ui-ux-pro-max.css?v=3.0" rel="stylesheet">\n    <link href="assets/css/greenfield-theme.css?v=3.0" rel="stylesheet">'
         )
 
-    # Generate new main section
-    new_main = generate_main_content(target_filename, data)
+    # Inject Tailwind Play CDN with preflight: false to power all Greenfield utility classes safely
+    if 'cdn.tailwindcss.com' not in pre_main:
+        tailwind_script = """    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: {
+          preflight: false,
+        }
+      }
+    </script>\n"""
+        pre_main = pre_main.replace('</head>', f'{tailwind_script}</head>')
+
+    # Generate new main section using Greenfield Dental exact HTML DOM structure
+    from generate_greenfield_services import build_greenfield_main
+    new_main = build_greenfield_main(target_filename, data)
 
     full_html = pre_main + new_main + post_main
     target_path = os.path.join(WEBSITE_DIR, target_filename)

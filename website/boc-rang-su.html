@@ -73,6 +73,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: {
+          preflight: false,
+        }
+      }
+    </script>
 </head>
 <body>
 <header>
@@ -215,431 +223,543 @@
  </div>
 </div>  </div>
 </header>
-<main id="main-content" class="gf-theme-root">
+<main id="main-content" class="min-h-screen gf-theme-root" style="background-color:#18181b;">
   <!-- 1. HERO SECTION -->
-  <section class="gf-service-hero">
-    <div class="gf-service-hero-bg">
-      <img src="https://www.nhakhoagreenfield.com/images/services/service-cosmetics.webp" alt="Răng Sứ Tự Nhiên Tinh Xảo — Nâng Tầm Nụ Cười Hoàn Hảo">
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://www.nhakhoagreenfield.com/images/services/service-cosmetics.webp" alt="Răng Sứ Tự Nhiên Tinh Xảo — Nâng Tầm Nụ Cười Hoàn Hảo" class="w-full h-full object-cover object-center"/>
+      <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(24,24,27,0.95) 0%, rgba(24,24,27,0.85) 35%, rgba(24,24,27,0.55) 65%, rgba(24,24,27,0.20) 100%)"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#18181b] via-transparent to-transparent"></div>
     </div>
-    <div class="gf-service-hero-overlay"></div>
-    <div class="wrap-content" style="position: relative; z-index: 3; width: 100%;">
-      <div class="gf-service-hero-content">
-        <div class="gf-service-tagline">✦ THẨM MỸ NỤ CƯỜI CHUẨN NHÂN TƯỚNG HỌC & Y KHOA</div>
-        <h1 class="gf-service-hero-title">Răng Sứ Tự Nhiên Tinh Xảo — Nâng Tầm Nụ Cười Hoàn Hảo</h1>
-        <p class="gf-service-hero-desc">Công nghệ thiết kế nụ cười kỹ thuật số Digital Smile Design (DSD), bảo tồn tối đa răng gốc. Răng toàn sứ cao cấp Đức & Thụy Sĩ không đen viền nướu, trong bóng tự nhiên.</p>
-        <div class="gf-service-hero-actions">
-          <a href="dat-lich.html" class="gf-btn-primary"><i class="fa-solid fa-calendar-check"></i> Đặt Lịch Thăm Khám Miễn Phí</a>
-          <a href="tel:0862960886" class="gf-btn-outline"><i class="fa-solid fa-phone"></i> Hotline: 0862 960 886</a>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-28">
+      <div class="max-w-[640px]">
+        <p class="text-xs font-semibold tracking-[0.18em] uppercase mb-5" style="color:#EABF0E">THẨM MỸ NỤ CƯỜI CHUẨN NHÂN TƯỚNG HỌC & Y KHOA</p>
+        <h1 class="text-[2.6rem] lg:text-[3.5rem] text-white leading-[1.15] mb-6 font-bold" style="font-family:'Be Vietnam Pro', sans-serif">Răng Sứ Tự Nhiên Tinh Xảo — Nâng Tầm Nụ Cười Hoàn Hảo</h1>
+        <p class="text-[1.05rem] leading-relaxed mb-9" style="color:rgba(255,255,255,0.85)">Công nghệ thiết kế nụ cười kỹ thuật số Digital Smile Design (DSD), bảo tồn tối đa răng gốc. Răng toàn sứ cao cấp Đức & Thụy Sĩ không đen viền nướu, trong bóng tự nhiên.</p>
+        <div class="flex flex-wrap gap-3 mb-10">
+          <a class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[#18181b] text-[0.95rem] font-semibold transition-opacity hover:opacity-90 shadow-lg" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;font-weight:600;" href="dat-lich.html">
+            Đặt lịch tư vấn miễn phí
+            <svg width="16" height="16" style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+          <a href="tel:0862960886" class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-white text-[0.95rem] font-medium border border-white/30 hover:bg-white/10 transition-colors" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;color:#ffffff !important;border:1px solid rgba(255,255,255,0.3);text-decoration:none;background:transparent;">
+            <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;color:#EABF0E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            0862 960 886
+          </a>
         </div>
-        <div class="gf-service-hero-trust">
-          <span><i class="fa-solid fa-circle-check"></i> Răng toàn sứ chính hãng Đức & Thụy Sĩ</span><span><i class="fa-solid fa-circle-check"></i> Bảo tồn tối đa răng thật, không mài nhỏ</span><span><i class="fa-solid fa-circle-check"></i> Bảo hành chính hãng lên đến 15 năm</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. LỢI ÍCH ĐIỀU TRỊ (6 BENEFITS GRID) -->
-  <section class="gf-section" style="background-color: #FFFFFF;">
-    <div class="wrap-content">
-      <div class="gf-header-center">
-        <div class="gf-tagline">NÂNG CẤP NỤ CƯỜI</div>
-        <h2 class="gf-title-display">Lợi Ích Của Bọc Răng Sứ & Dán Sứ Veneer</h2>
-        <p class="gf-desc-lead">Khắc phục toàn diện khuyết điểm răng ố vàng, sứt mẻ, lệch lạc nhẹ, mang lại nụ cười chuẩn tỷ lệ vàng.</p>
-      </div>
-      <div class="gf-benefits-grid">
-        
-        <div class="gf-benefit-card">
-          <div class="gf-benefit-icon"><i class="fa-solid fa-gem"></i></div>
-          <h3 class="gf-benefit-title">Thẩm mỹ tự nhiên trong trẻo</h3>
-          <p class="gf-benefit-desc">Độ thấu quang và rìa cắn trong bóng tự nhiên như răng thật, không bị trắng bệch giả tạo dưới ánh đèn.</p>
-        </div>
-        <div class="gf-benefit-card">
-          <div class="gf-benefit-icon"><i class="fa-solid fa-shield-heart"></i></div>
-          <h3 class="gf-benefit-title">Không đen viền nướu</h3>
-          <p class="gf-benefit-desc">Chất liệu 100% toàn sứ nguyên khối cao cấp, tương thích sinh học tuyệt đối, không gây kích ứng nướu hay thâm đen chân răng.</p>
-        </div>
-        <div class="gf-benefit-card">
-          <div class="gf-benefit-icon"><i class="fa-solid fa-bolt"></i></div>
-          <h3 class="gf-benefit-title">Cứng chắc gấp 5 lần răng thật</h3>
-          <p class="gf-benefit-desc">Khả năng chịu lực uốn cong từ 900 - 1400 MPa, ăn nhai đồ dai cứng thoải mái mà không lo gãy vỡ hay mẻ răng.</p>
-        </div>
-        <div class="gf-benefit-card">
-          <div class="gf-benefit-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-          <h3 class="gf-benefit-title">Thiết kế nụ cười DSD 3D</h3>
-          <p class="gf-benefit-desc">Xem trước kết quả nụ cười trên máy tính trước khi làm, điều chỉnh dáng răng hài hòa với nhân tướng và đường nét khuôn mặt.</p>
-        </div>
-        <div class="gf-benefit-card">
-          <div class="gf-benefit-icon"><i class="fa-solid fa-clock"></i></div>
-          <h3 class="gf-benefit-title">Hoàn thiện chỉ sau 2-3 ngày</h3>
-          <p class="gf-benefit-desc">Hệ thống Labo chế tác răng sứ công nghệ CAD/CAM robot hiện đại giúp rút ngắn thời gian điều trị tối đa, chỉ 2 lần hẹn.</p>
-        </div>
-        <div class="gf-benefit-card">
-          <div class="gf-benefit-icon"><i class="fa-solid fa-lock"></i></div>
-          <h3 class="gf-benefit-title">Bền màu vĩnh viễn</h3>
-          <p class="gf-benefit-desc">Bề mặt sứ phủ men Nano siêu mịn, kháng bám màu hoàn hảo từ cà phê, trà hay nước tương, nụ cười luôn trắng sáng bền lâu.</p>
+        <div class="flex flex-wrap gap-6 text-sm" style="color:rgba(255,255,255,0.70)">
+          <span>✓ <!-- -->Răng toàn sứ chính hãng Đức & Thụy Sĩ</span><span>✓ <!-- -->Bảo tồn tối đa răng thật, không mài nhỏ</span><span>✓ <!-- -->Bảo hành chính hãng lên đến 15 năm</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. BẢNG GIÁ DỊCH VỤ MINH BẠCH (3-TIER PRICING) -->
-  <section class="gf-section" style="background-color: #FBF9F2;">
-    <div class="wrap-content">
-      <div class="gf-header-center">
-        <div class="gf-tagline">BẢNG GIÁ DỊCH VỤ</div>
-        <h2 class="gf-title-display">Bảng Giá Răng Toàn Sứ Thẩm Mỹ</h2>
-        <p class="gf-desc-lead">Cam kết 100% phôi sứ chính hãng nhập khẩu có thẻ bảo hành IDPI chính hãng toàn cầu.</p>
+  <!-- 2. LỢI ÍCH ĐIỀU TRỊ -->
+  <section id="loi-ich" class="py-16" style="background-color:#222021">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-xs font-semibold tracking-[0.18em] uppercase mb-3" style="color:#EABF0E">NÂNG CẤP NỤ CƯỜI</p>
+        <h2 class="text-4xl font-bold mb-4 text-white" style="font-family:'Be Vietnam Pro', sans-serif">Lợi Ích Của Bọc Răng Sứ & Dán Sứ Veneer</h2>
+        <p class="text-gray-300 text-base max-w-xl mx-auto leading-relaxed">Khắc phục toàn diện khuyết điểm răng ố vàng, sứt mẻ, lệch lạc nhẹ, mang lại nụ cười chuẩn tỷ lệ vàng.</p>
       </div>
-      <div class="gf-pricing-grid">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         
-        <div class="gf-pricing-card ">
+      <div class="rounded-2xl p-6 flex flex-col gap-3" style="background-color:#2e2c2d;border:1px solid #3a3738">
+        <div class="flex items-center gap-3">
+          <div style="color:#EABF0E">
+            <i class="fa-solid fa-gem" style="font-size: 1.25rem;"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">Thẩm mỹ tự nhiên trong trẻo</h3>
+        </div>
+        <p class="text-sm text-gray-400 leading-relaxed">Độ thấu quang và rìa cắn trong bóng tự nhiên như răng thật, không bị trắng bệch giả tạo dưới ánh đèn.</p>
+      </div>
+      <div class="rounded-2xl p-6 flex flex-col gap-3" style="background-color:#2e2c2d;border:1px solid #3a3738">
+        <div class="flex items-center gap-3">
+          <div style="color:#EABF0E">
+            <i class="fa-solid fa-shield-heart" style="font-size: 1.25rem;"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">Không đen viền nướu</h3>
+        </div>
+        <p class="text-sm text-gray-400 leading-relaxed">Chất liệu 100% toàn sứ nguyên khối cao cấp, tương thích sinh học tuyệt đối, không gây kích ứng nướu hay thâm đen chân răng.</p>
+      </div>
+      <div class="rounded-2xl p-6 flex flex-col gap-3" style="background-color:#2e2c2d;border:1px solid #3a3738">
+        <div class="flex items-center gap-3">
+          <div style="color:#EABF0E">
+            <i class="fa-solid fa-bolt" style="font-size: 1.25rem;"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">Cứng chắc gấp 5 lần răng thật</h3>
+        </div>
+        <p class="text-sm text-gray-400 leading-relaxed">Khả năng chịu lực uốn cong từ 900 - 1400 MPa, ăn nhai đồ dai cứng thoải mái mà không lo gãy vỡ hay mẻ răng.</p>
+      </div>
+      <div class="rounded-2xl p-6 flex flex-col gap-3" style="background-color:#2e2c2d;border:1px solid #3a3738">
+        <div class="flex items-center gap-3">
+          <div style="color:#EABF0E">
+            <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 1.25rem;"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">Thiết kế nụ cười DSD 3D</h3>
+        </div>
+        <p class="text-sm text-gray-400 leading-relaxed">Xem trước kết quả nụ cười trên máy tính trước khi làm, điều chỉnh dáng răng hài hòa với nhân tướng và đường nét khuôn mặt.</p>
+      </div>
+      <div class="rounded-2xl p-6 flex flex-col gap-3" style="background-color:#2e2c2d;border:1px solid #3a3738">
+        <div class="flex items-center gap-3">
+          <div style="color:#EABF0E">
+            <i class="fa-solid fa-clock" style="font-size: 1.25rem;"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">Hoàn thiện chỉ sau 2-3 ngày</h3>
+        </div>
+        <p class="text-sm text-gray-400 leading-relaxed">Hệ thống Labo chế tác răng sứ công nghệ CAD/CAM robot hiện đại giúp rút ngắn thời gian điều trị tối đa, chỉ 2 lần hẹn.</p>
+      </div>
+      <div class="rounded-2xl p-6 flex flex-col gap-3" style="background-color:#2e2c2d;border:1px solid #3a3738">
+        <div class="flex items-center gap-3">
+          <div style="color:#EABF0E">
+            <i class="fa-solid fa-lock" style="font-size: 1.25rem;"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">Bền màu vĩnh viễn</h3>
+        </div>
+        <p class="text-sm text-gray-400 leading-relaxed">Bề mặt sứ phủ men Nano siêu mịn, kháng bám màu hoàn hảo từ cà phê, trà hay nước tương, nụ cười luôn trắng sáng bền lâu.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CÂU CHUYỆN NỤ CƯỜI / VIDEO -->
+  <section id="cau-chuyen" class="py-16" style="background-color:#18181b">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-xs font-semibold tracking-[0.18em] uppercase mb-3" style="color:#EABF0E">Câu chuyện nụ cười</p>
+        <h2 class="text-4xl font-bold mb-4 text-white" style="font-family:'Be Vietnam Pro', sans-serif">Hành Trình Lột Xác Nụ Cười Răng Toàn Sứ</h2>
+        <p class="text-white/60 text-base max-w-lg mx-auto leading-relaxed">Khám phá sự thay đổi ngoạn mục về diện mạo và sự tự tin sau khi hoàn thiện nụ cười sứ thẩm mỹ tinh xảo.</p>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-2xl" style="aspect-ratio:16/9;border:1px solid rgba(255,255,255,0.1)">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/hXCCpyIlDDU?start=29" title="Hành Trình Lột Xác Nụ Cười Răng Toàn Sứ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BẢNG GIÁ MINH BẠCH -->
+  <div data-section="options" id="bang-gia">
+    <section class="py-16" style="background-color:#222021">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <p class="text-xs font-semibold tracking-[0.18em] uppercase mb-3" style="color:#EABF0E">BẢNG GIÁ DỊCH VỤ</p>
+          <h2 class="text-4xl font-bold mb-4 text-white" style="font-family:'Be Vietnam Pro', sans-serif">Bảng Giá Răng Toàn Sứ Thẩm Mỹ</h2>
+          <p class="text-gray-300 text-base max-w-xl mx-auto leading-relaxed">Cam kết 100% phôi sứ chính hãng nhập khẩu có thẻ bảo hành IDPI chính hãng toàn cầu.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
           
-          <div class="gf-pricing-header">
-            <h3 class="gf-pricing-title">Răng Sứ Zirconia DDBio</h3>
-            <div class="gf-pricing-subtitle">Xuất xứ Đức - Bền chắc</div>
-            <div class="gf-pricing-amount">2.500.000đ</div>
-            <div class="gf-pricing-unit">/ răng hoàn thiện</div>
-          </div>
-          <ul class="gf-pricing-features">
-            <li><i class="fa-solid fa-check"></i> <span>Khung sườn Zirconia nguyên khối Đức</span></li><li><i class="fa-solid fa-check"></i> <span>Chịu lực 900 MPa ăn nhai tốt</span></li><li><i class="fa-solid fa-check"></i> <span>Không đen viền nướu, thẩm mỹ ổn định</span></li><li><i class="fa-solid fa-check"></i> <span>Miễn phí thiết kế nụ cười DSD</span></li><li><i class="fa-solid fa-check"></i> <span>Bảo hành chính hãng 7 năm</span></li>
+      <div class="relative flex flex-col">
+        <div class="flex justify-center h-8 mb-2 z-10"></div>
+        <div class="rounded-2xl flex flex-col p-7 flex-1" style="background-color:#2e2c2d;border:1px solid #3a3738">
+          <h3 class="text-xl font-bold text-white">Răng Sứ Zirconia DDBio</h3>
+          <p class="text-sm mt-1 mb-5" style="color:#EABF0E">Xuất xứ Đức - Bền chắc</p>
+          <p class="text-3xl font-extrabold text-white mb-6">2.500.000đ</p>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Khung sườn Zirconia nguyên khối Đức</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Chịu lực 900 MPa ăn nhai tốt</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Không đen viền nướu, thẩm mỹ ổn định</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Miễn phí thiết kế nụ cười DSD</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Bảo hành chính hãng 7 năm</span></li>
           </ul>
-          <a href="dat-lich.html" class="gf-pricing-btn">Đăng Ký Tư Vấn Ngay</a>
+          <a class="block w-full py-3.5 text-center font-semibold text-sm rounded-xl transition-opacity hover:opacity-90" style="background-color:transparent;color:#ffffff !important;border:1.5px solid #EABF0E;text-decoration:none;" href="dat-lich.html">Đặt Lịch Thăm Khám Miễn Phí</a>
         </div>
-        <div class="gf-pricing-card popular">
-          <div class="gf-pricing-badge">★ Khuyên Dùng</div>
-          <div class="gf-pricing-header">
-            <h3 class="gf-pricing-title">Răng Toàn Sứ Cercon HT</h3>
-            <div class="gf-pricing-subtitle">Xuất xứ Đức - Khuyên dùng</div>
-            <div class="gf-pricing-amount">4.500.000đ</div>
-            <div class="gf-pricing-unit">/ răng hoàn thiện</div>
-          </div>
-          <ul class="gf-pricing-features">
-            <li><i class="fa-solid fa-check"></i> <span>Phôi sứ Cercon HT cao cấp của Dentsply Sirona</span></li><li><i class="fa-solid fa-check"></i> <span>Độ trong mờ tự nhiên vượt trội 43%</span></li><li><i class="fa-solid fa-check"></i> <span>Chịu lực siêu việt lên đến 1200 MPa</span></li><li><i class="fa-solid fa-check"></i> <span>Mài vi phẫu bảo tồn tối đa mô răng thật</span></li><li><i class="fa-solid fa-check"></i> <span>Thẻ bảo hành quét mã QR chính hãng</span></li><li><i class="fa-solid fa-check"></i> <span>Bảo hành chính hãng 10 năm</span></li>
+      </div>
+      <div class="relative flex flex-col">
+        <div class="flex justify-center h-8 mb-2 z-10">
+          <span class="px-5 py-1.5 rounded-full text-[#18181b] text-xs font-bold tracking-widest uppercase self-center shadow-md" style="background-color:#EABF0E">★ Phổ biến nhất</span>
+        </div>
+        <div class="rounded-2xl flex flex-col p-7 flex-1 border-2 shadow-2xl" style="background-color:#2e2c2d;border-color:#EABF0E">
+          <h3 class="text-xl font-bold text-white">Răng Toàn Sứ Cercon HT</h3>
+          <p class="text-sm mt-1 mb-5" style="color:#EABF0E">Xuất xứ Đức - Khuyên dùng</p>
+          <p class="text-3xl font-extrabold text-white mb-6">4.500.000đ</p>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Phôi sứ Cercon HT cao cấp của Dentsply Sirona</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Độ trong mờ tự nhiên vượt trội 43%</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Chịu lực siêu việt lên đến 1200 MPa</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Mài vi phẫu bảo tồn tối đa mô răng thật</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Thẻ bảo hành quét mã QR chính hãng</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Bảo hành chính hãng 10 năm</span></li>
           </ul>
-          <a href="dat-lich.html" class="gf-pricing-btn">Đăng Ký Tư Vấn Ngay</a>
+          <a class="block w-full py-3.5 text-center font-semibold text-sm rounded-xl transition-opacity hover:opacity-90 text-[#18181b] shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">Đặt Lịch Thăm Khám Miễn Phí</a>
         </div>
-        <div class="gf-pricing-card ">
+      </div>
+      <div class="relative flex flex-col">
+        <div class="flex justify-center h-8 mb-2 z-10"></div>
+        <div class="rounded-2xl flex flex-col p-7 flex-1" style="background-color:#2e2c2d;border:1px solid #3a3738">
+          <h3 class="text-xl font-bold text-white">Mặt Dán Sứ Veneer Emax</h3>
+          <p class="text-sm mt-1 mb-5" style="color:#EABF0E">Thụy Sĩ - Đỉnh cao bảo tồn</p>
+          <p class="text-3xl font-extrabold text-white mb-6">6.500.000đ</p>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Độ mỏng siêu việt chỉ 0.2 - 0.5 mm</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Không cần mài răng hoặc chỉ nhám bề mặt</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Chất liệu thủy tinh sứ Emax Press Thụy Sĩ</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Độ phản quang và sắc thái màu đỉnh cao</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Bảo tồn 100% tủy răng và men răng gốc</span></li><li class="flex items-start gap-2.5 text-sm text-gray-300"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#EABF0E;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span>Bảo hành chính hãng 15 năm</span></li>
+          </ul>
+          <a class="block w-full py-3.5 text-center font-semibold text-sm rounded-xl transition-opacity hover:opacity-90" style="background-color:transparent;color:#ffffff !important;border:1.5px solid #EABF0E;text-decoration:none;" href="dat-lich.html">Đặt Lịch Thăm Khám Miễn Phí</a>
+        </div>
+      </div>
+        </div>
+        <p class="mt-10 text-center text-sm text-gray-500">* Chi phí chính xác và phác đồ chi tiết sẽ được bác sĩ chuyên khoa tư vấn trực tiếp sau khi chụp phim thăm khám miễn phí.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- 5. QUY TRÌNH ĐIỀU TRỊ -->
+  <section id="quy-trinh" class="py-20 overflow-hidden" style="background-color:#18181b">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-xs font-semibold tracking-[0.18em] uppercase mb-3" style="color:#EABF0E">QUY TRÌNH THỰC HIỆN</p>
+        <h2 class="text-4xl font-bold mb-4 text-white" style="font-family:'Be Vietnam Pro', sans-serif">Quy Trình Làm Răng Sứ 4 Bước Chuẩn Y Khoa</h2>
+        <p class="text-base max-w-xl mx-auto leading-relaxed" style="color:rgba(255,255,255,0.60)">Từng công đoạn được thực hiện tỉ mỉ dưới kính lúp phóng đại, bảo đảm độ khít sát vi thể 0.01mm.</p>
+      </div>
+      
+    <div class="hidden md:grid" style="grid-template-columns:1fr 72px 1fr">
+      <!-- Step 01: Left card, Center 01, Right empty -->
+      <div class="flex items-center justify-end py-8 pr-8">
+        <div class="max-w-[280px] w-full rounded-2xl p-6" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)">
+          <div class="w-9 h-9 mb-4 flex items-center justify-center rounded-lg" style="background-color:rgba(234,191,14,0.15);color:#EABF0E"><i class="fa-solid fa-notes-medical text-lg"></i></div>
+          <h3 class="font-bold text-white text-base mb-2">Thăm khám & Thiết kế DSD</h3>
+          <p class="text-sm leading-relaxed mb-3" style="color:rgba(255,255,255,0.60)">Kiểm tra khớp cắn, chụp ảnh studio phân tích tỉ lệ nụ cười và lên bản vẽ thiết kế 3D nụ cười mong muốn.</p>
+          <p class="text-xs font-medium" style="color:#EABF0E">✦ Cá nhân hóa dáng răng</p>
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="flex-1 w-px" style="background-color:transparent"></div>
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 5px rgba(234,191,14,0.22)">01</div>
+        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.3)"></div>
+      </div>
+      <div class="flex items-center justify-start py-8 pl-8"></div>
+
+      <!-- Step 02: Left empty, Center 02, Right card -->
+      <div class="flex items-center justify-end py-8 pr-8"></div>
+      <div class="flex flex-col items-center">
+        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.3)"></div>
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 5px rgba(234,191,14,0.22)">02</div>
+        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.3)"></div>
+      </div>
+      <div class="flex items-center justify-start py-8 pl-8">
+        <div class="max-w-[280px] w-full rounded-2xl p-6" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)">
+          <div class="w-9 h-9 mb-4 flex items-center justify-center rounded-lg" style="background-color:rgba(234,191,14,0.15);color:#EABF0E"><i class="fa-solid fa-tooth text-lg"></i></div>
+          <h3 class="font-bold text-white text-base mb-2">Chuẩn bị cùi răng & Lấy dấu 3D</h3>
+          <p class="text-sm leading-relaxed mb-3" style="color:rgba(255,255,255,0.60)">Sửa soạn mô răng tối thiểu không đau, quét dấu hàm kỹ thuật số bằng máy scan 3D hiện đại gửi đến Labo chế tác.</p>
+          <p class="text-xs font-medium" style="color:#EABF0E">✦ Không đau, không ê buốt</p>
+        </div>
+      </div>
+
+      <!-- Step 03: Left card, Center 03, Right empty -->
+      <div class="flex items-center justify-end py-8 pr-8">
+        <div class="max-w-[280px] w-full rounded-2xl p-6" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)">
+          <div class="w-9 h-9 mb-4 flex items-center justify-center rounded-lg" style="background-color:rgba(234,191,14,0.15);color:#EABF0E"><i class="fa-solid fa-shield-heart text-lg"></i></div>
+          <h3 class="font-bold text-white text-base mb-2">Chế tác Labo CAD/CAM</h3>
+          <p class="text-sm leading-relaxed mb-3" style="color:rgba(255,255,255,0.60)">Răng sứ được cắt gọt tự động bằng máy tiện 5 trục từ phôi sứ nguyên khối và đắp lớp màu thủ công tinh tế.</p>
+          <p class="text-xs font-medium" style="color:#EABF0E">✦ Tinh xảo từng đường vân</p>
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.3)"></div>
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 5px rgba(234,191,14,0.22)">03</div>
+        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.3)"></div>
+      </div>
+      <div class="flex items-center justify-start py-8 pl-8"></div>
+
+      <!-- Step 04: Left empty, Center 04, Right card -->
+      <div class="flex items-center justify-end py-8 pr-8"></div>
+      <div class="flex flex-col items-center">
+        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.3)"></div>
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 5px rgba(234,191,14,0.22)">04</div>
+        <div class="flex-1 w-px" style="background-color:transparent"></div>
+      </div>
+      <div class="flex items-center justify-start py-8 pl-8">
+        <div class="max-w-[280px] w-full rounded-2xl p-6" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)">
+          <div class="w-9 h-9 mb-4 flex items-center justify-center rounded-lg" style="background-color:rgba(234,191,14,0.15);color:#EABF0E"><i class="fa-solid fa-crown text-lg"></i></div>
+          <h3 class="font-bold text-white text-base mb-2">Thử dáng & Gắn cố định</h3>
+          <p class="text-sm leading-relaxed mb-3" style="color:rgba(255,255,255,0.60)">Khách hàng duyệt màu sắc và dáng răng trực tiếp trên miệng, sau đó bác sĩ dán răng vĩnh viễn bằng xi măng nha khoa sinh học.</p>
+          <p class="text-xs font-medium" style="color:#EABF0E">✦ Tự tin tỏa sáng</p>
+        </div>
+      </div>
+    </div>
+      <div class="flex flex-col gap-5 md:hidden">
+        
+      <div class="flex gap-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style="background-color:rgba(234,191,14,0.2);color:#EABF0E">01</div>
+        <div class="rounded-2xl p-5 flex-1" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)">
+          <h3 class="font-bold text-white text-base mb-1.5">Thăm khám & Thiết kế DSD</h3>
+          <p class="text-sm leading-relaxed mb-2" style="color:rgba(255,255,255,0.60)">Kiểm tra khớp cắn, chụp ảnh studio phân tích tỉ lệ nụ cười và lên bản vẽ thiết kế 3D nụ cười mong muốn.</p>
+          <p class="text-xs font-medium" style="color:#EABF0E">✦ Cá nhân hóa dáng răng</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style="background-color:rgba(234,191,14,0.2);color:#EABF0E">02</div>
+        <div class="rounded-2xl p-5 flex-1" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)">
+          <h3 class="font-bold text-white text-base mb-1.5">Chuẩn bị cùi răng & Lấy dấu 3D</h3>
+          <p class="text-sm leading-relaxed mb-2" style="color:rgba(255,255,255,0.60)">Sửa soạn mô răng tối thiểu không đau, quét dấu hàm kỹ thuật số bằng máy scan 3D hiện đại gửi đến Labo chế tác.</p>
+          <p class="text-xs font-medium" style="color:#EABF0E">✦ Không đau, không ê buốt</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style="background-color:rgba(234,191,14,0.2);color:#EABF0E">03</div>
+        <div class="rounded-2xl p-5 flex-1" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)">
+          <h3 class="font-bold text-white text-base mb-1.5">Chế tác Labo CAD/CAM</h3>
+          <p class="text-sm leading-relaxed mb-2" style="color:rgba(255,255,255,0.60)">Răng sứ được cắt gọt tự động bằng máy tiện 5 trục từ phôi sứ nguyên khối và đắp lớp màu thủ công tinh tế.</p>
+          <p class="text-xs font-medium" style="color:#EABF0E">✦ Tinh xảo từng đường vân</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style="background-color:rgba(234,191,14,0.2);color:#EABF0E">04</div>
+        <div class="rounded-2xl p-5 flex-1" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)">
+          <h3 class="font-bold text-white text-base mb-1.5">Thử dáng & Gắn cố định</h3>
+          <p class="text-sm leading-relaxed mb-2" style="color:rgba(255,255,255,0.60)">Khách hàng duyệt màu sắc và dáng răng trực tiếp trên miệng, sau đó bác sĩ dán răng vĩnh viễn bằng xi măng nha khoa sinh học.</p>
+          <p class="text-xs font-medium" style="color:#EABF0E">✦ Tự tin tỏa sáng</p>
+        </div>
+      </div>
+      </div>
+      <div class="text-center mt-14">
+        <a href="dat-lich.html" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-[#18181b] text-[0.95rem] transition-opacity hover:opacity-90 shadow-lg" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+          <i class="fa-solid fa-calendar-check"></i> Đặt Lịch Tư Vấn Quy Trình Chi Tiết
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. THƯ VIỆN NỤ CƯỜI -->
+  <section id="thu-vien" class="py-16" style="background-color:#222021">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold tracking-[0.18em] uppercase mb-3" style="color:#EABF0E">Thư viện nụ cười</p>
+        <h2 class="text-4xl font-bold text-white" style="font-family:'Be Vietnam Pro', sans-serif">Nụ cười thật, tự tin thật</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        
+      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md">
+        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-1.jpg" alt="Phục hồi nụ cười tự tin rạng ngời" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md">
+        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-2.jpg" alt="Khớp cắn chuẩn, nụ cười tỏa sáng" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md">
+        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-3.jpg" alt="Hàm răng đều đặn trắng sáng tự nhiên" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md">
+        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-4.jpg" alt="Ăn nhai chắc khỏe trọn đời" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md">
+        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-5.jpg" alt="Tự tin giao tiếp và thành công hơn" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md">
+        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-6.jpg" alt="Thay đổi diện mạo, nâng tầm nhan sắc" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md">
+        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-7.jpg" alt="Nụ cười rạng rỡ chuẩn tỉ lệ vàng" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md">
+        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-8.jpg" alt="Khẳng định phong thái bản lĩnh" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md">
+        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-9.jpg" alt="Tự tin tỏa sáng từng khoảnh khắc" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. TÔI CÓ PHÙ HỢP KHÔNG? -->
+  <section id="phu-hop" class="py-16" style="background-color:#18181b">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold tracking-[0.18em] uppercase mb-3" style="color:#EABF0E">Tôi có phù hợp không?</p>
+        <h2 class="text-4xl font-bold text-white mb-4" style="font-family:'Be Vietnam Pro', sans-serif">Khi Nào Bạn Nên Làm Răng Sứ Thẩm Mỹ?</h2>
+        <p class="text-base max-w-2xl mx-auto leading-relaxed" style="color:rgba(255,255,255,0.60)">Đội ngũ bác sĩ chuyên khoa tại Kim Dung luôn thăm khám kỹ lưỡng và tư vấn phương án điều trị an toàn, tối ưu nhất.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="flex flex-col gap-4">
           
-          <div class="gf-pricing-header">
-            <h3 class="gf-pricing-title">Mặt Dán Sứ Veneer Emax</h3>
-            <div class="gf-pricing-subtitle">Thụy Sĩ - Đỉnh cao bảo tồn</div>
-            <div class="gf-pricing-amount">6.500.000đ</div>
-            <div class="gf-pricing-unit">/ răng hoàn thiện</div>
+        <div class="flex gap-4 rounded-xl p-5" style="background-color:rgba(255,255,255,0.05);border:1px solid rgba(234,191,14,0.18)">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
-          <ul class="gf-pricing-features">
-            <li><i class="fa-solid fa-check"></i> <span>Độ mỏng siêu việt chỉ 0.2 - 0.5 mm</span></li><li><i class="fa-solid fa-check"></i> <span>Không cần mài răng hoặc chỉ nhám bề mặt</span></li><li><i class="fa-solid fa-check"></i> <span>Chất liệu thủy tinh sứ Emax Press Thụy Sĩ</span></li><li><i class="fa-solid fa-check"></i> <span>Độ phản quang và sắc thái màu đỉnh cao</span></li><li><i class="fa-solid fa-check"></i> <span>Bảo tồn 100% tủy răng và men răng gốc</span></li><li><i class="fa-solid fa-check"></i> <span>Bảo hành chính hãng 15 năm</span></li>
-          </ul>
-          <a href="dat-lich.html" class="gf-pricing-btn">Đăng Ký Tư Vấn Ngay</a>
+          <div>
+            <h3 class="font-semibold text-white text-sm mb-1">Răng nhiễm màu nặng do kháng sinh</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.60)">Răng bị ố vàng, nhiễm Tetracycline nặng mà phương pháp tẩy trắng răng không đem lại hiệu quả.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 rounded-xl p-5" style="background-color:rgba(255,255,255,0.05);border:1px solid rgba(234,191,14,0.18)">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white text-sm mb-1">Răng sứt mẻ, mòn men hoặc vỡ lớn</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.60)">Răng bị mẻ do tai nạn hoặc mòn men gây ê buốt, cần bọc sứ để tái tạo hình thể và bảo vệ tủy răng.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 rounded-xl p-5" style="background-color:rgba(255,255,255,0.05);border:1px solid rgba(234,191,14,0.18)">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white text-sm mb-1">Răng thưa kẽ, hình dáng xấu</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.60)">Răng cửa thưa, kích thước các răng không đều hoặc răng hình cánh bướm.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 rounded-xl p-5" style="background-color:rgba(255,255,255,0.05);border:1px solid rgba(234,191,14,0.18)">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white text-sm mb-1">Răng đã điều trị tủy</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.60)">Răng sau khi diệt tủy trở nên giòn và dễ gãy vỡ, bắt buộc phải bọc sứ bảo vệ dài lâu.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 rounded-xl p-5" style="background-color:rgba(255,255,255,0.05);border:1px solid rgba(234,191,14,0.18)">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white text-sm mb-1">Chăm sóc và bảo vệ sức khỏe răng</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.60)">Dành cho mọi khách hàng mong muốn sở hữu hàm răng chắc khỏe, tự tin rạng rỡ.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 rounded-xl p-5" style="background-color:rgba(255,255,255,0.05);border:1px solid rgba(234,191,14,0.18)">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white text-sm mb-1">Chăm sóc và bảo vệ sức khỏe răng</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.60)">Dành cho mọi khách hàng mong muốn sở hữu hàm răng chắc khỏe, tự tin rạng rỡ.</p>
+          </div>
+        </div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-square" style="border:1px solid rgba(255,255,255,0.1)">
+            <img src="https://www.nhakhoagreenfield.com/images/services/service-cosmetics.webp" alt="Phục Hình Thẩm Mỹ Răng Toàn Sứ Chuẩn Tỷ Lệ Vàng — Nha Khoa Kim Dung" class="w-full h-full object-cover object-center" loading="lazy"/>
+          </div>
+          <p class="text-xs text-center" style="color:rgba(255,255,255,0.50)">Phục Hình Thẩm Mỹ Răng Toàn Sứ Chuẩn Tỷ Lệ Vàng — Nha Khoa Kim Dung</p>
         </div>
       </div>
-      <p style="text-align: center; color: #71717a; font-size: 0.88rem; margin-top: 32px; font-style: italic;">
-        * Chi phí chính xác và phác đồ chi tiết sẽ được bác sĩ chuyên khoa tư vấn trực tiếp sau khi chụp phim thăm khám miễn phí.
-      </p>
     </div>
   </section>
 
-  <!-- 4. QUY TRÌNH ĐIỀU TRỊ CHUẨN Y KHOA (4 STEPS) -->
-  <section class="gf-section" style="background-color: #FFFFFF;">
-    <div class="wrap-content">
-      <div class="gf-header-center">
-        <div class="gf-tagline">QUY TRÌNH THỰC HIỆN</div>
-        <h2 class="gf-title-display">Quy Trình Làm Răng Sứ 4 Bước Chuẩn Y Khoa</h2>
-        <p class="gf-desc-lead">Từng công đoạn được thực hiện tỉ mỉ dưới kính lúp phóng đại, bảo đảm độ khít sát vi thể 0.01mm.</p>
+  <!-- 8. CAM KẾT ĐÁNG TIN CẬY -->
+  <section id="cam-ket" class="py-16" style="background-color:#18181b">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-white" style="font-family:'Be Vietnam Pro', sans-serif">Cam kết đáng tin cậy</h2>
+        <p class="mt-3 text-lg" style="color:rgba(255,255,255,0.60)">Không chỉ lời nói — chúng tôi cam kết bằng chất lượng điều trị và hợp đồng văn bản minh bạch</p>
       </div>
-      <div class="gf-workflow-grid">
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         
-        <div class="gf-workflow-card">
-          <div class="gf-workflow-num">01</div>
-          <h3 class="gf-workflow-title">Thăm khám & Thiết kế DSD</h3>
-          <p class="gf-workflow-desc">Kiểm tra khớp cắn, chụp ảnh studio phân tích tỉ lệ nụ cười và lên bản vẽ thiết kế 3D nụ cười mong muốn.</p>
-          <div class="gf-workflow-tag">✦ Cá nhân hóa dáng răng</div>
+      <div class="rounded-xl p-6 text-center" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1)">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color:rgba(234,191,14,0.15)">
+          <svg width="28" height="28" style="width:28px;height:28px;color:#EABF0E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         </div>
-        <div class="gf-workflow-card">
-          <div class="gf-workflow-num">02</div>
-          <h3 class="gf-workflow-title">Chuẩn bị cùi răng & Lấy dấu 3D</h3>
-          <p class="gf-workflow-desc">Sửa soạn mô răng tối thiểu không đau, quét dấu hàm kỹ thuật số bằng máy scan 3D hiện đại gửi đến Labo chế tác.</p>
-          <div class="gf-workflow-tag">✦ Không đau, không ê buốt</div>
+        <h3 class="font-semibold text-white mb-2">Bảo hành dài hạn</h3>
+        <p class="text-sm" style="color:rgba(255,255,255,0.60)">Bảo hành từ 10 đến 15 năm hoặc trọn đời tùy dịch vụ. Cung cấp thẻ bảo hành điện tử chính hãng và kiểm tra định kỳ miễn phí.</p>
+      </div>
+      <div class="rounded-xl p-6 text-center" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1)">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color:rgba(234,191,14,0.15)">
+          <svg width="28" height="28" style="width:28px;height:28px;color:#EABF0E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         </div>
-        <div class="gf-workflow-card">
-          <div class="gf-workflow-num">03</div>
-          <h3 class="gf-workflow-title">Chế tác Labo CAD/CAM</h3>
-          <p class="gf-workflow-desc">Răng sứ được cắt gọt tự động bằng máy tiện 5 trục từ phôi sứ nguyên khối và đắp lớp màu thủ công tinh tế.</p>
-          <div class="gf-workflow-tag">✦ Tinh xảo từng đường vân</div>
+        <h3 class="font-semibold text-white mb-2">Chứng nhận quốc tế</h3>
+        <p class="text-sm" style="color:rgba(255,255,255,0.60)">Đội ngũ bác sĩ tu nghiệp chuyên sâu tại Thụy Sĩ, Hoa Kỳ, Hàn Quốc. Phòng khám đạt chuẩn vô trùng khép kín nghiêm ngặt.</p>
+      </div>
+      <div class="rounded-xl p-6 text-center" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1)">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color:rgba(234,191,14,0.15)">
+          <svg width="28" height="28" style="width:28px;height:28px;color:#EABF0E" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         </div>
-        <div class="gf-workflow-card">
-          <div class="gf-workflow-num">04</div>
-          <h3 class="gf-workflow-title">Thử dáng & Gắn cố định</h3>
-          <p class="gf-workflow-desc">Khách hàng duyệt màu sắc và dáng răng trực tiếp trên miệng, sau đó bác sĩ dán răng vĩnh viễn bằng xi măng nha khoa sinh học.</p>
-          <div class="gf-workflow-tag">✦ Tự tin tỏa sáng</div>
+        <h3 class="font-semibold text-white mb-2">Vật liệu chính hãng</h3>
+        <p class="text-sm" style="color:rgba(255,255,255,0.60)">Nobel Biocare, Straumann, Hiossen, Cercon HT, IPS e.max — các thương hiệu nha khoa hàng đầu thế giới có tem CO/CQ.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. BÁC SĨ CHUYÊN TRÁCH -->
+  <section id="bac-si" class="py-16" style="background-color:#222021">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-white mb-8 text-center" style="font-family:'Be Vietnam Pro', sans-serif">Bác sĩ chuyên trách</h2>
+        <div class="rounded-2xl p-6 lg:p-8" style="background-color:#2e2c2d;border:1px solid #3a3738">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-36 h-36 rounded-full overflow-hidden mb-4 bg-gray-700 border-2" style="border-color:rgba(234,191,14,0.4)">
+                <img src="https://nhakhoakimdung.vn/thumbs/400x440x1/upload/news/thiet-ke-chua-co-ten-1755314936.png.webp" alt="Bác sĩ Cố Vấn Kim Dung" class="w-full h-full object-cover object-top" loading="lazy"/>
+              </div>
+              <h3 class="text-xl font-semibold text-white">Bác sĩ Cố Vấn Kim Dung</h3>
+              <p class="text-sm font-medium mt-1" style="color:#EABF0E">Cố vấn Chuyên môn & Thẩm mỹ Nụ cười</p>
+            </div>
+            <div class="lg:col-span-2">
+              <p class="text-gray-300 mb-5 leading-relaxed">Hơn 20 năm cống hiến trong ngành Răng Hàm Mặt, chuyên gia phục hình thẩm mỹ sứ cao cấp và kiến tạo nụ cười chuẩn nhân tướng học. Từng thực hiện hơn 5.000 ca dán sứ Veneer và bọc răng toàn sứ tinh xảo.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">20+ Năm kinh nghiệm</span><span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">5.000+ Ca Răng sứ hoàn mỹ</span><span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">Chuyên gia DSD Smile Design</span><span class="text-xs font-medium px-3 py-1 rounded-full" style="background-color:rgba(234,191,14,0.15);color:#EABF0E">Bảo tồn tối đa mô răng</span>
+              </div>
+              <a class="inline-flex items-center gap-2 px-6 py-3 text-[#18181b] font-semibold text-sm rounded-lg transition-opacity hover:opacity-90 shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">
+                <i class="fa-solid fa-calendar-check"></i> Đặt Lịch Tư Vấn Trực Tiếp
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. AI PHÙ HỢP? (CANDIDATE CRITERIA) -->
-  <section class="gf-section" style="background-color: #FBF9F2;">
-    <div class="wrap-content">
-      <div class="gf-header-center">
-        <div class="gf-tagline">ĐỐI TƯỢNG PHÙ HỢP</div>
-        <h2 class="gf-title-display">Khi Nào Bạn Nên Làm Răng Sứ Thẩm Mỹ?</h2>
+  <!-- 10. CÂU HỎI THƯỜNG GẶP (FAQ) -->
+  <section id="faq" class="py-16" style="background-color:#18181b">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold tracking-[0.18em] uppercase mb-3" style="color:#EABF0E">Câu hỏi thường gặp</p>
+        <h2 class="text-4xl font-bold text-white" style="font-family:'Be Vietnam Pro', sans-serif">Giải Đáp Thắc Mắc</h2>
       </div>
-      <div class="gf-criteria-grid">
-        <div class="gf-criteria-card">
-          <h3 class="gf-criteria-title"><i class="fa-solid fa-clipboard-check" style="color: #EABF0E;"></i> Trường hợp được khuyên dùng</h3>
-          <ul class="gf-criteria-list">
-            
-      <li class="gf-criteria-item">
-        <div class="gf-criteria-icon"><i class="fa-solid fa-check"></i></div>
-        <div>
-          <strong>Răng nhiễm màu nặng do kháng sinh</strong>
-          <p>Răng bị ố vàng, nhiễm Tetracycline nặng mà phương pháp tẩy trắng răng không đem lại hiệu quả.</p>
-        </div>
-      </li>
-      <li class="gf-criteria-item">
-        <div class="gf-criteria-icon"><i class="fa-solid fa-check"></i></div>
-        <div>
-          <strong>Răng sứt mẻ, mòn men hoặc vỡ lớn</strong>
-          <p>Răng bị mẻ do tai nạn hoặc mòn men gây ê buốt, cần bọc sứ để tái tạo hình thể và bảo vệ tủy răng.</p>
-        </div>
-      </li>
-      <li class="gf-criteria-item">
-        <div class="gf-criteria-icon"><i class="fa-solid fa-check"></i></div>
-        <div>
-          <strong>Răng thưa kẽ, hình dáng xấu</strong>
-          <p>Răng cửa thưa, kích thước các răng không đều hoặc răng hình cánh bướm.</p>
-        </div>
-      </li>
-      <li class="gf-criteria-item">
-        <div class="gf-criteria-icon"><i class="fa-solid fa-check"></i></div>
-        <div>
-          <strong>Răng đã điều trị tủy</strong>
-          <p>Răng sau khi diệt tủy trở nên giòn và dễ gãy vỡ, bắt buộc phải bọc sứ bảo vệ dài lâu.</p>
-        </div>
-      </li>
-          </ul>
-        </div>
-        <div class="gf-criteria-card">
-          <h3 class="gf-criteria-title"><i class="fa-solid fa-user-shield" style="color: #EABF0E;"></i> Tiêu chuẩn an toàn tại Kim Dung</h3>
-          <ul class="gf-criteria-list">
-            
-      <li class="gf-criteria-item">
-        <div class="gf-criteria-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <div>
-          <strong>Nguyên tắc bảo tồn mô răng gốc</strong>
-          <p>Tuyệt đối không mài nhỏ răng thành que tăm, bảo vệ tối đa ngà răng và tủy sống.</p>
-        </div>
-      </li>
-      <li class="gf-criteria-item">
-        <div class="gf-criteria-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <div>
-          <strong>Đường hoàn tất tinh vi sát khít</strong>
-          <p>Kỹ thuật lấy đường hoàn tất bờ vai/bờ vát giúp nướu ôm khít răng sứ, không đọng thức ăn.</p>
-        </div>
-      </li>
-      <li class="gf-criteria-item">
-        <div class="gf-criteria-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <div>
-          <strong>Khớp cắn chuẩn sinh lý</strong>
-          <p>Không gây kênh cộm, không mỏi hàm hay ảnh hưởng tới khớp thái dương hàm.</p>
-        </div>
-      </li>
-      <li class="gf-criteria-item">
-        <div class="gf-criteria-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <div>
-          <strong>100% Vật liệu sứ chính hãng</strong>
-          <p>Có thẻ bảo hành IDPI truy xuất nguồn gốc chính hãng từ nhà sản xuất quốc tế.</p>
-        </div>
-      </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. THƯ VIỆN NỤ CƯỜI THỰC TẾ -->
-  <section class="gf-section" style="background-color: #FFFFFF;">
-    <div class="wrap-content">
-      <div class="gf-header-center">
-        <div class="gf-tagline">KẾT QUẢ THỰC TẾ</div>
-        <h2 class="gf-title-display">Thư Viện Nụ Cười Khách Hàng</h2>
-        <p class="gf-desc-lead">Hình ảnh khách hàng thực tế sau khi điều trị tại Nha Khoa Kim Dung</p>
-      </div>
-      <div class="gf-gallery-grid">
+      <div class="space-y-3 mb-12">
         
-        <div class="gf-gallery-item">
-          <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-1.jpg" alt="Phục hồi nụ cười tự tin rạng ngời" loading="lazy">
-          <div class="gf-gallery-overlay">
-            <div class="gf-gallery-caption">Phục hồi nụ cười tự tin rạng ngời</div>
-          </div>
-        </div>
-        <div class="gf-gallery-item">
-          <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-2.jpg" alt="Khớp cắn chuẩn, nụ cười tỏa sáng" loading="lazy">
-          <div class="gf-gallery-overlay">
-            <div class="gf-gallery-caption">Khớp cắn chuẩn, nụ cười tỏa sáng</div>
-          </div>
-        </div>
-        <div class="gf-gallery-item">
-          <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-3.jpg" alt="Hàm răng đều đặn trắng sáng tự nhiên" loading="lazy">
-          <div class="gf-gallery-overlay">
-            <div class="gf-gallery-caption">Hàm răng đều đặn trắng sáng tự nhiên</div>
-          </div>
-        </div>
-        <div class="gf-gallery-item">
-          <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-4.jpg" alt="Ăn nhai chắc khỏe trọn đời" loading="lazy">
-          <div class="gf-gallery-overlay">
-            <div class="gf-gallery-caption">Ăn nhai chắc khỏe trọn đời</div>
-          </div>
-        </div>
-        <div class="gf-gallery-item">
-          <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-5.jpg" alt="Tự tin giao tiếp và thành công hơn" loading="lazy">
-          <div class="gf-gallery-overlay">
-            <div class="gf-gallery-caption">Tự tin giao tiếp và thành công hơn</div>
-          </div>
-        </div>
-        <div class="gf-gallery-item">
-          <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-6.jpg" alt="Thay đổi diện mạo, nâng tầm nhan sắc" loading="lazy">
-          <div class="gf-gallery-overlay">
-            <div class="gf-gallery-caption">Thay đổi diện mạo, nâng tầm nhan sắc</div>
-          </div>
+      <div class="rounded-2xl overflow-hidden" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1)">
+        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
+          <span class="font-semibold text-white text-sm leading-snug">Bọc răng sứ có phải diệt tủy không?</span>
+          <span style="color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+        </button>
+        <div class="faq-accordion-content px-6 pb-5 text-sm text-gray-300 leading-relaxed" style="display:none;">
+          Tại Nha Khoa Kim Dung, nguyên tắc số 1 là bảo tồn tủy răng sống. Đa số các trường hợp bọc răng sứ thẩm mỹ hay dán sứ Veneer đều KHÔNG CẦN diệt tủy. Bác sĩ chỉ chỉ định lấy tủy khi răng đã bị viêm tủy nặng trước đó hoặc sâu vỡ lan đến buồng tủy.
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 7. ĐỘI NGŨ BÁC SĨ CHUYÊN GIA -->
-  <section class="gf-section" style="background-color: #FBF9F2;">
-    <div class="wrap-content">
-      <div class="gf-header-center">
-        <div class="gf-tagline">ĐỘI NGŨ Y KHOA</div>
-        <h2 class="gf-title-display">Bác Sĩ Chuyên Khoa Phụ Trách</h2>
-        <p class="gf-desc-lead">Đội ngũ bác sĩ tu nghiệp chuyên sâu trong và ngoài nước, luôn tận tâm đồng hành</p>
-      </div>
-      <div class="gf-doctors-grid">
-        
-        <div class="gf-doctor-card">
-          <div class="gf-doctor-img">
-            <img src="https://nhakhoakimdung.vn/thumbs/500x550x1/upload/news/thiet-ke-chua-co-ten-1755314936.png.webp" alt="Bác sĩ CKI Thùy Chi" loading="lazy">
-          </div>
-          <div class="gf-doctor-body">
-            <h3 class="gf-doctor-name">Bác sĩ CKI Thùy Chi</h3>
-            <div class="gf-doctor-role">Trưởng khoa Cấy ghép Implant & Phục hình</div>
-            <p class="gf-doctor-desc">Tốt nghiệp ĐH Y Hà Nội, hơn 12 năm kinh nghiệm cấy ghép Implant chuyên sâu và phục hình răng thẩm mỹ quốc tế.</p>
-            <a href="dat-lich.html" class="gf-btn-outline" style="padding: 10px; font-size: 0.85rem; text-align: center;">Đặt hẹn khám</a>
-          </div>
-        </div>
-        <div class="gf-doctor-card">
-          <div class="gf-doctor-img">
-            <img src="https://nhakhoakimdung.vn/thumbs/500x550x1/upload/news/thiet-ke-chua-co-ten-2-1755315466.png.webp" alt="Bác sĩ Thanh Thủy" loading="lazy">
-          </div>
-          <div class="gf-doctor-body">
-            <h3 class="gf-doctor-name">Bác sĩ Thanh Thủy</h3>
-            <div class="gf-doctor-role">Chuyên gia Chỉnh nha & Nụ cười</div>
-            <p class="gf-doctor-desc">Chứng chỉ Chỉnh nha Invisalign Platinum Hoa Kỳ, thực hiện thành công hơn 1.500 ca niềng răng mắc cài và máng trong suốt.</p>
-            <a href="dat-lich.html" class="gf-btn-outline" style="padding: 10px; font-size: 0.85rem; text-align: center;">Đặt hẹn khám</a>
-          </div>
-        </div>
-        <div class="gf-doctor-card">
-          <div class="gf-doctor-img">
-            <img src="https://nhakhoakimdung.vn/thumbs/400x440x1/upload/news/thiet-ke-chua-co-ten-1755314936.png.webp" alt="Bác sĩ Cố Vấn Kim Dung" loading="lazy">
-          </div>
-          <div class="gf-doctor-body">
-            <h3 class="gf-doctor-name">Bác sĩ Cố Vấn Kim Dung</h3>
-            <div class="gf-doctor-role">Cố vấn Chuyên môn Cấp cao</div>
-            <p class="gf-doctor-desc">Hơn 20 năm cống hiến trong ngành Răng Hàm Mặt, chuyên gia xử lý các ca phục hồi toàn hàm và sai lệch khớp cắn phức tạp.</p>
-            <a href="dat-lich.html" class="gf-btn-outline" style="padding: 10px; font-size: 0.85rem; text-align: center;">Đặt hẹn khám</a>
-          </div>
-        </div>
-        <div class="gf-doctor-card">
-          <div class="gf-doctor-img">
-            <img src="https://nhakhoakimdung.vn/thumbs/400x440x1/upload/news/thiet-ke-chua-co-ten-2-1755315466.png.webp" alt="Bác sĩ Điều trị Tổng quát" loading="lazy">
-          </div>
-          <div class="gf-doctor-body">
-            <h3 class="gf-doctor-name">Bác sĩ Điều trị Tổng quát</h3>
-            <div class="gf-doctor-role">Chuyên khoa Nha khoa Vi phẫu & Thẩm mỹ</div>
-            <p class="gf-doctor-desc">Tận tâm, thao tác nhẹ nhàng, giàu kinh nghiệm trong nhổ răng khôn không đau Piezotome và điều trị tủy vi phẫu.</p>
-            <a href="dat-lich.html" class="gf-btn-outline" style="padding: 10px; font-size: 0.85rem; text-align: center;">Đặt hẹn khám</a>
-          </div>
+      <div class="rounded-2xl overflow-hidden" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1)">
+        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
+          <span class="font-semibold text-white text-sm leading-snug">Làm răng sứ có bị hôi miệng hay viêm lợi không?</span>
+          <span style="color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+        </button>
+        <div class="faq-accordion-content px-6 pb-5 text-sm text-gray-300 leading-relaxed" style="display:none;">
+          Hoàn toàn KHÔNG nếu được thực hiện đúng kỹ thuật. Nguyên nhân gây hôi miệng hoặc viêm lợi ở các cơ sở kém uy tín là do mài phạm khoảng sinh học và lắp răng bị hở mép. Tại Kim Dung, răng sứ được quét 3D và tiện CNC sát khít 100%, nướu răng hoàn toàn khỏe mạnh, hồng hào.
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 8. CÂU HỎI THƯỜNG GẶP (FAQ ACCORDION) -->
-  <section class="gf-section" style="background-color: #FFFFFF;">
-    <div class="wrap-content">
-      <div class="gf-header-center">
-        <div class="gf-tagline">GIẢI ĐÁP Y KHOA</div>
-        <h2 class="gf-title-display">Câu Hỏi Thường Gặp</h2>
-        <p class="gf-desc-lead">Những thắc mắc phổ biến của bệnh nhân trước khi tiến hành điều trị</p>
-      </div>
-      <div class="gf-faq-list">
-        
-        <div class="gf-faq-item active">
-          <div class="gf-faq-question">
-            <span>Bọc răng sứ có phải diệt tủy không?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="gf-faq-answer">
-            Tại Nha Khoa Kim Dung, nguyên tắc số 1 là bảo tồn tủy răng sống. Đa số các trường hợp bọc răng sứ thẩm mỹ hay dán sứ Veneer đều KHÔNG CẦN diệt tủy. Bác sĩ chỉ chỉ định lấy tủy khi răng đã bị viêm tủy nặng trước đó hoặc sâu vỡ lan đến buồng tủy.
-          </div>
-        </div>
-        <div class="gf-faq-item ">
-          <div class="gf-faq-question">
-            <span>Làm răng sứ có bị hôi miệng hay viêm lợi không?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="gf-faq-answer">
-            Hoàn toàn KHÔNG nếu được thực hiện đúng kỹ thuật. Nguyên nhân gây hôi miệng hoặc viêm lợi ở các cơ sở kém uy tín là do mài phạm khoảng sinh học và lắp răng bị hở mép. Tại Kim Dung, răng sứ được quét 3D và tiện CNC sát khít 100%, nướu răng hoàn toàn khỏe mạnh, hồng hào.
-          </div>
-        </div>
-        <div class="gf-faq-item ">
-          <div class="gf-faq-question">
-            <span>Dán sứ Veneer khác gì so với bọc răng sứ thông thường?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="gf-faq-answer">
-            Dán sứ Veneer là đỉnh cao của nha khoa thẩm mỹ bảo tồn. Bác sĩ chỉ cần làm nhám một lớp siêu mỏng 0.2 - 0.5mm ở mặt ngoài răng (thậm chí không cần mài), không tác động mặt trong và các góc cạnh. Phương pháp này giữ nguyên 100% răng thật bên trong.
-          </div>
-        </div>
-        <div class="gf-faq-item ">
-          <div class="gf-faq-question">
-            <span>Răng sứ dùng được bao nhiêu năm?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="gf-faq-answer">
-            Răng toàn sứ chính hãng có tuổi thọ từ 15 đến 25 năm, thậm chí trọn đời nếu bạn chăm sóc vệ sinh đúng cách và tái khám lấy cao răng định kỳ mỗi 6 tháng.
-          </div>
-        </div>
-        <div class="gf-faq-item ">
-          <div class="gf-faq-question">
-            <span>Bọc răng sứ có ăn uống bình thường được không?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="gf-faq-answer">
-            Răng toàn sứ có độ cứng chịu lực từ 900 - 1400 MPa (gấp 4-6 lần răng tự nhiên), do đó sau khi hoàn thiện bạn có thể ăn nhai hoàn toàn thoải mái mọi món ăn thường ngày mà không phải kiêng khem phức tạp.
-          </div>
+      <div class="rounded-2xl overflow-hidden" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1)">
+        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
+          <span class="font-semibold text-white text-sm leading-snug">Dán sứ Veneer khác gì so với bọc răng sứ thông thường?</span>
+          <span style="color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+        </button>
+        <div class="faq-accordion-content px-6 pb-5 text-sm text-gray-300 leading-relaxed" style="display:none;">
+          Dán sứ Veneer là đỉnh cao của nha khoa thẩm mỹ bảo tồn. Bác sĩ chỉ cần làm nhám một lớp siêu mỏng 0.2 - 0.5mm ở mặt ngoài răng (thậm chí không cần mài), không tác động mặt trong và các góc cạnh. Phương pháp này giữ nguyên 100% răng thật bên trong.
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 9. CTA BANNER ĐẶT LỊCH HẸN -->
-  <section class="gf-section" style="background-color: #18181b; color: #FFFFFF;">
-    <div class="wrap-content">
-      <div class="gf-cta-box" style="background: #27272a !important; border-color: rgba(234, 191, 14, 0.4) !important;">
-        <div class="gf-pill-label">✦ ĐẶT LỊCH HẸN HÔM NAY</div>
-        <h3 style="color: #FFFFFF !important;">Sẵn Sàng Lấy Lại Nụ Cười Tự Tin Rạng Rỡ?</h3>
-        <p style="color: rgba(255, 255, 255, 0.8) !important;">
-          Đặt lịch ngay hôm nay để nhận miễn phí gói khám tổng quát & chụp phim CT Cone Beam 3D trị giá 500.000đ.
-        </p>
-        <div class="gf-cta-meta" style="color: rgba(255, 255, 255, 0.7) !important;">
-          <span><i class="fa-solid fa-clock" style="color: #EABF0E;"></i> 08:00 - 19:30 (Cả T7 & CN)</span>
-          <span><i class="fa-solid fa-map-pin" style="color: #EABF0E;"></i> Số 15 Bắc Sơn, P. Quang Trung, TP. Thái Nguyên</span>
+      <div class="rounded-2xl overflow-hidden" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1)">
+        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
+          <span class="font-semibold text-white text-sm leading-snug">Răng sứ dùng được bao nhiêu năm?</span>
+          <span style="color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+        </button>
+        <div class="faq-accordion-content px-6 pb-5 text-sm text-gray-300 leading-relaxed" style="display:none;">
+          Răng toàn sứ chính hãng có tuổi thọ từ 15 đến 25 năm, thậm chí trọn đời nếu bạn chăm sóc vệ sinh đúng cách và tái khám lấy cao răng định kỳ mỗi 6 tháng.
         </div>
-        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="dat-lich.html" class="gf-btn-primary" style="font-size: 1rem;"><i class="fa-solid fa-calendar-check"></i> Đặt Lịch Khám Miễn Phí</a>
-          <a href="tel:0862960886" class="gf-btn-outline-gold" style="font-size: 1rem;"><i class="fa-solid fa-phone"></i> Gọi 0862 960 886</a>
+      </div>
+      <div class="rounded-2xl overflow-hidden" style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1)">
+        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
+          <span class="font-semibold text-white text-sm leading-snug">Bọc răng sứ có ăn uống bình thường được không?</span>
+          <span style="color:#EABF0E">
+            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+        </button>
+        <div class="faq-accordion-content px-6 pb-5 text-sm text-gray-300 leading-relaxed" style="display:none;">
+          Răng toàn sứ có độ cứng chịu lực từ 900 - 1400 MPa (gấp 4-6 lần răng tự nhiên), do đó sau khi hoàn thiện bạn có thể ăn nhai hoàn toàn thoải mái mọi món ăn thường ngày mà không phải kiêng khem phức tạp.
         </div>
+      </div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-[#18181b] font-semibold text-sm transition-opacity hover:opacity-90 shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">
+          Hỏi Kim Dung Ngay
+          <svg width="16" height="16" style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+        <a href="tel:0862960886" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-sm transition-opacity hover:opacity-90" style="border:1.5px solid #EABF0E;color:#EABF0E !important;text-decoration:none;background:transparent;">
+          <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;color:#EABF0E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          Gọi Ngay 0862 960 886
+        </a>
       </div>
     </div>
   </section>
