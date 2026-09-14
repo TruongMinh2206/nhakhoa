@@ -647,6 +647,9 @@
           });
         }
 
+        const isPlus = icon && (icon.innerHTML.includes('M12 4v16') || icon.innerHTML.includes('fa-plus'));
+        const rotateVal = isPlus ? 'rotate(45deg)' : 'rotate(180deg)';
+
         if (isExpanded) {
           card.classList.remove('is-open');
           if (answer) answer.style.display = 'none';
@@ -654,7 +657,7 @@
         } else {
           card.classList.add('is-open');
           if (answer) answer.style.display = 'block';
-          if (icon) icon.style.transform = 'rotate(180deg)';
+          if (icon) icon.style.transform = rotateVal;
         }
       });
     });
