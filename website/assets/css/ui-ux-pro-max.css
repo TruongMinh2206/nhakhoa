@@ -2765,3 +2765,34 @@ a[onclick*="selectDoctor"] svg,
   width: 14px !important;
   height: 14px !important;
 }
+
+/* ==========================================================================
+   HERO BANNER BACKGROUND REMOVAL (ALL TABS)
+   Eliminate blurry/shadow overlays (bg bóng mờ) and background clinic image
+   per user request. Provide clean, modern, high-contrast hero typography.
+   ========================================================================== */
+.gf-hero-bg,
+.gf-hero-overlay,
+.gf-theme-root > section.relative:first-of-type > .z-0,
+section.relative:has(.max-w-\[640px\]) > .z-0,
+section.relative > .absolute.inset-0.z-0 {
+  display: none !important;
+}
+
+.gf-hero {
+  min-height: auto !important;
+  padding: 64px 0 54px !important;
+  background: var(--gf-bg-main-gradient) !important;
+}
+
+.gf-theme-root > section.relative:first-of-type,
+section.relative:has(.max-w-\[640px\]) {
+  min-height: auto !important;
+  background: var(--gf-bg-main-gradient) !important;
+}
+
+.gf-theme-root > section.relative:first-of-type > .py-28,
+section.relative:has(.max-w-\[640px\]) > .py-28 {
+  padding-top: 64px !important;
+  padding-bottom: 54px !important;
+}

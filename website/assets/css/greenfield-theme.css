@@ -352,38 +352,35 @@
    ========================================================================== */
 .gf-hero {
   position: relative;
-  min-height: 90vh;
+  min-height: auto !important;
   display: flex;
   align-items: center;
   background: var(--gf-bg-main-gradient) !important;
   overflow: hidden;
-  padding: 100px 0 80px;
+  padding: 64px 0 54px !important;
 }
 
-.gf-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.gf-hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
+.gf-hero-bg,
 .gf-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(255, 253, 246, 0.97) 0%,
-    rgba(255, 253, 246, 0.92) 45%,
-    rgba(255, 253, 246, 0.68) 75%,
-    rgba(255, 253, 246, 0.3) 100%
-  );
-  z-index: 1;
+  display: none !important;
+}
+
+/* Global Hero banner background removal across all service & doctor tabs */
+.gf-theme-root > section.relative:first-of-type,
+section.relative:has(.max-w-\[640px\]) {
+  min-height: auto !important;
+  background: var(--gf-bg-main-gradient) !important;
+}
+
+.gf-theme-root > section.relative:first-of-type > .z-0,
+section.relative:has(.max-w-\[640px\]) > .z-0 {
+  display: none !important;
+}
+
+.gf-theme-root > section.relative:first-of-type > .py-28,
+section.relative:has(.max-w-\[640px\]) > .py-28 {
+  padding-top: 64px !important;
+  padding-bottom: 54px !important;
 }
 
 .gf-hero-content {
