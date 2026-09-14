@@ -2138,12 +2138,14 @@
 .gf-theme-root .w-7  { width: 1.75rem !important; }
 .gf-theme-root .h-7  { height: 1.75rem !important; }
 
-.gf-theme-root .text-white { color: #ffffff !important; }
-.gf-theme-root .text-gray-300 { color: #d1d5db !important; }
-.gf-theme-root .text-gray-400 { color: #9ca3af !important; }
-.gf-theme-root .text-gray-500 { color: #6b7280 !important; }
-.gf-theme-root .text-zinc-300 { color: #d4d4d8 !important; }
-.gf-theme-root .text-zinc-400 { color: #a1a1aa !important; }
+/* All Section Backgrounds Enforced to Signature Main Gradient */
+.gf-theme-root,
+.gf-theme-root > section,
+.gf-theme-root section,
+.gf-theme-root div[data-section="options"],
+.gf-theme-root div[data-section="options"] section {
+  background: var(--gf-bg-main-gradient) !important;
+}
 
 /* Spacing and Utilities */
 .space-y-3 > * + * { margin-top: 0.75rem !important; }
@@ -2163,7 +2165,7 @@
 }
 
 .faq-accordion-btn:hover {
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: rgba(234, 191, 14, 0.08) !important;
 }
 
 .faq-accordion-content {
