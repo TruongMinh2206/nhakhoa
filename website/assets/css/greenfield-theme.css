@@ -2360,7 +2360,33 @@ html, body {
   overflow: hidden !important;
 }
 
+/* ==========================================================================
+   DOCTOR CARD BUTTONS RESPONSIVE SAFEGUARD
+   ========================================================================== */
+a[onclick*="selectDoctor"],
+.doctor-card-btn {
+  white-space: nowrap !important;
+  font-size: 0.875rem !important;
+  padding: 10px 12px !important;
+  gap: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+}
 
+a[onclick*="selectDoctor"] span,
+.doctor-card-btn span {
+  white-space: nowrap !important;
+  color: #18181b !important;
+}
 
-
-
+a[onclick*="selectDoctor"] svg,
+.doctor-card-btn svg {
+  flex-shrink: 0 !important;
+  width: 14px !important;
+  height: 14px !important;
+}
