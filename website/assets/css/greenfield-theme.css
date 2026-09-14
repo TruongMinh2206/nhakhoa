@@ -1385,3 +1385,10 @@
     padding: 24px 18px;
   }
 }
+
+.gf-btn-primary, .gf-btn-primary *,
+.gf-btn-outline, .gf-btn-outline *,
+.gf-btn-view, .gf-btn-view *,
+.gf-team-btn, .gf-team-btn * {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}

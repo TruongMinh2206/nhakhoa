@@ -2059,3 +2059,47 @@ a, button, input, select, textarea {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* UNIVERSAL VIETNAMESE TYPOGRAPHY ENFORCEMENT */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input, button, select, textarea,
+.gf-btn-primary, .gf-btn-primary span,
+.gf-btn-outline, .gf-btn-outline span,
+.gf-hero-actions a, .gf-hero-actions a span {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Headings Weight */
+h1, h2, h3, h4, h5, h6,
+.title-main, .title-about-us, .name-service, .title-detail h1,
+[class*="title-"], [class*="heading-"], .name-doctor, .name-news,
+.gf-title-display, .gf-hero-title, .gf-service-title, .gf-why-title,
+.gf-patient-name, .gf-doctor-name, .gf-cta-box h3, .gf-calc-label {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Icons Exclusion (Preserve FontAwesome) */
+.fa, .fas, .far, .fab, .fad, .fal, .fat,
+[class*="fa-"], [class*="icon"], i[class*="fa"],
+.kenit-alo-circle, .kenit-alo-circle-fill,
+.swiper-button-prev, .swiper-button-next {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "FontAwesome" !important;
+}
+
+/* Tab Giới thiệu content exception requested by user */
+.content-main, .info-introduce, .info-introduce p, .content-main p,
+.desc-introduce, .desc-introduce p, .content-text, .content-text p, .content-main * {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
