@@ -3,25 +3,7 @@ import re
 import os
 
 font_face_block = """
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
-
-@font-face {
-  font-family: 'MontserratBold';
-  src: local('Montserrat Bold'), local('Montserrat-Bold'),
-       url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'MontserratRegular';
-  src: local('Montserrat Regular'), local('Montserrat-Regular'),
-       url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
 """
 
 # 1. Update greenfield-theme.css
@@ -29,32 +11,28 @@ gf_css_path = r"d:\Work\clone\clone\website\assets\css\greenfield-theme.css"
 with open(gf_css_path, "r", encoding="utf-8") as f:
     gf_css = f.read()
 
-# Replace top imports
-gf_css = re.sub(r"@import\s+url\('https://fonts\.googleapis\.com/[^']*'\);", "", gf_css)
-gf_css = font_face_block.strip() + "\n\n" + gf_css.strip()
-
 # Replace font variables
 gf_css = re.sub(
     r"--gf-font-display:[^;]+;",
-    "--gf-font-display: 'MontserratBold', 'Montserrat', sans-serif;",
+    "--gf-font-display: 'Be Vietnam Pro', sans-serif;",
     gf_css
 )
 gf_css = re.sub(
     r"--gf-font-sans:[^;]+;",
-    "--gf-font-sans: 'MontserratRegular', 'Montserrat', sans-serif;",
+    "--gf-font-sans: 'Be Vietnam Pro', sans-serif;",
     gf_css
 )
 
-# Replace any lingering Cormorant or Plus Jakarta Sans
-gf_css = gf_css.replace("'Cormorant Garamond', Georgia, serif", "'MontserratBold', 'Montserrat', sans-serif")
-gf_css = gf_css.replace("'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", "'MontserratRegular', 'Montserrat', sans-serif")
-gf_css = gf_css.replace("var(--gf-font-display)", "'MontserratBold', 'Montserrat', sans-serif")
-gf_css = gf_css.replace("var(--gf-font-sans)", "'MontserratRegular', 'Montserrat', sans-serif")
+# Replace any lingering Montserrat
+gf_css = gf_css.replace("'MontserratBold', 'Montserrat', sans-serif", "'Be Vietnam Pro', sans-serif")
+gf_css = gf_css.replace("'MontserratRegular', 'Montserrat', sans-serif", "'Be Vietnam Pro', sans-serif")
+gf_css = gf_css.replace("var(--gf-font-display)", "'Be Vietnam Pro', sans-serif")
+gf_css = gf_css.replace("var(--gf-font-sans)", "'Be Vietnam Pro', sans-serif")
 
-# Ensure headings strictly use MontserratBold
+# Ensure headings strictly use Be Vietnam Pro
 gf_css = re.sub(
     r"(\.gf-theme-root\s+h1[^{]*\{[^}]*?font-family:\s*)[^;!]+(!important)?;",
-    r"\g<1>'MontserratBold', 'Montserrat', sans-serif !important;",
+    r"\g<1>'Be Vietnam Pro', sans-serif !important;",
     gf_css
 )
 
@@ -102,7 +80,7 @@ new_heading_rule = """h1, h2, h3, h4, h5, h6,
 [class*="title-"], [class*="heading-"], .name-doctor, .name-news,
 .gf-title-display, .gf-hero-title, .gf-service-title, .gf-why-title,
 .gf-patient-name, .gf-doctor-name, .gf-cta-box h3, .gf-calc-label {
-  font-family: 'MontserratBold', 'Montserrat', sans-serif !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
   font-weight: 700 !important;
   letter-spacing: -0.01em;
 }"""
@@ -124,7 +102,7 @@ div:not(.fa):not([class*="fa-"]):not([class*="icon"]):not(.swiper-button-prev):n
 li:not(.fa):not([class*="fa-"]), td, th,
 .gf-desc-lead, .gf-hero-desc, .gf-service-desc, .gf-why-desc,
 .gf-quote-text, .gf-review-text, .gf-doctor-desc, .gf-calc-detail {
-  font-family: 'MontserratRegular', 'Montserrat', sans-serif !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
 }"""
 
 if old_body_rule.search(uupm_css):
@@ -134,5 +112,5 @@ else:
 
 with open(uupm_css_path, "w", encoding="utf-8") as f:
     f.write(uupm_css)
-print("Updated ui-ux-pro-max.css with MontserratBold & MontserratRegular")
+print("Updated ui-ux-pro-max.css with Be Vietnam Pro")
 

@@ -70,6 +70,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
     <link href="assets/css/ui-ux-pro-max.css" rel="stylesheet">
     <link href="assets/css/greenfield-theme.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -289,7 +292,7 @@
                 <i class="fa-solid fa-check"></i>
               </div>
               <div>
-                <h4 style="font-family: 'MontserratBold', sans-serif; margin: 0; color: #15803D; font-size: 1.25rem;">Đặt Lịch Thành Công!</h4>
+                <h4 style="font-family: 'Be Vietnam Pro', sans-serif; margin: 0; color: #15803D; font-size: 1.25rem;">Đặt Lịch Thành Công!</h4>
                 <p style="margin: 0; color: #4B5563; font-size: 0.88rem;">Mã hồ sơ hẹn khám: <strong id="rcpt-code" style="color: #18181b; font-size: 1rem;">KD-8823</strong></p>
               </div>
             </div>
@@ -483,8 +486,8 @@
             toastBox.style.display = 'flex';
             toastBox.style.alignItems = 'center';
             toastBox.style.gap = '12px';
-            toastBox.style.fontFamily = "'MontserratRegular', sans-serif";
-            toastBox.innerHTML = '<span style="color:#10B981; font-size:20px;"><i class="fa-solid fa-circle-check"></i></span> <div><strong style="color:#EABF0E; display:block; font-family:\'MontserratBold\';">Đặt lịch thành công!</strong><span>' + notifyMsg + '</span></div>';
+            toastBox.style.fontFamily = "'Be Vietnam Pro', sans-serif";
+            toastBox.innerHTML = '<span style="color:#10B981; font-size:20px;"><i class="fa-solid fa-circle-check"></i></span> <div><strong style="color:#EABF0E; display:block; font-family:\'Be Vietnam Pro\', sans-serif; font-weight:700;">Đặt lịch thành công!</strong><span>' + notifyMsg + '</span></div>';
             document.body.appendChild(toastBox);
             setTimeout(function() {
               toastBox.style.transition = 'opacity 0.4s ease, transform 0.4s ease';

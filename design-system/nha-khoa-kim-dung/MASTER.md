@@ -39,15 +39,15 @@
 
 ### Typography
 
-- **Heading Font:** Montserrat
-- **Body Font:** Montserrat ("Montserrat Fallback")
+- **Heading Font:** Be Vietnam Pro (Bold 700 / ExtraBold 800)
+- **Body Font:** Be Vietnam Pro (Regular 400 / Medium 500)
 - **Color Text:** `#0D1B2A` (Rich Dark Navy Slate)
-- **Mood:** modern, geometric, professional, clean, approachable
-- **Google Fonts:** [Montserrat](https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap)
+- **Mood:** modern, native Vietnamese typography, clean, approachable, high-legibility
+- **Google Fonts:** [Be Vietnam Pro](https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap)
 
 **CSS Import:**
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
 ```
 
 ### Spacing Variables
