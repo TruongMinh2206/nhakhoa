@@ -2302,8 +2302,31 @@ a.gf-btn-outline-gold:hover i {
 .gf-theme-root .gf-book-submit-btn:hover,
 .gf-theme-root .gf-book-submit-btn:hover * {
   color: #18181b !important;
-  background-color: #D4AC0B !important;
 }
+
+/* Universal hover guard for all gold buttons matching other tabs */
+.gf-theme-root a[style*="#EABF0E"]:hover,
+.gf-theme-root a[style*="#EABF0E"]:hover *,
+.gf-theme-root button[style*="#EABF0E"]:hover,
+.gf-theme-root button[style*="#EABF0E"]:hover * {
+  color: #18181b !important;
+  text-decoration: none !important;
+}
+
+.gf-theme-root a.transition-opacity:hover,
+.gf-theme-root button.transition-opacity:hover,
+.hover\\:opacity-90:hover {
+  opacity: 0.9 !important;
+}
+
+.gf-theme-root a.hover\\:bg-\\[\\#18181b\\]:hover {
+  background-color: #18181b !important;
+}
+.gf-theme-root a.hover\\:text-white:hover,
+.gf-theme-root a.hover\\:text-white:hover * {
+  color: #ffffff !important;
+}
+
 
 
 

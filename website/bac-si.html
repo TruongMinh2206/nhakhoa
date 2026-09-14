@@ -85,16 +85,6 @@
 
 
     <style>
-      .gf-theme-root h1.gf-hero-title,
-      .gf-theme-root .gf-hero-title,
-      .gf-hero-title {
-        color: #ffffff !important;
-        font-family: 'Be Vietnam Pro', sans-serif !important;
-        text-shadow: 0 2px 20px rgba(0,0,0,0.8) !important;
-      }
-      .gf-hero-desc {
-        color: rgba(255, 255, 255, 0.92) !important;
-      }
       @media (min-width: 1024px) {
         .gf-steps-desktop { display: flex !important; }
         .gf-steps-mobile { display: none !important; }
@@ -106,51 +96,24 @@
         .gf-grid-2col { display: flex !important; flex-direction: column !important; gap: 1.5rem !important; }
       }
 
-      /* Bulletproof button hover guard - prevent green/blue text */
+      /* Bulletproof button hover guard - prevent green/blue text across entire page */
       .gf-theme-root a:hover,
       .gf-theme-root button:hover {
         text-decoration: none !important;
       }
-      .gf-theme-root .gf-btn-primary,
-      .gf-theme-root a.gf-btn-primary,
-      .gf-theme-root button.gf-btn-primary {
-        background-color: #EABF0E !important;
+      .gf-theme-root a[style*="#EABF0E"]:hover,
+      .gf-theme-root a[style*="#EABF0E"]:hover *,
+      .gf-theme-root button[style*="#EABF0E"]:hover,
+      .gf-theme-root button[style*="#EABF0E"]:hover * {
         color: #18181b !important;
         text-decoration: none !important;
       }
-      .gf-theme-root .gf-btn-primary:hover,
-      .gf-theme-root a.gf-btn-primary:hover,
-      .gf-theme-root button.gf-btn-primary:hover,
-      .gf-theme-root .gf-btn-primary:hover *,
-      .gf-theme-root a.gf-btn-primary:hover *,
-      .gf-theme-root button.gf-btn-primary:hover * {
-        background-color: #D4AC0B !important;
-        color: #18181b !important;
-        text-decoration: none !important;
+      .hover\:opacity-90:hover {
+        opacity: 0.9 !important;
       }
-      .gf-theme-root .gf-btn-outline-gold {
-        color: #ffffff !important;
-        border-color: #EABF0E !important;
-        text-decoration: none !important;
-      }
-      .gf-theme-root .gf-btn-outline-gold:hover,
-      .gf-theme-root a.gf-btn-outline-gold:hover,
-      .gf-theme-root .gf-btn-outline-gold:hover *,
-      .gf-theme-root a.gf-btn-outline-gold:hover * {
-        background-color: #EABF0E !important;
-        color: #18181b !important;
-        border-color: #EABF0E !important;
-        text-decoration: none !important;
-      }
-      .gf-theme-root .gf-book-submit-btn:hover,
-      .gf-theme-root .gf-book-submit-btn:hover * {
-        background-color: #D4AC0B !important;
-        color: #18181b !important;
-      }
-      .gf-theme-root .gf-btn-review:hover,
-      .gf-theme-root .gf-btn-review:hover * {
-        color: #18181b !important;
-        background-color: #FFFDF6 !important;
+      .gf-theme-root a.transition-opacity:hover,
+      .gf-theme-root button.transition-opacity:hover {
+        opacity: 0.9 !important;
       }
     </style>
     
@@ -299,32 +262,37 @@
 
 <main id="main-content" class="min-h-screen gf-theme-root" style="background: var(--gf-bg-main-gradient) !important; font-family: 'Be Vietnam Pro', sans-serif;">
   <!-- Section 1: Hero Banner -->
-  <section class="relative h-[480px] sm:h-[520px] flex items-center overflow-hidden">
+  <!-- 1. HERO SECTION -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="absolute inset-0 z-0">
-      <img alt="Không gian phòng khám Nha Khoa Kim Dung" class="object-cover object-[center_35%] w-full h-full opacity-65" src="https://www.nhakhoagreenfield.com/images/hero-clinic.jpg" />
-      <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(16,18,16,0.94) 0%, rgba(16,18,16,0.82) 55%, rgba(16,18,16,0.68) 100%);"></div>
+      <img src="https://www.nhakhoagreenfield.com/images/hero-clinic.jpg" alt="Đội Ngũ Bác Sĩ Nha Khoa Kim Dung" class="w-full h-full object-cover object-center"/>
+      <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(255,253,246,0.96) 0%, rgba(255,253,246,0.90) 45%, rgba(255,253,246,0.65) 75%, rgba(255,253,246,0.20) 100%)"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#fffdf6] via-transparent to-transparent"></div>
     </div>
-    <div class="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <p class="text-xs font-bold tracking-[0.22em] uppercase mb-3" style="color: #EABF0E;">NHA KHOA KIM DUNG THÁI NGUYÊN</p>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] gf-hero-title mb-0" style="color: #ffffff !important; font-family: 'Be Vietnam Pro', sans-serif !important; text-shadow: 0 2px 20px rgba(0,0,0,0.8) !important;">
-        Đội Ngũ Bác Sĩ
-      </h1>
-      <div class="mt-4 w-16 h-1 rounded-full" style="background-color: #EABF0E;"></div>
-      <p class="mt-5 text-base sm:text-lg max-w-2xl leading-relaxed gf-hero-desc">
-        Đội ngũ bác sĩ tại Nha Khoa Kim Dung được đào tạo bài bản, sở hữu nhiều chứng chỉ quốc tế và bề dày kinh nghiệm thực tế. Mỗi ca điều trị đều được phối hợp đa chuyên khoa, cá nhân hóa để mang lại nụ cười khỏe đẹp và an toàn tuyệt đối.
-      </p>
-      <div class="mt-8 flex flex-wrap gap-4 items-center">
-        <a href="#danh-sach-bac-si" class="gf-btn-primary" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font-weight: 800; font-size: 0.98rem; box-shadow: 0 8px 24px rgba(234,191,14,0.35);">
-          <span style="color: #18181b !important;">Gặp gỡ bác sĩ</span>
-          <i class="fa-solid fa-arrow-down text-xs" style="color: #18181b !important;"></i>
-        </a>
-        <a href="#dat-lich-kham" class="gf-btn-outline-gold" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 12px; color: #ffffff !important; border: 1.5px solid #EABF0E; text-decoration: none !important; background: transparent; font-weight: 700; font-size: 0.98rem;">
-          <i class="fa-regular fa-calendar-check" style="color: #EABF0E !important;"></i>
-          <span>Đặt lịch tư vấn miễn phí</span>
-        </a>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-28">
+      <div class="max-w-[640px]">
+        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-5" style="color:#B89307">NHA KHOA KIM DUNG THÁI NGUYÊN</p>
+        <h1 class="text-[2.6rem] lg:text-[3.5rem] leading-[1.15] mb-6 font-bold text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Đội Ngũ Bác Sĩ</h1>
+        <p class="text-[1.05rem] leading-relaxed mb-9 text-[#475569]" style="color:#475569 !important;">Đội ngũ bác sĩ tại Nha Khoa Kim Dung được đào tạo bài bản, sở hữu nhiều chứng chỉ quốc tế và bề dày kinh nghiệm thực tế. Mỗi ca điều trị đều được phối hợp đa chuyên khoa, cá nhân hóa để mang lại nụ cười khỏe đẹp và an toàn tuyệt đối.</p>
+        <div class="flex flex-wrap gap-3 mb-10">
+          <a class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[#18181b] text-[0.95rem] font-bold transition-opacity hover:opacity-90 shadow-lg" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;font-weight:700;" href="#dat-lich-kham">
+            Đặt lịch tư vấn miễn phí
+            <svg width="16" height="16" style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+          <a href="tel:0862960886" class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[#18181b] text-[0.95rem] font-semibold border border-[#18181b] hover:bg-[#18181b] hover:text-white transition-colors" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;color:#18181b !important;border:1.5px solid #18181b;text-decoration:none;background:#ffffff;">
+            <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;color:#B89307;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            0862 960 886
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm text-[#334155]" style="color:#334155 !important;">
+          <span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> 100% Bác sĩ ĐH Y chính quy</span>
+          <span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> Hội chẩn đa chuyên khoa cá nhân hóa</span>
+          <span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> Trang thiết bị 3D hiện đại chuẩn quốc tế</span>
+        </div>
       </div>
     </div>
   </section>
+
 
   <!-- Section 2: Doctors Grid -->
   <section id="danh-sach-bac-si" class="py-16 sm:py-20" style="background: var(--gf-bg-main-gradient) !important;">
@@ -369,9 +337,9 @@
                 <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[#B89307]"></i> Bác sĩ phụ trách</span>
                 <span class="font-bold text-[#B89307]">10+ năm kinh nghiệm</span>
               </div>
-              <a href="#dat-lich-kham" onclick="selectDoctor('BS. CKI Thùy Chi')" class="gf-btn-primary w-full" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(234,191,14,0.3); transition: all 0.25s ease;">
+              <a href="#dat-lich-kham" onclick="selectDoctor('BS. CKI Thùy Chi')" class="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-md text-[#18181b] text-[0.9rem] font-bold transition-opacity hover:opacity-90 shadow-sm" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:700;">
                 <span style="color: #18181b !important;">Đặt Lịch Khám Ngay</span>
-                <i class="fa-solid fa-arrow-right text-xs" style="color: #18181b !important;"></i>
+                <svg width="14" height="14" style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </a>
             </div>
           </div>
@@ -404,9 +372,9 @@
                 <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[#B89307]"></i> Bác sĩ phụ trách</span>
                 <span class="font-bold text-[#B89307]">8+ năm kinh nghiệm</span>
               </div>
-              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Thanh Thủy')" class="gf-btn-primary w-full" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(234,191,14,0.3); transition: all 0.25s ease;">
+              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Thanh Thủy')" class="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-md text-[#18181b] text-[0.9rem] font-bold transition-opacity hover:opacity-90 shadow-sm" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:700;">
                 <span style="color: #18181b !important;">Đặt Lịch Khám Ngay</span>
-                <i class="fa-solid fa-arrow-right text-xs" style="color: #18181b !important;"></i>
+                <svg width="14" height="14" style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </a>
             </div>
           </div>
@@ -439,9 +407,9 @@
                 <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[#B89307]"></i> Bác sĩ phụ trách</span>
                 <span class="font-bold text-[#B89307]">5.000+ ca cấy ghép</span>
               </div>
-              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Đỗ Như Chuyên')" class="gf-btn-primary w-full" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(234,191,14,0.3); transition: all 0.25s ease;">
+              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Đỗ Như Chuyên')" class="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-md text-[#18181b] text-[0.9rem] font-bold transition-opacity hover:opacity-90 shadow-sm" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:700;">
                 <span style="color: #18181b !important;">Đặt Lịch Khám Ngay</span>
-                <i class="fa-solid fa-arrow-right text-xs" style="color: #18181b !important;"></i>
+                <svg width="14" height="14" style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </a>
             </div>
           </div>
@@ -474,9 +442,9 @@
                 <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[#B89307]"></i> Bác sĩ phụ trách</span>
                 <span class="font-bold text-[#B89307]">3.000+ ca nụ cười</span>
               </div>
-              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Trần Thị Giang')" class="gf-btn-primary w-full" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(234,191,14,0.3); transition: all 0.25s ease;">
+              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Trần Thị Giang')" class="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-md text-[#18181b] text-[0.9rem] font-bold transition-opacity hover:opacity-90 shadow-sm" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:700;">
                 <span style="color: #18181b !important;">Đặt Lịch Khám Ngay</span>
-                <i class="fa-solid fa-arrow-right text-xs" style="color: #18181b !important;"></i>
+                <svg width="14" height="14" style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </a>
             </div>
           </div>
@@ -484,9 +452,9 @@
       </div>
 
       <div class="text-center mt-12">
-        <a href="#dat-lich-kham" class="gf-btn-primary" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 32px; border-radius: 12px; font-weight: 800; font-size: 1rem; box-shadow: 0 8px 24px rgba(234,191,14,0.35); transition: all 0.25s ease;">
+        <a href="#dat-lich-kham" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md text-[#18181b] text-[0.95rem] font-bold transition-opacity hover:opacity-90 shadow-lg" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:8px;font-weight:700;">
           <span style="color: #18181b !important;">Đặt lịch tư vấn miễn phí cùng bác sĩ</span>
-          <i class="fa-solid fa-arrow-right text-sm" style="color: #18181b !important;"></i>
+          <svg width="16" height="16" style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
       </div>
     </div>
@@ -768,7 +736,7 @@
       </div>
 
       <div class="text-center mt-10">
-        <a href="https://maps.app.goo.gl/uF5jZ8gQ5bZ4uL4J8" target="_blank" rel="noopener noreferrer" class="gf-btn-review" style="background-color: #ffffff; color: #18181b !important; border: 1.5px solid #EABF0E; text-decoration: none !important; display: inline-flex; align-items: center; gap: 10px; padding: 12px 26px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; box-shadow: 0 4px 14px rgba(0,0,0,0.05); transition: all 0.25s ease;">
+        <a href="https://maps.app.goo.gl/uF5jZ8gQ5bZ4uL4J8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-md text-[#18181b] text-[0.92rem] font-bold border border-[#EABF0E] bg-white transition-opacity hover:opacity-90 shadow-sm" style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border-radius:8px;border:1.5px solid #EABF0E;background:#ffffff;color:#18181b !important;text-decoration:none;">
           <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg>
           <span style="color: #18181b !important;">Xem tất cả đánh giá trên Google (4.9/5.0 ★)</span>
         </a>
@@ -1117,9 +1085,9 @@
             <textarea id="bk_note" rows="3" placeholder="Mô tả sơ lược tình trạng răng hoặc khung giờ mong muốn khám..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#EABF0E] text-sm text-gray-900 bg-[#faf8f2]"></textarea>
           </div>
 
-          <button type="submit" class="gf-book-submit-btn w-full" style="width: 100% !important; background-color: #EABF0E !important; color: #18181b !important; padding: 16px 28px !important; border-radius: 12px !important; font-family: 'Be Vietnam Pro', sans-serif !important; font-weight: 800 !important; font-size: 1.02rem !important; text-transform: uppercase !important; letter-spacing: 0.03em !important; border: 1px solid rgba(0,0,0,0.08) !important; box-shadow: 0 8px 24px rgba(234,191,14,0.4) !important; cursor: pointer !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; transition: all 0.25s ease !important;">
+          <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md text-[#18181b] text-[0.98rem] font-bold uppercase tracking-wider transition-opacity hover:opacity-90 shadow-md cursor-pointer" style="background-color:#EABF0E;color:#18181b !important;border:none;padding:14px 28px;border-radius:8px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;">
             <span style="color: #18181b !important;">Gửi Đăng Ký Đặt Lịch Khám</span>
-            <i class="fa-solid fa-paper-plane text-sm" style="color: #18181b !important;"></i>
+            <svg width="16" height="16" style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </button>
         </form>
 
