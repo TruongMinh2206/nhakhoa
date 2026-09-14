@@ -401,6 +401,11 @@
     const mobileMenu = document.getElementById('menu-mobile');
     if (!mobileMenu) return;
 
+    // Move menu-mobile to document.body to avoid CSS stacking context clipping from header
+    if (mobileMenu.parentElement !== document.body) {
+      document.body.appendChild(mobileMenu);
+    }
+
     // Inject hamburger toggle button into header if not present
     let toggleBtn = document.getElementById('uupm-mobile-toggle');
     if (!toggleBtn) {
@@ -409,43 +414,60 @@
       toggleBtn.className = 'uupm-mobile-toggle';
       toggleBtn.type = 'button';
       toggleBtn.setAttribute('aria-label', 'Mở menu điều hướng');
+      toggleBtn.setAttribute('aria-expanded', 'false');
       toggleBtn.innerHTML = `
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
       `;
 
-      // Insert into .logo-banner or .head-bottom .wrap-content
-      const targetContainer = document.querySelector('.logo-banner') || document.querySelector('.head-bottom .wrap-content');
+      // Insert into .logo-banner or .head-bottom .wrap-content or header
+      const targetContainer = document.querySelector('.logo-banner') || 
+                              document.querySelector('.head-bottom .wrap-content') ||
+                              document.querySelector('header');
       if (targetContainer) {
         targetContainer.appendChild(toggleBtn);
       }
     }
 
+    // Ensure Backdrop element exists
+    let backdrop = document.getElementById('uupm-menu-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.id = 'uupm-menu-backdrop';
+      backdrop.className = 'uupm-menu-backdrop';
+      document.body.appendChild(backdrop);
+    }
+
     const openMobileMenu = () => {
       mobileMenu.classList.add('show');
       mobileMenu.style.visibility = 'visible';
-      document.body.style.overflow = 'hidden';
-
-      let backdrop = document.getElementById('uupm-menu-backdrop');
-      if (!backdrop) {
-        backdrop = document.createElement('div');
-        backdrop.id = 'uupm-menu-backdrop';
-        backdrop.className = 'uupm-menu-backdrop';
-        document.body.appendChild(backdrop);
-        backdrop.addEventListener('click', closeMobileMenu);
-      }
+      mobileMenu.style.transform = 'translateX(0)';
       backdrop.classList.add('show');
+      toggleBtn.classList.add('is-active');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     };
 
     const closeMobileMenu = () => {
       mobileMenu.classList.remove('show');
+      mobileMenu.style.transform = '';
+      backdrop.classList.remove('show');
+      toggleBtn.classList.remove('is-active');
+      toggleBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-      const backdrop = document.getElementById('uupm-menu-backdrop');
-      if (backdrop) backdrop.classList.remove('show');
+      document.documentElement.style.overflow = '';
+      setTimeout(() => {
+        if (!mobileMenu.classList.contains('show')) {
+          mobileMenu.style.visibility = 'hidden';
+        }
+      }, 350);
     };
 
+    // Toggle button click & touch
     toggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
       if (mobileMenu.classList.contains('show')) {
         closeMobileMenu();
@@ -454,14 +476,74 @@
       }
     });
 
-    const closeBtn = mobileMenu.querySelector('.btn-close-menu');
-    if (closeBtn) closeBtn.addEventListener('click', closeMobileMenu);
+    // Backdrop click
+    backdrop.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeMobileMenu();
+    });
 
-    // Close when clicking any navigation link inside mobile menu
+    // Close button click
+    const closeBtns = mobileMenu.querySelectorAll('.btn-close-menu, [data-bs-dismiss="offcanvas"]');
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMobileMenu();
+      });
+    });
+
+    // Submenu accordion toggle for "Dịch vụ"
+    const collapseToggles = mobileMenu.querySelectorAll('[data-bs-toggle="collapse"], .scroll');
+    collapseToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const targetSelector = toggle.getAttribute('data-bs-target') || '#menu-product';
+        const targetEl = mobileMenu.querySelector(targetSelector);
+        if (targetEl) {
+          const isOpen = targetEl.classList.contains('show');
+          if (isOpen) {
+            targetEl.classList.remove('show');
+            toggle.classList.remove('is-expanded');
+          } else {
+            targetEl.classList.add('show');
+            toggle.classList.add('is-expanded');
+          }
+        }
+      });
+    });
+
+    // Ensure "Bảng giá" is present in mobile menu if missing
+    const menuList = mobileMenu.querySelector('nav.menu-mobile > ul');
+    if (menuList) {
+      const hasBangGia = Array.from(menuList.querySelectorAll('a')).some(a => (a.getAttribute('href') || '').includes('bang-gia'));
+      if (!hasBangGia) {
+        const dichVuLi = Array.from(menuList.querySelectorAll(':scope > li')).find(li => {
+          const a = li.querySelector(':scope > a, :scope > div > a');
+          return a && (a.getAttribute('href') || '').includes('dich-vu');
+        });
+        const bangGiaLi = document.createElement('li');
+        bangGiaLi.className = 'group';
+        bangGiaLi.innerHTML = '<a class="transition" href="bang-gia.html" title="Bảng giá"><i class="fa-solid fa-file-invoice-dollar"></i> Bảng giá</a>';
+        if (dichVuLi && dichVuLi.nextSibling) {
+          menuList.insertBefore(bangGiaLi, dichVuLi.nextSibling);
+        } else {
+          menuList.appendChild(bangGiaLi);
+        }
+      }
+    }
+
+    // Close when clicking any navigation link inside mobile menu (except submenu toggles)
     mobileMenu.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         closeMobileMenu();
       });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('show')) {
+        closeMobileMenu();
+      }
     });
   }
 

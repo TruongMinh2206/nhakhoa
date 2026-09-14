@@ -1292,7 +1292,9 @@ a, button, input, select, textarea {
   }
 }
 
-/* Mobile Hamburger Button & Offcanvas Navigation */
+/* ==========================================================================
+   MOBILE HAMBURGER BUTTON & OFFCANVAS NAVIGATION
+   ========================================================================== */
 .uupm-mobile-toggle {
   display: none;
   flex-direction: column;
@@ -1301,40 +1303,35 @@ a, button, input, select, textarea {
   gap: 5px;
   width: 44px;
   height: 44px;
+  min-width: 44px !important;
   min-height: 44px !important;
-  background: var(--uupm-primary-light);
-  border: 1px solid var(--uupm-border);
-  border-radius: var(--uupm-radius-md);
-  cursor: pointer;
-  padding: 8px;
-  transition: var(--uupm-transition);
-  box-shadow: var(--uupm-shadow-xs);
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  padding: 8px !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  position: relative !important;
+  z-index: 100 !important;
+  pointer-events: auto !important;
 }
 
 .uupm-mobile-toggle .hamburger-bar {
-  display: block;
-  width: 22px;
-  height: 2.5px;
-  background: var(--uupm-primary-dark);
-  border-radius: 2px;
-  transition: var(--uupm-transition);
-}
-
-@media (max-width: 991px) {
-  .uupm-mobile-toggle {
-    display: inline-flex !important;
-    margin-left: auto;
-  }
-  .logo-banner {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-  }
+  display: block !important;
+  width: 22px !important;
+  height: 2.5px !important;
+  background: #1E293B !important;
+  border-radius: 2px !important;
+  transition: all 0.25s ease !important;
+  transform-origin: center !important;
 }
 
 .uupm-mobile-toggle:hover {
-  background: var(--uupm-primary-100);
+  background: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
   transform: translateY(-1px);
 }
 
@@ -1342,29 +1339,326 @@ a, button, input, select, textarea {
   transform: scale(0.95);
 }
 
+.uupm-mobile-toggle.is-active .hamburger-bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg) !important;
+}
+
+.uupm-mobile-toggle.is-active .hamburger-bar:nth-child(2) {
+  opacity: 0 !important;
+  transform: scale(0) !important;
+}
+
+.uupm-mobile-toggle.is-active .hamburger-bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg) !important;
+}
+
+@media (max-width: 1024px) {
+  .uupm-mobile-toggle {
+    display: inline-flex !important;
+    margin-left: auto !important;
+  }
+  .logo-banner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 6px 12px !important;
+  }
+  .logo-banner .banner {
+    display: none !important;
+  }
+  .logo-banner .logo img {
+    max-height: 46px !important;
+    width: auto !important;
+  }
+  .wrap-menu {
+    display: none !important;
+  }
+}
+
 /* Menu Mobile Backdrop */
 .uupm-menu-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 1040;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.65) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  z-index: 999998 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  pointer-events: none !important;
 }
 
 .uupm-menu-backdrop.show {
-  opacity: 1;
-  visibility: visible;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
-/* Offcanvas Menu Polish */
+/* Offcanvas Mobile Navigation Slide-in Enforcement */
+#menu-mobile,
 .offcanvas.menu-mobile,
-#menu-mobile {
-  z-index: 1050;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+.offcanvas.offcanvas-start#menu-mobile {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 320px !important;
+  max-width: 85vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  z-index: 999999 !important;
+  background-color: #FFFFFF !important;
+  color: #1E293B !important;
+  transform: translateX(-100%) !important;
+  -webkit-transform: translateX(-100%) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease !important;
+  visibility: hidden !important;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.35) !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  display: flex !important;
+  flex-direction: column !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-right: 1px solid #E2E8F0 !important;
+}
+
+#menu-mobile.show,
+.offcanvas.menu-mobile.show,
+.offcanvas.offcanvas-start#menu-mobile.show {
+  transform: translateX(0) !important;
+  -webkit-transform: translateX(0) !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  display: flex !important;
+}
+
+/* Offcanvas Body & Components */
+#menu-mobile .offcanvas-body {
+  padding: 20px 16px !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100% !important;
+  background-color: #FFFFFF !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* Close Button ('X') */
+#menu-mobile .btn-close-menu {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: #F1F5F9 !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 100 !important;
+  opacity: 0.9 !important;
+  transition: all 0.2s ease !important;
+  touch-action: manipulation !important;
+}
+
+#menu-mobile .btn-close-menu::before,
+#menu-mobile .btn-close-menu::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 14px !important;
+  height: 2px !important;
+  background-color: #334155 !important;
+  border-radius: 1px !important;
+}
+
+#menu-mobile .btn-close-menu::before {
+  transform: rotate(45deg) !important;
+}
+
+#menu-mobile .btn-close-menu::after {
+  transform: rotate(-45deg) !important;
+}
+
+#menu-mobile .btn-close-menu:hover,
+#menu-mobile .btn-close-menu:active {
+  opacity: 1 !important;
+  background-color: #E2E8F0 !important;
+  transform: rotate(90deg) !important;
+}
+
+/* Drawer Header with Logo & Search */
+#menu-mobile .head-menu {
+  margin-bottom: 16px !important;
+  padding-bottom: 16px !important;
+  border-bottom: 1px solid #F1F5F9 !important;
+  padding-right: 44px !important;
+}
+
+#menu-mobile .head-menu .logo-header img {
+  max-height: 42px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+#menu-mobile .head-menu .search-menu {
+  margin-top: 14px !important;
+  position: relative !important;
+}
+
+#menu-mobile .head-menu .search-menu label {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #64748B !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+#menu-mobile .head-menu .search-menu .form-floating-cus input {
+  width: 100% !important;
+  height: 40px !important;
+  padding: 8px 40px 8px 12px !important;
+  font-size: 13.5px !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 8px !important;
+  background-color: #F8FAFC !important;
+  color: #1E293B !important;
+  outline: none !important;
+  transition: all 0.2s ease !important;
+}
+
+#menu-mobile .head-menu .search-menu .form-floating-cus input:focus {
+  border-color: #EABF0E !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 0 0 3px rgba(234, 191, 14, 0.15) !important;
+}
+
+#menu-mobile .head-menu .search-menu p {
+  position: absolute !important;
+  right: 10px !important;
+  top: calc(50% + 8px) !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  color: #64748B !important;
+}
+
+/* Mobile Navigation List */
+.menu-mobile ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.menu-mobile ul > li {
+  border-bottom: 1px solid #F1F5F9 !important;
+  position: relative !important;
+}
+
+.menu-mobile ul > li > a,
+.menu-mobile ul > li > div > a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 13px 12px !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  color: #1E293B !important;
+  text-decoration: none !important;
+  border-radius: 8px !important;
+  transition: all 0.15s ease !important;
+}
+
+.menu-mobile ul > li > a:hover,
+.menu-mobile ul > li > a:active,
+.menu-mobile ul > li > div > a:hover,
+.menu-mobile ul > li > div > a:active {
+  color: #18181b !important;
+  background-color: #FEF9C3 !important;
+}
+
+.menu-mobile ul > li > a.active,
+.menu-mobile ul > li > div > a.active {
+  color: #18181b !important;
+  background-color: #FEF08A !important;
+  font-weight: 700 !important;
+}
+
+.menu-mobile ul > li a i {
+  width: 20px !important;
+  text-align: center !important;
+  color: #EABF0E !important;
+  font-size: 15px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Submenu Accordion Toggle Arrow (.scroll) */
+.menu-mobile .scroll {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  cursor: pointer !important;
+  touch-action: manipulation !important;
+  color: #64748B !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.menu-mobile .scroll:hover,
+.menu-mobile .scroll:active {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+.menu-mobile .scroll i,
+.menu-mobile .scroll svg {
+  transition: transform 0.25s ease !important;
+  color: inherit !important;
+  font-size: 14px !important;
+}
+
+.menu-mobile .scroll.is-expanded i,
+.menu-mobile .scroll.is-expanded svg {
+  transform: rotate(90deg) !important;
+  color: #EABF0E !important;
+}
+
+/* Company info footer inside drawer */
+#menu-mobile .company {
+  margin-top: auto !important;
+  padding-top: 20px !important;
+  border-top: 1px solid #E2E8F0 !important;
+  font-size: 12px !important;
+  color: #64748B !important;
+  line-height: 1.6 !important;
+}
+
+#menu-mobile .company p {
+  margin-bottom: 6px !important;
+}
+
+#menu-mobile .company span {
+  color: #1E293B !important;
+  font-weight: 500 !important;
 }
 
 
@@ -2280,32 +2574,64 @@ h1, h2, h3, h4, h5, h6,
 
 /* Mobile Dropdown Styling in Offcanvas */
 #menu-mobile .dropdown-service-mobile {
-  padding-left: 16px !important;
-  margin-top: 6px !important;
-  border-left: 2px solid rgba(234, 191, 14, 0.4) !important;
-  display: flex !important;
+  padding: 6px 12px 12px 16px !important;
+  margin: 6px 0 10px 10px !important;
+  border-left: 3px solid #EABF0E !important;
+  display: none !important;
   flex-direction: column !important;
   gap: 8px !important;
+  list-style: none !important;
+  background: #F8FAFC !important;
+  border-radius: 0 10px 10px 0 !important;
+}
+
+#menu-mobile .dropdown-service-mobile.show {
+  display: flex !important;
+  animation: uupmFadeInSub 0.25s ease-out !important;
+}
+
+@keyframes uupmFadeInSub {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 #menu-mobile .dropdown-service-mobile a {
   display: flex !important;
   flex-direction: column !important;
-  padding: 8px 10px !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  padding: 10px 12px !important;
   border-radius: 8px !important;
-  background: rgba(255, 255, 255, 0.04) !important;
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
   text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+#menu-mobile .dropdown-service-mobile a:hover,
+#menu-mobile .dropdown-service-mobile a:active {
+  background: #FEF9C3 !important;
+  border-color: #EABF0E !important;
+  transform: translateX(2px) !important;
 }
 
 #menu-mobile .dropdown-service-mobile a strong {
-  font-size: 14px !important;
-  color: #FFFFFF !important;
+  font-size: 13.5px !important;
+  color: #0F172A !important;
   font-weight: 700 !important;
+  display: block !important;
+  line-height: 1.3 !important;
+  text-align: left !important;
 }
 
 #menu-mobile .dropdown-service-mobile a span {
-  font-size: 12px !important;
-  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 11.5px !important;
+  color: #64748B !important;
+  font-weight: 400 !important;
+  margin-top: 3px !important;
+  display: block !important;
+  line-height: 1.3 !important;
+  text-align: left !important;
 }
 
 /* ==========================================================================
