@@ -106,6 +106,53 @@
         .gf-steps-mobile { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; }
         .gf-grid-2col { display: flex !important; flex-direction: column !important; gap: 1.5rem !important; }
       }
+
+      /* Bulletproof button hover guard - prevent green/blue text */
+      .gf-theme-root a:hover,
+      .gf-theme-root button:hover {
+        text-decoration: none !important;
+      }
+      .gf-theme-root .gf-btn-primary,
+      .gf-theme-root a.gf-btn-primary,
+      .gf-theme-root button.gf-btn-primary {
+        background-color: #EABF0E !important;
+        color: #18181b !important;
+        text-decoration: none !important;
+      }
+      .gf-theme-root .gf-btn-primary:hover,
+      .gf-theme-root a.gf-btn-primary:hover,
+      .gf-theme-root button.gf-btn-primary:hover,
+      .gf-theme-root .gf-btn-primary:hover *,
+      .gf-theme-root a.gf-btn-primary:hover *,
+      .gf-theme-root button.gf-btn-primary:hover * {
+        background-color: #D4AC0B !important;
+        color: #18181b !important;
+        text-decoration: none !important;
+      }
+      .gf-theme-root .gf-btn-outline-gold {
+        color: #ffffff !important;
+        border-color: #EABF0E !important;
+        text-decoration: none !important;
+      }
+      .gf-theme-root .gf-btn-outline-gold:hover,
+      .gf-theme-root a.gf-btn-outline-gold:hover,
+      .gf-theme-root .gf-btn-outline-gold:hover *,
+      .gf-theme-root a.gf-btn-outline-gold:hover * {
+        background-color: #EABF0E !important;
+        color: #18181b !important;
+        border-color: #EABF0E !important;
+        text-decoration: none !important;
+      }
+      .gf-theme-root .gf-book-submit-btn:hover,
+      .gf-theme-root .gf-book-submit-btn:hover * {
+        background-color: #D4AC0B !important;
+        color: #18181b !important;
+      }
+      .gf-theme-root .gf-btn-review:hover,
+      .gf-theme-root .gf-btn-review:hover * {
+        color: #18181b !important;
+        background-color: #FFFDF6 !important;
+      }
     </style>
     
 </head>
@@ -268,12 +315,12 @@
         Đội ngũ bác sĩ tại Nha Khoa Kim Dung được đào tạo bài bản, sở hữu nhiều chứng chỉ quốc tế và bề dày kinh nghiệm thực tế. Mỗi ca điều trị đều được phối hợp đa chuyên khoa, cá nhân hóa để mang lại nụ cười khỏe đẹp và an toàn tuyệt đối.
       </p>
       <div class="mt-8 flex flex-wrap gap-4 items-center">
-        <a href="#danh-sach-bac-si" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-gray-900 transition-all hover:scale-105 shadow-lg" style="background: linear-gradient(135deg, #EABF0E, #D4A90A);">
-          <span>Gặp gỡ bác sĩ</span>
-          <i class="fa-solid fa-arrow-down text-xs"></i>
+        <a href="#danh-sach-bac-si" class="gf-btn-primary" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font-weight: 800; font-size: 0.98rem; box-shadow: 0 8px 24px rgba(234,191,14,0.35);">
+          <span style="color: #18181b !important;">Gặp gỡ bác sĩ</span>
+          <i class="fa-solid fa-arrow-down text-xs" style="color: #18181b !important;"></i>
         </a>
-        <a href="#dat-lich-kham" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-white transition-all hover:bg-white/10" style="border: 1px solid rgba(234,191,14,0.5);">
-          <i class="fa-regular fa-calendar-check text-[#EABF0E]"></i>
+        <a href="#dat-lich-kham" class="gf-btn-outline-gold" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 12px; color: #ffffff !important; border: 1.5px solid #EABF0E; text-decoration: none !important; background: transparent; font-weight: 700; font-size: 0.98rem;">
+          <i class="fa-regular fa-calendar-check" style="color: #EABF0E !important;"></i>
           <span>Đặt lịch tư vấn miễn phí</span>
         </a>
       </div>
@@ -318,12 +365,15 @@
             <p class="text-sm leading-relaxed flex-1 text-gray-600">
               Trưởng phòng Chỉnh nha tại Nha Khoa Kim Dung với hơn 10 năm kinh nghiệm chuyên sâu nắn chỉnh răng hô móm khấp khểnh, niềng răng trong suốt Invisalign, cấy ghép Implant và xử lý cắn khớp lâm sàng nâng cao MESI.
             </p>
-            <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <a href="#dat-lich-kham" onclick="selectDoctor('BS. CKI Thùy Chi')" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#B89307] hover:text-[#917304] transition-colors">
-                <span>Đặt lịch khám</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            <div class="mt-5 pt-4 border-t border-gray-100 flex flex-col gap-3">
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[#B89307]"></i> Bác sĩ phụ trách</span>
+                <span class="font-bold text-[#B89307]">10+ năm kinh nghiệm</span>
+              </div>
+              <a href="#dat-lich-kham" onclick="selectDoctor('BS. CKI Thùy Chi')" class="gf-btn-primary w-full" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(234,191,14,0.3); transition: all 0.25s ease;">
+                <span style="color: #18181b !important;">Đặt Lịch Khám Ngay</span>
+                <i class="fa-solid fa-arrow-right text-xs" style="color: #18181b !important;"></i>
               </a>
-              <span class="text-xs text-gray-400 font-medium">10+ năm kinh nghiệm</span>
             </div>
           </div>
         </div>
@@ -350,12 +400,15 @@
             <p class="text-sm leading-relaxed flex-1 text-gray-600">
               Phó phòng Chỉnh nha với thế mạnh điều trị niềng răng mắc cài kim loại, mắc cài sứ và tiểu phẫu răng khôn, nang xương hàm. Luôn chú trọng thao tác nhẹ nhàng, không đau và chăm sóc tận tâm trước - trong - sau điều trị.
             </p>
-            <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Thanh Thủy')" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#B89307] hover:text-[#917304] transition-colors">
-                <span>Đặt lịch khám</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            <div class="mt-5 pt-4 border-t border-gray-100 flex flex-col gap-3">
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[#B89307]"></i> Bác sĩ phụ trách</span>
+                <span class="font-bold text-[#B89307]">8+ năm kinh nghiệm</span>
+              </div>
+              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Thanh Thủy')" class="gf-btn-primary w-full" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(234,191,14,0.3); transition: all 0.25s ease;">
+                <span style="color: #18181b !important;">Đặt Lịch Khám Ngay</span>
+                <i class="fa-solid fa-arrow-right text-xs" style="color: #18181b !important;"></i>
               </a>
-              <span class="text-xs text-gray-400 font-medium">8+ năm kinh nghiệm</span>
             </div>
           </div>
         </div>
@@ -382,12 +435,15 @@
             <p class="text-sm leading-relaxed flex-1 text-gray-600">
               Chuyên gia implant với hơn 5.000 ca cấy ghép thành công. Chuyên sâu phục hình toàn hàm All-on-4 / All-on-6, nâng xoang ghép xương và phục hồi chức năng nhai toàn diện cho người mất răng lâu năm.
             </p>
-            <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Đỗ Như Chuyên')" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#B89307] hover:text-[#917304] transition-colors">
-                <span>Đặt lịch khám</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            <div class="mt-5 pt-4 border-t border-gray-100 flex flex-col gap-3">
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[#B89307]"></i> Bác sĩ phụ trách</span>
+                <span class="font-bold text-[#B89307]">5.000+ ca cấy ghép</span>
+              </div>
+              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Đỗ Như Chuyên')" class="gf-btn-primary w-full" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(234,191,14,0.3); transition: all 0.25s ease;">
+                <span style="color: #18181b !important;">Đặt Lịch Khám Ngay</span>
+                <i class="fa-solid fa-arrow-right text-xs" style="color: #18181b !important;"></i>
               </a>
-              <span class="text-xs text-gray-400 font-medium">5.000+ ca cấy ghép</span>
             </div>
           </div>
         </div>
@@ -414,21 +470,24 @@
             <p class="text-sm leading-relaxed flex-1 text-gray-600">
               Chuyên gia phục hình nụ cười với dán sứ Veneer bảo tồn tối đa răng thật, bọc răng sứ thẩm mỹ độ trong suốt tự nhiên, điều trị tủy vi phẫu và tái tạo thẩm mỹ đường cười hài hòa với khuôn mặt.
             </p>
-            <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Trần Thị Giang')" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#B89307] hover:text-[#917304] transition-colors">
-                <span>Đặt lịch khám</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            <div class="mt-5 pt-4 border-t border-gray-100 flex flex-col gap-3">
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[#B89307]"></i> Bác sĩ phụ trách</span>
+                <span class="font-bold text-[#B89307]">3.000+ ca nụ cười</span>
+              </div>
+              <a href="#dat-lich-kham" onclick="selectDoctor('BS. Trần Thị Giang')" class="gf-btn-primary w-full" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(234,191,14,0.3); transition: all 0.25s ease;">
+                <span style="color: #18181b !important;">Đặt Lịch Khám Ngay</span>
+                <i class="fa-solid fa-arrow-right text-xs" style="color: #18181b !important;"></i>
               </a>
-              <span class="text-xs text-gray-400 font-medium">3.000+ ca nụ cười</span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="text-center mt-12">
-        <a class="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-gray-900 font-bold transition-all hover:scale-105 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, #EABF0E, #D4A90A);" href="#dat-lich-kham">
-          <span>Đặt lịch tư vấn miễn phí cùng bác sĩ</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        <a href="#dat-lich-kham" class="gf-btn-primary" style="background-color: #EABF0E; color: #18181b !important; text-decoration: none !important; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 32px; border-radius: 12px; font-weight: 800; font-size: 1rem; box-shadow: 0 8px 24px rgba(234,191,14,0.35); transition: all 0.25s ease;">
+          <span style="color: #18181b !important;">Đặt lịch tư vấn miễn phí cùng bác sĩ</span>
+          <i class="fa-solid fa-arrow-right text-sm" style="color: #18181b !important;"></i>
         </a>
       </div>
     </div>
@@ -592,12 +651,12 @@
 
         <!-- Carousel navigation arrows -->
         <div class="flex justify-center items-center gap-3 mt-8">
-          <button id="ba-prev" aria-label="Trước" class="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-gray-200 text-gray-700 hover:bg-[#EABF0E] hover:text-gray-900 shadow-sm cursor-pointer">
-            <i class="fa-solid fa-chevron-left text-sm"></i>
+          <button id="ba-prev" aria-label="Trước" class="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-gray-200 text-gray-700 hover:bg-[#EABF0E] hover:text-[#18181b] shadow-sm cursor-pointer" style="cursor:pointer;">
+            <i class="fa-solid fa-chevron-left text-sm" style="color: inherit;"></i>
           </button>
           <span class="text-xs text-gray-500 font-medium px-2">Vuốt để xem thêm các ca lâm sàng</span>
-          <button id="ba-next" aria-label="Tiếp" class="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-gray-200 text-gray-700 hover:bg-[#EABF0E] hover:text-gray-900 shadow-sm cursor-pointer">
-            <i class="fa-solid fa-chevron-right text-sm"></i>
+          <button id="ba-next" aria-label="Tiếp" class="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white border border-gray-200 text-gray-700 hover:bg-[#EABF0E] hover:text-[#18181b] shadow-sm cursor-pointer" style="cursor:pointer;">
+            <i class="fa-solid fa-chevron-right text-sm" style="color: inherit;"></i>
           </button>
         </div>
       </div>
@@ -710,9 +769,9 @@
       </div>
 
       <div class="text-center mt-10">
-        <a href="https://maps.app.goo.gl/uF5jZ8gQ5bZ4uL4J8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm transition-all hover:scale-105 shadow-sm" style="background-color: #ffffff; color: #1a1a1a; border: 1px solid rgba(234,191,14,0.40);">
+        <a href="https://maps.app.goo.gl/uF5jZ8gQ5bZ4uL4J8" target="_blank" rel="noopener noreferrer" class="gf-btn-review" style="background-color: #ffffff; color: #18181b !important; border: 1.5px solid #EABF0E; text-decoration: none !important; display: inline-flex; align-items: center; gap: 10px; padding: 12px 26px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; box-shadow: 0 4px 14px rgba(0,0,0,0.05); transition: all 0.25s ease;">
           <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg>
-          <span>Xem tất cả đánh giá trên Google (4.9/5.0 ★)</span>
+          <span style="color: #18181b !important;">Xem tất cả đánh giá trên Google (4.9/5.0 ★)</span>
         </a>
       </div>
     </div>
@@ -1059,9 +1118,9 @@
             <textarea id="bk_note" rows="3" placeholder="Mô tả sơ lược tình trạng răng hoặc khung giờ mong muốn khám..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#EABF0E] text-sm text-gray-900 bg-[#faf8f2]"></textarea>
           </div>
 
-          <button type="submit" class="w-full py-4 rounded-xl font-bold text-base text-gray-900 transition-all hover:scale-[1.01] shadow-md flex items-center justify-center gap-2 cursor-pointer" style="background: linear-gradient(135deg, #EABF0E, #D4A90A);">
-            <span>Gửi Đăng Ký Đặt Lịch Khám</span>
-            <i class="fa-solid fa-paper-plane text-sm"></i>
+          <button type="submit" class="gf-book-submit-btn w-full" style="width: 100% !important; background-color: #EABF0E !important; color: #18181b !important; padding: 16px 28px !important; border-radius: 12px !important; font-family: 'Be Vietnam Pro', sans-serif !important; font-weight: 800 !important; font-size: 1.02rem !important; text-transform: uppercase !important; letter-spacing: 0.03em !important; border: 1px solid rgba(0,0,0,0.08) !important; box-shadow: 0 8px 24px rgba(234,191,14,0.4) !important; cursor: pointer !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; transition: all 0.25s ease !important;">
+            <span style="color: #18181b !important;">Gửi Đăng Ký Đặt Lịch Khám</span>
+            <i class="fa-solid fa-paper-plane text-sm" style="color: #18181b !important;"></i>
           </button>
         </form>
 
@@ -1080,7 +1139,7 @@
             </div>
             <div>
               <p class="text-xs text-gray-500 font-medium">Hoặc gọi trực tiếp Hotline 24/7</p>
-              <a href="tel:0862960886" class="text-base font-bold text-gray-900 hover:text-[#B89307] transition-colors">0862 960 886</a>
+              <a href="tel:0862960886" class="gf-hotline-link" style="color: #18181b !important; font-weight: 800; font-size: 1.05rem; text-decoration: none; transition: color 0.2s ease;">0862 960 886</a>
             </div>
           </div>
           <div class="text-xs text-gray-500">

@@ -453,12 +453,28 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 8px 24px rgba(234, 191, 14, 0.35);
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 .gf-btn-primary:hover {
   background-color: var(--gf-primary-hover) !important;
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(234, 191, 14, 0.45);
+  color: #18181b !important;
+}
+
+.gf-btn-primary *,
+.gf-btn-primary:hover *,
+.gf-btn-primary:focus *,
+.gf-btn-primary:active *,
+a.gf-btn-primary *,
+a.gf-btn-primary:hover *,
+a.gf-btn-primary:focus *,
+a.gf-btn-primary:active *,
+button.gf-btn-primary *,
+button.gf-btn-primary:hover *,
+button.gf-btn-primary:focus *,
+button.gf-btn-primary:active * {
   color: #18181b !important;
 }
 
@@ -477,6 +493,7 @@
   transition: all 0.25s ease;
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  text-decoration: none !important;
 }
 
 .gf-btn-outline:hover {
@@ -502,11 +519,71 @@
   text-decoration: none !important;
 }
 
-.gf-btn-outline-gold:hover {
+.gf-btn-outline-gold *,
+a.gf-btn-outline-gold * {
+  color: #FFFFFF !important;
+}
+
+.gf-btn-outline-gold i,
+a.gf-btn-outline-gold i {
+  color: #EABF0E !important;
+}
+
+.gf-btn-outline-gold:hover,
+a.gf-btn-outline-gold:hover {
   background: #EABF0E !important;
   color: #18181b !important;
+  border-color: #EABF0E !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(234, 191, 14, 0.4);
+}
+
+.gf-btn-outline-gold:hover *,
+.gf-btn-outline-gold:hover i,
+a.gf-btn-outline-gold:hover *,
+a.gf-btn-outline-gold:hover i {
+  color: #18181b !important;
+}
+
+.gf-book-submit-btn,
+.gf-book-submit-btn:hover,
+.gf-book-submit-btn:focus,
+.gf-book-submit-btn:active,
+.gf-book-submit-btn *,
+.gf-book-submit-btn:hover *,
+.gf-book-submit-btn:focus *,
+.gf-book-submit-btn:active * {
+  color: #18181b !important;
+}
+
+.gf-btn-review {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border-radius: 12px;
+  background-color: #FFFFFF !important;
+  color: #18181b !important;
+  border: 1.5px solid #EABF0E !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.gf-btn-review *,
+.gf-btn-review:hover * {
+  color: #18181b !important;
+}
+
+.gf-btn-review:hover {
+  background-color: #FFFDF6 !important;
+  border-color: #EABF0E !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(234, 191, 14, 0.25) !important;
+  color: #18181b !important;
 }
 
 .gf-hero-trust {
@@ -2191,5 +2268,42 @@
   .lg\:col-span-2 { grid-column: span 2 / span 2 !important; }
   .lg\:px-12 { padding-left: 3rem !important; padding-right: 3rem !important; }
 }
+
+/* ==========================================================================
+   GLOBAL BUTTON & HOVER COLOR SAFEGUARDS (PREVENT GREEN/BLUE TEXT)
+   ========================================================================== */
+.gf-theme-root a.gf-btn-primary,
+.gf-theme-root button.gf-btn-primary,
+.gf-theme-root .gf-btn-primary {
+  color: #18181b !important;
+  text-decoration: none !important;
+}
+
+.gf-theme-root a.gf-btn-primary:hover,
+.gf-theme-root button.gf-btn-primary:hover,
+.gf-theme-root .gf-btn-primary:hover,
+.gf-theme-root .gf-btn-primary:hover *,
+.gf-theme-root a.gf-btn-primary:hover * {
+  color: #18181b !important;
+  text-decoration: none !important;
+}
+
+.gf-theme-root a.gf-btn-outline-gold:hover,
+.gf-theme-root .gf-btn-outline-gold:hover,
+.gf-theme-root .gf-btn-outline-gold:hover *,
+.gf-theme-root a.gf-btn-outline-gold:hover * {
+  color: #18181b !important;
+  background-color: #EABF0E !important;
+  border-color: #EABF0E !important;
+  text-decoration: none !important;
+}
+
+.gf-theme-root button.gf-book-submit-btn:hover,
+.gf-theme-root .gf-book-submit-btn:hover,
+.gf-theme-root .gf-book-submit-btn:hover * {
+  color: #18181b !important;
+  background-color: #D4AC0B !important;
+}
+
 
 
