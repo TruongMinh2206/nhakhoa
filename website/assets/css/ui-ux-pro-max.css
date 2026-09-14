@@ -1660,8 +1660,7 @@ a, button, input, select, textarea {
   position: relative !important;
 }
 
-.menu-mobile ul > li > a,
-.menu-mobile ul > li > div > a {
+.menu-mobile ul > li > a {
   display: flex !important;
   align-items: center !important;
   gap: 12px !important;
@@ -1675,30 +1674,47 @@ a, button, input, select, textarea {
 }
 
 .menu-mobile ul > li > a:hover,
-.menu-mobile ul > li > a:active,
-.menu-mobile ul > li > div > a:hover,
-.menu-mobile ul > li > div > a:active {
+.menu-mobile ul > li > a:active {
   color: #18181b !important;
   background-color: #FEF9C3 !important;
 }
 
-.menu-mobile ul > li > a.active,
-.menu-mobile ul > li > div > a.active {
+.menu-mobile ul > li > a.active {
   color: #18181b !important;
   background-color: #FEF08A !important;
   font-weight: 700 !important;
 }
 
-.menu-mobile ul > li a i {
-  width: 20px !important;
-  text-align: center !important;
-  color: #EABF0E !important;
-  font-size: 15px !important;
-  flex-shrink: 0 !important;
+/* Service Row Container - Full-width highlight across entire row on hover & active */
+.menu-mobile ul > li > div.flex,
+.menu-mobile ul > li:has(#menu-product) > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding: 0 4px 0 0 !important;
+  border-radius: 8px !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
 }
 
-/* Submenu Accordion Toggle Arrow (.scroll) */
-.menu-mobile .scroll {
+.menu-mobile ul > li > div.flex > a,
+.menu-mobile ul > li:has(#menu-product) > div > a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 13px 12px !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  flex: 1 !important;
+  background-color: transparent !important;
+  border-radius: 8px 0 0 8px !important;
+}
+
+.menu-mobile ul > li > div.flex .scroll,
+.menu-mobile ul > li:has(#menu-product) > div .scroll {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -1709,10 +1725,57 @@ a, button, input, select, textarea {
   cursor: pointer !important;
   touch-action: manipulation !important;
   color: #64748B !important;
-  border-radius: 8px !important;
+  border-radius: 0 8px 8px 0 !important;
   transition: all 0.2s ease !important;
   background: transparent !important;
   border: none !important;
+}
+
+/* Hovering on Dịch vụ (or any child in the row) highlights the ENTIRE row width */
+.menu-mobile ul > li > div.flex:hover,
+.menu-mobile ul > li > div.flex:active,
+.menu-mobile ul > li:has(#menu-product) > div:hover,
+.menu-mobile ul > li:has(#menu-product) > div:active {
+  color: #18181b !important;
+  background-color: #FEF9C3 !important;
+}
+
+.menu-mobile ul > li > div.flex:hover > a,
+.menu-mobile ul > li > div.flex:active > a,
+.menu-mobile ul > li > div.flex > a:hover,
+.menu-mobile ul > li > div.flex > a:active {
+  background-color: transparent !important;
+}
+
+.menu-mobile ul > li > div.flex:hover .scroll,
+.menu-mobile ul > li > div.flex:active .scroll {
+  background-color: transparent !important;
+  color: #18181b !important;
+}
+
+/* Active or Expanded State for Dịch vụ Row */
+.menu-mobile ul > li > div.flex.is-expanded,
+.menu-mobile ul > li > div.flex.active,
+.menu-mobile ul > li > div.flex:has(> a.active),
+.menu-mobile ul > li:has(#menu-product) > div.is-expanded,
+.menu-mobile ul > li:has(#menu-product) > div.active,
+.menu-mobile ul > li:has(#menu-product) > div:has(> a.active) {
+  color: #18181b !important;
+  background-color: #FEF08A !important;
+  font-weight: 700 !important;
+}
+
+.menu-mobile ul > li > div.flex.is-expanded > a,
+.menu-mobile ul > li > div.flex.active > a {
+  background-color: transparent !important;
+}
+
+.menu-mobile ul > li a i {
+  width: 20px !important;
+  text-align: center !important;
+  color: #EABF0E !important;
+  font-size: 15px !important;
+  flex-shrink: 0 !important;
 }
 
 .menu-mobile .scroll:hover,

@@ -274,14 +274,16 @@
         if (href.includes('bang-gia.html') && currentFile.includes('bang-gia')) {
           l.classList.add('active');
           matched = true;
-        } else if (href.includes('dich-vu.html') && (
-          currentFile.includes('dich-vu') || currentFile.includes('implant') ||
-          currentFile.includes('rang-su') || currentFile.includes('nieng-rang') ||
-          currentFile.includes('nho-rang') || currentFile.includes('cao-rang') ||
-          currentFile.includes('tay-trang') || currentFile.includes('tram-rang') ||
+        } else if ((href.includes('dich-vu') || l.textContent.includes('Dịch vụ')) && (
+          currentFile.includes('implant') || currentFile.includes('rang-su') ||
+          currentFile.includes('nieng-rang') || currentFile.includes('nho-rang') ||
+          currentFile.includes('cao-rang') || currentFile.includes('tay-trang') ||
+          currentFile.includes('tram-rang') || currentFile.includes('tong-quat') ||
           currentFile.includes('ham-thao-lap') || currentFile.includes('tre-em')
         )) {
           l.classList.add('active');
+          const pRow = l.closest('.flex.items-center.justify-between');
+          if (pRow) pRow.classList.add('active');
           matched = true;
         } else if (href.includes('doi-ngu.html') && (currentFile.includes('doi-ngu') || currentFile.includes('bac-si'))) {
           l.classList.add('active');
@@ -510,32 +512,36 @@
         if (isOpen) {
           subMenu.classList.remove('show');
           if (toggleScroll) toggleScroll.classList.remove('is-expanded');
+          if (serviceRow) serviceRow.classList.remove('is-expanded');
         } else {
           subMenu.classList.add('show');
           if (toggleScroll) toggleScroll.classList.add('is-expanded');
+          if (serviceRow) serviceRow.classList.add('is-expanded');
         }
       };
 
-      // Tapping arrow toggles dropdown
+      // Tapping the full service row toggles dropdown
+      if (serviceRow) {
+        serviceRow.addEventListener('click', toggleServiceDropdown);
+      }
       if (toggleScroll) {
         toggleScroll.addEventListener('click', toggleServiceDropdown);
       }
-
-      // Tapping "Dịch vụ" text link ALSO toggles dropdown (as requested: "khi ấn vào dịch vụ phải mở dropdown")
       if (serviceLink) {
         serviceLink.addEventListener('click', toggleServiceDropdown);
+        serviceLink.setAttribute('href', 'javascript:void(0)');
       }
 
-      // Prepend "Tất cả dịch vụ" to submenu if not already present
-      const hasAllServices = Array.from(subMenu.querySelectorAll('a')).some(a => {
-        const h = a.getAttribute('href') || '';
-        return (h.includes('dich-vu.html') || h.endsWith('dich-vu')) && !h.includes('#');
+      // Remove "Tất cả dịch vụ" and any legacy dich-vu.html items completely
+      subMenu.querySelectorAll('li').forEach(itemLi => {
+        const itemA = itemLi.querySelector('a');
+        if (!itemA) return;
+        const h = itemA.getAttribute('href') || '';
+        const txt = itemA.textContent || '';
+        if (h.includes('dich-vu.html') || txt.includes('Tất cả dịch vụ')) {
+          itemLi.remove();
+        }
       });
-      if (!hasAllServices) {
-        const allLi = document.createElement('li');
-        allLi.innerHTML = '<a href="dich-vu.html"><strong>Tất cả dịch vụ</strong><span>Xem tổng quan các dịch vụ nha khoa</span></a>';
-        subMenu.insertBefore(allLi, subMenu.firstChild);
-      }
     });
 
     // Ensure "Bảng giá" is present in mobile menu if missing
@@ -586,14 +592,22 @@
       const dropdown = parent.querySelector('.dropdown-menu-service');
       if (!link || !dropdown) return;
 
-      // Handle click on touch devices
+      // Handle click on touch devices and desktop: prevent 404 on deleted dich-vu.html
       link.addEventListener('click', (e) => {
-        // If on small device or clicked to open
+        e.preventDefault();
         if (window.innerWidth <= 1024) {
-          e.preventDefault();
           parent.classList.toggle('is-open');
         }
       });
+    });
+
+    // Safely reroute any lingering dich-vu.html links across the site to prevent 404
+    document.querySelectorAll('a[href*="dich-vu.html"]').forEach(a => {
+      if (a.closest('.has-dropdown') || a.closest('.menu-mobile')) {
+        a.setAttribute('href', 'javascript:void(0)');
+      } else {
+        a.setAttribute('href', 'trong-rang-implant.html');
+      }
     });
 
     // Close on outside click
