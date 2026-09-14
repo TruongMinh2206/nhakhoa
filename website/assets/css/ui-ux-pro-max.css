@@ -1486,7 +1486,7 @@ a, button, input, select, textarea {
   border-radius: 16px !important;
 }
 
-.pic-service a {
+.pic-service > a {
   display: block !important;
   overflow: hidden !important;
   position: relative !important;
@@ -1557,6 +1557,9 @@ a, button, input, select, textarea {
   text-decoration: none !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
 }
 
 .name-service span {
@@ -2314,10 +2317,7 @@ html, body {
   position: relative !important;
 }
 
-.header,
-.head-bottom {
-  overflow: hidden !important;
-}
+/* .header, .head-bottom overflow removed to preserve dropdown */
 
 .head-bottom::after {
   display: none !important;

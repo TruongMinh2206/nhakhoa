@@ -2336,10 +2336,7 @@ html, body {
   position: relative !important;
 }
 
-.header,
-.head-bottom {
-  overflow: hidden !important;
-}
+/* .header, .head-bottom overflow removed to preserve dropdown */
 
 .head-bottom::after {
   display: none !important;
