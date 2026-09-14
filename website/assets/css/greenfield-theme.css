@@ -2327,6 +2327,43 @@ a.gf-btn-outline-gold:hover i {
   color: #ffffff !important;
 }
 
+/* ==========================================================================
+   GLOBAL RESPONSIVE & HORIZONTAL OVERFLOW SAFEGUARD
+   ========================================================================== */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  position: relative !important;
+}
+
+.header,
+.head-bottom {
+  overflow: hidden !important;
+}
+
+.head-bottom::after {
+  display: none !important;
+}
+
+/* Eliminate legacy duplicate up-to-top widgets causing viewport distortion */
+.scrollToTop,
+.scrollToTopMobile,
+.BackToTop_backToTopContainer__cIh7P {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  overflow: hidden !important;
+}
+
+
 
 
 

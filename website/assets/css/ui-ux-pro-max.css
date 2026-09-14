@@ -901,20 +901,32 @@ button.view-button::after,
 }
 
 .uupm-dock-btn.btn-top {
-  padding: 12px;
-  width: 44px;
-  height: 44px;
-  justify-content: center;
-  background: #FFFFFF;
-  color: var(--uupm-text-secondary);
-  opacity: 0;
-  pointer-events: none;
-  transition: var(--uupm-transition);
+  display: none !important;
+  padding: 0 !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: #FFFFFF !important;
+  color: #18181b !important;
+  border-radius: 50% !important;
+  border: 1.5px solid #EABF0E !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+  cursor: pointer !important;
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease !important;
+  margin-top: 4px !important;
 }
 
 .uupm-dock-btn.btn-top.visible {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex !important;
+}
+
+.uupm-dock-btn.btn-top:hover {
+  background: #EABF0E !important;
+  color: #18181b !important;
+  transform: translateY(-3px) scale(1.06) !important;
 }
 
 @keyframes uupm-pulse {
@@ -1240,8 +1252,16 @@ a, button, input, select, textarea {
   }
 
   .uupm-dock-btn span.dock-label {
-    display: none;
     display: none !important;
+  }
+
+  .uupm-dock-btn.btn-top {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
   }
 
   /* Prevent sticky hover transforms on touch screens */
@@ -2284,3 +2304,40 @@ h1, h2, h3, h4, h5, h6,
   font-size: 12px !important;
   color: rgba(255, 255, 255, 0.6) !important;
 }
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE & HORIZONTAL OVERFLOW SAFEGUARD
+   ========================================================================== */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  position: relative !important;
+}
+
+.header,
+.head-bottom {
+  overflow: hidden !important;
+}
+
+.head-bottom::after {
+  display: none !important;
+}
+
+/* Eliminate legacy duplicate up-to-top widgets causing viewport distortion */
+.scrollToTop,
+.scrollToTopMobile,
+.BackToTop_backToTopContainer__cIh7P {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  overflow: hidden !important;
+}
+

@@ -54,11 +54,22 @@
   function initFloatingDock() {
     if (document.getElementById('uupm-floating-dock')) return;
 
-    // Hide old hotline and social widgets if present to avoid screen clutter
+    // Hide old hotline, social widgets, and legacy duplicate scroll-to-top buttons
     const oldHotline = document.querySelector('#hotline');
     if (oldHotline) oldHotline.style.display = 'none';
     const oldSocial = document.querySelector('#social');
     if (oldSocial) oldSocial.style.display = 'none';
+
+    // Neutralize legacy NN_FRAMEWORK.GoTop to prevent duplicate injection
+    if (window.NN_FRAMEWORK) {
+      window.NN_FRAMEWORK.GoTop = function () {};
+    }
+
+    const removeLegacyScrollToTop = () => {
+      document.querySelectorAll('.scrollToTop, .scrollToTopMobile, .BackToTop_backToTopContainer__cIh7P').forEach(el => el.remove());
+    };
+    removeLegacyScrollToTop();
+    window.addEventListener('scroll', removeLegacyScrollToTop, { passive: true });
 
     const dock = document.createElement('div');
     dock.id = 'uupm-floating-dock';
@@ -84,17 +95,20 @@
 
     // Scroll to Top behavior
     const btnTop = document.getElementById('uupm-btn-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 350) {
-        btnTop.classList.add('visible');
-      } else {
-        btnTop.classList.remove('visible');
-      }
-    }, { passive: true });
+    if (btnTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btnTop.classList.add('visible');
+        } else {
+          btnTop.classList.remove('visible');
+        }
+      }, { passive: true });
 
-    btnTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+      btnTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   }
 
   // 4. Smart Appointment Booking Modal
