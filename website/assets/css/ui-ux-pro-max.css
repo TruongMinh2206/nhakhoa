@@ -2898,3 +2898,2091 @@ section.relative > .absolute.inset-0.z-0 {
   }
 }
 
+/* ==========================================================================
+   UNIFIED SCROLL REVEAL ANIMATION SYSTEM (SYNCHRONIZED ACROSS ENTIRE WEBSITE)
+   ========================================================================== */
+
+/* 1. Section Header: Subtle slide-up & fade-in */
+.has-scroll-anim .uupm-anim-header,
+.has-scroll-anim .anim-header {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.has-scroll-anim .is-revealed .uupm-anim-header,
+.has-scroll-anim section.is-revealed .anim-header,
+.has-scroll-anim .is-revealed.uupm-anim-header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. Cards & Grids: Staggered Cascade Fade-Up */
+.has-scroll-anim .uupm-anim-card,
+.has-scroll-anim .why-anim-card,
+.has-scroll-anim .price-anim-card {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.has-scroll-anim .is-revealed .uupm-anim-card,
+.has-scroll-anim section.is-revealed .why-anim-card,
+.has-scroll-anim section.is-revealed .price-anim-card,
+.has-scroll-anim .is-revealed.uupm-anim-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Steps & Timeline: Left-to-Right Reveal (Horizontal cascade) */
+.has-scroll-anim .uupm-anim-step-ltr,
+.has-scroll-anim .step-anim-item,
+.has-scroll-anim .step-anim-card {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.has-scroll-anim .is-revealed .uupm-anim-step-ltr,
+.has-scroll-anim section.is-revealed .step-anim-item,
+.has-scroll-anim section.is-revealed .step-anim-card,
+.has-scroll-anim .is-revealed.uupm-anim-step-ltr {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 640px) {
+  .has-scroll-anim .uupm-anim-step-ltr,
+  .has-scroll-anim .step-anim-item,
+  .has-scroll-anim .step-anim-card {
+    transform: translateX(-16px);
+  }
+}
+
+/* 4. FAQ & Accordion Items: Staggered Fade-Up */
+.has-scroll-anim .uupm-anim-faq,
+.has-scroll-anim .faq-anim-item,
+.has-scroll-anim .whatis-anim-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.has-scroll-anim .is-revealed .uupm-anim-faq,
+.has-scroll-anim section.is-revealed .faq-anim-item,
+.has-scroll-anim section.is-revealed .whatis-anim-item,
+.has-scroll-anim .is-revealed.uupm-anim-faq {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 5. CTA Blocks, Forms & Booking Cards */
+.has-scroll-anim .uupm-anim-cta,
+.has-scroll-anim .faq-anim-cta {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
+  will-change: opacity, transform;
+}
+.has-scroll-anim .is-revealed .uupm-anim-cta,
+.has-scroll-anim section.is-revealed .faq-anim-cta,
+.has-scroll-anim .is-revealed.uupm-anim-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 6. Generic Stagger Delays (automatic cascade fallback) */
+.has-scroll-anim .is-revealed .uupm-anim-card:nth-child(1),
+.has-scroll-anim .is-revealed .uupm-anim-step-ltr:nth-child(1),
+.has-scroll-anim .is-revealed .uupm-anim-faq:nth-child(1) { transition-delay: 0.05s; }
+
+.has-scroll-anim .is-revealed .uupm-anim-card:nth-child(2),
+.has-scroll-anim .is-revealed .uupm-anim-step-ltr:nth-child(2),
+.has-scroll-anim .is-revealed .uupm-anim-faq:nth-child(2) { transition-delay: 0.14s; }
+
+.has-scroll-anim .is-revealed .uupm-anim-card:nth-child(3),
+.has-scroll-anim .is-revealed .uupm-anim-step-ltr:nth-child(3),
+.has-scroll-anim .is-revealed .uupm-anim-faq:nth-child(3) { transition-delay: 0.23s; }
+
+.has-scroll-anim .is-revealed .uupm-anim-card:nth-child(4),
+.has-scroll-anim .is-revealed .uupm-anim-step-ltr:nth-child(4),
+.has-scroll-anim .is-revealed .uupm-anim-faq:nth-child(4) { transition-delay: 0.32s; }
+
+.has-scroll-anim .is-revealed .uupm-anim-card:nth-child(5),
+.has-scroll-anim .is-revealed .uupm-anim-step-ltr:nth-child(5),
+.has-scroll-anim .is-revealed .uupm-anim-faq:nth-child(5) { transition-delay: 0.41s; }
+
+.has-scroll-anim .is-revealed .uupm-anim-card:nth-child(6),
+.has-scroll-anim .is-revealed .uupm-anim-step-ltr:nth-child(6),
+.has-scroll-anim .is-revealed .uupm-anim-faq:nth-child(6) { transition-delay: 0.50s; }
+
+.has-scroll-anim .is-revealed .uupm-anim-card:nth-child(7),
+.has-scroll-anim .is-revealed .uupm-anim-step-ltr:nth-child(7),
+.has-scroll-anim .is-revealed .uupm-anim-faq:nth-child(7) { transition-delay: 0.59s; }
+
+.has-scroll-anim .is-revealed .uupm-anim-card:nth-child(8),
+.has-scroll-anim .is-revealed .uupm-anim-step-ltr:nth-child(8),
+.has-scroll-anim .is-revealed .uupm-anim-faq:nth-child(8) { transition-delay: 0.68s; }
+
+/* Dynamic custom delays via --anim-delay property */
+.has-scroll-anim .is-revealed [style*="--anim-delay"] {
+  transition-delay: var(--anim-delay) !important;
+}
+
+/* 7. Accessibility: Pre-emptively disable animations if prefers-reduced-motion is requested */
+@media (prefers-reduced-motion: reduce) {
+  .has-scroll-anim .uupm-anim-header,
+  .has-scroll-anim .uupm-anim-card,
+  .has-scroll-anim .uupm-anim-step-ltr,
+  .has-scroll-anim .uupm-anim-faq,
+  .has-scroll-anim .uupm-anim-cta,
+  .has-scroll-anim .anim-header,
+  .has-scroll-anim .step-anim-item,
+  .has-scroll-anim .step-anim-card,
+  .has-scroll-anim .why-anim-card,
+  .has-scroll-anim .price-anim-card,
+  .has-scroll-anim .faq-anim-item,
+  .has-scroll-anim .whatis-anim-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   CLEAN & COMPACT 3-COLUMN FOOTER (MAP REMOVED & HARMONIZED)
+   ========================================================================== */
+.wrap-footer {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-top: none !important;
+  padding-top: 0 !important;
+}
+
+.wrap-footer .info-footer {
+  padding: 38px 0 28px !important;
+}
+
+.wrap-footer .wrap-content {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+}
+
+.wrap-footer .flex-footer {
+  display: grid !important;
+  grid-template-columns: 1.6fr 1fr 1.1fr !important;
+  gap: 44px !important;
+  align-items: start !important;
+}
+
+/* Remove map container and 4th box across all pages */
+.wrap-footer .map-footer,
+.wrap-footer .box-footer:has(.map-footer),
+.wrap-footer .box-footer:nth-child(4),
+.wrap-footer .box-footer-map {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+.wrap-footer .box-footer {
+  width: auto !important;
+  min-width: 0 !important;
+}
+
+/* Brand & Clinic Info */
+.wrap-footer .logo-footer {
+  margin-bottom: 12px !important;
+}
+
+.wrap-footer .logo-footer img {
+  max-height: 48px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.wrap-footer .name-company {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 0.98rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  line-height: 1.45 !important;
+  margin-bottom: 14px !important;
+  letter-spacing: -0.01em !important;
+}
+
+.wrap-footer .content-footer p {
+  margin-bottom: 9px !important;
+  font-size: 0.88rem !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+}
+
+.wrap-footer .content-footer p img {
+  display: none !important; /* Hide old bulky 30px PNG icons */
+}
+
+.wrap-footer .content-footer i,
+.wrap-footer .content-footer .gf-contact-icon {
+  color: #EABF0E !important;
+  font-size: 0.95rem !important;
+  margin-top: 3px !important;
+  flex-shrink: 0 !important;
+  width: 18px !important;
+  text-align: center !important;
+}
+
+.wrap-footer .content-footer a {
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+.wrap-footer .content-footer a:hover {
+  color: #EABF0E !important;
+  text-decoration: underline !important;
+}
+
+/* Social links */
+.wrap-footer .social-footer {
+  margin-top: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.wrap-footer .social-footer .text {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  margin-right: 4px !important;
+}
+
+.wrap-footer .social-footer li {
+  margin: 0 !important;
+}
+
+.wrap-footer .social-footer a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(234, 191, 14, 0.4) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.wrap-footer .social-footer a:hover {
+  background: #EABF0E !important;
+  border-color: #EABF0E !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(234, 191, 14, 0.4) !important;
+}
+
+.wrap-footer .social-footer a i {
+  color: #FFFFFF !important;
+  font-size: 0.95rem !important;
+  transition: color 0.2s ease !important;
+}
+
+.wrap-footer .social-footer .gf-zalo-badge {
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  font-size: 0.68rem !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1 !important;
+  transition: color 0.2s ease !important;
+}
+
+.wrap-footer .social-footer a:hover i,
+.wrap-footer .social-footer a:hover .gf-zalo-badge {
+  color: #1a1a1a !important;
+}
+
+.wrap-footer .social-footer a img {
+  width: 18px !important;
+  height: 18px !important;
+  object-fit: contain !important;
+  filter: brightness(0) invert(1) !important;
+  transition: filter 0.2s ease !important;
+}
+
+.wrap-footer .social-footer a:hover img {
+  filter: brightness(0) !important;
+}
+
+/* Titles: DANH MỤC & CHÍNH SÁCH */
+.wrap-footer .title-footer {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 0.96rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: #FFFFFF !important;
+  margin-bottom: 16px !important;
+  position: relative !important;
+  padding-bottom: 8px !important;
+}
+
+.wrap-footer .title-footer::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 26px;
+  height: 2px;
+  background: #EABF0E;
+  border-radius: 2px;
+}
+
+/* Lists */
+.wrap-footer .footer-ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 7px !important;
+}
+
+.wrap-footer .footer-ul li {
+  margin: 0 !important;
+}
+
+.wrap-footer .footer-ul li a {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 0.88rem !important;
+  line-height: 1.45 !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.wrap-footer .footer-ul li a:hover {
+  color: #EABF0E !important;
+  transform: translateX(4px) !important;
+}
+
+/* Footer mini booking CTA button */
+.gf-footer-book-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #EABF0E, #D4A808);
+  color: #1a1a1a !important;
+  font-size: 0.84rem !important;
+  font-weight: 700 !important;
+  border-radius: 999px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(234, 191, 14, 0.3);
+  transition: all 0.25s ease !important;
+}
+
+.gf-footer-book-cta:hover {
+  background: #FFFFFF;
+  color: #B89307 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.wrap-footer .footer-powered,
+.footer-powered,
+.copyright,
+p.copyright {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 991px) {
+  .wrap-footer .flex-footer {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+  .wrap-footer .box-footer:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap-footer .flex-footer {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px 18px !important;
+  }
+  .wrap-footer .box-footer:first-child {
+    grid-column: 1 / -1 !important;
+  }
+  .wrap-footer .info-footer {
+    padding: 28px 0 20px !important;
+  }
+  .gf-footer-book-cta {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ==========================================================================
+   UI/UX PRO MAX - SYSTEMIC HEADING & TYPOGRAPHY STANDARDIZATION (SEO & HIERARCHY)
+   ========================================================================== */
+
+/* 1. Tagline / Eyebrow (Kicker) */
+.gf-tagline,
+.uupm-tagline,
+.section-tagline,
+.tagline-badge {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.8125rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #B89307 !important;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* 2. Page Main Title (H1 - Single instance per page) */
+.gf-hero-title,
+.page-main-h1,
+.hero-title,
+main h1,
+article h1,
+.hero-content h1,
+h1.text-\[2\.6rem\] {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(2.25rem, 3.8vw, 3.0rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  color: #18181b !important;
+}
+
+@media (max-width: 640px) {
+  .gf-hero-title,
+  .page-main-h1,
+  .hero-title,
+  main h1,
+  article h1,
+  .hero-content h1,
+  h1.text-\[2\.6rem\] {
+    font-size: 2.0rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* 3. Section Title (H2 - Harmonized size across ALL sections and pages) */
+.gf-title-display,
+.uupm-section-title,
+.section-title,
+.heading-section,
+main section > div > h2:not(.name-company),
+main section h2:not(.name-company):not(.text-xs),
+article section h2:not(.name-company):not(.text-xs),
+.py-16 h2:not(.name-company):not(.text-xs),
+.py-20 h2:not(.name-company):not(.text-xs),
+.py-24 h2:not(.name-company):not(.text-xs) {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(1.875rem, 2.5vw, 2.25rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+  color: #18181b !important;
+}
+
+@media (max-width: 640px) {
+  .gf-title-display,
+  .uupm-section-title,
+  .section-title,
+  .heading-section,
+  main section > div > h2:not(.name-company),
+  main section h2:not(.name-company):not(.text-xs),
+  article section h2:not(.name-company):not(.text-xs),
+  .py-16 h2:not(.name-company):not(.text-xs),
+  .py-20 h2:not(.name-company):not(.text-xs),
+  .py-24 h2:not(.name-company):not(.text-xs) {
+    font-size: 1.625rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* 4. Section Lead Paragraph / Subtitle */
+.gf-desc-lead,
+.section-lead,
+.section-subtitle {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 1.0625rem !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  color: #4b5563 !important;
+  max-width: 720px;
+}
+
+@media (max-width: 640px) {
+  .gf-desc-lead,
+  .section-lead,
+  .section-subtitle {
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* 5. Sub-section / Card Title / Process Step (H3) */
+.gf-service-title,
+.gf-why-title,
+.card-title-h3,
+.price-card-title,
+.process-step-title,
+main section h3:not(.gf-title-display):not(.text-white):not([class*="text-2xl"]):not([class*="text-3xl"]):not([class*="text-4xl"]) {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.01em !important;
+  color: #18181b !important;
+}
+
+@media (max-width: 640px) {
+  .gf-service-title,
+  .gf-why-title,
+  .card-title-h3,
+  .price-card-title,
+  .process-step-title,
+  main section h3:not(.gf-title-display):not(.text-white):not([class*="text-2xl"]):not([class*="text-3xl"]):not([class*="text-4xl"]) {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* 6. Micro Item / Doctor Name in Card / FAQ Question (H4) */
+.gf-doctor-name,
+.faq-question-h4,
+main section h4 {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 1.0rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  color: #18181b !important;
+}
+
+/* 7. Footer Brand Styling (Neutralized from H2 to div/p for clean SEO) */
+.wrap-footer .name-company,
+.footer .name-company,
+div.name-company,
+p.name-company {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+  color: #ffffff !important;
+  margin-bottom: 12px !important;
+}
+
+/* ==========================================================================
+   HEADER REDESIGN: CURVED TOP ADDRESS BAR & MODERN LUXURY CLINIC ACTIONS
+   ========================================================================== */
+
+/* 1. Header Container & Structure */
+.header {
+  position: relative;
+  background: #ffffff !important;
+}
+
+.head-bottom {
+  position: relative;
+  padding: 0 !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+}
+
+/* Disable the old broken NiNa pseudo-element */
+.head-bottom::after {
+  display: none !important;
+}
+
+.head-bottom .wrap-content {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  position: relative;
+  padding-top: 0 !important;
+  min-height: 104px;
+}
+
+.head-bottom {
+  padding: 0 !important;
+  background: #FFFFFF !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  overflow: visible !important;
+}
+
+.head-bottom .wrap-content {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  position: relative !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 96px !important;
+  overflow: visible !important;
+}
+
+/* 1. Logo & Branding on Left */
+.logo-banner {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 6px 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.logo-banner .logo,
+.logo-banner .banner {
+  flex-shrink: 0 !important;
+}
+
+.logo-banner a {
+  display: block;
+  text-decoration: none;
+}
+
+/* 2. Content Menu Wrapper on Right (Two-tier clean layout) */
+.content-menu {
+  width: auto !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+/* 3. Top Row: Curved Golden Ribbon */
+.content-menu .v1,
+.header-top-gold-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 20px !important;
+  background: #EABF0E !important;
+  border: none !important;
+  border-bottom-left-radius: 40px !important;
+  padding: 0 24px 0 44px !important;
+  height: 48px !important;
+  box-sizing: border-box !important;
+  margin: 0 0 6px 0 !important;
+  box-shadow: 0 2px 8px rgba(234, 191, 14, 0.2) !important;
+  position: relative !important;
+  align-self: flex-end !important;
+  color: #FFFFFF !important;
+}
+
+/* Seamlessly extend golden bar to the right edge of viewport */
+.content-menu .v1::after,
+.header-top-gold-bar::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 100% !important;
+  top: 0 !important;
+  height: 48px !important;
+  box-sizing: border-box !important;
+  width: 100vw !important;
+  background: #EABF0E !important;
+  pointer-events: none !important;
+}
+
+/* Smooth swoop curve on the top-left of the golden bar */
+.content-menu .v1::before,
+.header-top-gold-bar::before {
+  content: '' !important;
+  position: absolute !important;
+  right: 100% !important;
+  top: 0 !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: radial-gradient(circle at 0% 100%, transparent 24px, #EABF0E 25px) !important;
+  pointer-events: none !important;
+}
+
+/* Hotline Pill inside Gold Bar */
+.item-hotline {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.item-hotline .img-hotline {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+  border: 1.5px solid #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  box-shadow: none !important;
+}
+
+.item-hotline .img-hotline i {
+  color: #FFFFFF !important;
+  font-size: 13px !important;
+}
+
+.hotline-text-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-hotline p,
+.hotline-lbl {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  opacity: 0.95 !important;
+  letter-spacing: 0.04em !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.item-hotline a,
+.hotline-num {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 16.5px !important;
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  line-height: 1.15 !important;
+  display: block !important;
+  letter-spacing: 0.02em !important;
+  white-space: nowrap !important;
+  margin-top: 1px !important;
+}
+
+.item-hotline a:hover,
+.hotline-num:hover {
+  color: #FEF08A !important;
+}
+
+/* Đặt Lịch Hẹn / Khám Button inside Gold Bar */
+.header-cta-booking-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1.6px solid #FFFFFF !important;
+  color: #FFFFFF !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  padding: 6px 16px !important;
+  border-radius: 9999px !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transition: all 0.25s ease !important;
+  white-space: nowrap !important;
+}
+
+.header-cta-booking-btn:hover {
+  background: #FFFFFF !important;
+  color: #18181b !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Address in Gold Bar */
+.info-head {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.info-head i {
+  color: #FFFFFF !important;
+  font-size: 14px !important;
+}
+
+.info-head img {
+  display: none !important;
+}
+
+/* Vietnam Flag / Language Badge in Gold Bar */
+.header-lang-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  text-transform: uppercase !important;
+  cursor: pointer;
+  white-space: nowrap !important;
+}
+
+.header-lang-badge img {
+  width: 20px !important;
+  height: 14px !important;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.header-lang-badge i {
+  font-size: 10px !important;
+}
+
+/* 4. Bottom Row: Navigation Tabs under Hotline/Đặt lịch */
+.content-menu .v2,
+.header-nav-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  height: 48px !important;
+  background: transparent !important;
+  margin-top: 2px !important;
+  overflow: visible !important;
+  position: relative !important;
+  padding-left: 4px !important;
+}
+
+.header-nav-list {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  max-width: 690px !important;
+  gap: 20px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.header-nav-list > li {
+  position: relative !important;
+}
+
+.header-nav-list > li > a {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  color: #18181b !important;
+  text-decoration: none !important;
+  padding: 12px 2px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  transition: color 0.2s ease !important;
+}
+
+.header-nav-list > li > a:hover,
+.header-nav-list > li > a.active,
+.header-nav-list > li.active > a {
+  color: #EABF0E !important;
+}
+
+/* Service Dropdown styling within header-nav-row */
+.header-nav-list > li.has-dropdown:hover .dropdown-menu-service {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+.header-nav-list .dropdown-menu-service {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  min-width: 250px !important;
+  background: #FFFFFF !important;
+  border-radius: 14px !important;
+  border: 1.5px solid rgba(234, 191, 14, 0.4) !important;
+  box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(234, 191, 14, 0.15) !important;
+  padding: 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(8px) !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  z-index: 9999 !important;
+}
+
+.header-nav-list .dropdown-service-item {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 9px 14px !important;
+  border-radius: 9px !important;
+  text-decoration: none !important;
+  transition: background 0.2s ease !important;
+}
+
+.header-nav-list .dropdown-service-item:hover {
+  background: #FFFDF5 !important;
+}
+
+.header-nav-list .dropdown-service-title {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  color: #18181b !important;
+}
+
+.header-nav-list .dropdown-service-item:hover .dropdown-service-title {
+  color: #B89307 !important;
+}
+
+.header-nav-list .dropdown-service-sub {
+  font-size: 11.5px !important;
+  color: #71717a !important;
+  margin-top: 1px !important;
+}
+
+/* Search Button removed */
+.header-nav-search-btn {
+  display: none !important;
+}
+
+/* 5. Completely hide the old full-width yellow bar globally */
+.wrap-menu,
+section.wrap-menu,
+nav.menu.w-menu {
+  display: none !important;
+  height: 0 !important;
+  visibility: hidden !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 6. Responsive adjustments */
+@media (max-width: 1200px) {
+  .info-head {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .head-bottom .wrap-content {
+    justify-content: space-between !important;
+    min-height: 70px !important;
+  }
+  .content-menu {
+    display: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   ELEVATED NEWS & KNOWLEDGE HUB (TIN-TUC.HTML)
+   Luxury Dental Editorial UI/UX matching Greenfield brand identity
+   ========================================================================== */
+
+.news-page-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 36px 20px 64px;
+}
+
+.news-hero-section {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 36px;
+}
+
+.news-hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(234, 191, 14, 0.14);
+  border: 1px solid rgba(234, 191, 14, 0.6);
+  color: #8C7000;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-bottom: 14px;
+}
+
+.news-hero-title {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: clamp(1.85rem, 3.2vw, 2.6rem) !important;
+  font-weight: 800 !important;
+  color: #18181b !important;
+  line-height: 1.25 !important;
+  margin-bottom: 12px !important;
+  letter-spacing: -0.02em;
+}
+
+.news-hero-desc {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #52525b;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Category Filter Tabs */
+.news-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  padding: 0;
+  list-style: none;
+}
+
+.news-filter-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFDF7;
+  border: 1.5px solid rgba(234, 191, 14, 0.35);
+  color: #3f3f46;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  user-select: none;
+}
+
+.news-filter-tab:hover {
+  background: #FEF9C3;
+  color: #18181b;
+  border-color: #EABF0E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(234, 191, 14, 0.25);
+}
+
+.news-filter-tab.active {
+  background: #EABF0E !important;
+  color: #18181b !important;
+  border-color: #EABF0E !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(234, 191, 14, 0.38) !important;
+  transform: translateY(-1px);
+}
+
+.news-filter-tab .badge-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.07);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.news-filter-tab.active .badge-count {
+  background: rgba(24, 24, 27, 0.15);
+  color: #18181b;
+}
+
+/* 3-Column Modern News Grid */
+.news-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 30px !important;
+  align-items: stretch !important;
+}
+
+@media (max-width: 1024px) {
+  .news-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 22px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .news-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* Individual Card */
+.news-card-pro {
+  background: #FFFFFF !important;
+  border-radius: 18px !important;
+  border: 1.5px solid rgba(234, 191, 14, 0.25) !important;
+  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(234, 191, 14, 0.06) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.38s ease, border-color 0.38s ease !important;
+  position: relative !important;
+}
+
+.news-card-pro:hover {
+  transform: translateY(-8px) !important;
+  border-color: #EABF0E !important;
+  box-shadow: 0 20px 42px -6px rgba(234, 191, 14, 0.3), 0 8px 18px -2px rgba(0, 0, 0, 0.06) !important;
+}
+
+.news-card-pro.is-hidden {
+  display: none !important;
+}
+
+/* Thumbnail wrapper */
+.news-card-media {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 10 !important;
+  overflow: hidden !important;
+  background: #F4F4F5 !important;
+}
+
+.news-card-thumb-link {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.news-card-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.news-card-pro:hover .news-card-img {
+  transform: scale(1.06) !important;
+}
+
+.news-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.3) 100%);
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.news-card-pro:hover .news-card-overlay {
+  opacity: 0.8;
+}
+
+/* Badges on Thumbnail */
+.news-badge-cat {
+  position: absolute !important;
+  top: 14px !important;
+  left: 14px !important;
+  z-index: 2 !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: #8C7000 !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 11.5px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(234, 191, 14, 0.5) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  pointer-events: none;
+}
+
+.news-badge-time {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  z-index: 2 !important;
+  background: rgba(24, 24, 27, 0.82) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: #FFFFFF !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  pointer-events: none;
+}
+
+.news-badge-time i {
+  color: #EABF0E;
+  font-size: 11px;
+}
+
+/* Card Body Content */
+.news-card-content {
+  padding: 22px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+
+.news-meta-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 12px !important;
+  color: #71717a !important;
+  margin-bottom: 10px !important;
+}
+
+.news-meta-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.news-meta-item i {
+  color: #B89307 !important;
+  font-size: 12px !important;
+}
+
+.news-card-title {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  color: #18181b !important;
+  margin: 0 0 10px 0 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  min-height: 44px !important;
+}
+
+.news-card-title a {
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: color 0.22s ease !important;
+}
+
+.news-card-pro:hover .news-card-title a {
+  color: #B89307 !important;
+}
+
+.news-card-desc {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 0.88rem !important;
+  line-height: 1.6 !important;
+  color: #52525b !important;
+  margin: 0 0 18px 0 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Card Footer */
+.news-card-footer {
+  margin-top: auto !important;
+  padding-top: 14px !important;
+  border-top: 1px dashed rgba(234, 191, 14, 0.4) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.news-read-more-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  color: #18181b !important;
+  text-decoration: none !important;
+  transition: all 0.22s ease !important;
+}
+
+.news-read-more-btn i {
+  color: #B89307 !important;
+  font-size: 0.85rem !important;
+  transition: transform 0.25s ease !important;
+}
+
+.news-card-pro:hover .news-read-more-btn {
+  color: #8C7000 !important;
+}
+
+.news-card-pro:hover .news-read-more-btn i {
+  transform: translateX(4px) !important;
+  color: #EABF0E !important;
+}
+
+/* Pagination Bar */
+.news-pagination-nav {
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 24px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(234, 191, 14, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.news-pagination-info {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.88rem;
+  color: #71717a;
+}
+
+.news-pagination-info strong {
+  color: #18181b;
+  font-weight: 700;
+}
+
+.news-pagination-list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news-page-btn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #3f3f46;
+  background: #FFFDF7;
+  border: 1.5px solid #E2E8F0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.news-page-btn:hover:not(.disabled):not(.active) {
+  border-color: #EABF0E;
+  color: #18181b;
+  background: #FEF9C3;
+  transform: translateY(-1px);
+}
+
+.news-page-btn.active {
+  background: #EABF0E !important;
+  color: #18181b !important;
+  border-color: #EABF0E !important;
+  box-shadow: 0 3px 10px rgba(234, 191, 14, 0.35) !important;
+}
+
+.news-page-btn.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Bottom Consultation CTA Banner */
+.news-consultation-cta {
+  margin-top: 60px;
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  border-radius: 20px;
+  padding: 44px 36px;
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid rgba(234, 191, 14, 0.4);
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.35);
+}
+
+.news-consultation-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(234, 191, 14, 0.18) 0%, rgba(234, 191, 14, 0) 70%);
+  pointer-events: none;
+}
+
+.news-cta-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.news-cta-text {
+  max-width: 660px;
+}
+
+.news-cta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(234, 191, 14, 0.18);
+  border: 1px solid #EABF0E;
+  color: #EABF0E;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+
+.news-cta-title {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem) !important;
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+  line-height: 1.3 !important;
+  margin-bottom: 10px !important;
+}
+
+.news-cta-desc {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.news-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.news-cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: linear-gradient(135deg, #EABF0E 0%, #D4A708 100%);
+  color: #18181b !important;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  text-decoration: none !important;
+  box-shadow: 0 6px 20px rgba(234, 191, 14, 0.45);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.news-cta-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(234, 191, 14, 0.6);
+  background: linear-gradient(135deg, #f3ca1e 0%, #e0b411 100%);
+}
+
+.news-cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+.news-cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #EABF0E;
+  color: #EABF0E !important;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .news-consultation-cta {
+    padding: 30px 22px;
+  }
+  .news-cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .news-cta-btn-primary,
+  .news-cta-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   SMILE ASSESSMENT QUIZ PAGE (danh-gia-nu-cuoi.html)
+   ========================================================================== */
+.quiz-page-wrapper {
+  background: #FDFBF7;
+  min-height: 80vh;
+  padding: 40px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.quiz-card {
+  width: 100%;
+  max-width: 760px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.06);
+  padding: 40px 44px;
+  box-sizing: border-box;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Progress bar header */
+.quiz-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.quiz-step-counter {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.quiz-percent {
+  font-size: 15px;
+  font-weight: 800;
+  color: #B89307;
+}
+
+.quiz-progress-track {
+  width: 100%;
+  height: 6px;
+  background: #FEF3C7;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #EABF0E 0%, #D4AC0B 100%);
+  border-radius: 9999px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Question Header */
+.quiz-question-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #18181b;
+  line-height: 1.35;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.quiz-question-subtitle {
+  font-size: 14.5px;
+  color: #64748b;
+  margin: 0 0 26px 0;
+  line-height: 1.5;
+}
+
+/* Options List */
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-bottom: 30px;
+}
+
+.quiz-option-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1.6px solid #e2e8f0;
+  background: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  text-align: left;
+  outline: none;
+}
+
+.quiz-option-card:hover {
+  border-color: #EABF0E;
+  background: #FFFDF5;
+  transform: translateY(-1px);
+}
+
+.quiz-option-card.selected {
+  border-color: #EABF0E !important;
+  background: #FEF9E6 !important;
+  box-shadow: 0 4px 14px rgba(234, 191, 14, 0.22) !important;
+}
+
+.quiz-option-icon {
+  font-size: 20px;
+  line-height: 1.3;
+  flex-shrink: 0;
+  width: 26px;
+  text-align: center;
+}
+
+.quiz-option-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.quiz-option-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #18181b;
+  line-height: 1.3;
+}
+
+.quiz-option-card.selected .quiz-option-title {
+  color: #854d0e;
+}
+
+.quiz-option-desc {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.quiz-option-card.selected .quiz-option-desc {
+  color: #a16207;
+}
+
+.quiz-option-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.2s ease;
+}
+
+.quiz-option-card.selected .quiz-option-indicator {
+  border-color: #EABF0E;
+  background: #EABF0E;
+  color: #18181b;
+}
+
+.quiz-option-indicator i {
+  display: none;
+  font-size: 11px;
+}
+
+.quiz-option-card.selected .quiz-option-indicator i {
+  display: block;
+}
+
+/* Actions Row */
+.quiz-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.quiz-btn-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: 12px;
+  border: 1.5px solid #cbd5e1;
+  background: #FFFFFF;
+  color: #334155;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-btn-back:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #18181b;
+}
+
+.quiz-btn-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 34px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #EABF0E 0%, #D4AC0B 100%);
+  color: #18181b;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(234, 191, 14, 0.35);
+  margin-left: auto;
+}
+
+.quiz-btn-next:hover {
+  background: linear-gradient(135deg, #F5D033 0%, #EABF0E 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(234, 191, 14, 0.45);
+}
+
+.quiz-btn-next:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  background: #e2e8f0;
+  color: #94a3b8;
+}
+
+/* Results Card */
+.quiz-result-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.quiz-result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: #FEF9E6;
+  border: 1px solid rgba(234, 191, 14, 0.4);
+  border-radius: 9999px;
+  color: #B89307;
+  font-size: 13.5px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.quiz-result-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.quiz-result-desc {
+  font-size: 15px;
+  color: #64748b;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.quiz-plan-card {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.quiz-plan-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #EABF0E;
+  color: #18181b;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.quiz-plan-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.quiz-plan-detail {
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.quiz-plan-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quiz-plan-benefits li {
+  font-size: 13.5px;
+  color: #166534;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quiz-form-wrap {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(234, 191, 14, 0.4);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(234, 191, 14, 0.1);
+}
+
+.quiz-form-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.quiz-form-subtitle {
+  font-size: 13.5px;
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quiz-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.quiz-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quiz-input-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.quiz-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 14.5px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #0f172a;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.quiz-input:focus,
+.quiz-select:focus {
+  border-color: #EABF0E !important;
+  box-shadow: 0 0 0 3px rgba(234, 191, 14, 0.2) !important;
+}
+
+.quiz-select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 14.5px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #0f172a;
+  outline: none;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.quiz-result-gauge-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 16px;
+}
+
+.quiz-result-gauge {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  border: 7px solid #FEF9E6;
+  border-top-color: #EABF0E;
+  border-right-color: #EABF0E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 900;
+  color: #B89307;
+  background: #FFFDF5;
+  box-shadow: 0 4px 14px rgba(234, 191, 14, 0.15);
+}
+
+.quiz-result-next-box {
+  background: #F8FAFC;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  padding: 20px 24px;
+  margin: 24px 0 28px 0;
+  text-align: left;
+}
+
+.quiz-result-next-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.quiz-result-next-desc {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.quiz-submit-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #EABF0E 0%, #d4ac0b 100%);
+  color: #18181b;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(234, 191, 14, 0.35);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.quiz-submit-btn:hover {
+  background: linear-gradient(135deg, #f5d033 0%, #EABF0E 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(234, 191, 14, 0.45);
+}
+
+@media (max-width: 640px) {
+  .quiz-card {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+  .quiz-question-title {
+    font-size: 21px;
+  }
+  .quiz-option-card {
+    padding: 14px 16px;
+  }
+  .quiz-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

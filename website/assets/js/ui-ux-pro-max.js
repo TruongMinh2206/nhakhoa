@@ -202,8 +202,8 @@
 
     // Delegate action buttons (excluding navbar navigation tabs) to open modal
     document.querySelectorAll('a[href*="dat-lich"], button:not(#uupm-open-booking)').forEach((btn) => {
-      // Do NOT hijack navigation tabs in header, mobile menu, footer, or dat-lich.html dedicated form
-      if (btn.closest('nav') || btn.closest('.menu') || btn.closest('.menu-mobile') || btn.closest('.wrap-menu') || btn.closest('.ulmn') || btn.closest('.footer-ul') || btn.closest('#gf-main-booking-form') || btn.closest('.gf-booking-section') || btn.closest('#booking-receipt')) {
+      // Do NOT hijack navigation tabs in header, mobile menu, footer, or dat-lich.html dedicated form, or accordion / step items / doctor card buttons
+      if (btn.closest('nav') || btn.closest('.menu') || btn.closest('.menu-mobile') || btn.closest('.wrap-menu') || btn.closest('.ulmn') || btn.closest('.footer-ul') || btn.closest('#gf-main-booking-form') || btn.closest('.gf-booking-section') || btn.closest('#booking-receipt') || btn.closest('.accordion-item') || btn.closest('.visit-step-item') || btn.classList.contains('accordion-toggle') || btn.classList.contains('visit-step-toggle') || btn.classList.contains('gf-doctor-book-btn') || btn.closest('.gf-doctor-actions') || btn.closest('.gf-doctor-card')) {
         return;
       }
       const txt = (btn.textContent || '').trim().toLowerCase();
@@ -700,6 +700,116 @@
     });
   }
 
+  // 13. Unified Scroll Reveal Animation Engine (Synchronized across entire website)
+  function initScrollRevealAnimations() {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    document.documentElement.classList.add('has-scroll-anim');
+
+    // Select candidate sections
+    const allSections = Array.from(document.querySelectorAll('section, .gf-booking-section'));
+    const sections = allSections.filter(sec => {
+      if (sec.closest('header') || sec.closest('.header') || sec.closest('.menu-mobile') ||
+          sec.closest('footer') || sec.closest('#uupm-booking-modal') || sec.closest('#uupm-floating-dock') ||
+          sec.classList.contains('wrap-menu') || sec.id === 'menu-mobile') {
+        return false;
+      }
+      return true;
+    });
+
+    sections.forEach(sec => {
+      // 1. Tag Section Header
+      const header = sec.querySelector('.gf-header-center, .anim-header, .title-main, .sec-title, div[class*="text-center mb-"]');
+      if (header && !header.classList.contains('uupm-anim-header') && !header.classList.contains('anim-header')) {
+        header.classList.add('uupm-anim-header');
+      }
+
+      // Check if process/steps section
+      const secText = (sec.textContent || '').toLowerCase();
+      const isProcessSection = sec.id === 'quy-trinh' ||
+                               sec.querySelector('.visit-step-item, .timeline, [class*="timeline"]') !== null ||
+                               (secText.includes('quy trình') && sec.querySelector('[data-step], .grid, .flex'));
+
+      if (isProcessSection) {
+        const steps = sec.querySelectorAll('.visit-step-item, .step-anim-item, .step-anim-card, [class*="step-card"], [data-step]');
+        if (steps.length > 0) {
+          steps.forEach((st, idx) => {
+            if (!st.classList.contains('step-anim-item') && !st.classList.contains('step-anim-card')) {
+              st.classList.add('uupm-anim-step-ltr');
+            }
+            st.style.setProperty('--anim-delay', `${(idx * 0.1 + 0.05).toFixed(2)}s`);
+          });
+        }
+      }
+
+      // 2. Tag Cards and Grids (Doctors, Services, Features, Pricing, Reasons, Reviews)
+      const gridContainers = sec.querySelectorAll('.gf-services-grid, .grid, .gf-booking-grid, .row');
+      gridContainers.forEach(grid => {
+        if (grid.closest('#quy-trinh')) return;
+        const children = Array.from(grid.children).filter(child => {
+          return !child.classList.contains('uupm-anim-header') && !child.tagName.match(/^H[1-6]$/);
+        });
+
+        children.forEach((child, idx) => {
+          if (!child.classList.contains('uupm-anim-card') &&
+              !child.classList.contains('why-anim-card') &&
+              !child.classList.contains('price-anim-card') &&
+              !child.classList.contains('step-anim-card') &&
+              !child.classList.contains('step-anim-item') &&
+              !child.classList.contains('uupm-anim-step-ltr')) {
+            child.classList.add('uupm-anim-card');
+          }
+          child.style.setProperty('--anim-delay', `${(Math.min(idx, 8) * 0.09 + 0.05).toFixed(2)}s`);
+        });
+      });
+
+      // 3. Tag FAQ / Accordion items
+      const faqItems = sec.querySelectorAll('.accordion-item, .gf-faq-item, .faq-card, .faq-anim-item');
+      if (faqItems.length > 0) {
+        faqItems.forEach((item, idx) => {
+          if (!item.classList.contains('uupm-anim-faq') &&
+              !item.classList.contains('faq-anim-item') &&
+              !item.classList.contains('whatis-anim-item')) {
+            item.classList.add('uupm-anim-faq');
+          }
+          item.style.setProperty('--anim-delay', `${(idx * 0.07 + 0.05).toFixed(2)}s`);
+        });
+      }
+
+      // 4. Tag CTA blocks / Form cards
+      const ctas = sec.querySelectorAll('.faq-anim-cta, .gf-booking-card');
+      ctas.forEach(cta => {
+        if (!cta.classList.contains('uupm-anim-cta') && !cta.classList.contains('uupm-anim-card')) {
+          cta.classList.add('uupm-anim-cta');
+        }
+      });
+    });
+
+    // Setup IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.06
+    });
+
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        setTimeout(() => sec.classList.add('is-revealed'), 60);
+      } else {
+        observer.observe(sec);
+      }
+    });
+  }
+
   // 11. DOM Initialization
   function init() {
     initHeaderScroll();
@@ -711,6 +821,7 @@
     initDropdownMenu();
     initFaqAccordion();
     initVideoFacades();
+    initScrollRevealAnimations();
   }
 
   if (document.readyState === 'loading') {
@@ -718,5 +829,88 @@
   } else {
     init();
   }
+
+  // 12. Global Doctor Booking Handler & Form Submit
+  window.selectDoctor = function(doctorName) {
+    const docSelect = document.getElementById('gf-doctor') || document.getElementById('bk_doctor') || document.getElementById('booking-doctor');
+    if (docSelect) {
+      for (let i = 0; i < docSelect.options.length; i++) {
+        if (docSelect.options[i].value.includes(doctorName) || doctorName.includes(docSelect.options[i].value)) {
+          docSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    const srvSelect = document.getElementById('gf-service') || document.getElementById('booking-service');
+    if (srvSelect && doctorName) {
+      const srvText = (doctorName.includes('Thùy Chi') || doctorName.includes('Thanh Thủy'))
+        ? 'Niềng'
+        : doctorName.includes('Phục Hình')
+          ? 'Sứ'
+          : doctorName.includes('Kim Dung')
+            ? 'Implant'
+            : '';
+      if (srvText) {
+        for (let i = 0; i < srvSelect.options.length; i++) {
+          if (srvSelect.options[i].value.includes(srvText) || srvSelect.options[i].text.includes(srvText)) {
+            srvSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    const targetSec = document.getElementById('booking-section') || document.getElementById('dat-lich-kham');
+    if (targetSec) {
+      targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => {
+        const nameInput = document.getElementById('gf-name') || document.getElementById('booking-name') || document.getElementById('bk_name');
+        if (nameInput) {
+          nameInput.focus();
+        }
+      }, 600);
+    } else {
+      window.location.href = 'dat-lich.html?doctor=' + encodeURIComponent(doctorName);
+    }
+  };
+
+  window.handleGfBookingSubmit = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const form = document.getElementById('gf-appointment-form');
+    if (!form) return;
+    const name = document.getElementById('gf-name')?.value.trim() || 'Quý khách';
+    const phone = document.getElementById('gf-phone')?.value.trim() || '';
+    const doctor = document.getElementById('gf-doctor')?.value || 'Bác sĩ chuyên khoa';
+    const service = document.getElementById('gf-service')?.value || 'Tư vấn nha khoa';
+
+    const submitBtn = form.querySelector('.gf-form-submit');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i><span>Đang xác nhận lịch hẹn...</span>';
+    }
+
+    setTimeout(() => {
+      form.innerHTML = `
+        <div style="text-align: center; padding: 36px 20px;">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: #FEF9E6; border: 2px solid #EABF0E; color: #B89307; display: inline-flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 16px;">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h3 style="font-size: 22px; font-weight: 800; color: #18181b; margin-bottom: 8px;">Đặt Lịch Khám Thành Công!</h3>
+          <p style="font-size: 15px; color: #475569; max-width: 540px; margin: 0 auto 18px; line-height: 1.6;">
+            Cảm ơn <strong>${name}</strong> đã đặt lịch hẹn với <strong>${doctor}</strong> (${service}). Đội ngũ bác sĩ và trợ lý y tế của Nha Khoa Kim Dung sẽ gọi tới số <strong>${phone}</strong> trong vòng 15 phút để xác nhận chi tiết.
+          </p>
+          <div style="display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 10px;">
+            <a href="tel:0862960886" class="gf-btn-primary" style="padding: 10px 22px; font-size: 14px;">
+              <i class="fa-solid fa-phone"></i> <span>Hotline: 0862 960 886</span>
+            </a>
+            <button type="button" onclick="location.reload()" style="padding: 10px 20px; border-radius: 12px; border: 1.5px solid #cbd5e1; background: #fff; color: #334155; font-weight: 700; font-size: 14px; cursor: pointer;">
+              Đặt lịch hẹn khác
+            </button>
+          </div>
+        </div>
+      `;
+    }, 600);
+  };
 })();
 

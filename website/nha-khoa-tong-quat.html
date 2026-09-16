@@ -81,6 +81,141 @@
         }
       }
     </script>
+    <style>
+      /* Accordion styles */
+      .accordion-panel, .visit-step-panel {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .accordion-item.is-open {
+        border-color: #EABF0E !important;
+        box-shadow: 0 6px 20px rgba(234, 191, 14, 0.15) !important;
+      }
+      .accordion-item.is-open .accordion-icon {
+        transform: rotate(45deg);
+        background-color: #EABF0E !important;
+        color: #18181b !important;
+      }
+      .visit-step-item.is-open .step-box {
+        border-color: #EABF0E !important;
+        background-color: #fffdf5 !important;
+        box-shadow: 0 4px 16px rgba(234, 191, 14, 0.12) !important;
+      }
+      .visit-step-item.is-open .step-number {
+        background-color: #EABF0E !important;
+        color: #18181b !important;
+        box-shadow: 0 0 0 4px rgba(234, 191, 14, 0.25);
+      }
+      .visit-step-item.is-open .step-icon {
+        background-color: #EABF0E !important;
+        color: #18181b !important;
+      }
+
+      /* Scroll Animation rules */
+      .has-scroll-anim section .anim-header {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .has-scroll-anim section.is-revealed .anim-header {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* What-is Accordion items staggered */
+      .has-scroll-anim #what-is .whatis-anim-item {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .has-scroll-anim #what-is.is-revealed .whatis-anim-item {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .has-scroll-anim #what-is.is-revealed .whatis-anim-item:nth-child(1) { transition-delay: 0.05s; }
+      .has-scroll-anim #what-is.is-revealed .whatis-anim-item:nth-child(2) { transition-delay: 0.15s; }
+      .has-scroll-anim #what-is.is-revealed .whatis-anim-item:nth-child(3) { transition-delay: 0.25s; }
+      .has-scroll-anim #what-is.is-revealed .whatis-anim-item:nth-child(4) { transition-delay: 0.35s; }
+
+      /* Pricing Cards staggered */
+      .has-scroll-anim #bang-gia .price-anim-card {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .has-scroll-anim #bang-gia.is-revealed .price-anim-card {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .has-scroll-anim #bang-gia.is-revealed .price-anim-card:nth-child(1) { transition-delay: 0.06s; }
+      .has-scroll-anim #bang-gia.is-revealed .price-anim-card:nth-child(2) { transition-delay: 0.20s; }
+      .has-scroll-anim #bang-gia.is-revealed .price-anim-card:nth-child(3) { transition-delay: 0.34s; }
+
+      /* Visit Steps staggered */
+      .has-scroll-anim #quy-trinh .step-anim-item {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .has-scroll-anim #quy-trinh.is-revealed .step-anim-item {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .has-scroll-anim #quy-trinh.is-revealed .step-anim-item:nth-child(1) { transition-delay: 0.06s; }
+      .has-scroll-anim #quy-trinh.is-revealed .step-anim-item:nth-child(2) { transition-delay: 0.16s; }
+      .has-scroll-anim #quy-trinh.is-revealed .step-anim-item:nth-child(3) { transition-delay: 0.26s; }
+      .has-scroll-anim #quy-trinh.is-revealed .step-anim-item:nth-child(4) { transition-delay: 0.36s; }
+      .has-scroll-anim #quy-trinh.is-revealed .step-anim-item:nth-child(5) { transition-delay: 0.46s; }
+
+      /* Why Choose staggered */
+      .has-scroll-anim #tai-sao-chon .why-anim-card {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card:nth-child(1) { transition-delay: 0.06s; }
+      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card:nth-child(2) { transition-delay: 0.18s; }
+      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card:nth-child(3) { transition-delay: 0.30s; }
+      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card:nth-child(4) { transition-delay: 0.42s; }
+
+      /* FAQ staggered */
+      .has-scroll-anim #faq .faq-anim-item {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .has-scroll-anim #faq.is-revealed .faq-anim-item {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .has-scroll-anim #faq.is-revealed .faq-anim-item:nth-child(1) { transition-delay: 0.05s; }
+      .has-scroll-anim #faq.is-revealed .faq-anim-item:nth-child(2) { transition-delay: 0.12s; }
+      .has-scroll-anim #faq.is-revealed .faq-anim-item:nth-child(3) { transition-delay: 0.19s; }
+      .has-scroll-anim #faq.is-revealed .faq-anim-item:nth-child(4) { transition-delay: 0.26s; }
+      .has-scroll-anim #faq.is-revealed .faq-anim-item:nth-child(5) { transition-delay: 0.33s; }
+      .has-scroll-anim #faq.is-revealed .faq-anim-item:nth-child(6) { transition-delay: 0.40s; }
+
+      .has-scroll-anim #faq .faq-anim-cta {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+      }
+      .has-scroll-anim #faq.is-revealed .faq-anim-cta {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
 </head>
 <body>
 <header>
@@ -103,76 +238,70 @@
  </div>
  </div>
  <div class="content-menu">
- <div class="v1">
- <div class="info-head"><img src="https://nhakhoakimdung.vn/assets/images/main/ic-address.webp" alt=""> Số 15, đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên</div>
-  <ul class="social-header flex flex-wrap !justify-start p-0 m-0">
-  <li class="mr-2">
- <a href="http://zalo.me/0862960886" target="_blank" class="block group"><img class="transition-all group-hover:animate__bounceIn" src="https://nhakhoakimdung.vn/upload/photo/group-356-1753347195.webp" alt="Zalo"></a>
- </li>    
-  <li class="mr-2">
- <a href="https://www.facebook.com/nkkimdung" target="_blank" class="block group"><img class="transition-all group-hover:animate__bounceIn" src="https://nhakhoakimdung.vn/upload/photo/group-354-1753347195.webp" alt="Facebook"></a>
- </li>    
-  </ul>
+  <!-- Top Gold Ribbon: Hotline + Đặt Lịch + Địa Chỉ + Quốc Gia -->
+  <div class="v1 header-top-gold-bar">
+    <div class="item-hotline">
+      <div class="img-hotline"><i class="fa-solid fa-phone"></i></div>
+      <div class="hotline-text-wrap">
+        <p class="mb-0 hotline-lbl">Hotline 24/7</p>
+        <a href="tel:0862960886" class="hotline-num">0862 960 886</a>
+      </div>
+    </div>
+    <a href="dat-lich.html" class="header-cta-booking-btn">
+      <span>Đặt lịch hẹn</span>
+    </a>
+    <div class="info-head">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>Số 15, đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên</span>
+    </div>
+    <div class="header-lang-badge">
+      <img src="https://flagcdn.com/24x18/vn.png" alt="VN" class="lang-flag" width="20" height="14">
+      <span>vn <i class="fa-solid fa-angle-down"></i></span>
+    </div>
   </div>
- <div class="v2">
- <div class="search">
- <input type="text" id="keyword" class="search-auto flex-1"
- placeholder="Bạn cần tìm dịch vụ gì" onkeypress="doEnter(event,'keyword');">
- <label for="keyword" class="mb-0" onclick="onSearch('keyword');"><i class="fa fa-search"></i></label>
+
+  <!-- Bottom Navigation Row: Tabs under Hotline/Đặt lịch/Địa chỉ -->
+  <nav class="v2 header-nav-row" aria-label="Menu chính">
+    <ul class="header-nav-list">
+      <li><a class="transition" href="gioi-thieu.html" title="Giới thiệu">GIỚI THIỆU</a></li>
+      <li class="has-dropdown"><a class="transition active" href="dich-vu.html" title="Dịch vụ">DỊCH VỤ <i class="fa-solid fa-chevron-down dropdown-chevron"></i></a>
+        <div class="dropdown-menu-service">
+          <a href="trong-rang-implant.html" class="dropdown-service-item">
+            <span class="dropdown-service-title">Implant</span>
+            <span class="dropdown-service-sub">Cấy ghép răng implant</span>
+          </a>
+          <a href="boc-rang-su.html" class="dropdown-service-item">
+            <span class="dropdown-service-title">Răng sứ</span>
+            <span class="dropdown-service-sub">Bọc răng sứ, mặt dán sứ</span>
+          </a>
+          <a href="nieng-rang-tham-my.html" class="dropdown-service-item">
+            <span class="dropdown-service-title">Invisalign</span>
+            <span class="dropdown-service-sub">Niềng răng máng trong suốt</span>
+          </a>
+          <a href="nieng-rang-mac-cai.html" class="dropdown-service-item">
+            <span class="dropdown-service-title">Niềng răng mắc cài</span>
+            <span class="dropdown-service-sub">Niềng răng kim loại &amp; sứ</span>
+          </a>
+          <a href="tay-trang-rang.html" class="dropdown-service-item">
+            <span class="dropdown-service-title">Tẩy trắng</span>
+            <span class="dropdown-service-sub">Tẩy trắng răng an toàn</span>
+          </a>
+          <a href="nha-khoa-tong-quat.html" class="dropdown-service-item">
+            <span class="dropdown-service-title">Nha khoa tổng quát</span>
+            <span class="dropdown-service-sub">Khám, vệ sinh, trám răng</span>
+          </a>
+        </div>
+      </li>
+      <li><a class="transition" href="bang-gia.html" title="Bảng giá">BẢNG GIÁ</a></li>
+      <li><a class="transition" href="bac-si.html" title="Bác sĩ">BÁC SĨ</a></li>
+      <li><a class="transition" href="tin-tuc.html" title="Tin tức">TIN TỨC</a></li>
+      <li><a class="transition" href="lien-he.html" title="Liên hệ">LIÊN HỆ</a></li>
+    </ul>
+  </nav>
  </div>
- <div class="item-hotline">
- <div class="img-hotline"><img src="https://nhakhoakimdung.vn/assets/images/main/ic-call.webp" alt=""></div>
- <div>
- <p class="mb-0">Hotline 24/7</p>
- <a href="tel::0862960886">0862960886</a>
  </div>
  </div>
  </div>
- </div>
- </div>
- </div>
- <section class="wrap-menu">
- <nav class="menu w-menu  ">
- <div class="wrap-content">
- <ul class="flex flex-wrap items-center justify-between ulmn gap-10">
-<li><a class="transition " href="index.html" title="Trang chủ">Trang chủ</a></li>
-<li><a class="transition " href="gioi-thieu.html" title="Giới thiệu">Giới thiệu</a></li>
-<li class="has-dropdown"><a class="transition" href="dich-vu.html" title="Dịch vụ">Dịch vụ <i class="fa-solid fa-chevron-down dropdown-chevron"></i></a>
-<div class="dropdown-menu-service">
-  <a href="trong-rang-implant.html" class="dropdown-service-item">
-    <span class="dropdown-service-title">Implant</span>
-    <span class="dropdown-service-sub">Cấy ghép răng implant</span>
-  </a>
-  <a href="boc-rang-su.html" class="dropdown-service-item">
-    <span class="dropdown-service-title">Răng sứ</span>
-    <span class="dropdown-service-sub">Bọc răng sứ, mặt dán sứ</span>
-  </a>
-  <a href="nieng-rang-tham-my.html" class="dropdown-service-item">
-    <span class="dropdown-service-title">Invisalign</span>
-    <span class="dropdown-service-sub">Niềng răng máng trong suốt</span>
-  </a>
-  <a href="nieng-rang-mac-cai.html" class="dropdown-service-item">
-    <span class="dropdown-service-title">Niềng răng mắc cài</span>
-    <span class="dropdown-service-sub">Niềng răng kim loại & sứ</span>
-  </a>
-  <a href="tay-trang-rang.html" class="dropdown-service-item">
-    <span class="dropdown-service-title">Tẩy trắng</span>
-    <span class="dropdown-service-sub">Tẩy trắng răng an toàn</span>
-  </a>
-  <a href="nha-khoa-tong-quat.html" class="dropdown-service-item">
-    <span class="dropdown-service-title">Nha khoa tổng quát</span>
-    <span class="dropdown-service-sub">Khám, vệ sinh, trám răng</span>
-  </a>
-</div>
-</li>
-<li><a class="transition " href="bang-gia.html" title="Bảng giá">Bảng giá</a></li>
-<li><a class="transition " href="bac-si.html" title="Bác sĩ">Bác sĩ</a></li>
-<li><a class="transition " href="dat-lich.html" title="Đặt lịch">Đặt lịch</a></li>
-<li><a class="transition " href="tin-tuc.html" title="Tin tức">Tin tức</a></li>
-<li><a class="transition " href="lien-he.html" title="Liên hệ">Liên hệ</a></li>
-</ul>   
- </div>
-</nav> </section>
  <div class="offcanvas offcanvas-start" id="menu-mobile">
  <div class="offcanvas-body">
  <span class="btn-close btn-close-menu" data-bs-dismiss="offcanvas"></span>
@@ -225,543 +354,466 @@
 </header>
 <main id="main-content" class="min-h-screen gf-theme-root" style="background: var(--gf-bg-main-gradient) !important;">
   <!-- 1. HERO SECTION -->
-  <section class="relative min-h-[85vh] flex items-center overflow-hidden" style="background: var(--gf-bg-main-gradient) !important;">
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="absolute inset-0 z-0">
-      <img src="https://www.nhakhoagreenfield.com/images/services/service-general.webp" alt="Nha Khoa Tổng Quát — Nền Tảng Cho Nụ Cười Khỏe Mạnh Trọn Đời" class="w-full h-full object-cover object-center"/>
-      <div class="hero-overlay-subtle absolute inset-0"></div>
+      <img src="https://www.nhakhoagreenfield.com/images/hero/general-dentistry.jpg" alt="Chăm sóc răng miệng toàn diện — Nha Khoa Kim Dung" class="w-full h-full object-cover object-center" loading="eager"/>
+      <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(254, 252, 246, 0.96) 0%, rgba(254, 252, 246, 0.90) 38%, rgba(254, 252, 246, 0.60) 68%, rgba(254, 252, 246, 0.20) 100%);"></div>
     </div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
-      <div class="max-w-[640px]">
-        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-5" style="color:#B89307">CHĂM SÓC RĂNG MIỆNG TOÀN DIỆN CHUẨN Y KHOA</p>
-        <h1 class="text-[2.6rem] lg:text-[3.5rem] leading-[1.15] mb-6 font-bold text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Nha Khoa Tổng Quát — Nền Tảng Cho Nụ Cười Khỏe Mạnh Trọn Đời</h1>
-        <p class="text-[1.05rem] leading-relaxed mb-9 text-[#475569]" style="color:#475569 !important;">Lấy cao răng siêu âm êm ái, hàn trám răng thẩm mỹ tàng hình, nhổ răng khôn Piezotome sóng siêu âm không đau lành thương nhanh. Quy trình vô trùng tuyệt đối chuẩn Bộ Y Tế.</p>
+      <div class="max-w-[620px]">
+        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-5" style="color:#B89307">NHA KHOA TỔNG QUÁT TẠI THÁI NGUYÊN — NHA KHOA KIM DUNG</p>
+        <h1 class="text-[2.6rem] lg:text-[3.5rem] leading-[1.12] mb-6 font-bold text-[#18181b]" style="font-family:'Be Vietnam Pro', sans-serif">Chăm sóc răng miệng toàn diện, thoải mái và tin cậy</h1>
+        <p class="text-[1.05rem] leading-relaxed mb-9 text-[#475569]">Từ khám định kỳ đến trám răng và điều trị tủy — bác sĩ giàu kinh nghiệm, trang thiết bị hiện đại và phòng khám tạo sự thoải mái cho bạn.</p>
         <div class="flex flex-wrap gap-3 mb-10">
-          <a class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[#18181b] text-[0.95rem] font-bold transition-opacity hover:opacity-90 shadow-lg" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;font-weight:700;" href="dat-lich.html">
+          <a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[#18181b] text-[0.95rem] font-bold transition-transform hover:scale-105 shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">
             Đặt lịch tư vấn miễn phí
-            <svg width="16" height="16" style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </a>
-          <a href="tel:0862960886" class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[#18181b] text-[0.95rem] font-semibold border border-[#18181b] hover:bg-[#18181b] hover:text-white transition-colors" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;color:#18181b !important;border:1.5px solid #18181b;text-decoration:none;background:#ffffff;">
-            <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;color:#B89307;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          <a href="tel:0862960886" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[#18181b] text-[0.95rem] font-semibold bg-white border border-[#18181b] hover:bg-[#18181b] hover:text-white transition-colors" style="text-decoration:none;">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
             0862 960 886
           </a>
         </div>
-        <div class="flex flex-wrap gap-6 text-sm text-[#334155]" style="color:#334155 !important;">
-          <span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> <!-- -->Trang thiết bị hiện đại chuẩn y khoa quốc tế</span><span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> <!-- -->Đội ngũ bác sĩ tận tâm, điều trị không đau</span><span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> <!-- -->Phòng khám vô trùng khép kín 100%</span>
+        <div class="flex flex-wrap gap-6 text-sm text-[#334155]">
+          <span class="inline-flex items-center gap-1.5 font-medium"><span style="color:#B89307;font-weight:bold;">✓</span> Khám miễn phí lần đầu</span>
+          <span class="inline-flex items-center gap-1.5 font-medium"><span style="color:#B89307;font-weight:bold;">✓</span> Trả góp 0% lãi suất</span>
+          <span class="inline-flex items-center gap-1.5 font-medium"><span style="color:#B89307;font-weight:bold;">✓</span> Đội ngũ bác sĩ giàu kinh nghiệm</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. LỢI ÍCH ĐIỀU TRỊ -->
-  <section id="loi-ich" class="py-16" style="background: var(--gf-bg-main-gradient) !important;">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-3" style="color:#B89307">BẢO VỆ RĂNG MIỆNG</p>
-        <h2 class="text-4xl font-bold mb-4 text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Tầm Quan Trọng Của Nha Khoa Tổng Quát</h2>
-        <p class="text-[#475569] text-base max-w-xl mx-auto leading-relaxed" style="color:#475569 !important;">Phòng bệnh hơn chữa bệnh — chăm sóc răng miệng định kỳ giúp bảo tồn tối đa hàm răng thật tự nhiên.</p>
+  <!-- 2. NHA KHOA TỔNG QUÁT LÀ GÌ? -->
+  <section id="what-is" class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 anim-header">
+        <p class="gf-tagline">Kiến thức cơ bản</p>
+        <h2 class="gf-title-display mb-6">Nha khoa tổng quát là gì?</h2>
+        <p class="text-[#475569] text-base leading-relaxed max-w-xl mx-auto">Nha khoa tổng quát bao gồm chẩn đoán, phòng ngừa và điều trị các vấn đề sức khỏe răng miệng thường gặp. Đây là nền tảng của việc chăm sóc răng miệng đúng cách — giúp răng, nướu và miệng của bạn luôn khỏe mạnh ở mọi giai đoạn cuộc đời.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        
-      <div class="rounded-2xl p-6 flex flex-col gap-3 bg-white shadow-sm hover:shadow-lg transition-all duration-300" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 20px rgba(0,0,0,0.04);">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <i class="fa-solid fa-pump-soap" style="font-size: 1.15rem;"></i>
+      <div class="space-y-3">
+        <!-- Item 1 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item whatis-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Nha khoa tổng quát bao gồm những dịch vụ gì?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Nha khoa tổng quát bao gồm: khám răng định kỳ, lấy cao răng và vệ sinh răng chuyên nghiệp, trám răng sâu, nhổ răng, điều trị tủy răng, chụp X-quang và CT. Đây là các dịch vụ chăm sóc răng miệng hàng ngày cần thiết để duy trì sức khỏe tổng thể.</p>
           </div>
-          <h3 class="font-bold text-[#18181b] text-base" style="color:#18181b !important;">Lấy cao răng siêu âm êm ái</h3>
         </div>
-        <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Sóng rung siêu âm bóc tách sạch sẽ 100% mảng bám vôi răng cứng đầu dưới nướu mà không gây đau, không chảy máu.</p>
-      </div>
-      <div class="rounded-2xl p-6 flex flex-col gap-3 bg-white shadow-sm hover:shadow-lg transition-all duration-300" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 20px rgba(0,0,0,0.04);">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <i class="fa-solid fa-tooth" style="font-size: 1.15rem;"></i>
+        <!-- Item 2 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item whatis-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Tôi nên đi khám răng bao lâu một lần?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Hầu hết người lớn và trẻ em nên khám răng và lấy cao răng định kỳ mỗi 6 tháng. Nếu bạn có bệnh nướu, nguy cơ sâu răng cao hoặc đang trong quá trình điều trị, bác sĩ có thể khuyến nghị tái khám thường xuyên hơn.</p>
           </div>
-          <h3 class="font-bold text-[#18181b] text-base" style="color:#18181b !important;">Hàn trám thẩm mỹ tàng hình</h3>
         </div>
-        <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Chất liệu Composite cao cấp tái tạo hoàn hảo hình thể răng sâu, sứt mẻ trùng khớp màu men răng, không thể nhận biết.</p>
-      </div>
-      <div class="rounded-2xl p-6 flex flex-col gap-3 bg-white shadow-sm hover:shadow-lg transition-all duration-300" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 20px rgba(0,0,0,0.04);">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <i class="fa-solid fa-wave-square" style="font-size: 1.15rem;"></i>
+        <!-- Item 3 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item whatis-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Điều trị nha khoa tổng quát có đau không?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Hầu hết các thủ thuật nha khoa tổng quát được thực hiện dưới gây tê cục bộ, nên bạn sẽ không cảm thấy đau trong quá trình điều trị. Kỹ thuật và thiết bị hiện đại giúp các thủ thuật thoải mái hơn nhiều so với những gì bệnh nhân thường lo ngại.</p>
           </div>
-          <h3 class="font-bold text-[#18181b] text-base" style="color:#18181b !important;">Nhổ răng khôn Piezotome không đau</h3>
         </div>
-        <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Công nghệ rung siêu âm nhẹ nhàng cắt đứt dây chằng quanh răng, bảo vệ xương ổ răng, không sưng má, lành thương sau 24h.</p>
-      </div>
-      <div class="rounded-2xl p-6 flex flex-col gap-3 bg-white shadow-sm hover:shadow-lg transition-all duration-300" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 20px rgba(0,0,0,0.04);">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <i class="fa-solid fa-shield-virus" style="font-size: 1.15rem;"></i>
+        <!-- Item 4 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item whatis-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Nha khoa tổng quát tại Kim Dung có an toàn không?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Có. Nha Khoa Kim Dung hoạt động theo tiêu chuẩn lâm sàng quốc tế với bác sĩ được chứng nhận, dụng cụ tiệt trùng Autoclave Class B và vật tư dùng một lần riêng biệt. Mọi kế hoạch điều trị đều minh bạch với bảng giá rõ ràng trước khi bắt đầu thủ thuật.</p>
           </div>
-          <h3 class="font-bold text-[#18181b] text-base" style="color:#18181b !important;">Điều trị tủy vi phẫu triệt để</h3>
         </div>
-        <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Hệ thống định vị chóp răng và trâm xoay dẻo giúp làm sạch buồng tủy viêm triệt để, dứt điểm cơn đau nhức tức thì.</p>
-      </div>
-      <div class="rounded-2xl p-6 flex flex-col gap-3 bg-white shadow-sm hover:shadow-lg transition-all duration-300" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 20px rgba(0,0,0,0.04);">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <i class="fa-solid fa-stethoscope" style="font-size: 1.15rem;"></i>
-          </div>
-          <h3 class="font-bold text-[#18181b] text-base" style="color:#18181b !important;">Phát hiện sớm bệnh lý nguy hiểm</h3>
-        </div>
-        <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Khám định kỳ giúp tầm soát kịp thời sâu răng ngầm, viêm nha chu tụt lợi, mòn cổ chân răng và các tổn thương niêm mạc.</p>
-      </div>
-      <div class="rounded-2xl p-6 flex flex-col gap-3 bg-white shadow-sm hover:shadow-lg transition-all duration-300" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 20px rgba(0,0,0,0.04);">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <i class="fa-solid fa-smile-beam" style="font-size: 1.15rem;"></i>
-          </div>
-          <h3 class="font-bold text-[#18181b] text-base" style="color:#18181b !important;">Hơi thở thơm tho, tự tin</h3>
-        </div>
-        <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Loại bỏ hoàn toàn vi khuẩn gây mùi trú ngụ trong các kẽ răng và túi lợi, mang lại sự tự tin trọn vẹn trong giao tiếp.</p>
-      </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. CÂU CHUYỆN NỤ CƯỜI / VIDEO -->
-  <section id="cau-chuyen" class="py-16" style="background: var(--gf-bg-main-gradient) !important;">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-3" style="color:#B89307">Câu chuyện nụ cười</p>
-        <h2 class="text-4xl font-bold mb-4 text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Trải Nghiệm Nha Khoa Nhẹ Nhàng, Không Đau</h2>
-        <p class="text-[#475569] text-base max-w-lg mx-auto leading-relaxed" style="color:#475569 !important;">Khách hàng chia sẻ cảm nhận điều trị răng miệng êm dịu, công nghệ vô trùng tuyệt đối tại Nha Khoa Kim Dung.</p>
-      </div>
-      <div class="rounded-2xl overflow-hidden shadow-2xl" style="aspect-ratio:16/9;border:2px solid rgba(234,191,14,0.35);box-shadow:0 20px 40px rgba(0,0,0,0.08);">
-        <iframe class="w-full h-full" src="https://www.youtube.com/embed/hXCCpyIlDDU?start=29" title="Trải Nghiệm Nha Khoa Nhẹ Nhàng, Không Đau" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. BẢNG GIÁ MINH BẠCH -->
+  <!-- 3. BẢNG GIÁ & LỰA CHỌN -->
   <div data-section="options" id="bang-gia" style="background: var(--gf-bg-main-gradient) !important;">
-    <section class="py-16" style="background: var(--gf-bg-main-gradient) !important;">
+    <section class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-14">
-          <p class="text-xs font-bold tracking-[0.18em] uppercase mb-3" style="color:#B89307">BẢNG GIÁ DỊCH VỤ</p>
-          <h2 class="text-4xl font-bold mb-4 text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Bảng Giá Dịch Vụ Nha Khoa Tổng Quát</h2>
-          <p class="text-[#475569] text-base max-w-xl mx-auto leading-relaxed" style="color:#475569 !important;">Chi phí hợp lý, phục vụ tận tình chu đáo cho cả người lớn và trẻ em.</p>
+        <div class="text-center mb-12 anim-header">
+          <p class="gf-tagline">CHỌN GÓI PHÙ HỢP VỚI NHU CẦU VÀ NGÂN SÁCH CỦA BẠN</p>
+          <h2 class="gf-title-display">Bảng giá & lựa chọn</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
-          
-      <div class="relative flex flex-col">
-        <div class="flex justify-center h-8 mb-2 z-10"></div>
-        <div class="rounded-2xl flex flex-col p-7 flex-1 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 20px rgba(0,0,0,0.04);">
-          <h3 class="text-xl font-bold text-[#18181b]" style="color:#18181b !important;">Lấy Cao Răng Siêu Âm</h3>
-          <p class="text-sm mt-1 mb-5 font-semibold" style="color:#B89307">Chăm sóc định kỳ 6 tháng/lần</p>
-          <p class="text-3xl font-extrabold text-[#18181b] mb-6" style="color:#18181b !important;">150.000đ - 250.000đ</p>
-          <ul class="space-y-3 mb-8 flex-1">
-            <li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Sử dụng đầu rung siêu âm êm ái không buốt</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Làm sạch toàn diện mảng bám trên và dưới nướu</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Đánh bóng bề mặt răng bằng chổi cước nha khoa</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Bôi gel sát khuẩn nướu ngừa viêm nha chu</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Bác sĩ kiểm tra tổng quát toàn bộ hàm răng</span></li>
-          </ul>
-          <a class="block w-full py-3.5 text-center font-bold text-sm rounded-xl transition-all hover:bg-[#EABF0E] hover:text-[#18181b]" style="background-color:rgba(234,191,14,0.12);color:#18181b !important;border:1.5px solid #EABF0E;text-decoration:none;" href="dat-lich.html">Đặt Lịch Thăm Khám Miễn Phí</a>
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
+          <!-- Pricing Card 1 -->
+          <div class="rounded-2xl p-6 flex flex-col bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-lg transition-all duration-300 price-anim-card">
+            <div class="mb-4" style="height:28px"></div>
+            <h3 class="text-xl font-bold text-[#18181b]">Khám tổng quát</h3>
+            <p class="text-sm mt-1 mb-4 text-[#64748b]">Định kỳ</p>
+            <p class="text-2xl font-bold mb-4" style="color:#B89307">Từ 500.000 VND</p>
+            <ul class="space-y-2.5 mb-6 flex-1 text-sm text-[#475569]">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Khám toàn diện
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Chụp X-ray nếu cần
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Phát hiện sớm vấn đề
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Tư vấn chăm sóc
+              </li>
+            </ul>
+            <a class="block w-full px-4 py-3 text-center font-bold text-sm rounded-xl transition-colors" style="background-color:rgba(234,191,14,0.12);color:#B89307;border:1.5px solid rgba(234,191,14,0.4);text-decoration:none;" href="dat-lich.html">Đặt lịch tư vấn miễn phí</a>
+          </div>
+
+          <!-- Pricing Card 2 (Popular) -->
+          <div class="rounded-2xl p-6 flex flex-col bg-white border-2 border-[#EABF0E] shadow-xl transition-all duration-300 price-anim-card" style="box-shadow: 0 12px 28px rgba(234,191,14,0.18);">
+            <span class="self-start text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-sm" style="background-color:#EABF0E;color:#18181b">Phổ biến nhất</span>
+            <h3 class="text-xl font-bold text-[#18181b]">Vệ sinh răng</h3>
+            <p class="text-sm mt-1 mb-4 text-[#64748b]">Chuyên sâu</p>
+            <p class="text-2xl font-bold mb-4" style="color:#B89307">500.000đ - 1.000.000đ</p>
+            <ul class="space-y-2.5 mb-6 flex-1 text-sm text-[#475569]">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Loại bỏ cao răng
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Đánh bóng bề mặt
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Ngăn viêm nướu
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Hơi thở thơm mát
+              </li>
+            </ul>
+            <a class="block w-full px-4 py-3 text-center font-bold text-sm rounded-xl transition-transform hover:scale-[1.02] shadow-md" style="background-color:#EABF0E;color:#18181b;border:none;text-decoration:none;" href="dat-lich.html">Đặt lịch tư vấn miễn phí</a>
+          </div>
+
+          <!-- Pricing Card 3 -->
+          <div class="rounded-2xl p-6 flex flex-col bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-lg transition-all duration-300 price-anim-card">
+            <div class="mb-4" style="height:28px"></div>
+            <h3 class="text-xl font-bold text-[#18181b]">Trám răng</h3>
+            <p class="text-sm mt-1 mb-4 text-[#64748b]">Phục hình</p>
+            <p class="text-2xl font-bold mb-4" style="color:#B89307">500.000đ - 2.000.000đ</p>
+            <ul class="space-y-2.5 mb-6 flex-1 text-sm text-[#475569]">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Composite thẩm mỹ
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Hoàn thành 30 phút
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Bền 5-10 năm
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 flex-shrink-0" style="color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Bảo tồn răng tự nhiên
+              </li>
+            </ul>
+            <a class="block w-full px-4 py-3 text-center font-bold text-sm rounded-xl transition-colors" style="background-color:rgba(234,191,14,0.12);color:#B89307;border:1.5px solid rgba(234,191,14,0.4);text-decoration:none;" href="dat-lich.html">Đặt lịch tư vấn miễn phí</a>
+          </div>
         </div>
-      </div>
-      <div class="relative flex flex-col">
-        <div class="flex justify-center h-8 mb-2 z-10">
-          <span class="px-5 py-1.5 rounded-full text-[#18181b] text-xs font-bold tracking-widest uppercase self-center shadow-md" style="background-color:#EABF0E">★ Phổ biến nhất</span>
-        </div>
-        <div class="rounded-2xl flex flex-col p-7 flex-1 border-2 shadow-xl bg-white" style="background-color:#ffffff !important;border-color:#EABF0E;box-shadow:0 15px 35px rgba(234,191,14,0.2), 0 5px 15px rgba(0,0,0,0.04);">
-          <h3 class="text-xl font-bold text-[#18181b]" style="color:#18181b !important;">Trám Răng Thẩm Mỹ</h3>
-          <p class="text-sm mt-1 mb-5 font-semibold" style="color:#B89307">Tái tạo răng sâu, mẻ - Khuyên dùng</p>
-          <p class="text-3xl font-extrabold text-[#18181b] mb-6" style="color:#18181b !important;">250.000đ - 450.000đ</p>
-          <ul class="space-y-3 mb-8 flex-1">
-            <li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Chất liệu Composite 3M nhập khẩu Hoa Kỳ</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Tái tạo hình dáng răng tự nhiên như ban đầu</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Màu sắc đồng nhất hoàn hảo với men răng thật</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Chiếu đèn quang trùng hợp đông cứng tức thì</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Bảo hành độ bền mối hàn trám 1 năm</span></li>
-          </ul>
-          <a class="block w-full py-3.5 text-center font-bold text-sm rounded-xl transition-opacity hover:opacity-90 text-[#18181b] shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">Đặt Lịch Thăm Khám Miễn Phí</a>
-        </div>
-      </div>
-      <div class="relative flex flex-col">
-        <div class="flex justify-center h-8 mb-2 z-10"></div>
-        <div class="rounded-2xl flex flex-col p-7 flex-1 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 20px rgba(0,0,0,0.04);">
-          <h3 class="text-xl font-bold text-[#18181b]" style="color:#18181b !important;">Nhổ Răng Khôn Piezotome</h3>
-          <p class="text-sm mt-1 mb-5 font-semibold" style="color:#B89307">Sóng siêu âm không đau</p>
-          <p class="text-3xl font-extrabold text-[#18181b] mb-6" style="color:#18181b !important;">1.000.000đ - 2.500.000đ</p>
-          <ul class="space-y-3 mb-8 flex-1">
-            <li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Chụp phim CT 3D định vị chính xác vị trí dây thần kinh</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Công nghệ rung siêu âm Piezotome bóc tách êm ru</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Không rạch vạt lớn, không đau, hạn chế sưng nề</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Đặt màng huyết tương giàu tiểu cầu PRF lành thương siêu tốc</span></li><li class="flex items-start gap-2.5 text-sm text-[#334155]"><svg width="18" height="18" style="width:18px;height:18px;flex-shrink:0;color:#B89307;margin-top:2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg><span style="color:#334155 !important;">Tặng thuốc kháng sinh giảm đau cao cấp sau nhổ</span></li>
-          </ul>
-          <a class="block w-full py-3.5 text-center font-bold text-sm rounded-xl transition-all hover:bg-[#EABF0E] hover:text-[#18181b]" style="background-color:rgba(234,191,14,0.12);color:#18181b !important;border:1.5px solid #EABF0E;text-decoration:none;" href="dat-lich.html">Đặt Lịch Thăm Khám Miễn Phí</a>
-        </div>
-      </div>
-        </div>
-        <p class="mt-10 text-center text-sm text-[#64748b]">* Chi phí chính xác và phác đồ chi tiết sẽ được bác sĩ chuyên khoa tư vấn trực tiếp sau khi chụp phim thăm khám miễn phí.</p>
+        <p class="mt-8 text-center text-xs text-[#64748b]">* Giá có thể thay đổi tùy theo mức độ phức tạp của điều trị. Liên hệ để nhận báo giá chính xác.</p>
       </div>
     </section>
   </div>
 
-  
-  <!-- 5. QUY TRÌNH ĐIỀU TRỊ -->
-  <section id="quy-trinh" class="py-20 overflow-hidden" style="background: var(--gf-bg-main-gradient) !important;">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-3" style="color:#B89307">QUY TRÌNH CHĂM SÓC</p>
-        <h2 class="text-4xl font-bold mb-4 text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Quy Trình Khám Chữa Chuẩn Y Khoa</h2>
-        <p class="text-base max-w-xl mx-auto leading-relaxed text-[#475569]" style="color:#475569 !important;">Tất cả dụng cụ được hấp sấy tiệt trùng tuyệt đối bằng máy hấp áp suất Autoclave theo tiêu chuẩn Bộ Y Tế.</p>
-      </div>
-      
-    <div class="hidden md:grid" style="grid-template-columns:1fr 72px 1fr">
-      <!-- Step 01: Left card, Center 01, Right empty -->
-      <div class="flex items-center justify-end py-8 pr-8">
-        <div class="max-w-[280px] w-full rounded-2xl p-6 bg-white shadow-md" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);">
-          <div class="w-9 h-9 mb-4 flex items-center justify-center rounded-lg" style="background-color:rgba(234,191,14,0.18);color:#B89307"><i class="fa-solid fa-notes-medical text-lg"></i></div>
-          <h3 class="font-bold text-[#18181b] text-base mb-2" style="color:#18181b !important;">Thăm khám & Chụp X-quang</h3>
-          <p class="text-sm leading-relaxed mb-3 text-[#475569]" style="color:#475569 !important;">Bác sĩ kiểm tra toàn diện mô răng, nướu, lưỡi và chụp phim kỹ thuật số phát hiện các tổn thương tiềm ẩn.</p>
-          <p class="text-xs font-semibold" style="color:#B89307">✦ Tầm soát kỹ lưỡng</p>
-        </div>
-      </div>
-      <div class="flex flex-col items-center">
-        <div class="flex-1 w-px" style="background-color:transparent"></div>
-        <div class="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 5px rgba(234,191,14,0.25)">01</div>
-        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.4)"></div>
-      </div>
-      <div class="flex items-center justify-start py-8 pl-8"></div>
+  <!-- 4. QUY TRÌNH THĂM KHÁM -->
+  <section id="quy-trinh" class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Column: Steps -->
+        <div>
+          <div class="anim-header mb-8">
+            <p class="gf-tagline">Quy trình thăm khám</p>
+            <h2 class="gf-title-display">Từng bước trong buổi khám của bạn</h2>
+          </div>
+          <div class="space-y-4">
+            <!-- Step 01 -->
+            <div class="visit-step-item step-anim-item">
+              <button type="button" class="w-full flex items-center gap-4 text-left visit-step-toggle" data-step="0">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold step-number" style="background-color:rgba(234,191,14,0.18);color:#B89307;border:1.5px solid rgba(234,191,14,0.4)">01</div>
+                <div class="flex-1 flex items-center justify-between gap-3">
+                  <div class="flex-1 rounded-xl px-5 py-3 text-sm font-bold text-[#18181b] bg-white border border-[rgba(234,191,14,0.3)] shadow-sm step-box transition-all">Tư vấn ban đầu</div>
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold transition-all step-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;border:1px solid rgba(234,191,14,0.3)">+</span>
+                </div>
+              </button>
+              <div class="visit-step-panel ml-14 text-sm text-[#475569] leading-relaxed">
+                <p class="pt-2 px-1 pb-1">Bác sĩ lắng nghe các lo ngại của bạn, xem xét lịch sử nha khoa và trả lời mọi thắc mắc. Không áp lực — chỉ là cuộc trò chuyện thẳng thắn về sức khỏe răng miệng của bạn.</p>
+              </div>
+            </div>
 
-      <!-- Step 02: Left empty, Center 02, Right card -->
-      <div class="flex items-center justify-end py-8 pr-8"></div>
-      <div class="flex flex-col items-center">
-        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.4)"></div>
-        <div class="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 5px rgba(234,191,14,0.25)">02</div>
-        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.4)"></div>
-      </div>
-      <div class="flex items-center justify-start py-8 pl-8">
-        <div class="max-w-[280px] w-full rounded-2xl p-6 bg-white shadow-md" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);">
-          <div class="w-9 h-9 mb-4 flex items-center justify-center rounded-lg" style="background-color:rgba(234,191,14,0.18);color:#B89307"><i class="fa-solid fa-tooth text-lg"></i></div>
-          <h3 class="font-bold text-[#18181b] text-base mb-2" style="color:#18181b !important;">Tư vấn phác đồ điều trị</h3>
-          <p class="text-sm leading-relaxed mb-3 text-[#475569]" style="color:#475569 !important;">Thông báo rõ tình trạng răng miệng, giải pháp điều trị tối ưu và chi phí minh bạch trước khi thực hiện.</p>
-          <p class="text-xs font-semibold" style="color:#B89307">✦ Thống nhất phương án</p>
-        </div>
-      </div>
+            <!-- Step 02 -->
+            <div class="visit-step-item step-anim-item">
+              <button type="button" class="w-full flex items-center gap-4 text-left visit-step-toggle" data-step="1">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold step-number" style="background-color:rgba(234,191,14,0.18);color:#B89307;border:1.5px solid rgba(234,191,14,0.4)">02</div>
+                <div class="flex-1 flex items-center justify-between gap-3">
+                  <div class="flex-1 rounded-xl px-5 py-3 text-sm font-bold text-[#18181b] bg-white border border-[rgba(234,191,14,0.3)] shadow-sm step-box transition-all">Chẩn đoán kỹ thuật số</div>
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold transition-all step-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;border:1px solid rgba(234,191,14,0.3)">+</span>
+                </div>
+              </button>
+              <div class="visit-step-panel ml-14 text-sm text-[#475569] leading-relaxed">
+                <p class="pt-2 px-1 pb-1">Chúng tôi sử dụng X-quang kỹ thuật số và camera trong miệng để có hình ảnh toàn diện, chính xác về răng và nướu. Phát hiện sớm giúp điều trị đơn giản và tiết kiệm hơn.</p>
+              </div>
+            </div>
 
-      <!-- Step 03: Left card, Center 03, Right empty -->
-      <div class="flex items-center justify-end py-8 pr-8">
-        <div class="max-w-[280px] w-full rounded-2xl p-6 bg-white shadow-md" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);">
-          <div class="w-9 h-9 mb-4 flex items-center justify-center rounded-lg" style="background-color:rgba(234,191,14,0.18);color:#B89307"><i class="fa-solid fa-shield-heart text-lg"></i></div>
-          <h3 class="font-bold text-[#18181b] text-base mb-2" style="color:#18181b !important;">Điều trị nhẹ nhàng, không đau</h3>
-          <p class="text-sm leading-relaxed mb-3 text-[#475569]" style="color:#475569 !important;">Tiến hành thủ thuật trong phòng điều trị vô trùng, áp dụng kỹ thuật gây tê êm dịu và thao tác khéo léo.</p>
-          <p class="text-xs font-semibold" style="color:#B89307">✦ An tâm, thoải mái</p>
-        </div>
-      </div>
-      <div class="flex flex-col items-center">
-        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.4)"></div>
-        <div class="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 5px rgba(234,191,14,0.25)">03</div>
-        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.4)"></div>
-      </div>
-      <div class="flex items-center justify-start py-8 pl-8"></div>
+            <!-- Step 03 -->
+            <div class="visit-step-item step-anim-item">
+              <button type="button" class="w-full flex items-center gap-4 text-left visit-step-toggle" data-step="2">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold step-number" style="background-color:rgba(234,191,14,0.18);color:#B89307;border:1.5px solid rgba(234,191,14,0.4)">03</div>
+                <div class="flex-1 flex items-center justify-between gap-3">
+                  <div class="flex-1 rounded-xl px-5 py-3 text-sm font-bold text-[#18181b] bg-white border border-[rgba(234,191,14,0.3)] shadow-sm step-box transition-all">Thảo luận kế hoạch điều trị</div>
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold transition-all step-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;border:1px solid rgba(234,191,14,0.3)">+</span>
+                </div>
+              </button>
+              <div class="visit-step-panel ml-14 text-sm text-[#475569] leading-relaxed">
+                <p class="pt-2 px-1 pb-1">Bác sĩ giải thích rõ kết quả chẩn đoán, trình bày các lựa chọn điều trị và cung cấp bảng giá minh bạch trước khi bắt đầu. Bạn là người quyết định phương án phù hợp.</p>
+              </div>
+            </div>
 
-      <!-- Step 04: Left empty, Center 04, Right card -->
-      <div class="flex items-center justify-end py-8 pr-8"></div>
-      <div class="flex flex-col items-center">
-        <div class="flex-1 w-px" style="background-color:rgba(234,191,14,0.4)"></div>
-        <div class="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 5px rgba(234,191,14,0.25)">04</div>
-        <div class="flex-1 w-px" style="background-color:transparent"></div>
-      </div>
-      <div class="flex items-center justify-start py-8 pl-8">
-        <div class="max-w-[280px] w-full rounded-2xl p-6 bg-white shadow-md" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);">
-          <div class="w-9 h-9 mb-4 flex items-center justify-center rounded-lg" style="background-color:rgba(234,191,14,0.18);color:#B89307"><i class="fa-solid fa-crown text-lg"></i></div>
-          <h3 class="font-bold text-[#18181b] text-base mb-2" style="color:#18181b !important;">Dặn dò chăm sóc tại nhà</h3>
-          <p class="text-sm leading-relaxed mb-3 text-[#475569]" style="color:#475569 !important;">Bác sĩ hướng dẫn phương pháp vệ sinh răng miệng đúng cách và hẹn lịch kiểm tra định kỳ mỗi 6 tháng.</p>
-          <p class="text-xs font-semibold" style="color:#B89307">✦ Đồng hành bảo vệ</p>
+            <!-- Step 04 -->
+            <div class="visit-step-item step-anim-item">
+              <button type="button" class="w-full flex items-center gap-4 text-left visit-step-toggle" data-step="3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold step-number" style="background-color:rgba(234,191,14,0.18);color:#B89307;border:1.5px solid rgba(234,191,14,0.4)">04</div>
+                <div class="flex-1 flex items-center justify-between gap-3">
+                  <div class="flex-1 rounded-xl px-5 py-3 text-sm font-bold text-[#18181b] bg-white border border-[rgba(234,191,14,0.3)] shadow-sm step-box transition-all">Thực hiện thủ thuật</div>
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold transition-all step-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;border:1px solid rgba(234,191,14,0.3)">+</span>
+                </div>
+              </button>
+              <div class="visit-step-panel ml-14 text-sm text-[#475569] leading-relaxed">
+                <p class="pt-2 px-1 pb-1">Dù là lấy cao răng, trám răng hay điều trị phức tạp hơn, đội ngũ của chúng tôi thực hiện từng thủ thuật với sự chính xác và cẩn thận, đảm bảo bạn thoải mái trong suốt quá trình.</p>
+              </div>
+            </div>
+
+            <!-- Step 05 -->
+            <div class="visit-step-item step-anim-item">
+              <button type="button" class="w-full flex items-center gap-4 text-left visit-step-toggle" data-step="4">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold step-number" style="background-color:rgba(234,191,14,0.18);color:#B89307;border:1.5px solid rgba(234,191,14,0.4)">05</div>
+                <div class="flex-1 flex items-center justify-between gap-3">
+                  <div class="flex-1 rounded-xl px-5 py-3 text-sm font-bold text-[#18181b] bg-white border border-[rgba(234,191,14,0.3)] shadow-sm step-box transition-all">Chăm sóc sau điều trị & tái khám</div>
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold transition-all step-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;border:1px solid rgba(234,191,14,0.3)">+</span>
+                </div>
+              </button>
+              <div class="visit-step-panel ml-14 text-sm text-[#475569] leading-relaxed">
+                <p class="pt-2 px-1 pb-1">Chúng tôi hướng dẫn chăm sóc răng miệng tại nhà và đặt lịch tái khám khi cần để đảm bảo kết quả lâu dài và sức khỏe răng miệng của bạn luôn trong trạng thái tốt nhất.</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10">
+            <a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[#18181b] text-[0.95rem] font-bold transition-transform hover:scale-105 shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">
+              Đặt lịch hẹn ngay
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Process Image -->
+        <div class="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-[rgba(234,191,14,0.3)]">
+          <img src="https://www.nhakhoagreenfield.com/images/general-dentistry-process.webp" alt="Bệnh nhân kiểm tra kết quả nụ cười tại Nha Khoa Kim Dung" class="w-full h-full object-cover object-center" loading="lazy"/>
         </div>
       </div>
     </div>
-      <div class="flex flex-col gap-5 md:hidden">
-        
-      <div class="flex gap-4">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 4px rgba(234,191,14,0.2)">01</div>
-        <div class="rounded-2xl p-5 flex-1 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 4px 14px rgba(0,0,0,0.04);">
-          <h3 class="font-bold text-[#18181b] text-base mb-1.5" style="color:#18181b !important;">Thăm khám & Chụp X-quang</h3>
-          <p class="text-sm leading-relaxed mb-2 text-[#475569]" style="color:#475569 !important;">Bác sĩ kiểm tra toàn diện mô răng, nướu, lưỡi và chụp phim kỹ thuật số phát hiện các tổn thương tiềm ẩn.</p>
-          <p class="text-xs font-semibold" style="color:#B89307">✦ Tầm soát kỹ lưỡng</p>
+  </section>
+
+  <!-- 5. TẠI SAO CHỌN NHA KHOA KIM DUNG -->
+  <section id="tai-sao-chon" class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-14 anim-header">
+        <p class="gf-tagline">Tại sao chọn Kim Dung</p>
+        <h2 class="gf-title-display mb-5">Phòng khám nha khoa quốc tế tại Thái Nguyên</h2>
+        <p class="text-base max-w-xl mx-auto leading-relaxed text-[#475569]">Điều gì khiến chúng tôi khác biệt? Cam kết không ngừng về sự thoải mái, an toàn và kết quả tốt nhất cho bạn.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div class="group rounded-2xl overflow-hidden flex flex-col sm:flex-row bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-xl transition-all duration-300 why-anim-card">
+          <div class="relative w-full sm:w-52 h-52 sm:h-auto min-h-[13rem] flex-shrink-0 overflow-hidden self-stretch">
+            <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/website/homepage/why-multilingual.webp" alt="Hỗ trợ đa ngôn ngữ" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+          </div>
+          <div class="p-6 flex flex-col justify-center">
+            <div class="w-8 h-1 rounded-full mb-3" style="background-color:#EABF0E"></div>
+            <h3 class="font-bold text-[#18181b] text-lg mb-2">Hỗ trợ đa ngôn ngữ</h3>
+            <p class="text-sm leading-relaxed text-[#475569]">Nhân viên thông thạo tiếng Việt, Anh, Trung, Nhật, Pháp và Tây Ban Nha. Cảm thấy như ở nhà dù bạn nói ngôn ngữ nào.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group rounded-2xl overflow-hidden flex flex-col sm:flex-row bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-xl transition-all duration-300 why-anim-card">
+          <div class="relative w-full sm:w-52 h-52 sm:h-auto min-h-[13rem] flex-shrink-0 overflow-hidden self-stretch">
+            <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/website/homepage/why-standards.webp" alt="Tiêu chuẩn quốc tế" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+          </div>
+          <div class="p-6 flex flex-col justify-center">
+            <div class="w-8 h-1 rounded-full mb-3" style="background-color:#EABF0E"></div>
+            <h3 class="font-bold text-[#18181b] text-lg mb-2">Tiêu chuẩn quốc tế</h3>
+            <p class="text-sm leading-relaxed text-[#475569]">Tiệt trùng đạt chuẩn ISO, trang thiết bị Đức và Hàn Quốc, quy trình ngang tầm các phòng khám hàng đầu thế giới.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group rounded-2xl overflow-hidden flex flex-col sm:flex-row bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-xl transition-all duration-300 why-anim-card">
+          <div class="relative w-full sm:w-52 h-52 sm:h-auto min-h-[13rem] flex-shrink-0 overflow-hidden self-stretch">
+            <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/website/homepage/why-technology.webp" alt="Công nghệ hiện đại" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+          </div>
+          <div class="p-6 flex flex-col justify-center">
+            <div class="w-8 h-1 rounded-full mb-3" style="background-color:#EABF0E"></div>
+            <h3 class="font-bold text-[#18181b] text-lg mb-2">Công nghệ hiện đại</h3>
+            <p class="text-sm leading-relaxed text-[#475569]">Scan 3D, Digital Smile Design, chụp CBCT và phẫu thuật implant có hướng dẫn máy tính cho kết quả chính xác.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="group rounded-2xl overflow-hidden flex flex-col sm:flex-row bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-xl transition-all duration-300 why-anim-card">
+          <div class="relative w-full sm:w-52 h-52 sm:h-auto min-h-[13rem] flex-shrink-0 overflow-hidden self-stretch">
+            <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/website/homepage/why-tourism.webp" alt="Gói du lịch nha khoa" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+          </div>
+          <div class="p-6 flex flex-col justify-center">
+            <div class="w-8 h-1 rounded-full mb-3" style="background-color:#EABF0E"></div>
+            <h3 class="font-bold text-[#18181b] text-lg mb-2">Gói du lịch nha khoa</h3>
+            <p class="text-sm leading-relaxed text-[#475569]">Đón sân bay, sắp xếp khách sạn và lịch điều trị. Tiết kiệm đến 65% so với giá phương Tây.</p>
+          </div>
         </div>
       </div>
-      <div class="flex gap-4">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 4px rgba(234,191,14,0.2)">02</div>
-        <div class="rounded-2xl p-5 flex-1 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 4px 14px rgba(0,0,0,0.04);">
-          <h3 class="font-bold text-[#18181b] text-base mb-1.5" style="color:#18181b !important;">Tư vấn phác đồ điều trị</h3>
-          <p class="text-sm leading-relaxed mb-2 text-[#475569]" style="color:#475569 !important;">Thông báo rõ tình trạng răng miệng, giải pháp điều trị tối ưu và chi phí minh bạch trước khi thực hiện.</p>
-          <p class="text-xs font-semibold" style="color:#B89307">✦ Thống nhất phương án</p>
-        </div>
-      </div>
-      <div class="flex gap-4">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 4px rgba(234,191,14,0.2)">03</div>
-        <div class="rounded-2xl p-5 flex-1 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 4px 14px rgba(0,0,0,0.04);">
-          <h3 class="font-bold text-[#18181b] text-base mb-1.5" style="color:#18181b !important;">Điều trị nhẹ nhàng, không đau</h3>
-          <p class="text-sm leading-relaxed mb-2 text-[#475569]" style="color:#475569 !important;">Tiến hành thủ thuật trong phòng điều trị vô trùng, áp dụng kỹ thuật gây tê êm dịu và thao tác khéo léo.</p>
-          <p class="text-xs font-semibold" style="color:#B89307">✦ An tâm, thoải mái</p>
-        </div>
-      </div>
-      <div class="flex gap-4">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold" style="background-color:#EABF0E;color:#18181b;box-shadow:0 0 0 4px rgba(234,191,14,0.2)">04</div>
-        <div class="rounded-2xl p-5 flex-1 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 4px 14px rgba(0,0,0,0.04);">
-          <h3 class="font-bold text-[#18181b] text-base mb-1.5" style="color:#18181b !important;">Dặn dò chăm sóc tại nhà</h3>
-          <p class="text-sm leading-relaxed mb-2 text-[#475569]" style="color:#475569 !important;">Bác sĩ hướng dẫn phương pháp vệ sinh răng miệng đúng cách và hẹn lịch kiểm tra định kỳ mỗi 6 tháng.</p>
-          <p class="text-xs font-semibold" style="color:#B89307">✦ Đồng hành bảo vệ</p>
-        </div>
-      </div>
-      </div>
-      <div class="text-center mt-14">
-        <a href="dat-lich.html" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-[#18181b] text-[0.95rem] transition-opacity hover:opacity-90 shadow-lg" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
-          <i class="fa-solid fa-calendar-check"></i> Đặt Lịch Tư Vấn Quy Trình Chi Tiết
+      <div class="mt-12 text-center">
+        <a class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-[#18181b] font-bold text-sm transition-transform hover:scale-105 shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">
+          Đặt lịch tư vấn miễn phí
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 6. THƯ VIỆN NỤ CƯỜI -->
-  <section id="thu-vien" class="py-16" style="background: var(--gf-bg-main-gradient) !important;">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-3" style="color:#B89307">Thư viện nụ cười</p>
-        <h2 class="text-4xl font-bold text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Nụ cười thật, tự tin thật</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        
-      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border" style="border-color:rgba(234,191,14,0.25);">
-        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-1.jpg" alt="Phục hồi nụ cười tự tin rạng ngời" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
-      </div>
-      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border" style="border-color:rgba(234,191,14,0.25);">
-        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-2.jpg" alt="Khớp cắn chuẩn, nụ cười tỏa sáng" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
-      </div>
-      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border" style="border-color:rgba(234,191,14,0.25);">
-        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-3.jpg" alt="Hàm răng đều đặn trắng sáng tự nhiên" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
-      </div>
-      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border" style="border-color:rgba(234,191,14,0.25);">
-        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-4.jpg" alt="Ăn nhai chắc khỏe trọn đời" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
-      </div>
-      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border" style="border-color:rgba(234,191,14,0.25);">
-        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-5.jpg" alt="Tự tin giao tiếp và thành công hơn" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
-      </div>
-      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border" style="border-color:rgba(234,191,14,0.25);">
-        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-6.jpg" alt="Thay đổi diện mạo, nâng tầm nhan sắc" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
-      </div>
-      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border" style="border-color:rgba(234,191,14,0.25);">
-        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-7.jpg" alt="Nụ cười rạng rỡ chuẩn tỉ lệ vàng" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
-      </div>
-      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border" style="border-color:rgba(234,191,14,0.25);">
-        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-8.jpg" alt="Khẳng định phong thái bản lĩnh" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
-      </div>
-      <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border" style="border-color:rgba(234,191,14,0.25);">
-        <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-9.jpg" alt="Tự tin tỏa sáng từng khoảnh khắc" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy"/>
-      </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. TÔI CÓ PHÙ HỢP KHÔNG? -->
-  <section id="phu-hop" class="py-16" style="background: var(--gf-bg-main-gradient) !important;">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-3" style="color:#B89307">Tôi có phù hợp không?</p>
-        <h2 class="text-4xl font-bold text-[#18181b] mb-4" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Khi Nào Bạn Cần Tới Phòng Khám Nha Khoa?</h2>
-        <p class="text-base max-w-2xl mx-auto leading-relaxed text-[#475569]" style="color:#475569 !important;">Đội ngũ bác sĩ chuyên khoa tại Kim Dung luôn thăm khám kỹ lưỡng và tư vấn phương án điều trị an toàn, tối ưu nhất.</p>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-12 items-start">
-        <div class="flex flex-col gap-4">
-          
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Chảy máu chân răng, nướu sưng đỏ</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Dấu hiệu của viêm nướu, vôi răng tích tụ nhiều hoặc bệnh lý viêm nha chu tiến triển.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Răng đau nhức, buốt khi ăn nóng lạnh</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Răng bị sâu ăn vào men ngà, mòn cổ răng hoặc viêm tủy răng cần điều trị sớm.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Răng khôn mọc lệch, sưng đau lợi trùm</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Răng số 8 mọc ngầm, đâm ngang vào răng số 7 gây giắt thức ăn và nguy cơ tiêu xương răng kế bên.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Hơi thở có mùi hôi dù đã đánh răng</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Vi khuẩn tích tụ trong các ổ vôi răng dưới nướu hoặc lỗ sâu răng chưa được làm sạch.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Chăm sóc và bảo vệ sức khỏe răng</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Dành cho mọi khách hàng mong muốn sở hữu hàm răng chắc khỏe, tự tin rạng rỡ.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Chăm sóc và bảo vệ sức khỏe răng</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Dành cho mọi khách hàng mong muốn sở hữu hàm răng chắc khỏe, tự tin rạng rỡ.</p>
-          </div>
-        </div>
-        </div>
-        <div class="flex flex-col gap-3">
-          <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-square" style="border:2px solid rgba(234,191,14,0.3);box-shadow:0 15px 35px rgba(0,0,0,0.06);">
-            <img src="https://www.nhakhoagreenfield.com/images/hero-clinic.jpg" alt="Chăm Sóc Điều Trị Răng Miệng Toàn Diện — Nha Khoa Kim Dung" class="w-full h-full object-cover object-center" loading="lazy"/>
-          </div>
-          <p class="text-xs text-center text-[#64748b]">Chăm Sóc Điều Trị Răng Miệng Toàn Diện — Nha Khoa Kim Dung</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. CAM KẾT ĐÁNG TIN CẬY -->
-  <section id="cam-ket" class="py-16" style="background: var(--gf-bg-main-gradient) !important;">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Cam kết đáng tin cậy</h2>
-        <p class="mt-3 text-lg text-[#475569]" style="color:#475569 !important;">Không chỉ lời nói — chúng tôi cam kết bằng chất lượng điều trị và hợp đồng văn bản minh bạch</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        
-      <div class="rounded-xl p-6 text-center bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 8px 20px rgba(0,0,0,0.03);">
-        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color:rgba(234,191,14,0.18)">
-          <svg width="28" height="28" style="width:28px;height:28px;color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        </div>
-        <h3 class="font-bold text-[#18181b] mb-2" style="color:#18181b !important;">Bảo hành dài hạn</h3>
-        <p class="text-sm text-[#475569]" style="color:#475569 !important;">Bảo hành từ 10 đến 15 năm hoặc trọn đời tùy dịch vụ. Cung cấp thẻ bảo hành điện tử chính hãng và kiểm tra định kỳ miễn phí.</p>
-      </div>
-      <div class="rounded-xl p-6 text-center bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 8px 20px rgba(0,0,0,0.03);">
-        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color:rgba(234,191,14,0.18)">
-          <svg width="28" height="28" style="width:28px;height:28px;color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        </div>
-        <h3 class="font-bold text-[#18181b] mb-2" style="color:#18181b !important;">Chứng nhận quốc tế</h3>
-        <p class="text-sm text-[#475569]" style="color:#475569 !important;">Đội ngũ bác sĩ tu nghiệp chuyên sâu tại Thụy Sĩ, Hoa Kỳ, Hàn Quốc. Phòng khám đạt chuẩn vô trùng khép kín nghiêm ngặt.</p>
-      </div>
-      <div class="rounded-xl p-6 text-center bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 8px 20px rgba(0,0,0,0.03);">
-        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color:rgba(234,191,14,0.18)">
-          <svg width="28" height="28" style="width:28px;height:28px;color:#B89307" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        </div>
-        <h3 class="font-bold text-[#18181b] mb-2" style="color:#18181b !important;">Vật liệu chính hãng</h3>
-        <p class="text-sm text-[#475569]" style="color:#475569 !important;">Nobel Biocare, Straumann, Hiossen, Cercon HT, IPS e.max — các thương hiệu nha khoa hàng đầu thế giới có tem CO/CQ.</p>
-      </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. BÁC SĨ CHUYÊN TRÁCH -->
-  <section id="bac-si" class="py-16" style="background: var(--gf-bg-main-gradient) !important;">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-[#18181b] mb-8 text-center" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Bác sĩ chuyên trách</h2>
-        <div class="rounded-2xl p-6 lg:p-8 bg-white shadow-xl" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.3);box-shadow:0 15px 35px rgba(0,0,0,0.06);">
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
-            <div class="flex flex-col items-center text-center">
-              <div class="w-36 h-36 rounded-full overflow-hidden mb-4 border-2" style="border-color:#EABF0E;box-shadow:0 8px 20px rgba(234,191,14,0.25);">
-                <img src="https://nhakhoakimdung.vn/thumbs/400x440x1/upload/news/thiet-ke-chua-co-ten-2-1755315466.png.webp" alt="Bác sĩ Điều trị Tổng quát & Vi phẫu" class="w-full h-full object-cover object-top" loading="lazy"/>
-              </div>
-              <h3 class="text-xl font-bold text-[#18181b]" style="color:#18181b !important;">Bác sĩ Điều trị Tổng quát & Vi phẫu</h3>
-              <p class="text-sm font-semibold mt-1" style="color:#B89307">Chuyên khoa Nha khoa Vi phẫu & Tiểu phẫu</p>
-            </div>
-            <div class="lg:col-span-2">
-              <p class="text-[#475569] mb-5 leading-relaxed" style="color:#475569 !important;">Bác sĩ tận tâm, thao tác nhẹ nhàng, giàu kinh nghiệm trong nhổ răng khôn không đau bằng máy Piezotome, điều trị tủy vi phẫu dưới kính lúp phóng đại và phục hồi chức năng răng tự nhiên.</p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background-color:rgba(234,191,14,0.15);color:#8C7000;border:1px solid rgba(234,191,14,0.3);">Chuyên khoa Vi phẫu Nha khoa</span><span class="text-xs font-semibold px-3 py-1 rounded-full" style="background-color:rgba(234,191,14,0.15);color:#8C7000;border:1px solid rgba(234,191,14,0.3);">Chuyên gia Nhổ răng Piezotome</span><span class="text-xs font-semibold px-3 py-1 rounded-full" style="background-color:rgba(234,191,14,0.15);color:#8C7000;border:1px solid rgba(234,191,14,0.3);">Vô trùng chuẩn Class B</span><span class="text-xs font-semibold px-3 py-1 rounded-full" style="background-color:rgba(234,191,14,0.15);color:#8C7000;border:1px solid rgba(234,191,14,0.3);">Ân cần, thấu hiểu bệnh nhân</span>
-              </div>
-              <a class="inline-flex items-center gap-2 px-6 py-3 text-[#18181b] font-bold text-sm rounded-lg transition-opacity hover:opacity-90 shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">
-                <i class="fa-solid fa-calendar-check"></i> Đặt Lịch Tư Vấn Trực Tiếp
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. CÂU HỎI THƯỜNG GẶP (FAQ) -->
-  <section id="faq" class="py-16" style="background: var(--gf-bg-main-gradient) !important;">
+  <!-- 6. GIẢI ĐÁP THẮC MẮC (FAQ) -->
+  <section id="faq" class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-3" style="color:#B89307">Câu hỏi thường gặp</p>
-        <h2 class="text-4xl font-bold text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Giải Đáp Thắc Mắc</h2>
+      <div class="text-center mb-12 anim-header">
+        <p class="gf-tagline">Câu hỏi thường gặp</p>
+        <h2 class="gf-title-display">Giải Đáp Thắc Mắc</h2>
       </div>
       <div class="space-y-3 mb-12">
-        
-      <div class="rounded-2xl overflow-hidden bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
-          <span class="font-bold text-[#18181b] text-sm leading-snug" style="color:#18181b !important;">Bao lâu thì nên đi lấy cao răng một lần?</span>
-          <span style="color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </span>
-        </button>
-        <div class="faq-accordion-content px-6 pb-5 text-sm text-[#475569] leading-relaxed border-t border-[rgba(234,191,14,0.15)] pt-4" style="display:none;color:#475569 !important;">
-          Bác sĩ nha khoa khuyến cáo nên đi lấy cao răng định kỳ từ 3 đến 6 tháng một lần. Lấy cao răng định kỳ giúp loại bỏ hoàn toàn mảng bám vôi răng cứng đầu chứa hàng triệu vi khuẩn, phòng ngừa triệt để bệnh viêm nướu, tụt lợi, hôi miệng và viêm nha chu.
+        <!-- FAQ 1 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item faq-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Tôi nên đi khám nha khoa bao lâu một lần?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Chúng tôi khuyến nghị khám tổng quát và lấy cao răng định kỳ 6 tháng một lần. Thăm khám thường xuyên giúp phát hiện vấn đề sớm — trước khi trở nên đau đớn hoặc tốn kém hơn.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item faq-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Khám nha khoa có đau không?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Buổi khám tổng quát hoàn toàn không đau. Nếu phát hiện vấn đề cần điều trị, chúng tôi sẽ trao đổi đầy đủ các lựa chọn với bạn trước và sử dụng thuốc tê cục bộ để đảm bảo bạn thoải mái trong suốt quá trình.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item faq-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Buổi khám tổng quát tại Kim Dung bao gồm những gì?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Buổi khám bao gồm: kiểm tra toàn diện khoang miệng, chụp X-quang kỹ thuật số nếu cần, đánh giá nướu, lấy cao răng chuyên nghiệp và lập kế hoạch điều trị cá nhân hóa với bảng giá minh bạch.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item faq-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Chi phí lấy cao răng là bao nhiêu?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Lấy cao răng chuyên nghiệp tại Kim Dung bắt đầu từ 300.000 VND. Chi phí cụ thể phụ thuộc vào mức độ cao răng. Bạn luôn nhận được báo giá bằng văn bản trước khi bắt đầu bất kỳ thủ thuật nào.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item faq-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Phòng khám có tiếp nhận trẻ em không?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Có — chúng tôi tiếp nhận bệnh nhân ở mọi lứa tuổi. Đội ngũ của chúng tôi có kinh nghiệm trong nha khoa trẻ em và tạo ra môi trường thân thiện, nhẹ nhàng để các bé cảm thấy thoải mái ngay từ lần đầu tiên.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="rounded-2xl overflow-hidden bg-white border border-[rgba(234,191,14,0.28)] shadow-sm transition-all duration-300 accordion-item faq-anim-item">
+          <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left accordion-toggle">
+            <span class="font-bold text-[#18181b] text-sm leading-snug">Tôi đã không đi khám nha khoa nhiều năm. Có sao không?</span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 accordion-icon" style="background-color:rgba(234,191,14,0.15);color:#B89307;">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"></path></svg>
+            </span>
+          </button>
+          <div class="accordion-panel px-6 text-sm text-[#475569] leading-relaxed">
+            <div class="h-px w-full mb-4" style="background-color:rgba(234,191,14,0.18)"></div>
+            <p class="pb-5">Hoàn toàn không sao. Chúng tôi thường xuyên tiếp nhận bệnh nhân lâu năm chưa khám và không bao giờ phán xét. Nhiệm vụ của chúng tôi là giúp bạn trở lại quỹ đạo với kế hoạch điều trị nhẹ nhàng, từng bước phù hợp với ngân sách và mức độ thoải mái của bạn.</p>
+          </div>
         </div>
       </div>
-      <div class="rounded-2xl overflow-hidden bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
-          <span class="font-bold text-[#18181b] text-sm leading-snug" style="color:#18181b !important;">Lấy cao răng bằng sóng siêu âm có làm mòn men răng không?</span>
-          <span style="color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </span>
-        </button>
-        <div class="faq-accordion-content px-6 pb-5 text-sm text-[#475569] leading-relaxed border-t border-[rgba(234,191,14,0.15)] pt-4" style="display:none;color:#475569 !important;">
-          Hoàn toàn KHÔNG. Máy lấy cao răng siêu âm hoạt động dựa trên cơ chế rung dao động của sóng siêu âm với tần số an toàn để làm vỡ vụn mảng bám vôi răng, đầu máy không hề chà xát hay gây tổn thương đến cấu trúc men răng.
-        </div>
-      </div>
-      <div class="rounded-2xl overflow-hidden bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
-          <span class="font-bold text-[#18181b] text-sm leading-snug" style="color:#18181b !important;">Trám răng thẩm mỹ có bền không? Dùng được bao lâu?</span>
-          <span style="color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </span>
-        </button>
-        <div class="faq-accordion-content px-6 pb-5 text-sm text-[#475569] leading-relaxed border-t border-[rgba(234,191,14,0.15)] pt-4" style="display:none;color:#475569 !important;">
-          Miếng hàn trám Composite thẩm mỹ tại Kim Dung có tuổi thọ trung bình từ 3 đến 5 năm hoặc lâu hơn tùy vào vị trí trám và chế độ ăn nhai. Nhờ công nghệ chiếu đèn quang trùng hợp và keo dán sinh học thế hệ mới, vết trám bám dính cực kỳ chắc chắn.
-        </div>
-      </div>
-      <div class="rounded-2xl overflow-hidden bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
-          <span class="font-bold text-[#18181b] text-sm leading-snug" style="color:#18181b !important;">Nhổ răng khôn bằng máy Piezotome có đau không?</span>
-          <span style="color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </span>
-        </button>
-        <div class="faq-accordion-content px-6 pb-5 text-sm text-[#475569] leading-relaxed border-t border-[rgba(234,191,14,0.15)] pt-4" style="display:none;color:#475569 !important;">
-          Công nghệ Piezotome sử dụng bước sóng siêu âm có chọn lọc để bóc tách dây chằng quanh chân răng mà không làm tổn thương các mô mềm và mạch máu xung quanh. Kết hợp thuốc tê chất lượng cao, quá trình nhổ răng diễn ra hoàn toàn nhẹ nhàng, ít chảy máu và giảm sưng đau tối đa.
-        </div>
-      </div>
-      <div class="rounded-2xl overflow-hidden bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-        <button type="button" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left faq-accordion-btn">
-          <span class="font-bold text-[#18181b] text-sm leading-snug" style="color:#18181b !important;">Răng đã lấy tủy có cần bọc sứ không?</span>
-          <span style="color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" class="flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </span>
-        </button>
-        <div class="faq-accordion-content px-6 pb-5 text-sm text-[#475569] leading-relaxed border-t border-[rgba(234,191,14,0.15)] pt-4" style="display:none;color:#475569 !important;">
-          Có, rất nên bọc sứ. Răng sau khi điều trị diệt tủy sẽ mất đi nguồn cung cấp máu và dinh dưỡng, khiến thân răng trở nên giòn, xốp và rất dễ nứt vỡ khi ăn nhai đồ cứng. Bọc một mão răng sứ bên ngoài sẽ bảo vệ răng tồn tại bền vững trọn đời.
-        </div>
-      </div>
-      </div>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-[#18181b] font-bold text-sm transition-opacity hover:opacity-90 shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">
-          Hỏi Kim Dung Ngay
-          <svg width="16" height="16" style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+      <div class="flex flex-wrap justify-center gap-4 faq-anim-cta">
+        <a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[#18181b] font-bold text-sm transition-transform hover:scale-105 shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">
+          Đặt Lịch Tư Vấn Miễn Phí
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
-        <a href="tel:0862960886" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-bold text-sm transition-colors hover:bg-[#18181b] hover:text-white" style="border:1.5px solid #18181b;color:#18181b !important;text-decoration:none;background:#ffffff;">
-          <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;color:#B89307;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-          Gọi Ngay 0862 960 886
+        <a href="http://zalo.me/0862960886" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm bg-white border border-[#18181b] hover:bg-[#18181b] hover:text-white transition-colors" style="text-decoration:none;color:#18181b;">
+          <i class="fa-solid fa-comments" style="color:#B89307"></i>
+          Tư vấn Zalo ngay
         </a>
       </div>
     </div>
+  </section>
+
+  <!-- 7. BẢN ĐỒ PHÒNG KHÁM -->
+  <section class="w-full relative overflow-hidden" style="line-height:0;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.015522819932!2d105.82090457472937!3d21.58531716843156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313527215ddf2b1d%3A0x16cdc2be58540180!2sNha%20Khoa%20Kim%20Dung!5e0!3m2!1svi!2s!4v1753432423301!5m2!1svi!2s" width="100%" height="400" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Nha Khoa Kim Dung — 15 Bắc Sơn, TP. Thái Nguyên"></iframe>
   </section>
 </main>
 <footer class="wrap-footer">
@@ -777,7 +829,7 @@
  <img class="start-animate2" src="https://nhakhoakimdung.vn/assets/images/saolaplanh.webp" alt="">
  </a>
  </div>
- <h2 class="name-company">Nha Khoa Kim Dung Thái Nguyên | Chăm Sóc & Điều Trị Răng Miệng Uy Tín</h2>
+ <div class="name-company">Nha Khoa Kim Dung Thái Nguyên | Chăm Sóc & Điều Trị Răng Miệng Uy Tín</div>
  <div class="content-footer"> <p><img alt="" height="30" src="https://nhakhoakimdung.vn/upload/filemanager/files/Group%20347.png" width="30" /> Địa chỉ: Số 15, đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên</p>
 
 
@@ -845,9 +897,7 @@
  </div>
  </div>
  </div>
-</footer>
-div
-<script>
+</footer><script>
  var NN_FRAMEWORK = NN_FRAMEWORK || {};
  var ASSET = 'https://nhakhoakimdung.vn/assets/';
  var BASE = 'https://nhakhoakimdung.vn/';
@@ -981,13 +1031,95 @@ div
  "address": {
  "@type": "PostalAddress",
  "streetAddress": "Số 15, đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên",
- "addressLocality": "Ho Chi Minh",
- "addressRegion": "Ho Chi Minh",
- "postalCode": "70000",
- "addressCountry": "vi"
+  "addressLocality": "Thái Nguyên",
+  "addressRegion": "Thái Nguyên",
+  "postalCode": "250000",
+  "addressCountry": "VN"
  }
  }
 </script>
 <script src="assets/js/ui-ux-pro-max.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Generic Accordion for What-Is and FAQ
+    document.querySelectorAll('.accordion-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.accordion-item');
+        var panel = item.querySelector('.accordion-panel');
+        var isOpen = item.classList.contains('is-open');
+
+        // Close other accordion items in the same container
+        var container = item.parentElement;
+        container.querySelectorAll('.accordion-item.is-open').forEach(function(openItem) {
+          if (openItem !== item) {
+            openItem.classList.remove('is-open');
+            var p = openItem.querySelector('.accordion-panel');
+            if (p) p.style.maxHeight = null;
+          }
+        });
+
+        if (isOpen) {
+          item.classList.remove('is-open');
+          panel.style.maxHeight = null;
+        } else {
+          item.classList.add('is-open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // 2. Visit Steps Accordion
+    document.querySelectorAll('.visit-step-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.visit-step-item');
+        var panel = item.querySelector('.visit-step-panel');
+        var isOpen = item.classList.contains('is-open');
+
+        var container = item.parentElement;
+        container.querySelectorAll('.visit-step-item.is-open').forEach(function(openItem) {
+          if (openItem !== item) {
+            openItem.classList.remove('is-open');
+            var p = openItem.querySelector('.visit-step-panel');
+            if (p) p.style.maxHeight = null;
+            var icon = openItem.querySelector('.step-icon');
+            if (icon) icon.textContent = '+';
+          }
+        });
+
+        var icon = item.querySelector('.step-icon');
+        if (isOpen) {
+          item.classList.remove('is-open');
+          panel.style.maxHeight = null;
+          if (icon) icon.textContent = '+';
+        } else {
+          item.classList.add('is-open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          if (icon) icon.textContent = '×';
+        }
+      });
+    });
+
+    // 3. Scroll Reveal Animation using IntersectionObserver
+    if ('IntersectionObserver' in window) {
+      document.documentElement.classList.add('has-scroll-anim');
+      var sections = document.querySelectorAll('#what-is, #bang-gia, #quy-trinh, #tai-sao-chon, #faq');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      sections.forEach(function(sec) {
+        observer.observe(sec);
+      });
+    }
+  });
+</script>
 </body>
 </html>
