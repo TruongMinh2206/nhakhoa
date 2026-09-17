@@ -323,12 +323,14 @@
   margin: 0 auto 56px;
 }
 
-.gf-tagline {
+.gf-tagline,
+.gf-about-badge {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: 0.82rem !important;
   font-weight: 800 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  color: var(--gf-gold-dark) !important;
+  color: var(--gf-gold-dark, #B89307) !important;
   display: inline-block;
   margin-bottom: 14px;
 }
@@ -3125,16 +3127,16 @@ a[onclick*="selectDoctor"] svg,
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(24, 24, 27, 0.85);
-  backdrop-filter: blur(6px);
-  color: #EABF0E;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 4px 12px;
+  background-color: var(--gf-primary, #EABF0E);
+  color: #18181b !important;
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em;
+  padding: 5px 14px;
   border-radius: 9999px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(234, 191, 14, 0.35);
+  z-index: 2;
 }
 .gf-diff-card-body {
   padding: 24px 22px;
@@ -3484,13 +3486,16 @@ a[onclick*="selectDoctor"] svg,
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(24, 24, 27, 0.85);
-  backdrop-filter: blur(4px);
-  color: #EABF0E;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 6px;
+  background-color: var(--gf-primary, #EABF0E);
+  color: #18181b !important;
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(234, 191, 14, 0.35);
+  z-index: 2;
 }
 .gf-service-card-h-body {
   padding: 24px 22px;
