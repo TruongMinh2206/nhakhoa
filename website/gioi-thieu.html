@@ -260,59 +260,78 @@
   </section>
 
   <!-- =========================================================================
-       SECTION 1: HERO & KEY STATS (VỀ NHA KHOA KIM DUNG)
+       SECTION 1: HERO BANNER (VỀ NHA KHOA KIM DUNG)
        ========================================================================= -->
-  <section class="gf-about-hero text-center">
-    <div class="wrap-content" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-      <div class="flex justify-center">
-        <span class="gf-about-badge">
-          <i class="fa-solid fa-crown text-xs" style="color: #B89307;"></i>
-          HƠN 30 NĂM ĐỒNG HÀNH
-        </span>
-      </div>
+  <section class="gf-about-banner-hero">
+    <!-- Background Clinic Image + Dark Gradient Overlay -->
+    <div class="gf-about-banner-bg">
+      <img src="https://www.nhakhoagreenfield.com/images/hero-clinic.jpg" alt="Không gian phòng khám Nha Khoa Kim Dung" loading="eager">
+    </div>
+    <div class="gf-about-banner-overlay"></div>
 
-      <h1 class="gf-about-hero-title">Về Nha Khoa Kim Dung</h1>
-      
-      <p class="gf-about-hero-sub">“Từ một phòng khám, đến hành trình kiến tạo hàng nghìn nụ cười.”</p>
-      
-      <p class="gf-about-hero-desc">
-        Hơn ba thập kỷ qua, Nha Khoa Kim Dung đã chứng kiến nhiều sự thay đổi của ngành nha khoa. Nhưng có một điều chúng tôi luôn giữ nguyên: sự cẩn trọng trong từng chẩn đoán, sự tôn trọng đối với từng nụ cười, và cam kết điều trị bằng sự thấu hiểu – chứ không chỉ bằng kỹ thuật.
-      </p>
-
-      <!-- 4 Stats Cards Grid -->
-      <div class="gf-about-stats-grid">
-        <div class="gf-about-stat-card">
-          <div class="gf-about-stat-num">30+</div>
-          <div class="gf-about-stat-label">Năm kinh nghiệm &amp; phát triển</div>
-        </div>
-        <div class="gf-about-stat-card">
-          <div class="gf-about-stat-num">25.000+</div>
-          <div class="gf-about-stat-label">Bệnh nhân tin tưởng đồng hành</div>
-        </div>
-        <div class="gf-about-stat-card">
-          <div class="gf-about-stat-num">1.000+</div>
-          <div class="gf-about-stat-label">Ca cấy ghép Implant thành công</div>
-        </div>
-        <div class="gf-about-stat-card">
-          <div class="gf-about-stat-num">99%</div>
-          <div class="gf-about-stat-label">Tỷ lệ bệnh nhân hài lòng</div>
-        </div>
-      </div>
-
-      <!-- Philosophy Quote Box -->
-      <div class="gf-about-quote-box text-left">
-        <div class="flex items-start gap-3.5">
-          <i class="fa-solid fa-quote-left text-2xl flex-shrink-0 mt-0.5" style="color: #EABF0E;"></i>
-          <p class="gf-about-quote-text">
-            “Chúng tôi không tìm kiếm một nụ cười giống nhau cho tất cả mọi người. Chúng tôi muốn mỗi khách hàng có một nụ cười phù hợp với chính mình.”
+    <div class="wrap-content gf-about-banner-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <div class="gf-about-banner-grid">
+        <!-- Left Column: Title, Sub, Desc & CTAs -->
+        <div>
+          <span class="gf-about-banner-badge">
+            <i class="fa-solid fa-crown text-xs" style="color: #F4CE28;"></i>
+            HƠN 30 NĂM ĐỒNG HÀNH KIẾN TẠO NỤ CƯỜI
+          </span>
+          <h1 class="gf-about-banner-title" style="color: #ffffff !important;">Về Nha Khoa Kim Dung</h1>
+          <p class="gf-about-banner-sub" style="color: #F4CE28 !important;">“Từ một phòng khám, đến hành trình kiến tạo hàng nghìn nụ cười.”</p>
+          <p class="gf-about-banner-desc" style="color: #e5e7eb !important;">
+            Hơn ba thập kỷ qua, Nha Khoa Kim Dung đã chứng kiến nhiều sự thay đổi của ngành nha khoa. Nhưng có một điều chúng tôi luôn giữ nguyên: sự cẩn trọng trong từng chẩn đoán, sự tôn trọng đối với từng nụ cười, và cam kết điều trị bằng sự thấu hiểu – chứ không chỉ bằng kỹ thuật.
           </p>
+
+          <div class="gf-about-banner-actions">
+            <a href="dat-lich.html" class="gf-about-banner-btn-primary">
+              <span>Đặt lịch tư vấn miễn phí</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+            <a href="tel:0862960886" class="gf-about-banner-btn-outline">
+              <i class="fa-solid fa-phone text-[#EABF0E]"></i>
+              <span>0862 960 886</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Featured Visual Photo Frame -->
+        <div class="gf-about-banner-visual">
+          <img src="https://nhakhoakimdung.vn/thumbs/600x400x1/upload/seopage/bannerseo-1753694289.png.webp" alt="Nha Khoa Kim Dung Thái Nguyên" loading="eager">
+          <div class="gf-about-banner-visual-overlay">
+            <span class="gf-about-banner-visual-tag">
+              <i class="fa-solid fa-shield-halved text-xs"></i> TIÊU CHUẨN Y KHOA QUỐC TẾ
+            </span>
+            <h3 class="gf-about-banner-visual-title" style="color: #ffffff !important;">Phòng Khám Nha Khoa Hiện Đại</h3>
+            <p class="gf-about-banner-visual-sub" style="color: #e5e7eb !important;">Số 15, đường Bắc Sơn kéo dài, TP. Thái Nguyên</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Banner Stats Cards -->
+      <div class="gf-about-banner-stats">
+        <div class="gf-about-banner-stat-item">
+          <div class="gf-about-banner-stat-num">30+</div>
+          <div class="gf-about-banner-stat-label">Năm kinh nghiệm &amp; phát triển</div>
+        </div>
+        <div class="gf-about-banner-stat-item">
+          <div class="gf-about-banner-stat-num">25.000+</div>
+          <div class="gf-about-banner-stat-label">Bệnh nhân tin tưởng đồng hành</div>
+        </div>
+        <div class="gf-about-banner-stat-item">
+          <div class="gf-about-banner-stat-num">1.000+</div>
+          <div class="gf-about-banner-stat-label">Ca cấy ghép Implant thành công</div>
+        </div>
+        <div class="gf-about-banner-stat-item">
+          <div class="gf-about-banner-stat-num">99%</div>
+          <div class="gf-about-banner-stat-label">Tỷ lệ bệnh nhân hài lòng</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       SECTION 2: ĐIỀU GÌ KHIẾN KIM DUNG KHÁC BIỆT? (4 VALUE PILLARS)
+       SECTION 2: ĐIỀU GÌ KHIẾN KIM DUNG KHÁC BIỆT? (GIÁ TRỊ CỐT LÕI - IMAGE WITH TEXT)
        ========================================================================= -->
   <section class="gf-diff-section">
     <div class="wrap-content" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
@@ -326,49 +345,61 @@
         </p>
       </div>
 
-      <div class="gf-diff-grid">
-        <!-- Pillar 1 -->
-        <div class="gf-diff-card">
-          <div class="gf-diff-icon">
-            <i class="fa-solid fa-award"></i>
+      <div class="gf-diff-grid-img">
+        <!-- Pillar 1: 30 Năm Kinh Nghiệm Thực Tế -->
+        <div class="gf-diff-card-imgtext">
+          <div class="gf-diff-card-media">
+            <img src="https://www.nhakhoagreenfield.com/images/hero-clinic.jpg" alt="30 Năm Kinh Nghiệm Thực Tế" loading="lazy">
+            <span class="gf-diff-card-tag">30 Năm Kinh Nghiệm</span>
           </div>
-          <h3 class="gf-diff-card-title">30 Năm Kinh Nghiệm Thực Tế</h3>
-          <p class="gf-diff-card-desc">
-            Được đúc kết và khẳng định qua hàng chục nghìn ca điều trị thực tế, từ chăm sóc răng miệng tổng quát đến những trường hợp phục hình, chỉnh nha và cấy ghép Implant phức tạp nhất.
-          </p>
+          <div class="gf-diff-card-body">
+            <h3 class="gf-diff-card-title">30 Năm Kinh Nghiệm Thực Tế</h3>
+            <p class="gf-diff-card-desc">
+              Được đúc kết và khẳng định qua hàng chục nghìn ca điều trị thực tế, từ chăm sóc răng miệng tổng quát đến những trường hợp phục hình, chỉnh nha và cấy ghép Implant phức tạp nhất.
+            </p>
+          </div>
         </div>
 
-        <!-- Pillar 2 -->
-        <div class="gf-diff-card">
-          <div class="gf-diff-icon">
-            <i class="fa-solid fa-user-doctor"></i>
+        <!-- Pillar 2: Đội Ngũ Bác Sĩ Chuyên Môn Cao -->
+        <div class="gf-diff-card-imgtext">
+          <div class="gf-diff-card-media">
+            <img src="https://nhakhoakimdung.vn/thumbs/400x450x1/upload/news/thiet-ke-chua-co-ten-1755314936.png.webp" alt="Đội Ngũ Bác Sĩ Chuyên Môn Cao" loading="lazy">
+            <span class="gf-diff-card-tag">Đội Ngũ Bác Sĩ</span>
           </div>
-          <h3 class="gf-diff-card-title">Đội Ngũ Bác Sĩ Chuyên Môn Cao</h3>
-          <p class="gf-diff-card-desc">
-            Mỗi chuyên khoa tại Kim Dung đều được trực tiếp phụ trách bởi các bác sĩ có chuyên môn sâu, tay nghề lâm sàng dày dặn và liên tục tu nghiệp nâng cao kiến thức y khoa hiện đại.
-          </p>
+          <div class="gf-diff-card-body">
+            <h3 class="gf-diff-card-title">Đội Ngũ Bác Sĩ Chuyên Môn Cao</h3>
+            <p class="gf-diff-card-desc">
+              Mỗi chuyên khoa tại Kim Dung đều được trực tiếp phụ trách bởi các bác sĩ có chuyên môn sâu, tay nghề lâm sàng dày dặn và liên tục tu nghiệp nâng cao kiến thức y khoa hiện đại.
+            </p>
+          </div>
         </div>
 
-        <!-- Pillar 3 -->
-        <div class="gf-diff-card">
-          <div class="gf-diff-icon">
-            <i class="fa-solid fa-microchip"></i>
+        <!-- Pillar 3: Công Nghệ Hỗ Trợ Chẩn Đoán Chính Xác -->
+        <div class="gf-diff-card-imgtext">
+          <div class="gf-diff-card-media">
+            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/them-tieu-de-1-1760233991.png.webp" alt="Công Nghệ Hỗ Trợ Chẩn Đoán Chính Xác" loading="lazy">
+            <span class="gf-diff-card-tag">Công Nghệ 3D</span>
           </div>
-          <h3 class="gf-diff-card-title">Công Nghệ Hỗ Trợ Chẩn Đoán Chính Xác</h3>
-          <p class="gf-diff-card-desc">
-            Trang thiết bị tiên tiến chuẩn quốc tế (CT Cone Beam 3D, Scan iTero, DSD) không sinh ra để thay thế bác sĩ, mà là cánh tay đắc lực giúp mọi quyết định điều trị trở nên an toàn, nhẹ nhàng và chuẩn xác.
-          </p>
+          <div class="gf-diff-card-body">
+            <h3 class="gf-diff-card-title">Công Nghệ Hỗ Trợ Chẩn Đoán Chính Xác</h3>
+            <p class="gf-diff-card-desc">
+              Trang thiết bị tiên tiến chuẩn quốc tế (CT Cone Beam 3D, Scan iTero, DSD) không sinh ra để thay thế bác sĩ, mà là cánh tay đắc lực giúp mọi quyết định điều trị an toàn, nhẹ nhàng và chuẩn xác.
+            </p>
+          </div>
         </div>
 
-        <!-- Pillar 4 -->
-        <div class="gf-diff-card">
-          <div class="gf-diff-icon">
-            <i class="fa-solid fa-hand-holding-heart"></i>
+        <!-- Pillar 4: Dịch Vụ Tận Tâm, Chăm Sóc Cá Nhân Hóa -->
+        <div class="gf-diff-card-imgtext">
+          <div class="gf-diff-card-media">
+            <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-1.jpg" alt="Dịch Vụ Tận Tâm, Chăm Sóc Cá Nhân Hóa" loading="lazy">
+            <span class="gf-diff-card-tag">Tận Tâm Chu Đáo</span>
           </div>
-          <h3 class="gf-diff-card-title">Dịch Vụ Tận Tâm, Chăm Sóc Cá Nhân Hóa</h3>
-          <p class="gf-diff-card-desc">
-            Chúng tôi dành thời gian lắng nghe từng mong muốn, giải thích rõ ràng và minh bạch phác đồ điều trị, đồng thời cam kết đồng hành chăm sóc sức khỏe nụ cười dài lâu cùng bạn.
-          </p>
+          <div class="gf-diff-card-body">
+            <h3 class="gf-diff-card-title">Dịch Vụ Tận Tâm, Chăm Sóc Cá Nhân Hóa</h3>
+            <p class="gf-diff-card-desc">
+              Chúng tôi dành thời gian lắng nghe từng mong muốn, giải thích rõ ràng và minh bạch phác đồ điều trị, đồng thời cam kết đồng hành chăm sóc sức khỏe nụ cười dài lâu cùng bạn.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -684,7 +715,7 @@
   </section>
 
   <!-- =========================================================================
-       SECTION 6: MỖI NỤ CƯỜI LÀ MỘT CÂU CHUYỆN RIÊNG
+       SECTION 6: MỖI NỤ CƯỜI LÀ MỘT CÂU CHUYỆN RIÊNG (DỊCH VỤ CHUYÊN SÂU - ẢNH TRÁI, TEXT PHẢI, NO ICON)
        ========================================================================= -->
   <section class="gf-about-services-section">
     <div class="wrap-content" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
@@ -698,73 +729,85 @@
         </p>
       </div>
 
-      <div class="gf-about-services-grid">
-        <!-- Service Card 1: Niềng răng -->
-        <div class="gf-about-service-card">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-gray-900 shadow-sm" style="background-color: #EABF0E;">
-              <i class="fa-solid fa-teeth text-base"></i>
-            </div>
-            <h3 class="gf-about-service-title mb-0">Niềng Răng</h3>
+      <div class="gf-services-grid-horizontal">
+        <!-- Service Card 1: Niềng Răng -->
+        <div class="gf-service-card-h">
+          <div class="gf-service-card-h-img">
+            <img src="https://www.nhakhoagreenfield.com/images/services/service-invisalign.webp" alt="Niềng Răng Thẩm Mỹ" loading="lazy">
+            <span class="gf-service-card-h-tag">Chỉnh nha</span>
           </div>
-          <p class="gf-about-service-desc">
-            Điều chỉnh răng và khớp cắn, hướng tới một hàm răng cân đối hơn về thẩm mỹ và chức năng.
-          </p>
-          <a href="nieng-rang-tham-my.html" class="gf-about-service-btn">
-            <span>Khám phá chỉnh nha</span>
-            <i class="fa-solid fa-arrow-right text-xs"></i>
-          </a>
+          <div class="gf-service-card-h-body">
+            <div>
+              <h3 class="gf-service-card-h-title">Niềng Răng</h3>
+              <p class="gf-service-card-h-desc">
+                Điều chỉnh răng và khớp cắn, hướng tới một hàm răng cân đối hơn về thẩm mỹ và chức năng ăn nhai vững chắc.
+              </p>
+            </div>
+            <a href="nieng-rang-tham-my.html" class="gf-service-card-h-btn">
+              <span>Khám phá chỉnh nha</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
         </div>
 
-        <!-- Service Card 2: Răng sứ thẩm mỹ -->
-        <div class="gf-about-service-card">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-gray-900 shadow-sm" style="background-color: #EABF0E;">
-              <i class="fa-solid fa-tooth text-base"></i>
-            </div>
-            <h3 class="gf-about-service-title mb-0">Răng Sứ Thẩm Mỹ</h3>
+        <!-- Service Card 2: Răng Sứ Thẩm Mỹ -->
+        <div class="gf-service-card-h">
+          <div class="gf-service-card-h-img">
+            <img src="https://www.nhakhoagreenfield.com/images/services/service-cosmetics.webp" alt="Răng Sứ Thẩm Mỹ" loading="lazy">
+            <span class="gf-service-card-h-tag">Răng sứ</span>
           </div>
-          <p class="gf-about-service-desc">
-            Cải thiện hình dáng, màu sắc và tổng thể nụ cười theo mong muốn và tình trạng thực tế.
-          </p>
-          <a href="boc-rang-su.html" class="gf-about-service-btn">
-            <span>Khám phá răng sứ</span>
-            <i class="fa-solid fa-arrow-right text-xs"></i>
-          </a>
+          <div class="gf-service-card-h-body">
+            <div>
+              <h3 class="gf-service-card-h-title">Răng Sứ Thẩm Mỹ</h3>
+              <p class="gf-service-card-h-desc">
+                Cải thiện hình dáng, màu sắc và tổng thể nụ cười chuẩn tỷ lệ nhân trắc học theo mong muốn và tình trạng thực tế.
+              </p>
+            </div>
+            <a href="boc-rang-su.html" class="gf-service-card-h-btn">
+              <span>Khám phá răng sứ</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
         </div>
 
-        <!-- Service Card 3: Cấy ghép Implant -->
-        <div class="gf-about-service-card">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-gray-900 shadow-sm" style="background-color: #EABF0E;">
-              <i class="fa-solid fa-screwdriver-wrench text-base"></i>
-            </div>
-            <h3 class="gf-about-service-title mb-0">Cấy Ghép Implant</h3>
+        <!-- Service Card 3: Cấy Ghép Implant -->
+        <div class="gf-service-card-h">
+          <div class="gf-service-card-h-img">
+            <img src="https://www.nhakhoagreenfield.com/images/services/service-implant.webp" alt="Cấy Ghép Implant" loading="lazy">
+            <span class="gf-service-card-h-tag">Implant</span>
           </div>
-          <p class="gf-about-service-desc">
-            Phục hồi răng đã mất toàn diện cả thân và chân răng, lấy lại khả năng ăn nhai vững chắc và thẩm mỹ tự nhiên.
-          </p>
-          <a href="trong-rang-implant.html" class="gf-about-service-btn">
-            <span>Khám phá Implant</span>
-            <i class="fa-solid fa-arrow-right text-xs"></i>
-          </a>
+          <div class="gf-service-card-h-body">
+            <div>
+              <h3 class="gf-service-card-h-title">Cấy Ghép Implant</h3>
+              <p class="gf-service-card-h-desc">
+                Phục hồi răng đã mất toàn diện cả thân và chân răng, lấy lại khả năng ăn nhai vững chắc và thẩm mỹ tự nhiên như răng thật.
+              </p>
+            </div>
+            <a href="trong-rang-implant.html" class="gf-service-card-h-btn">
+              <span>Khám phá Implant</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
         </div>
 
-        <!-- Service Card 4: Chăm sóc & điều trị răng -->
-        <div class="gf-about-service-card">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-gray-900 shadow-sm" style="background-color: #EABF0E;">
-              <i class="fa-solid fa-hand-holding-medical text-base"></i>
-            </div>
-            <h3 class="gf-about-service-title mb-0">Chăm Sóc &amp; Điều Trị Răng</h3>
+        <!-- Service Card 4: Chăm Sóc & Điều Trị Răng -->
+        <div class="gf-service-card-h">
+          <div class="gf-service-card-h-img">
+            <img src="https://www.nhakhoagreenfield.com/images/services/service-whitening.webp" alt="Chăm Sóc & Điều Trị Răng" loading="lazy">
+            <span class="gf-service-card-h-tag">Tổng quát</span>
           </div>
-          <p class="gf-about-service-desc">
-            Từ kiểm tra định kỳ, vệ sinh răng miệng đến điều trị các vấn đề răng miệng theo chỉ định.
-          </p>
-          <a href="nha-khoa-tong-quat.html" class="gf-about-service-btn">
-            <span>Xem dịch vụ</span>
-            <i class="fa-solid fa-arrow-right text-xs"></i>
-          </a>
+          <div class="gf-service-card-h-body">
+            <div>
+              <h3 class="gf-service-card-h-title">Chăm Sóc &amp; Điều Trị Răng</h3>
+              <p class="gf-service-card-h-desc">
+                Từ kiểm tra định kỳ, vệ sinh răng miệng đến điều trị các vấn đề bệnh lý răng miệng chuyên sâu nhẹ nhàng và không ê buốt.
+              </p>
+            </div>
+            <a href="nha-khoa-tong-quat.html" class="gf-service-card-h-btn">
+              <span>Xem dịch vụ</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
