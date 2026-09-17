@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tin Tức & Kiến Thức Nha Khoa | Cập Nhật Mới Từ Nha Khoa Kim Dung Thái Nguyên</title>
+    <title>Tin Tức & Ưu Đãi | Nha Khoa Kim Dung Thái Nguyên</title>
     <meta name="description" content="Cập nhật tin tức mới nhất từ Nha Khoa Kim Dung Thái Nguyên – chia sẻ kiến thức chăm sóc răng miệng, giải đáp thắc mắc nha khoa và các chương trình ưu đãi hấp dẫn mỗi tháng.">
 
  
@@ -69,6 +69,7 @@
 <noscript><link rel="stylesheet" href="https://nhakhoakimdung.vn/assets/fancybox5/fancybox.css"></noscript> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
     <link href="assets/css/ui-ux-pro-max.css?v=3.0" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/greenfield-theme.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
@@ -150,9 +151,14 @@
       </li>
       <li><a class="transition" href="bang-gia.html" title="Bảng giá">BẢNG GIÁ</a></li>
       <li><a class="transition" href="bac-si.html" title="Bác sĩ">BÁC SĨ</a></li>
-      <li><a class="transition active" href="tin-tuc.html" title="Tin tức">TIN TỨC</a></li>
-      <li><a class="transition" href="lien-he.html" title="Liên hệ">LIÊN HỆ</a></li>
-    </ul>
+       <li><a class="transition active" href="tin-tuc.html" title="Tin tức & Ưu đãi" style="color: #B89307 !important; font-weight: 700;">TIN TỨC& ƯU ĐÃI</a></li>
+       <li><a class="transition" href="lien-he.html" title="Liên hệ">LIÊN HỆ</a></li>
+       <li>
+         <button type="button" class="header-nav-search-btn" title="Tìm kiếm" data-bs-toggle="offcanvas" data-bs-target="#menu-mobile">
+           <i class="fa-solid fa-magnifying-glass"></i>
+         </button>
+       </li>
+     </ul>
   </nav>
  </div>
  </div>
@@ -195,7 +201,7 @@
 </li>
  <li class="group"><a class="transition" href="bac-si.html" title="Bác sĩ"><i class="fa-solid fa-user-doctor"></i> Bác sĩ</a></li>
  <li class="group"><a class="transition" href="dat-lich.html" title="Đặt lịch"><i class="fa-solid fa-newspaper"></i> Đặt lịch</a></li>
- <li class="group"><a class="transition" href="tin-tuc.html" title="Tin tức"><i class="fa-solid fa-newspaper"></i> Tin tức</a></li>
+ <li class="group"><a class="transition active" href="tin-tuc.html" title="Tin tức & Ưu đãi"><i class="fa-solid fa-newspaper"></i> Tin tức &amp; Ưu đãi</a></li>
  <li class="group"><a class="transition" href="lien-he.html" title="Liên hệ"><i class="fa-solid fa-address-book"></i> Liên hệ</a></li>
  </ul>
  <div class="company">
@@ -208,524 +214,222 @@
  </div>
 </div>  </div>
 </header>
-<main id="main-content" style="background: #FAF8F5; min-height: 80vh;">
-  <div class="news-page-wrap">
-    <!-- 1. HERO HEADER -->
-    <header class="news-hero-section">
-      <div class="news-hero-tagline">
-        <i class="fa-solid fa-newspaper"></i>
-        <span>Cẩm Nang Y Khoa &amp; Tin Tức</span>
-      </div>
-      <h1 class="news-hero-title">Tin Tức &amp; Kiến Thức Nha Khoa Chuyên Sâu</h1>
-      <p class="news-hero-desc">
-        Tổng hợp các bài viết chia sẻ kiến thức chăm sóc răng miệng chuẩn y khoa, công nghệ điều trị tân tiến và kinh nghiệm thực tế từ đội ngũ bác sĩ chuyên khoa Nha Khoa Kim Dung Thái Nguyên.
-      </p>
-    </header>
-
-    <!-- 2. CATEGORY FILTER TABS -->
-    <div class="news-filter-wrap">
-      <ul class="news-filter-tabs" role="tablist">
-        <li>
-          <button type="button" class="news-filter-tab active" data-filter="all">
-            <i class="fa-solid fa-border-all"></i>
-            <span>Tất cả</span>
-            <span class="badge-count" id="count-all">12</span>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="news-filter-tab" data-filter="nieng-rang">
-            <i class="fa-solid fa-teeth-open"></i>
-            <span>Niềng răng - Chỉnh nha</span>
-            <span class="badge-count">3</span>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="news-filter-tab" data-filter="nho-rang">
-            <i class="fa-solid fa-tooth"></i>
-            <span>Nhổ răng &amp; Tiểu phẫu</span>
-            <span class="badge-count">2</span>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="news-filter-tab" data-filter="benh-ly">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>Bệnh lý &amp; Chăm sóc</span>
-            <span class="badge-count">5</span>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="news-filter-tab" data-filter="cong-nghe">
-            <i class="fa-solid fa-microchip"></i>
-            <span>Công nghệ cao</span>
-            <span class="badge-count">2</span>
-          </button>
-        </li>
-      </ul>
-    </div>
-
-    <!-- 3. NEWS CARDS GRID (12 ARTICLES) -->
-    <div class="news-cards-grid" id="newsGrid">
-      <!-- Article 1 -->
-      <article class="news-card-pro" data-category="nho-rang">
-        <div class="news-card-media">
-          <a href="khi-nao-nen-nho-rang-so-8-rang-khon-4-dau-hieu-canh-bao-ban-can-den-nha-khoa-ngay.html" class="news-card-thumb-link" title="Khi Nào Nên Nhổ Răng Số 8 (Răng Khôn)?">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/ffffa8-3-1775290170.png.webp" alt="Khi Nào Nên Nhổ Răng Số 8 (Răng Khôn)? 4 Dấu Hiệu Cảnh Báo Bạn Cần Đến Nha Khoa Ngay" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Nhổ Răng Số 8</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 4 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 25/03/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Kim Dung</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="khi-nao-nen-nho-rang-so-8-rang-khon-4-dau-hieu-canh-bao-ban-can-den-nha-khoa-ngay.html">
-              Khi Nào Nên Nhổ Răng Số 8 (Răng Khôn)? 4 Dấu Hiệu "Cảnh Báo" Bạn Cần Đến Nha Khoa Ngay
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Răng khôn (răng số 8) gây đau nhức, sưng tấy và ảnh hưởng đến răng bên cạnh? Tìm hiểu ngay 4 trường hợp bắt buộc phải nhổ răng số 8 và giải pháp nhổ răng không đau tại Nha Khoa Kim Dung Thái Nguyên.
-          </p>
-          <div class="news-card-footer">
-            <a href="khi-nao-nen-nho-rang-so-8-rang-khon-4-dau-hieu-canh-bao-ban-can-den-nha-khoa-ngay.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 2 -->
-      <article class="news-card-pro" data-category="nieng-rang">
-        <div class="news-card-media">
-          <a href="bat-mi-5-ly-do-mua-he-la-thoi-diem-vang-de-bat-dau-nieng-rang.html" class="news-card-thumb-link" title="Bật Mí 5 Lý Do Mùa Hè Là Thời Điểm Vàng Để Bắt Đầu Niềng Răng">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/mac-cai-kim-loai-3-1775119672.png.webp" alt="Bật Mí 5 Lý Do Mùa Hè Là Thời Điểm Vàng Để Bắt Đầu Niềng Răng" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Niềng Răng</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 5 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 22/03/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Thùy Chi</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="bat-mi-5-ly-do-mua-he-la-thoi-diem-vang-de-bat-dau-nieng-rang.html">
-              Bật Mí 5 Lý Do Mùa Hè Là "Thời Điểm Vàng" Để Bắt Đầu Niềng Răng
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Mùa hè này, thay vì chỉ lên kế hoạch đi chơi, tại sao bạn không bắt đầu hành trình "lột xác" nụ cười? Khám phá ngay 5 lý do mùa hè là thời điểm lý tưởng nhất để niềng răng cùng Nha Khoa Kim Dung.
-          </p>
-          <div class="news-card-footer">
-            <a href="bat-mi-5-ly-do-mua-he-la-thoi-diem-vang-de-bat-dau-nieng-rang.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 3 -->
-      <article class="news-card-pro" data-category="benh-ly">
-        <div class="news-card-media">
-          <a href="70-nguyen-nhan-hoi-mieng-khong-den-tu-thuc-an-su-that-ngo-ngang-va-giai-phap.html" class="news-card-thumb-link" title="70% Nguyên Nhân Hôi Miệng Không Đến Từ Thức Ăn">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/1942941d416ac349ce56bafaf161030d-1774774032.jpg.webp" alt="70% Nguyên Nhân Hôi Miệng Không Đến Từ Thức Ăn: Sự Thật Ngỡ Ngàng Và Giải Pháp" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Chăm Sóc Răng</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 4 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 18/03/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Kim Dung</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="70-nguyen-nhan-hoi-mieng-khong-den-tu-thuc-an-su-that-ngo-ngang-va-giai-phap.html">
-              70% Nguyên Nhân Hôi Miệng Không Đến Từ Thức Ăn: Sự Thật Ngỡ Ngàng Và Giải Pháp
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Hôi miệng (Halitosis) là nỗi ám ảnh thầm lặng khiến nhiều người mất tự tin trong giao tiếp, cản trở cơ hội trong cuộc sống. 70% nguyên nhân xuất phát từ thói quen vệ sinh răng miệng sai cách.
-          </p>
-          <div class="news-card-footer">
-            <a href="70-nguyen-nhan-hoi-mieng-khong-den-tu-thuc-an-su-that-ngo-ngang-va-giai-phap.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 4 -->
-      <article class="news-card-pro" data-category="cong-nghe">
-        <div class="news-card-media">
-          <a href="giai-ma-cong-nghe-nho-rang-piezotome.html" class="news-card-thumb-link" title="Giải Mã Công Nghệ Nhổ Răng Piezotome">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/bai-dang-instagram-quang-cao-khuyen-mai-cong-nghe-may-hut-bui-hien-dai-sang-trong-vang-den-1774514583.png.webp" alt="Giải Mã Công Nghệ Nhổ Răng Piezotome: Sức Mạnh Sóng Siêu Âm Thay Thế Hoàn Toàn Kìm, Bẩy Truyền Thống" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Công Nghệ Cao</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 6 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 15/03/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Chuyên Khoa</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="giai-ma-cong-nghe-nho-rang-piezotome.html">
-              Giải Mã Công Nghệ Nhổ Răng Piezotome: Sức Mạnh Sóng Siêu Âm Thay Thế Hoàn Toàn Kìm, Bẩy Truyền Thống
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Trong nha khoa hiện đại, công nghệ sóng siêu âm Piezotome bóc tách chân răng một cách êm ái mà không làm tổn thương các mô lân cận, không đau buốt và hỗ trợ vết thương mau lành nhanh chóng.
-          </p>
-          <div class="news-card-footer">
-            <a href="giai-ma-cong-nghe-nho-rang-piezotome.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 5 -->
-      <article class="news-card-pro" data-category="nieng-rang">
-        <div class="news-card-media">
-          <a href="nieng-rang-thai-nguyen-o-dau-uy-tin-lo-dien-dia-chi-vang-giup-ban-thang-hang-nhan-sac.html" class="news-card-thumb-link" title="Niềng Răng Thái Nguyên Ở Đâu Uy Tín?">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/bai-dang-instagram-quang-cao-sale-nieng-rang-nha-khoa-tet-hien-dai-do-vang-1-1774320356.png.webp" alt="Niềng Răng Thái Nguyên Ở Đâu Uy Tín? Lộ Diện Địa Chỉ Vàng Giúp Bạn Thăng Hạng Nhan Sắc" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Niềng Răng</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 5 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 12/03/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Thùy Chi</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="nieng-rang-thai-nguyen-o-dau-uy-tin-lo-dien-dia-chi-vang-giup-ban-thang-hang-nhan-sac.html">
-              Niềng Răng Thái Nguyên Ở Đâu Uy Tín? Lộ Diện Địa Chỉ "Vàng" Giúp Bạn Thăng Hạng Nhan Sắc
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Sở hữu nụ cười rạng rỡ cùng hàm răng đều đẹp là mong ước của nhiều người. Giữa hàng trăm phòng khám, Nha Khoa Kim Dung là địa chỉ chỉnh nha hàng đầu tại Thái Nguyên với cam kết chuẩn phác đồ cá nhân hóa.
-          </p>
-          <div class="news-card-footer">
-            <a href="nieng-rang-thai-nguyen-o-dau-uy-tin-lo-dien-dia-chi-vang-giup-ban-thang-hang-nhan-sac.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 6 -->
-      <article class="news-card-pro" data-category="cong-nghe">
-        <div class="news-card-media">
-          <a href="khi-nao-ban-can-chup-ct-conebeam-3d.html" class="news-card-thumb-link" title="Bí Mật Của Các Ca Điều Trị Nha Khoa Thành Công: Khi Nào Bạn Cần Chụp CT Conebeam 3D?">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/an-toan-lieu-tia-thap-1-1774144408.png.webp" alt="Bí Mật Của Các Ca Điều Trị Nha Khoa Thành Công: Khi Nào Bạn Cần Chụp CT Conebeam 3D?" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Chẩn Đoán 3D</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 5 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 10/03/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Kim Dung</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="khi-nao-ban-can-chup-ct-conebeam-3d.html">
-              Bí Mật Của Các Ca Điều Trị Nha Khoa Thành Công: Khi Nào Bạn Cần Chụp CT Conebeam 3D?
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Tìm hiểu về công nghệ X-Quang Conebeam CT 3D (CBCT). Giải pháp chẩn đoán hình ảnh sắc nét, an toàn, liều tia thấp hỗ trợ đắc lực cho cấy ghép Implant, niềng răng và nhổ răng khôn an toàn tuyệt đối.
-          </p>
-          <div class="news-card-footer">
-            <a href="khi-nao-ban-can-chup-ct-conebeam-3d.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 7 -->
-      <article class="news-card-pro" data-category="nieng-rang">
-        <div class="news-card-media">
-          <a href="su-that-ve-nieng-rang.html" class="news-card-thumb-link" title="5+ Sự Thật Về Niềng Răng: Những Hiểu Lầm Kinh Điển">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/white-modern-dental-checkup-promotion-instagram-post-1080-x-1080-px-10-1773972809.png.webp" alt="5+ Sự Thật Về Niềng Răng: Những Hiểu Lầm Kinh Điển Mà Nha Sĩ Ít Tiết Lộ" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Niềng Răng</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 4 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 08/03/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Thùy Chi</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="su-that-ve-nieng-rang.html">
-              5+ Sự Thật Về Niềng Răng: Những Hiểu Lầm "Kinh Điển" Mà Nha Sĩ Ít Tiết Lộ
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Niềng răng (chỉnh nha) không chỉ đơn thuần là một thủ thuật thẩm mỹ, mà là một hành trình thay đổi khớp cắn. Cùng bóc trần những hiểu lầm về hóp má, răng yếu hay đau đớn mà không phải ai cũng nói cho bạn biết.
-          </p>
-          <div class="news-card-footer">
-            <a href="su-that-ve-nieng-rang.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 8 -->
-      <article class="news-card-pro" data-category="benh-ly">
-        <div class="news-card-media">
-          <a href="5-hau-qua-khong-lay-cao-rang-dinh-ky.html" class="news-card-thumb-link" title="5 Hậu Quả Khôn Lường Nếu KHÔNG Lấy Cao Răng Định Kỳ">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/white-modern-dental-checkup-promotion-instagram-post-1080-x-1080-px-3-1773800433.png.webp" alt="5 Hậu Quả Khôn Lường Nếu KHÔNG Lấy Cao Răng Định Kỳ" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Lấy Cao Răng</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 3 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 05/03/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Kim Dung</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="5-hau-qua-khong-lay-cao-rang-dinh-ky.html">
-              5 Hậu Quả Khôn Lường Nếu KHÔNG Lấy Cao Răng Định Kỳ
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Bạn chải răng 2 lần/ngày và tự tin rằng răng mình đã sạch? Cao răng tích tụ âm thầm là kẻ thù phá hủy nướu, hôi miệng và gây tụt lợi mất răng vĩnh viễn nếu bỏ qua việc lấy vôi răng định kỳ mỗi 6 tháng.
-          </p>
-          <div class="news-card-footer">
-            <a href="5-hau-qua-khong-lay-cao-rang-dinh-ky.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 9 -->
-      <article class="news-card-pro" data-category="benh-ly">
-        <div class="news-card-media">
-          <a href="rang-sua-sau-co-can-chua-khong.html" class="news-card-thumb-link" title="Răng Sữa Sâu Có Cần Chữa Không?">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/2-1773627453.png.webp" alt="Răng Sữa Sâu Có Cần Chữa Không? Lầm Tưởng Tai Hại Ba Mẹ Thường Bỏ Qua" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Nha Khoa Trẻ Em</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 4 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 02/03/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Chuyên Khoa Nhi</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="rang-sua-sau-co-can-chua-khong.html">
-              Răng Sữa Sâu Có Cần Chữa Không? Lầm Tưởng Tai Hại Ba Mẹ Thường Bỏ Qua
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Nhiều phụ huynh nghĩ răng sữa sớm muộn cũng thay nên sâu răng không sao. Thực tế, răng sữa sâu hỏng ảnh hưởng nghiêm trọng đến mầm răng vĩnh viễn bên dưới và khả năng phát âm, ăn nhai của trẻ.
-          </p>
-          <div class="news-card-footer">
-            <a href="rang-sua-sau-co-can-chua-khong.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 10 -->
-      <article class="news-card-pro" data-category="benh-ly">
-        <div class="news-card-media">
-          <a href="canh-bao-viem-nha-chu.html" class="news-card-thumb-link" title="Cảnh Báo Viêm Nha Chu: Sát Thủ Âm Thầm Cướp Đi Răng Thật Của Bạn">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/white-modern-dental-checkup-promotion-instagram-post-1080-x-1080-px-6-1773456170.png.webp" alt="Cảnh Báo Viêm Nha Chu: Sát Thủ Âm Thầm Cướp Đi Răng Thật Của Bạn" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Bệnh Lý Nha Chu</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 5 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 28/02/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Kim Dung</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="canh-bao-viem-nha-chu.html">
-              Cảnh Báo Viêm Nha Chu: "Sát Thủ Âm Thầm" Cướp Đi Răng Thật Của Bạn
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Chảy máu chân răng mỗi sáng hay hơi thở có mùi? Đừng chủ quan vì viêm nha chu diễn biến thầm lặng và là nguyên nhân số 1 làm tiêu xương tụt lợi, lung lay rụng răng hàng loạt ở người trưởng thành.
-          </p>
-          <div class="news-card-footer">
-            <a href="canh-bao-viem-nha-chu.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 11 -->
-      <article class="news-card-pro" data-category="dich-vu">
-        <div class="news-card-media">
-          <a href="dich-vu-hau-mai-nha-khoa-kim-dung.html" class="news-card-thumb-link" title="Dịch vụ hậu mãi Làm Răng Một Lần, Chăm Sóc Cả Đời Tại Nha Khoa Kim Dung">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/white-modern-dental-checkup-promotion-instagram-post-1080-x-1080-px-4-1773049056.png.webp" alt="Xóa Bỏ Nỗi Lo Bị Chèo Kéo – Dịch vụ hậu mãi Làm Răng Một Lần, Chăm Sóc Cả Đời Tại Nha Khoa Kim Dung" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Dịch Vụ Tận Tâm</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 4 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 24/02/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> Ban Giám Đốc</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="dich-vu-hau-mai-nha-khoa-kim-dung.html">
-              Xóa Bỏ Nỗi Lo Bị "Chèo Kéo" – Dịch vụ hậu mãi "Làm Răng Một Lần, Chăm Sóc Cả Đời" Tại Nha Khoa Kim Dung
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Nỗi lo sợ bị chèo kéo vẽ bệnh khiến nhiều người ngại đi khám. Tại Nha Khoa Kim Dung suốt 30 năm qua, triết lý phục vụ chân thành, tư vấn trung thực và cam kết đồng hành chăm sóc trọn đời luôn được đặt lên hàng đầu.
-          </p>
-          <div class="news-card-footer">
-            <a href="dich-vu-hau-mai-nha-khoa-kim-dung.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Article 12 -->
-      <article class="news-card-pro" data-category="benh-ly">
-        <div class="news-card-media">
-          <a href="hoi-mieng-giam-ngay-voi-7-thoi-quen-hang-ngay.html" class="news-card-thumb-link" title="Hôi Miệng Giảm Ngay Với 7 Thói Quen Hằng Ngày">
-            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/bai-dang-instagram-quang-cao-sale-nieng-rang-nha-khoa-tet-hien-dai-do-vang-1772767722.png.webp" alt="Hôi Miệng Giảm Ngay Với 7 Thói Quen Hằng Ngày" loading="lazy" class="news-card-img" width="390" height="244">
-            <div class="news-card-overlay"></div>
-          </a>
-          <span class="news-badge-cat">Chăm Sóc Răng</span>
-          <span class="news-badge-time"><i class="fa-regular fa-clock"></i> 3 phút đọc</span>
-        </div>
-        <div class="news-card-content">
-          <div class="news-meta-row">
-            <span class="news-meta-item"><i class="fa-regular fa-calendar"></i> 20/02/2025</span>
-            <span class="news-meta-item"><i class="fa-regular fa-user"></i> BS. Kim Dung</span>
-          </div>
-          <h3 class="news-card-title">
-            <a href="hoi-mieng-giam-ngay-voi-7-thoi-quen-hang-ngay.html">
-              Hôi Miệng Giảm Ngay Với 7 Thói Quen Hằng Ngày
-            </a>
-          </h3>
-          <p class="news-card-desc">
-            Bạn luôn cảm thấy e ngại, dè chừng mỗi khi giao tiếp vì hơi thở kém thơm mát? Các chuyên gia tại Nha Khoa Kim Dung hướng dẫn 7 thói quen chăm sóc răng miệng cực kỳ đơn giản mỗi ngày giúp đánh bay mùi hôi tức thì.
-          </p>
-          <div class="news-card-footer">
-            <a href="hoi-mieng-giam-ngay-voi-7-thoi-quen-hang-ngay.html" class="news-read-more-btn">
-              <span>Đọc bài viết</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <!-- 4. PAGINATION -->
-    <nav class="news-pagination-nav" aria-label="Phân trang tin tức">
-      <div class="news-pagination-info">
-        Trang <strong>1</strong> / 3 (<span id="visibleArticleCount">12</span> bài viết)
-      </div>
-      <ul class="news-pagination-list">
-        <li><span class="news-page-btn disabled" aria-disabled="true"><i class="fa-solid fa-angles-left"></i> Đầu</span></li>
-        <li><span class="news-page-btn disabled" aria-disabled="true"><i class="fa-solid fa-chevron-left"></i></span></li>
-        <li><span class="news-page-btn active" aria-current="page">1</span></li>
-        <li><button type="button" class="news-page-btn" onclick="switchPageDemo(2)">2</button></li>
-        <li><button type="button" class="news-page-btn" onclick="switchPageDemo(3)">3</button></li>
-        <li><button type="button" class="news-page-btn" onclick="switchPageDemo(2)"><i class="fa-solid fa-chevron-right"></i></button></li>
-        <li><button type="button" class="news-page-btn" onclick="switchPageDemo(3)">Cuối <i class="fa-solid fa-angles-right"></i></button></li>
-      </ul>
+<main id="main-content" style="background: #FAF8F5; min-height: 80vh; padding-top: 24px; padding-bottom: 60px;">
+  <div class="gf-news-page-container">
+    
+    <!-- VnExpress Style Category Filter Bar -->
+    <nav class="gf-news-cat-bar" aria-label="Danh mục tin tức">
+      <button type="button" class="gf-news-cat-item active" data-category="all">Tất cả</button>
+      <button type="button" class="gf-news-cat-item" data-category="nieng-rang">Niềng răng</button>
+      <button type="button" class="gf-news-cat-item" data-category="rang-su">Răng sứ</button>
+      <button type="button" class="gf-news-cat-item" data-category="implant">Implant</button>
+      <button type="button" class="gf-news-cat-item" data-category="cham-soc-rang">Chăm sóc răng</button>
+      <button type="button" class="gf-news-cat-item" data-category="uu-dai">Ưu đãi</button>
     </nav>
 
-    <!-- 5. CONSULTATION CTA BANNER -->
-    <section class="news-consultation-cta">
-      <div class="news-cta-inner">
-        <div class="news-cta-text">
-          <span class="news-cta-tag"><i class="fa-solid fa-user-doctor"></i> BÁC SĨ CHUYÊN KHOA KIM DUNG</span>
-          <h2 class="news-cta-title">Bạn Cần Tư Vấn Trực Tiếp Về Tình Trạng Răng Miệng?</h2>
-          <p class="news-cta-desc">
-            Đội ngũ bác sĩ giàu kinh nghiệm tại Nha Khoa Kim Dung luôn sẵn sàng giải đáp thắc mắc, thăm khám tổng quát và chụp phim CT ConeBeam 3D kiểm tra miễn phí ngay hôm nay.
-          </p>
-        </div>
-        <div class="news-cta-actions">
-          <a href="dat-lich.html" class="news-cta-btn-primary">
-            <i class="fa-solid fa-calendar-check"></i> Đặt Lịch Khám Miễn Phí
+    <!-- 2-Column Grid -->
+    <div class="gf-news-grid-2col">
+      
+      <!-- Left Column: News Items List -->
+      <section class="gf-news-list" id="gfNewsList">
+        
+        <!-- Item 1: Aidite -->
+        <article class="gf-news-item" data-cat="rang-su">
+          <a href="kien-thuc-rang-su-tham-my.html" class="gf-news-thumb" title="Aidite giới thiệu công nghệ nha khoa tới đối tác toàn cầu">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&auto=format&fit=crop&q=80" alt="Aidite giới thiệu công nghệ nha khoa tới đối tác toàn cầu" loading="lazy" width="220" height="138">
           </a>
-          <a href="tel:0862960886" class="news-cta-btn-secondary">
-            <i class="fa-solid fa-phone"></i> Hotline: 0862 960 886
+          <div class="gf-news-content">
+            <h2 class="gf-news-title">
+              <a href="kien-thuc-rang-su-tham-my.html">Aidite giới thiệu công nghệ nha khoa tới đối tác toàn cầu</a>
+            </h2>
+            <p class="gf-news-desc">
+              Khách mời được tham quan phòng trưng bày, nền tảng đám mây, nha khoa thẩm mỹ, phòng thí nghiệm, xưởng sản xuất, trải nghiệm toàn bộ danh mục sản phẩm tại hội nghị đối tác toàn cầu Aidite 2026.
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 2: Nha khoa Tuyết Chinh -->
+        <article class="gf-news-item" data-cat="cham-soc-rang">
+          <a href="kien-thuc.html" class="gf-news-thumb" title="Nha khoa Tuyết Chinh bị tước phép vì dùng người không có chứng chỉ">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=500&auto=format&fit=crop&q=80" alt="Nha khoa Tuyết Chinh bị tước phép vì dùng người không có chứng chỉ" loading="lazy" width="220" height="138">
           </a>
+          <div class="gf-news-content">
+            <h2 class="gf-news-title">
+              <a href="kien-thuc.html">Nha khoa Tuyết Chinh bị tước phép vì dùng người không có chứng chỉ</a>
+            </h2>
+            <p class="gf-news-desc">
+              TP HCM - Nha khoa Tuyết Chinh ở phường Hạnh Thông bị phạt hơn 93 triệu đồng, tước giấy phép hoạt động 3 tháng vì sử dụng người hành nghề không có chứng chỉ và nhiều vi phạm khác.
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 3: Thứ trưởng Y tế -->
+        <article class="gf-news-item" data-cat="cham-soc-rang">
+          <a href="kien-thuc.html" class="gf-news-thumb" title="Thứ trưởng Y tế: Công nghệ nha khoa phải vừa túi tiền người dân">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop&q=80" alt="Thứ trưởng Y tế: Công nghệ nha khoa phải vừa túi tiền người dân" loading="lazy" width="220" height="138">
+          </a>
+          <div class="gf-news-content">
+            <h2 class="gf-news-title">
+              <a href="kien-thuc.html">Thứ trưởng Y tế: Công nghệ nha khoa phải vừa túi tiền người dân</a>
+            </h2>
+            <p class="gf-news-desc">
+              Thứ trưởng Y tế Đỗ Xuân Tuyên cho rằng phát triển nha khoa không chỉ ứng dụng kỹ thuật tiên tiến mà cần lựa chọn giải pháp hiệu quả, phù hợp khả năng chi trả để nhiều người dân có thể tiếp cận.
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 4: Rà soát về cấp phép thuốc diệt tủy -->
+        <article class="gf-news-item" data-cat="cham-soc-rang">
+          <a href="kien-thuc.html" class="gf-news-thumb" title="Rà soát về cấp phép thuốc diệt tủy chứa thạch tín">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&auto=format&fit=crop&q=80" alt="Rà soát về cấp phép thuốc diệt tủy chứa thạch tín" loading="lazy" width="220" height="138">
+          </a>
+          <div class="gf-news-content">
+            <h2 class="gf-news-title">
+              <a href="kien-thuc.html">Rà soát về cấp phép thuốc diệt tủy chứa thạch tín</a>
+            </h2>
+            <p class="gf-news-desc">
+              Bộ Y tế rà soát sẽ đăng ký lưu hành đối với các loại thuốc dùng trong nha khoa, sau khi lo ngại thuốc diệt tủy chứa arsen (thạch tín) trong điều trị nội nha có thể gây hại cho sức khỏe nếu không kiểm soát sử dụng.
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 5: Bán 3.000 chế phẩm -->
+        <article class="gf-news-item" data-cat="cham-soc-rang">
+          <a href="kien-thuc.html" class="gf-news-thumb" title="Bán 3.000 chế phẩm có chất độc thạch tín cho hàng loạt phòng nha khoa">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&auto=format&fit=crop&q=80" alt="Bán 3.000 chế phẩm có chất độc thạch tín cho hàng loạt phòng nha khoa" loading="lazy" width="220" height="138">
+          </a>
+          <div class="gf-news-content">
+            <h2 class="gf-news-title">
+              <a href="kien-thuc.html">Bán 3.000 chế phẩm có chất độc thạch tín cho hàng loạt phòng nha khoa <span style="font-weight: 400; font-size: 0.82rem; color: #9ca3af; margin-left: 6px;"><i class="fa-regular fa-comment"></i> 82</span></a>
+            </h2>
+            <p class="gf-news-desc">
+              TP HCM - Võ Thị Thu Oanh, 50 tuổi, mua hóa chất về pha trộn thủ công tại phòng ngủ để tạo ra 3.000 chế phẩm chứa thạch tín, bán cho các phòng nha khoa khắp cả nước.
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 6: SGC triển khai giải pháp Implant -->
+        <article class="gf-news-item" data-cat="implant">
+          <a href="trong-rang-implant.html" class="gf-news-thumb" title="SGC triển khai giải pháp Implant cho các ca tiêu xương hàm">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=500&auto=format&fit=crop&q=80" alt="SGC triển khai giải pháp Implant cho các ca tiêu xương hàm" loading="lazy" width="220" height="138">
+          </a>
+          <div class="gf-news-content">
+            <h2 class="gf-news-title">
+              <a href="trong-rang-implant.html">SGC triển khai giải pháp Implant cho các ca tiêu xương hàm</a>
+            </h2>
+            <p class="gf-news-desc">
+              Nha khoa SGC triển khai đồng bộ các giải pháp Implant chuyên sâu, hướng tới điều trị hiệu quả những trường hợp tiêu xương hàm, ảnh hưởng trực tiếp ăn nhai, thẩm mỹ và chất lượng sống.
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 7: Kiều bào chọn Global Smiles -->
+        <article class="gf-news-item" data-cat="nieng-rang">
+          <a href="nieng-rang-tham-my.html" class="gf-news-thumb" title="Kiều bào chọn Global Smiles chăm sóc răng dịp cuối năm">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&auto=format&fit=crop&q=80" alt="Kiều bào chọn Global Smiles chăm sóc răng dịp cuối năm" loading="lazy" width="220" height="138">
+          </a>
+          <div class="gf-news-content">
+            <h2 class="gf-news-title">
+              <a href="nieng-rang-tham-my.html">Kiều bào chọn Global Smiles chăm sóc răng dịp cuối năm</a>
+            </h2>
+            <p class="gf-news-desc">
+              Global Smiles thu hút kiều bào về nước điều trị nha khoa nhờ công nghệ hiện đại, đội ngũ bác sĩ giàu kinh nghiệm và dịch vụ chăm sóc toàn diện, đồng bộ.
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 8: Ưu Đãi Kim Dung 30 Năm -->
+        <article class="gf-news-item" data-cat="uu-dai">
+          <a href="uu-dai-30-nam-nha-khoa-kim-dung.html" class="gf-news-thumb" title="Đại Lễ Kỷ Niệm 30 Năm – Tri Ân Nụ Cười Xứ Trà: Giảm Đến 40% Toàn Bộ Dịch Vụ Nha Khoa">
+            <img src="https://nhakhoakimdung.vn/thumbs/390x300x1/upload/news/thiet-ke-chua-co-ten-1-1753443360.png.webp" alt="Đại Lễ Kỷ Niệm 30 Năm – Tri Ân Nụ Cười Xứ Trà: Giảm Đến 40% Toàn Bộ Dịch Vụ Nha Khoa" loading="lazy" width="220" height="138">
+          </a>
+          <div class="gf-news-content">
+            <h2 class="gf-news-title">
+              <a href="uu-dai-30-nam-nha-khoa-kim-dung.html">Đại Lễ Kỷ Niệm 30 Năm – Tri Ân Nụ Cười Xứ Trà: Giảm Đến 40% Toàn Bộ Dịch Vụ Nha Khoa <span style="font-size: 0.75rem; background: #e11d48; color: #fff; padding: 2px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px;">HOT</span></a>
+            </h2>
+            <p class="gf-news-desc">
+              Nha Khoa Kim Dung tưng bừng kỷ niệm 30 năm phụng sự nụ cười Thái Nguyên với chuỗi ưu đãi lớn nhất năm: giảm 40% cấy ghép Implant Thụy Sĩ, tặng gói scan 3D iTero Lumina và bảo hành răng sứ lên tới trọn đời.
+            </p>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Right Column: Sidebar -->
+      <aside class="gf-news-sidebar">
+        
+        <!-- Widget 1: Đặt lịch tư vấn (Yellow Widget) -->
+        <div class="gf-news-booking-widget">
+          <h3 class="gf-news-booking-title">Đặt lịch tư vấn</h3>
+          <p class="gf-news-booking-sub">Bạn vui lòng để lại thông tin, chúng tôi sẽ liên hệ ngay!</p>
+          
+          <form class="gf-news-booking-form" onsubmit="event.preventDefault(); alert('Cảm ơn quý khách! Nha Khoa Kim Dung sẽ liên hệ tư vấn trong ít phút.');">
+            <input type="text" name="fullname" placeholder="Họ và tên" required>
+            <input type="tel" name="phone" placeholder="Điện thoại" required>
+            <textarea name="content" rows="3" placeholder="Nội dung"></textarea>
+            <button type="submit" class="gf-news-booking-submit">ĐĂNG KÝ NGAY</button>
+          </form>
         </div>
-      </div>
-    </section>
+
+        <!-- Widget 2: Ảnh / Tin tiêu điểm -->
+        <div class="gf-news-photo-widget">
+          <div class="gf-news-widget-head">
+            <h4 class="gf-news-widget-title">Ảnh</h4>
+          </div>
+          
+          <a href="javascript:void(0);" class="gf-news-photo-feat">
+            <div class="gf-news-photo-feat-img">
+              <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&auto=format&fit=crop&q=80" alt="Cửa ngõ Tân Sơn Nhất kẹt xe hơn 3 km" loading="lazy">
+            </div>
+            <div class="gf-news-photo-feat-caption">
+              Cửa ngõ Tân Sơn Nhất kẹt xe hơn 3 km <span style="font-weight: 400; font-size: 0.8rem; color: #9ca3af; margin-left: 4px;"><i class="fa-regular fa-comment"></i> 86</span>
+            </div>
+          </a>
+
+          <ul class="gf-news-photo-list">
+            <li>
+              <a href="javascript:void(0);" class="gf-news-photo-link">
+                <i class="fa-solid fa-camera"></i>
+                <span>Chen chúc từ rạng sáng chờ khám tại Bệnh viện Chợ Rẫy <span class="comment-badge"><i class="fa-regular fa-comment"></i> 183</span></span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="gf-news-photo-link">
+                <i class="fa-solid fa-camera"></i>
+                <span>Ùn tắc kéo dài 2 - 3 km trên một số tuyến đường Hà Nội <span class="comment-badge"><i class="fa-regular fa-comment"></i> 36</span></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
   </div>
 
-  <!-- Interactive Filter & Pagination Script -->
+  <!-- Filter Category Tab Interaction Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const tabs = document.querySelectorAll('.news-filter-tab');
-      const cards = document.querySelectorAll('.news-card-pro');
-      const countEl = document.getElementById('visibleArticleCount');
+      const catButtons = document.querySelectorAll('.gf-news-cat-item');
+      const newsItems = document.querySelectorAll('.gf-news-item');
 
-      tabs.forEach(function(tab) {
-        tab.addEventListener('click', function() {
-          tabs.forEach(t => t.classList.remove('active'));
+      catButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          catButtons.forEach(b => b.classList.remove('active'));
           this.classList.add('active');
 
-          const filterVal = this.getAttribute('data-filter');
-          let visibleCount = 0;
-
-          cards.forEach(function(card) {
-            const cardCat = card.getAttribute('data-category');
-            if (filterVal === 'all' || cardCat === filterVal) {
-              card.classList.remove('is-hidden');
-              visibleCount++;
+          const cat = this.getAttribute('data-category');
+          newsItems.forEach(function(item) {
+            const itemCat = item.getAttribute('data-cat');
+            if (cat === 'all' || itemCat === cat) {
+              item.style.display = 'flex';
             } else {
-              card.classList.add('is-hidden');
+              item.style.display = 'none';
             }
           });
-
-          if (countEl) {
-            countEl.textContent = visibleCount;
-          }
         });
       });
     });
-
-    function switchPageDemo(pageNum) {
-      const grid = document.getElementById('newsGrid');
-      if (grid) {
-        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
   </script>
 </main>
 <footer class="wrap-footer">

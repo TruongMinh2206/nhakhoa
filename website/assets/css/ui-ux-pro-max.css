@@ -3885,9 +3885,9 @@ p.name-company {
   margin-top: 1px !important;
 }
 
-/* Search Button removed */
+/* Search Button */
 .header-nav-search-btn {
-  display: none !important;
+  display: inline-flex !important;
 }
 
 /* 5. Completely hide the old full-width yellow bar globally */
