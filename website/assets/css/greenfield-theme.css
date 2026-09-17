@@ -2876,58 +2876,65 @@ a[onclick*="selectDoctor"] svg,
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Section 1: HERO BANNER (VỀ NHA KHOA KIM DUNG)
+   Section 1: HERO BANNER (CHUẨN ĐỒNG BỘ CÙNG CÁC TRANG KHÁC)
    -------------------------------------------------------------------------- */
 .gf-about-banner-hero {
   position: relative;
-  background: linear-gradient(135deg, #18181b 0%, #232328 100%);
-  color: #ffffff;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
   overflow: hidden;
-  padding: 80px 0 64px;
+  background: var(--gf-bg-main-gradient) !important;
+  color: #18181b;
+  padding: 100px 0 80px;
 }
 .gf-about-banner-bg {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
 }
 .gf-about-banner-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0.24;
-  filter: saturate(1.1);
 }
 .gf-about-banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(24, 24, 27, 0.96) 0%, rgba(24, 24, 27, 0.88) 55%, rgba(24, 24, 27, 0.65) 100%);
-  z-index: 2;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  display: block !important;
+  background: linear-gradient(
+    to right,
+    rgba(255, 253, 246, 0.85) 0%,
+    rgba(255, 253, 246, 0.72) 42%,
+    rgba(255, 253, 246, 0.35) 68%,
+    rgba(255, 253, 246, 0) 100%
+  ) !important;
+  pointer-events: none !important;
+}
+@media (max-width: 768px) {
+  .gf-about-banner-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 253, 246, 0.88) 0%,
+      rgba(255, 253, 246, 0.72) 55%,
+      rgba(255, 253, 246, 0.25) 100%
+    ) !important;
+  }
 }
 .gf-about-banner-container {
   position: relative;
-  z-index: 3;
-}
-.gf-about-banner-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.95fr;
-  gap: 48px;
-  align-items: center;
-  margin-bottom: 48px;
-}
-@media (max-width: 991px) {
-  .gf-about-banner-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
+  z-index: 10;
+  width: 100%;
 }
 .gf-about-banner-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(234, 191, 14, 0.18);
-  border: 1px solid rgba(234, 191, 14, 0.5);
-  color: #F4CE28;
+  background: rgba(234, 191, 14, 0.15);
+  border: 1px solid rgba(184, 147, 7, 0.35);
+  color: #B89307;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -2940,26 +2947,26 @@ a[onclick*="selectDoctor"] svg,
 .page-gioi-thieu .gf-about-banner-title,
 .gf-theme-root .gf-about-banner-title {
   font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: clamp(2.2rem, 4.2vw, 3.4rem) !important;
+  font-size: clamp(2.4rem, 4.2vw, 3.5rem) !important;
   font-weight: 800 !important;
-  color: #ffffff !important;
-  line-height: 1.2 !important;
+  color: #18181b !important;
+  line-height: 1.18 !important;
   margin-bottom: 16px !important;
   letter-spacing: -0.02em !important;
 }
 .gf-about-banner-sub {
   font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem) !important;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem) !important;
   font-weight: 500 !important;
   font-style: italic !important;
-  color: #EABF0E !important;
+  color: #B89307 !important;
   margin-bottom: 18px !important;
   line-height: 1.5 !important;
 }
 .gf-about-banner-desc {
-  font-size: 1rem !important;
-  line-height: 1.8 !important;
-  color: #e5e7eb !important;
+  font-size: 1.05rem !important;
+  line-height: 1.85 !important;
+  color: #475569 !important;
   margin-bottom: 28px !important;
 }
 .gf-about-banner-actions {
@@ -2967,6 +2974,7 @@ a[onclick*="selectDoctor"] svg,
   flex-wrap: wrap;
   gap: 14px;
   align-items: center;
+  margin-bottom: 28px;
 }
 .gf-about-banner-btn-primary {
   display: inline-flex;
@@ -2976,8 +2984,8 @@ a[onclick*="selectDoctor"] svg,
   color: #18181b !important;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 13px 26px;
-  border-radius: 12px;
+  padding: 12px 24px;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 16px rgba(234, 191, 14, 0.3);
@@ -2992,93 +3000,34 @@ a[onclick*="selectDoctor"] svg,
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(234, 191, 14, 0.5);
-  color: #ffffff !important;
+  background: #ffffff;
+  border: 1.5px solid #18181b;
+  color: #18181b !important;
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 13px 24px;
-  border-radius: 12px;
+  padding: 12px 24px;
+  border-radius: 8px;
   text-decoration: none;
-  backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
 .gf-about-banner-btn-outline:hover {
-  background: rgba(234, 191, 14, 0.15);
-  border-color: #EABF0E;
-  color: #EABF0E !important;
+  background: #18181b;
+  color: #ffffff !important;
   transform: translateY(-2px);
 }
-.gf-about-banner-visual {
-  position: relative;
-  border-radius: 22px;
-  overflow: hidden;
-  border: 2px solid rgba(234, 191, 14, 0.4);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 35px rgba(234, 191, 14, 0.15);
-  height: 380px;
-  background: #27272a;
-}
-@media (max-width: 640px) {
-  .gf-about-banner-visual {
-    height: 260px;
-  }
-}
-.gf-about-banner-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-.gf-about-banner-visual:hover img {
-  transform: scale(1.05);
-}
-.gf-about-banner-visual-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(24, 24, 27, 0.95) 0%, rgba(24, 24, 27, 0.35) 60%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px;
-}
-.gf-about-banner-visual-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #EABF0E;
-  color: #18181b;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  width: fit-content;
-  margin-bottom: 8px;
-}
-.gf-about-banner-visual-title,
-.page-gioi-thieu .gf-about-banner-visual-title,
-.gf-theme-root .gf-about-banner-visual-title {
-  font-size: 1.15rem !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  margin-bottom: 4px !important;
-}
-.gf-about-banner-visual-sub {
-  font-size: 0.85rem !important;
-  color: #d1d5db !important;
-  margin: 0 !important;
+.gf-about-banner-btn-outline:hover i {
+  color: #F4CE28 !important;
 }
 .gf-about-banner-stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-  padding-top: 36px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 16px;
+  margin-top: 32px;
 }
 @media (max-width: 991px) {
   .gf-about-banner-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 14px;
   }
 }
 @media (max-width: 480px) {
@@ -3088,32 +3037,32 @@ a[onclick*="selectDoctor"] svg,
   }
 }
 .gf-about-banner-stat-item {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(234, 191, 14, 0.3);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(234, 191, 14, 0.35);
   border-radius: 16px;
-  padding: 20px 18px;
-  backdrop-filter: blur(10px);
+  padding: 18px 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
   text-align: center;
   transition: all 0.3s ease;
 }
 .gf-about-banner-stat-item:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: #ffffff;
   border-color: #EABF0E;
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(234, 191, 14, 0.2);
+  box-shadow: 0 8px 24px rgba(234, 191, 14, 0.15);
 }
 .gf-about-banner-stat-num {
   font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: clamp(1.85rem, 2.8vw, 2.4rem) !important;
+  font-size: clamp(1.85rem, 2.6vw, 2.4rem) !important;
   font-weight: 800 !important;
-  color: #F4CE28 !important;
+  color: #B89307 !important;
   line-height: 1.1 !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 4px !important;
 }
 .gf-about-banner-stat-label {
   font-size: 0.88rem !important;
-  font-weight: 500 !important;
-  color: #e5e7eb !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
   line-height: 1.4 !important;
 }
 

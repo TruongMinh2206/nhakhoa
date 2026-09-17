@@ -240,7 +240,7 @@
  </div>
 </div>  </div>
 </header>
-<main id="main-content" class="gf-theme-root">
+<main id="main-content" class="min-h-screen gf-theme-root" style="background: var(--gf-bg-main-gradient) !important; font-family: 'Be Vietnam Pro', sans-serif;">
   <!-- Microdata schema / Breadcrumb -->
   <section class="wrap-container">
     <ul class="h-card hidden">
@@ -260,71 +260,60 @@
   </section>
 
   <!-- =========================================================================
-       SECTION 1: HERO BANNER (VỀ NHA KHOA KIM DUNG)
+       SECTION 1: HERO BANNER (STANDARDIZED WITH ALL TABS)
        ========================================================================= -->
-  <section class="gf-about-banner-hero">
-    <!-- Background Clinic Image + Dark Gradient Overlay -->
-    <div class="gf-about-banner-bg">
-      <img src="https://www.nhakhoagreenfield.com/images/hero-clinic.jpg" alt="Không gian phòng khám Nha Khoa Kim Dung" loading="eager">
+  <section class="gf-about-banner-hero relative min-h-[85vh] flex items-center overflow-hidden" style="background: var(--gf-bg-main-gradient) !important;">
+    <div class="absolute inset-0 z-0">
+      <img src="https://www.nhakhoagreenfield.com/images/hero-clinic.jpg" alt="Không gian phòng khám Nha Khoa Kim Dung" class="w-full h-full object-cover object-center" loading="eager"/>
+      <div class="hero-overlay-subtle absolute inset-0"></div>
     </div>
-    <div class="gf-about-banner-overlay"></div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+      <div class="max-w-[720px]">
+        <p class="text-xs font-bold tracking-[0.18em] uppercase mb-5" style="color:#B89307">HƠN 30 NĂM ĐỒNG HÀNH KIẾN TẠO NỤ CƯỜI</p>
+        <h1 class="text-[2.6rem] lg:text-[3.5rem] leading-[1.15] mb-5 font-bold text-[#18181b]" style="color:#18181b !important;font-family:'Be Vietnam Pro', sans-serif">Về Nha Khoa Kim Dung</h1>
+        <p class="text-lg italic font-medium mb-5" style="color:#B89307 !important;">“Từ một phòng khám, đến hành trình kiến tạo hàng nghìn nụ cười.”</p>
+        <p class="text-[1.05rem] leading-relaxed mb-9 text-[#475569]" style="color:#475569 !important;">
+          Hơn ba thập kỷ qua, Nha Khoa Kim Dung đã chứng kiến nhiều sự thay đổi của ngành nha khoa. Nhưng có một điều chúng tôi luôn giữ nguyên: sự cẩn trọng trong từng chẩn đoán, sự tôn trọng đối với từng nụ cười, và cam kết điều trị bằng sự thấu hiểu – chứ không chỉ bằng kỹ thuật.
+        </p>
 
-    <div class="wrap-content gf-about-banner-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-      <div class="gf-about-banner-grid">
-        <!-- Left Column: Title, Sub, Desc & CTAs -->
-        <div>
-          <span class="gf-about-banner-badge">
-            <i class="fa-solid fa-crown text-xs" style="color: #F4CE28;"></i>
-            HƠN 30 NĂM ĐỒNG HÀNH KIẾN TẠO NỤ CƯỜI
-          </span>
-          <h1 class="gf-about-banner-title" style="color: #ffffff !important;">Về Nha Khoa Kim Dung</h1>
-          <p class="gf-about-banner-sub" style="color: #F4CE28 !important;">“Từ một phòng khám, đến hành trình kiến tạo hàng nghìn nụ cười.”</p>
-          <p class="gf-about-banner-desc" style="color: #e5e7eb !important;">
-            Hơn ba thập kỷ qua, Nha Khoa Kim Dung đã chứng kiến nhiều sự thay đổi của ngành nha khoa. Nhưng có một điều chúng tôi luôn giữ nguyên: sự cẩn trọng trong từng chẩn đoán, sự tôn trọng đối với từng nụ cười, và cam kết điều trị bằng sự thấu hiểu – chứ không chỉ bằng kỹ thuật.
-          </p>
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-3 mb-9">
+          <a class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[#18181b] text-[0.95rem] font-bold transition-opacity hover:opacity-90 shadow-lg" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;font-weight:700;" href="dat-lich.html">
+            Đặt lịch tư vấn miễn phí
+            <svg width="16" height="16" style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+          <a href="tel:0862960886" class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[#18181b] text-[0.95rem] font-semibold border border-[#18181b] hover:bg-[#18181b] hover:text-white transition-colors" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;color:#18181b !important;border:1.5px solid #18181b;text-decoration:none;background:#ffffff;">
+            <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;color:#B89307;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            0862 960 886
+          </a>
+        </div>
 
-          <div class="gf-about-banner-actions">
-            <a href="dat-lich.html" class="gf-about-banner-btn-primary">
-              <span>Đặt lịch tư vấn miễn phí</span>
-              <i class="fa-solid fa-arrow-right text-xs"></i>
-            </a>
-            <a href="tel:0862960886" class="gf-about-banner-btn-outline">
-              <i class="fa-solid fa-phone text-[#EABF0E]"></i>
-              <span>0862 960 886</span>
-            </a>
+        <!-- Trust Checkmarks -->
+        <div class="flex flex-wrap gap-6 text-sm text-[#334155] mb-9" style="color:#334155 !important;">
+          <span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> 30+ năm kinh nghiệm</span>
+          <span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> 25.000+ bệnh nhân tin tưởng</span>
+          <span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> 1.000+ ca Implant thành công</span>
+          <span class="inline-flex items-center gap-1.5 font-medium" style="color:#334155 !important;"><span style="color:#B89307;font-weight:bold;">✓</span> 99% bệnh nhân hài lòng</span>
+        </div>
+
+        <!-- 4 Stats Cards Grid (Matching Light Luxury Theme) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+          <div class="bg-white/95 backdrop-blur-sm p-3.5 rounded-xl border border-amber-200/70 shadow-sm transition-all hover:-translate-y-1 hover:border-[#EABF0E]">
+            <div class="text-2xl sm:text-3xl font-extrabold text-[#B89307] mb-0.5" style="font-family: 'Be Vietnam Pro', sans-serif;">30+</div>
+            <div class="text-xs font-semibold text-gray-700">Năm kinh nghiệm</div>
           </div>
-        </div>
-
-        <!-- Right Column: Featured Visual Photo Frame -->
-        <div class="gf-about-banner-visual">
-          <img src="https://nhakhoakimdung.vn/thumbs/600x400x1/upload/seopage/bannerseo-1753694289.png.webp" alt="Nha Khoa Kim Dung Thái Nguyên" loading="eager">
-          <div class="gf-about-banner-visual-overlay">
-            <span class="gf-about-banner-visual-tag">
-              <i class="fa-solid fa-shield-halved text-xs"></i> TIÊU CHUẨN Y KHOA QUỐC TẾ
-            </span>
-            <h3 class="gf-about-banner-visual-title" style="color: #ffffff !important;">Phòng Khám Nha Khoa Hiện Đại</h3>
-            <p class="gf-about-banner-visual-sub" style="color: #e5e7eb !important;">Số 15, đường Bắc Sơn kéo dài, TP. Thái Nguyên</p>
+          <div class="bg-white/95 backdrop-blur-sm p-3.5 rounded-xl border border-amber-200/70 shadow-sm transition-all hover:-translate-y-1 hover:border-[#EABF0E]">
+            <div class="text-2xl sm:text-3xl font-extrabold text-[#B89307] mb-0.5" style="font-family: 'Be Vietnam Pro', sans-serif;">25.000+</div>
+            <div class="text-xs font-semibold text-gray-700">Bệnh nhân tin tưởng</div>
           </div>
-        </div>
-      </div>
-
-      <!-- 4 Banner Stats Cards -->
-      <div class="gf-about-banner-stats">
-        <div class="gf-about-banner-stat-item">
-          <div class="gf-about-banner-stat-num">30+</div>
-          <div class="gf-about-banner-stat-label">Năm kinh nghiệm &amp; phát triển</div>
-        </div>
-        <div class="gf-about-banner-stat-item">
-          <div class="gf-about-banner-stat-num">25.000+</div>
-          <div class="gf-about-banner-stat-label">Bệnh nhân tin tưởng đồng hành</div>
-        </div>
-        <div class="gf-about-banner-stat-item">
-          <div class="gf-about-banner-stat-num">1.000+</div>
-          <div class="gf-about-banner-stat-label">Ca cấy ghép Implant thành công</div>
-        </div>
-        <div class="gf-about-banner-stat-item">
-          <div class="gf-about-banner-stat-num">99%</div>
-          <div class="gf-about-banner-stat-label">Tỷ lệ bệnh nhân hài lòng</div>
+          <div class="bg-white/95 backdrop-blur-sm p-3.5 rounded-xl border border-amber-200/70 shadow-sm transition-all hover:-translate-y-1 hover:border-[#EABF0E]">
+            <div class="text-2xl sm:text-3xl font-extrabold text-[#B89307] mb-0.5" style="font-family: 'Be Vietnam Pro', sans-serif;">1.000+</div>
+            <div class="text-xs font-semibold text-gray-700">Ca cấy ghép Implant</div>
+          </div>
+          <div class="bg-white/95 backdrop-blur-sm p-3.5 rounded-xl border border-amber-200/70 shadow-sm transition-all hover:-translate-y-1 hover:border-[#EABF0E]">
+            <div class="text-2xl sm:text-3xl font-extrabold text-[#B89307] mb-0.5" style="font-family: 'Be Vietnam Pro', sans-serif;">99%</div>
+            <div class="text-xs font-semibold text-gray-700">Hài lòng tuyệt đối</div>
+          </div>
         </div>
       </div>
     </div>
