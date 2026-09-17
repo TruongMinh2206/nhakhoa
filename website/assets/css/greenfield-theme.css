@@ -4435,3 +4435,85 @@ h2.gf-news-title a,
   }
 }
 
+/* ==========================================================================
+   GLOBAL ARTICLE & CONTENT FONT STANDARDIZATION ('Be Vietnam Pro')
+   Guarantees site-wide font consistency across all legacy and new article pages
+   ========================================================================== */
+body,
+.gf-article-detail-wrap,
+.gf-article-detail-wrap *,
+.gf-article-content,
+.gf-article-content *,
+.gf-article-body,
+.gf-article-body *,
+.content-main,
+.content-main *,
+.title-news-detail,
+.title-news-detail *,
+.news-detail,
+.news-detail *,
+.news-left,
+.news-left *,
+article,
+article * {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+.gf-article-body h1,
+.gf-article-body h2,
+.gf-article-body h3,
+.gf-article-body h4,
+.gf-article-body h5,
+.gf-article-body h6 {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin-top: 24px !important;
+  margin-bottom: 12px !important;
+  line-height: 1.4 !important;
+}
+
+.gf-article-body h2 {
+  font-size: 1.35rem !important;
+}
+
+.gf-article-body h3 {
+  font-size: 1.18rem !important;
+}
+
+.gf-article-body p,
+.gf-article-body span,
+.gf-article-body li,
+.gf-article-body td,
+.gf-article-body th {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  line-height: 1.8 !important;
+}
+
+.gf-article-body img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 8px;
+  display: block;
+  margin: 20px auto !important;
+}
+
+.gf-article-body ul,
+.gf-article-body ol {
+  padding-left: 24px !important;
+  margin-bottom: 20px !important;
+}
+
+.gf-article-body table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 20px 0 !important;
+}
+
+.gf-article-body table td,
+.gf-article-body table th {
+  padding: 10px 14px !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+
