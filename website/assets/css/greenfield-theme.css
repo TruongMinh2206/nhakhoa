@@ -4517,3 +4517,63 @@ article * {
 }
 
 
+
+/* Prominent Back Button to Main News Page */
+.gf-back-to-news {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #4b5563 !important;
+  text-decoration: none !important;
+  margin-bottom: 16px;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+.gf-back-to-news i {
+  transition: transform 0.2s ease;
+  font-size: 0.82rem;
+  color: #B89307;
+}
+.gf-back-to-news:hover {
+  background: #e5be38;
+  color: #18181b !important;
+  border-color: #dab530;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(229, 190, 56, 0.3);
+}
+.gf-back-to-news:hover i {
+  color: #18181b;
+  transform: translateX(-3px);
+}
+
+.gf-btn-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #4b5563 !important;
+  text-decoration: none !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.gf-btn-back:hover {
+  background: #f4f4f5;
+  color: #111827 !important;
+  border-color: #d1d5db;
+  text-decoration: none !important;
+}
+.gf-btn-back:hover i {
+  transform: translateX(-2px);
+}
