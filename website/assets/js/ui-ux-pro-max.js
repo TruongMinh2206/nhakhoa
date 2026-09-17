@@ -83,10 +83,10 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.87 1.5 5.43 3.84 7.04L5 22l4.24-1.41C10.15 20.84 11.06 21 12 21c5.52 0 10-4.03 10-9s-4.48-9-10-9z"/></svg>
         <span class="dock-label">Chat Zalo</span>
       </a>
-      <button type="button" class="uupm-dock-btn btn-book" id="uupm-open-booking" title="Đặt Lịch Khám Ngay" aria-label="Đặt lịch khám">
+      <a href="dat-lich.html" class="uupm-dock-btn btn-book" id="uupm-open-booking" title="Đặt Lịch Khám Ngay" aria-label="Đặt lịch khám">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
         <span class="dock-label">Đặt Lịch Hẹn</span>
-      </button>
+      </a>
       <button type="button" class="uupm-dock-btn btn-top" id="uupm-btn-top" title="Lên đầu trang" aria-label="Lên đầu trang">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
       </button>
@@ -227,7 +227,6 @@
       document.body.style.overflow = '';
     };
 
-    document.getElementById('uupm-open-booking')?.addEventListener('click', openModal);
     document.getElementById('uupm-modal-close')?.addEventListener('click', closeModal);
 
     modalOverlay.addEventListener('click', (e) => {
@@ -240,21 +239,22 @@
       }
     });
 
-    // Delegate action buttons (excluding navbar navigation tabs) to open modal
-    document.querySelectorAll('a[href*="dat-lich"], button:not(#uupm-open-booking)').forEach((btn) => {
-      // Do NOT hijack navigation tabs in header, mobile menu, footer, or dat-lich.html dedicated form, or accordion / step items / doctor card buttons
-      if (btn.closest('nav') || btn.closest('.menu') || btn.closest('.menu-mobile') || btn.closest('.wrap-menu') || btn.closest('.ulmn') || btn.closest('.footer-ul') || btn.closest('#gf-main-booking-form') || btn.closest('.gf-booking-section') || btn.closest('#booking-receipt') || btn.closest('.accordion-item') || btn.closest('.visit-step-item') || btn.classList.contains('accordion-toggle') || btn.classList.contains('visit-step-toggle') || btn.classList.contains('gf-doctor-book-btn') || btn.closest('.gf-doctor-actions') || btn.closest('.gf-doctor-card')) {
-        return;
-      }
-      const txt = (btn.textContent || '').trim().toLowerCase();
-      if (txt.includes('đặt lịch') || txt.includes('tư vấn') || txt.includes('đăng ký khám')) {
-        btn.addEventListener('click', (e) => {
-          if (!btn.closest('.uupm-modal')) {
-            e.preventDefault();
-            openModal();
-          }
-        });
-      }
+    // If on dat-lich.html, make the floating dock booking button scroll to the form smoothly
+    const bookDockBtn = document.getElementById('uupm-open-booking');
+    if (bookDockBtn && window.location.pathname.includes('dat-lich')) {
+      bookDockBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const formCard = document.querySelector('.gf-booking-card') || document.getElementById('gf-main-booking-form');
+        if (formCard) formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    // Modal popup is explicitly triggered by elements with data-open-modal="booking"
+    document.querySelectorAll('[data-open-modal="booking"]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
     });
 
     // Form Submission
@@ -850,7 +850,59 @@
     });
   }
 
-  // 11. DOM Initialization
+  // 11. Handle URL Query Parameters on Booking Page
+  function initBookingParams() {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const doctorParam = urlParams.get('doctor');
+      const serviceParam = urlParams.get('dich-vu') || urlParams.get('service');
+
+      const docSelect = document.getElementById('gf-doctor') || document.getElementById('bk_doctor') || document.getElementById('booking-doctor');
+      if (docSelect && doctorParam) {
+        const normDoc = doctorParam.trim().toLowerCase();
+        for (let i = 0; i < docSelect.options.length; i++) {
+          const optVal = (docSelect.options[i].value || '').trim().toLowerCase();
+          const optTxt = (docSelect.options[i].text || '').trim().toLowerCase();
+          if ((optVal && (optVal.includes(normDoc) || normDoc.includes(optVal))) ||
+              (optTxt && (optTxt.includes(normDoc) || normDoc.includes(optTxt)))) {
+            docSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      const srvSelect = document.getElementById('gf-service') || document.getElementById('booking-service');
+      if (srvSelect && serviceParam) {
+        const normService = serviceParam.trim().toLowerCase();
+        for (let i = 0; i < srvSelect.options.length; i++) {
+          const optVal = (srvSelect.options[i].value || '').trim().toLowerCase();
+          const optTxt = (srvSelect.options[i].text || '').trim().toLowerCase();
+          if ((optVal && (optVal.includes(normService) || normService.includes(optVal))) ||
+              (optTxt && (optTxt.includes(normService) || normService.includes(optTxt)))) {
+            srvSelect.selectedIndex = i;
+            srvSelect.style.borderColor = '#EABF0E';
+            srvSelect.style.boxShadow = '0 0 0 3px rgba(234, 191, 14, 0.25)';
+            break;
+          }
+        }
+      }
+
+      if (doctorParam || serviceParam) {
+        setTimeout(() => {
+          const formSec = document.getElementById('gf-main-booking-form') ||
+                          document.querySelector('.gf-booking-card') ||
+                          document.getElementById('booking-section');
+          if (formSec) {
+            formSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 400);
+      }
+    } catch (e) {
+      console.warn('Init booking params error:', e);
+    }
+  }
+
+  // 12. DOM Initialization
   function init() {
     initHeaderScroll();
     initFloatingDock();
@@ -862,6 +914,7 @@
     initFaqAccordion();
     initVideoFacades();
     initScrollRevealAnimations();
+    initBookingParams();
   }
 
   if (document.readyState === 'loading') {
