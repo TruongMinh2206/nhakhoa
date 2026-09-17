@@ -93,22 +93,62 @@
     `;
     document.body.appendChild(dock);
 
-    // Scroll to Top behavior
+    // Scroll to Top behavior & Mobile Smart Auto-Hide
     const btnTop = document.getElementById('uupm-btn-top');
     if (btnTop) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          btnTop.classList.add('visible');
-        } else {
-          btnTop.classList.remove('visible');
-        }
-      }, { passive: true });
-
       btnTop.addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
+
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 8;
+    let isTicking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!isTicking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const diff = currentScrollY - lastScrollY;
+
+          // Back to top visibility
+          if (btnTop) {
+            if (currentScrollY > 300) {
+              btnTop.classList.add('visible');
+            } else {
+              btnTop.classList.remove('visible');
+            }
+          }
+
+          // Mobile Smart Auto-Hide: Hide dock on scroll down, show on scroll up
+          if (window.innerWidth <= 768) {
+            const isNearBottom = (window.innerHeight + currentScrollY) >= (document.documentElement.scrollHeight - 60);
+
+            if (isNearBottom || currentScrollY < 60) {
+              // At very top or near page bottom -> Always show dock
+              dock.classList.remove('uupm-dock-hidden');
+              if (btnTop) btnTop.classList.remove('uupm-dock-hidden');
+            } else if (diff > scrollThreshold && currentScrollY > 80) {
+              // Scrolling down -> Hide dock smoothly
+              dock.classList.add('uupm-dock-hidden');
+              if (btnTop) btnTop.classList.add('uupm-dock-hidden');
+            } else if (diff < -scrollThreshold) {
+              // Scrolling up -> Show dock immediately
+              dock.classList.remove('uupm-dock-hidden');
+              if (btnTop) btnTop.classList.remove('uupm-dock-hidden');
+            }
+          } else {
+            dock.classList.remove('uupm-dock-hidden');
+            if (btnTop) btnTop.classList.remove('uupm-dock-hidden');
+          }
+
+          lastScrollY = currentScrollY;
+          isTicking = false;
+        });
+        isTicking = true;
+      }
+    }, { passive: true });
   }
 
   // 4. Smart Appointment Booking Modal
