@@ -1848,19 +1848,7 @@ a.gf-btn-outline-gold:hover i {
 
 /* Footer mini booking CTA button */
 .gf-footer-book-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, #EABF0E, #D4A808);
-  color: #1a1a1a !important;
-  font-size: 0.84rem !important;
-  font-weight: 700 !important;
-  border-radius: 999px;
-  text-decoration: none !important;
-  box-shadow: 0 4px 12px rgba(234, 191, 14, 0.3);
-  transition: all 0.25s ease !important;
+  display: none !important;
 }
 
 .gf-footer-book-cta:hover {
