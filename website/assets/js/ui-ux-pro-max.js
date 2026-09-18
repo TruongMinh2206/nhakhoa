@@ -902,7 +902,501 @@
     }
   }
 
-  // 12. DOM Initialization
+  // 12. Header Address Click -> Google Maps
+  function initHeaderAddressMap() {
+    const mapsUrl = 'https://maps.app.goo.gl/uF5jZ8gQ5bZ4uL4J8';
+
+    document.addEventListener('click', function (e) {
+      const infoHead = e.target.closest('.info-head');
+      if (infoHead) {
+        e.preventDefault();
+        window.open(mapsUrl, '_blank', 'noopener,noreferrer');
+      }
+    });
+
+    document.querySelectorAll('.info-head').forEach((el) => {
+      el.setAttribute('title', 'Xem vị trí Nha Khoa Kim Dung trên Google Maps');
+      el.setAttribute('role', 'link');
+      el.setAttribute('tabindex', '0');
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.open(mapsUrl, '_blank', 'noopener,noreferrer');
+        }
+      });
+    });
+  }
+
+  // 13. Full-Site Bilingual Language Switcher (Tiếng Việt <-> English)
+  const DICT_VI_EN = [
+    // Header Navigation
+    { vi: 'TRANG CHỦ', en: 'HOME' },
+    { vi: 'Trang chủ', en: 'Home' },
+    { vi: 'GIỚI THIỆU', en: 'ABOUT US' },
+    { vi: 'Giới thiệu', en: 'About Us' },
+    { vi: 'DỊCH VỤ', en: 'SERVICES' },
+    { vi: 'Dịch vụ', en: 'Services' },
+    { vi: 'BẢNG GIÁ', en: 'PRICING' },
+    { vi: 'Bảng giá', en: 'Pricing' },
+    { vi: 'BÁC SĨ', en: 'DOCTORS' },
+    { vi: 'Bác sĩ', en: 'Doctors' },
+    { vi: 'TIN TỨC& ƯU ĐÃI', en: 'NEWS & OFFERS' },
+    { vi: 'TIN TỨC & ƯU ĐÃI', en: 'NEWS & OFFERS' },
+    { vi: 'Tin tức & Ưu đãi', en: 'News & Offers' },
+    { vi: 'Tin tức &amp; Ưu đãi', en: 'News & Offers' },
+    { vi: 'TIN TỨC', en: 'NEWS' },
+    { vi: 'Tin tức', en: 'News' },
+    { vi: 'LIÊN HỆ', en: 'CONTACT' },
+    { vi: 'Liên hệ', en: 'Contact' },
+    { vi: 'Tìm kiếm', en: 'Search' },
+    { vi: 'Bạn cần tìm dịch vụ gì', en: 'What service are you looking for?' },
+
+    // Header Gold Ribbon & Info
+    { vi: 'Đặt lịch hẹn', en: 'Book Appointment' },
+    { vi: 'ĐẶT LỊCH HẸN', en: 'BOOK APPOINTMENT' },
+    { vi: 'Đặt lịch khám', en: 'Book Appointment' },
+    { vi: 'ĐẶT LỊCH KHÁM', en: 'BOOK APPOINTMENT' },
+    { vi: 'Đặt lịch', en: 'Book Appointment' },
+    { vi: 'ĐẶT LỊCH', en: 'BOOK APPOINTMENT' },
+    { vi: 'Hotline 24/7', en: 'Hotline 24/7' },
+    { vi: 'Số 15, đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên', en: '15 Bac Son Ext., Quang Trung, TP. Thai Nguyen' },
+    { vi: 'Số 15, Đường Bắc Sơn kéo dài, P. Quang Trung, TP. Thái Nguyên', en: '15 Bac Son Ext., Quang Trung, TP. Thai Nguyen' },
+    { vi: 'Nụ cười hoàn hảo- Chìa khóa thành công', en: 'Perfect Smile - Key to Success' },
+    { vi: 'Nụ cười hoàn hảo - Chìa khóa thành công', en: 'Perfect Smile - Key to Success' },
+
+    // Services Submenu
+    { vi: 'Cấy ghép răng implant', en: 'Dental Implant Placement' },
+    { vi: 'Răng sứ', en: 'Porcelain Teeth' },
+    { vi: 'Bọc răng sứ, mặt dán sứ', en: 'Porcelain Crowns & Veneers' },
+    { vi: 'Bọc răng sứ', en: 'Porcelain Crowns' },
+    { vi: 'Niềng răng máng trong suốt', en: 'Clear Aligner Orthodontics' },
+    { vi: 'Niềng răng mắc cài', en: 'Braces Orthodontics' },
+    { vi: 'Niềng răng kim loại & sứ', en: 'Metal & Ceramic Braces' },
+    { vi: 'Niềng răng kim loại &amp; sứ', en: 'Metal & Ceramic Braces' },
+    { vi: 'Niềng răng thẩm mỹ', en: 'Cosmetic Orthodontics' },
+    { vi: 'Tẩy trắng', en: 'Teeth Whitening' },
+    { vi: 'Tẩy trắng răng an toàn', en: 'Safe Teeth Whitening' },
+    { vi: 'Tẩy trắng răng', en: 'Teeth Whitening' },
+    { vi: 'Nha khoa tổng quát', en: 'General Dentistry' },
+    { vi: 'Khám, vệ sinh, trám răng', en: 'Exam, Cleaning & Fillings' },
+    { vi: 'Hàm tháo lắp', en: 'Removable Dentures' },
+    { vi: 'Điều trị tủy - Hàn trám', en: 'Root Canal & Fillings' },
+    { vi: 'Lấy cao răng', en: 'Dental Scaling' },
+    { vi: 'Nhổ răng khôn', en: 'Wisdom Tooth Extraction' },
+
+    // Floating Dock
+    { vi: 'Gọi hotline', en: 'Call Hotline' },
+    { vi: 'Gọi Hotline 24/7', en: 'Call Hotline 24/7' },
+    { vi: 'Chat qua Zalo', en: 'Chat via Zalo' },
+    { vi: 'Chat Zalo', en: 'Chat Zalo' },
+    { vi: 'Đặt Lịch Hẹn', en: 'Book Appointment' },
+    { vi: 'Đặt Lịch Khám Ngay', en: 'Book Appointment' },
+    { vi: 'Lên đầu trang', en: 'Back to Top' },
+
+    // Booking Modal & Forms
+    { vi: 'ĐẶT LỊCH KHÁM NHANH', en: 'QUICK APPOINTMENT' },
+    { vi: 'Đặt Lịch Khám Trực Tuyến', en: 'Online Appointment Booking' },
+    { vi: 'Đặt Lịch Khám Ngay Hôm Nay', en: 'Book Your Appointment Today' },
+    { vi: 'Đặt lịch khám với bác sĩ', en: 'Book Consultation with Doctor' },
+    { vi: 'Họ và tên quý khách', en: 'Your Full Name' },
+    { vi: 'Họ và tên', en: 'Full Name' },
+    { vi: 'Số điện thoại liên hệ', en: 'Contact Phone Number' },
+    { vi: 'Số điện thoại', en: 'Phone Number' },
+    { vi: 'Chọn dịch vụ nha khoa', en: 'Select Dental Service' },
+    { vi: 'Chọn dịch vụ', en: 'Select Service' },
+    { vi: 'Chọn bác sĩ khám', en: 'Select Doctor' },
+    { vi: 'Chọn bác sĩ', en: 'Select Doctor' },
+    { vi: 'Ngày mong muốn khám', en: 'Preferred Date' },
+    { vi: 'Ngày khám', en: 'Appointment Date' },
+    { vi: 'Ghi chú thêm tình trạng răng...', en: 'Notes on your dental condition...' },
+    { vi: 'Ghi chú...', en: 'Notes...' },
+    { vi: 'XÁC NHẬN ĐẶT LỊCH HẸN', en: 'CONFIRM APPOINTMENT' },
+    { vi: 'Gửi thông tin đặt lịch', en: 'Submit Appointment' },
+    { vi: 'ĐẶT LỊCH NGAY', en: 'BOOK NOW' },
+    { vi: 'Đặt lịch ngay', en: 'Book Now' },
+    { vi: 'Đang xác nhận lịch hẹn...', en: 'Confirming appointment...' },
+    { vi: 'Đặt Lịch Khám Thành Công!', en: 'Appointment Booked Successfully!' },
+    { vi: 'Đặt lịch hẹn khác', en: 'Book Another Appointment' },
+    { vi: 'Hoặc gọi trực tiếp Hotline ưu tiên:', en: 'Or call priority hotline directly:' },
+    { vi: 'Ưu đãi 15% khi đặt lịch online qua website', en: '15% discount for online booking via website' },
+
+    // Common CTAs & Buttons
+    { vi: 'Tư vấn ngay', en: 'Consult Now' },
+    { vi: 'TƯ VẤN NGAY', en: 'CONSULT NOW' },
+    { vi: 'Xem chi tiết', en: 'View Details' },
+    { vi: 'XEM CHI TIẾT', en: 'VIEW DETAILS' },
+    { vi: 'Xem thêm', en: 'Read More' },
+    { vi: 'XEM THÊM', en: 'READ MORE' },
+    { vi: 'Xem bảng giá chi tiết', en: 'View Detailed Price List' },
+    { vi: 'Xem bảng giá', en: 'View Price List' },
+    { vi: 'Đăng ký tư vấn', en: 'Request Consultation' },
+    { vi: 'Gửi tin nhắn', en: 'Send Message' },
+    { vi: 'Gửi thông tin', en: 'Send Information' },
+    { vi: 'Đóng lại', en: 'Close' },
+    { vi: 'Quay lại', en: 'Back' },
+
+    // Table Headers & Pricing
+    { vi: 'BẢNG GIÁ DỊCH VỤ NHA KHOA', en: 'DENTAL SERVICE PRICE LIST' },
+    { vi: 'Bảng Giá Dịch Vụ Nha Khoa', en: 'Dental Service Price List' },
+    { vi: 'Bảng Giá Nha Khoa Chi Tiết', en: 'Detailed Dental Price List' },
+    { vi: 'Chi phí minh bạch - Cam kết không phát sinh', en: 'Transparent Pricing - No Hidden Costs' },
+    { vi: 'STT', en: 'No.' },
+    { vi: 'Đơn vị', en: 'Unit' },
+    { vi: 'Chi phí (VNĐ)', en: 'Price (VND)' },
+    { vi: 'Bảo hành', en: 'Warranty' },
+    { vi: 'Hành động', en: 'Action' },
+    { vi: 'Trọn đời', en: 'Lifetime' },
+    { vi: 'Miễn phí', en: 'Free' },
+    { vi: 'Răng', en: 'Tooth' },
+    { vi: 'Hàm', en: 'Arch' },
+    { vi: 'Gói', en: 'Package' },
+    { vi: 'Liệu trình', en: 'Course' },
+    { vi: 'Lần', en: 'Session' },
+    { vi: '10 năm', en: '10 Years' },
+    { vi: '5 năm', en: '5 Years' },
+    { vi: '3 năm', en: '3 Years' },
+    { vi: '1 năm', en: '1 Year' },
+
+    // Section Titles
+    { vi: 'VÌ SAO NÊN CHỌN NHA KHOA KIM DUNG?', en: 'WHY CHOOSE KIM DUNG DENTAL?' },
+    { vi: 'ĐỘI NGŨ BÁC SĨ CHUYÊN GIA', en: 'EXPERT DOCTOR TEAM' },
+    { vi: 'ĐỘI NGŨ BÁC SĨ', en: 'DOCTOR TEAM' },
+    { vi: 'BÁC SĨ CHUYÊN KHOA', en: 'DENTAL SPECIALISTS' },
+    { vi: 'CƠ SỞ VẬT CHẤT & CÔNG NGHỆ', en: 'FACILITIES & MODERN TECHNOLOGY' },
+    { vi: 'HÌNH ẢNH KHÁCH HÀNG THỰC TẾ', en: 'REAL CUSTOMER RESULTS' },
+    { vi: 'HÌNH ẢNH KHÁCH HÀNG', en: 'CUSTOMER GALLERY' },
+    { vi: 'CẢM NHẬN KHÁCH HÀNG', en: 'PATIENT TESTIMONIALS' },
+    { vi: 'TIN TỨC & KIẾN THỨC NHA KHOA', en: 'DENTAL NEWS & INSIGHTS' },
+    { vi: 'CÂU HỎI THƯỜNG GẶP (FAQ)', en: 'FREQUENTLY ASKED QUESTIONS (FAQ)' },
+    { vi: 'CÂU HỎI THƯỜNG GẶP', en: 'FREQUENTLY ASKED QUESTIONS' },
+    { vi: 'Hỏi & Đáp Nha Khoa', en: 'Dental Q&A' },
+
+    // Footer
+    { vi: 'HỆ THỐNG NHA KHOA KIM DUNG', en: 'KIM DUNG DENTAL SYSTEM' },
+    { vi: 'NHA KHOA KIM DUNG', en: 'KIM DUNG DENTAL CLINIC' },
+    { vi: 'THÔNG TIN LIÊN HỆ', en: 'CONTACT INFORMATION' },
+    { vi: 'DỊCH VỤ NỔI BẬT', en: 'FEATURED SERVICES' },
+    { vi: 'CHÍNH SÁCH & QUY ĐỊNH', en: 'POLICIES & REGULATIONS' },
+    { vi: 'KẾT NỐI VỚI CHÚNG TÔI', en: 'CONNECT WITH US' },
+    { vi: 'Địa chỉ:', en: 'Address:' },
+    { vi: 'Điện thoại:', en: 'Phone:' },
+    { vi: 'Giờ làm việc:', en: 'Working Hours:' },
+    { vi: 'Thứ 2 - Chủ Nhật: 08:00 - 19:30', en: 'Monday - Sunday: 08:00 - 19:30' },
+    { vi: 'Bản quyền thuộc về Nha Khoa Kim Dung', en: 'Copyright © Kim Dung Dental Clinic. All Rights Reserved.' },
+    { vi: 'Chính sách bảo mật', en: 'Privacy Policy' },
+    { vi: 'Chính sách dịch vụ', en: 'Service Policy' },
+    { vi: 'Chính sách thanh toán', en: 'Payment Policy' }
+  ];
+
+  function translateDomToEnglish() {
+    const walker = document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode: function (node) {
+          if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          const parent = node.parentElement;
+          if (!parent) return NodeFilter.FILTER_REJECT;
+          const tag = parent.tagName.toLowerCase();
+          if (['script', 'style', 'noscript', 'textarea', 'code', 'pre'].includes(tag)) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          if (parent.closest('.uupm-lang-dropdown') || parent.closest('.uupm-mobile-lang-switch')) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+
+    const nodes = [];
+    let curr;
+    while ((curr = walker.nextNode())) {
+      nodes.push(curr);
+    }
+
+    nodes.forEach(node => {
+      const text = node.nodeValue;
+      const trimmed = text.trim();
+      if (node.__origVi === undefined) {
+        node.__origVi = text;
+      }
+
+      // Exact match first
+      for (let i = 0; i < DICT_VI_EN.length; i++) {
+        const item = DICT_VI_EN[i];
+        if (trimmed === item.vi) {
+          node.nodeValue = text.replace(item.vi, item.en);
+          return;
+        }
+      }
+
+      // Phrase replacement
+      let updated = text;
+      let changed = false;
+      for (let i = 0; i < DICT_VI_EN.length; i++) {
+        const item = DICT_VI_EN[i];
+        if (item.vi.length > 3 && updated.includes(item.vi)) {
+          updated = updated.split(item.vi).join(item.en);
+          changed = true;
+        }
+      }
+      if (changed) {
+        node.nodeValue = updated;
+      }
+    });
+
+    // Attributes (placeholder, title, aria-label)
+    document.querySelectorAll('[placeholder], [title], [aria-label]').forEach(el => {
+      if (el.closest('.uupm-lang-dropdown') || el.closest('.uupm-mobile-lang-switch')) return;
+      ['placeholder', 'title', 'aria-label'].forEach(attr => {
+        const val = el.getAttribute(attr);
+        if (!val) return;
+        const key = `__origVi_${attr}`;
+        if (el[key] === undefined) {
+          el[key] = val;
+        }
+        for (let i = 0; i < DICT_VI_EN.length; i++) {
+          const item = DICT_VI_EN[i];
+          if (val.trim() === item.vi) {
+            el.setAttribute(attr, item.en);
+            break;
+          }
+        }
+      });
+    });
+  }
+
+  function restoreDomToVietnamese() {
+    const walker = document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode: function (node) {
+          return node.__origVi !== undefined ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+        }
+      }
+    );
+    const nodes = [];
+    let curr;
+    while ((curr = walker.nextNode())) {
+      nodes.push(curr);
+    }
+    nodes.forEach(node => {
+      if (node.__origVi !== undefined) {
+        node.nodeValue = node.__origVi;
+      }
+    });
+
+    document.querySelectorAll('[placeholder], [title], [aria-label]').forEach(el => {
+      ['placeholder', 'title', 'aria-label'].forEach(attr => {
+        const key = `__origVi_${attr}`;
+        if (el[key] !== undefined) {
+          el.setAttribute(attr, el[key]);
+        }
+      });
+    });
+  }
+
+  function initGoogleTranslateScript() {
+    if (window.googleTranslateLoaded) return;
+    window.googleTranslateLoaded = true;
+
+    if (!document.getElementById('google_translate_element')) {
+      const div = document.createElement('div');
+      div.id = 'google_translate_element';
+      div.style.cssText = 'position:absolute;top:-9999px;left:-9999px;visibility:hidden;width:0;height:0;';
+      document.body.appendChild(div);
+    }
+
+    window.googleTranslateElementInit = function () {
+      try {
+        new window.google.translate.TranslateElement({
+          pageLanguage: 'vi',
+          includedLanguages: 'vi,en',
+          autoDisplay: false
+        }, 'google_translate_element');
+      } catch (err) {
+        console.warn('Google Translate Init:', err);
+      }
+    };
+
+    const script = document.createElement('script');
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    script.onerror = function () {
+      console.warn('Google Translate script offline - relying on instant UI dictionary.');
+    };
+    document.head.appendChild(script);
+  }
+
+  function triggerGoogleTranslate(lang) {
+    const host = window.location.hostname;
+    document.cookie = `googtrans=/vi/${lang}; path=/;`;
+    if (host) {
+      document.cookie = `googtrans=/vi/${lang}; domain=${host}; path=/;`;
+    }
+
+    const combo = document.querySelector('.goog-te-combo');
+    if (combo) {
+      if (combo.value !== lang) {
+        combo.value = lang;
+        combo.dispatchEvent(new Event('change'));
+      }
+    }
+  }
+
+  function applyLanguage(lang) {
+    const isEn = lang === 'en';
+
+    // 1. Update all badges on page
+    document.querySelectorAll('.header-lang-badge').forEach(badge => {
+      const img = badge.querySelector('img.lang-flag') || badge.querySelector('img');
+      const span = badge.querySelector('span');
+      if (isEn) {
+        if (img) {
+          img.src = 'https://flagcdn.com/24x18/gb.png';
+          img.alt = 'EN';
+        }
+        if (span) {
+          span.innerHTML = 'en <i class="fa-solid fa-angle-down"></i>';
+        }
+      } else {
+        if (img) {
+          img.src = 'https://flagcdn.com/24x18/vn.png';
+          img.alt = 'VN';
+        }
+        if (span) {
+          span.innerHTML = 'vn <i class="fa-solid fa-angle-down"></i>';
+        }
+      }
+    });
+
+    // 2. Update active option in dropdowns and mobile switches
+    document.querySelectorAll('.uupm-lang-option').forEach(opt => {
+      const optLang = opt.getAttribute('data-lang');
+      if (optLang === lang) {
+        opt.classList.add('active');
+      } else {
+        opt.classList.remove('active');
+      }
+    });
+
+    // 3. Apply DOM translation
+    if (isEn) {
+      translateDomToEnglish();
+    } else {
+      if (document.querySelector('html.translated-ltr') || document.querySelector('font')) {
+        localStorage.setItem('site_lang', 'vi');
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        const host = location.hostname;
+        if (host) {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + host + "; path=/;";
+        }
+        document.cookie = "googtrans=/vi/vi; path=/;";
+        window.location.reload();
+        return;
+      }
+      restoreDomToVietnamese();
+    }
+
+    // 4. Trigger Google Translate for deep paragraphs
+    triggerGoogleTranslate(lang);
+
+    // 5. Save preference
+    localStorage.setItem('site_lang', lang);
+  }
+
+  function closeAllLangDropdowns() {
+    document.querySelectorAll('.header-lang-badge').forEach(b => b.classList.remove('uupm-lang-open'));
+    document.querySelectorAll('.uupm-lang-dropdown').forEach(d => d.classList.remove('show'));
+  }
+
+  function initLanguageSwitcher() {
+    // Inject dropdown into all .header-lang-badge
+    document.querySelectorAll('.header-lang-badge').forEach(badge => {
+      if (!badge.querySelector('.uupm-lang-dropdown')) {
+        const dd = document.createElement('div');
+        dd.className = 'uupm-lang-dropdown';
+        dd.innerHTML = `
+          <button type="button" class="uupm-lang-option" data-lang="vi">
+            <div class="uupm-opt-left">
+              <img src="https://flagcdn.com/24x18/vn.png" alt="VN">
+              <span>Tiếng Việt</span>
+            </div>
+            <i class="fa-solid fa-check uupm-opt-check"></i>
+          </button>
+          <button type="button" class="uupm-lang-option" data-lang="en">
+            <div class="uupm-opt-left">
+              <img src="https://flagcdn.com/24x18/gb.png" alt="EN">
+              <span>English</span>
+            </div>
+            <i class="fa-solid fa-check uupm-opt-check"></i>
+          </button>
+        `;
+        badge.appendChild(dd);
+      }
+    });
+
+    // Also inject mobile language switcher into mobile menu if present
+    const mobileNav = document.querySelector('#menu-mobile .head-menu') || document.querySelector('.menu-mobile');
+    if (mobileNav && !document.getElementById('uupm-mobile-lang-box')) {
+      const mBox = document.createElement('div');
+      mBox.id = 'uupm-mobile-lang-box';
+      mBox.className = 'uupm-mobile-lang-switch';
+      mBox.style.cssText = 'display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;margin:12px 14px;background:#FEF9E6;border-radius:10px;border:1.2px solid #EABF0E;';
+      mBox.innerHTML = `
+        <button type="button" class="uupm-lang-option" data-lang="vi" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:700;font-size:13px;font-family:'Be Vietnam Pro',sans-serif;">
+          <img src="https://flagcdn.com/24x18/vn.png" alt="VN" style="width:20px;height:14px;border-radius:2px;">
+          <span>Tiếng Việt</span>
+        </button>
+        <button type="button" class="uupm-lang-option" data-lang="en" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:700;font-size:13px;font-family:'Be Vietnam Pro',sans-serif;">
+          <img src="https://flagcdn.com/24x18/gb.png" alt="EN" style="width:20px;height:14px;border-radius:2px;">
+          <span>English</span>
+        </button>
+      `;
+      mobileNav.parentNode.insertBefore(mBox, mobileNav.nextSibling);
+    }
+
+    // Delegated click handler for badges and options
+    document.addEventListener('click', (e) => {
+      const option = e.target.closest('.uupm-lang-option');
+      const badge = e.target.closest('.header-lang-badge');
+
+      if (option) {
+        e.stopPropagation();
+        e.preventDefault();
+        const targetLang = option.getAttribute('data-lang') || 'vi';
+        applyLanguage(targetLang);
+        closeAllLangDropdowns();
+        showToast(targetLang === 'en' ? 'Switched to English' : 'Đã chuyển sang Tiếng Việt', 'success');
+        return;
+      }
+
+      if (badge) {
+        e.stopPropagation();
+        const dd = badge.querySelector('.uupm-lang-dropdown');
+        const isOpen = dd && dd.classList.contains('show');
+        closeAllLangDropdowns();
+        if (!isOpen && dd) {
+          badge.classList.add('uupm-lang-open');
+          dd.classList.add('show');
+        }
+        return;
+      }
+
+      closeAllLangDropdowns();
+    });
+
+    // Load Google Translate script asynchronously
+    initGoogleTranslateScript();
+
+    // Initialize saved language
+    const savedLang = localStorage.getItem('site_lang') || 'vi';
+    applyLanguage(savedLang);
+  }
+
+  // 14. DOM Initialization
   function init() {
     initHeaderScroll();
     initFloatingDock();
@@ -915,6 +1409,8 @@
     initVideoFacades();
     initScrollRevealAnimations();
     initBookingParams();
+    initHeaderAddressMap();
+    initLanguageSwitcher();
   }
 
   if (document.readyState === 'loading') {

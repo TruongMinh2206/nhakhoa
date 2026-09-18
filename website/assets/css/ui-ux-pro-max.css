@@ -3715,7 +3715,7 @@ p.name-company {
 .head-bottom .wrap-content {
   display: flex !important;
   justify-content: space-between !important;
-  align-items: center !important;
+  align-items: flex-start !important;
   position: relative !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -3727,6 +3727,7 @@ p.name-company {
 .logo-banner {
   display: flex !important;
   align-items: center !important;
+  align-self: center !important;
   gap: 12px !important;
   padding: 6px 0 !important;
   flex-shrink: 0 !important;
@@ -3750,6 +3751,7 @@ p.name-company {
   flex-direction: column !important;
   align-items: flex-end !important;
   justify-content: flex-start !important;
+  align-self: flex-start !important;
   padding: 0 !important;
   margin: 0 !important;
   overflow: visible !important;
@@ -3761,16 +3763,20 @@ p.name-company {
   display: flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
-  gap: 20px !important;
+  gap: 15px !important;
   background: #EABF0E !important;
   border: none !important;
   border-bottom-left-radius: 40px !important;
-  padding: 0 24px 0 44px !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  padding: 0 16px 0 36px !important;
   height: 48px !important;
   box-sizing: border-box !important;
   margin: 0 0 6px 0 !important;
   box-shadow: 0 2px 8px rgba(234, 191, 14, 0.2) !important;
   position: relative !important;
+  top: 0 !important;
   align-self: flex-end !important;
   color: #FFFFFF !important;
 }
@@ -3900,7 +3906,7 @@ p.name-company {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Address in Gold Bar */
+/* Address in Gold Bar - Clickable Google Maps */
 .info-head {
   display: inline-flex !important;
   align-items: center !important;
@@ -3912,11 +3918,29 @@ p.name-company {
   margin: 0 !important;
   line-height: 1 !important;
   white-space: nowrap !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none;
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+.info-head:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #FEF08A !important;
+  transform: translateY(-1px) !important;
+}
+
+.info-head:hover i {
+  color: #FEF08A !important;
+  transform: scale(1.15);
 }
 
 .info-head i {
   color: #FFFFFF !important;
   font-size: 14px !important;
+  transition: transform 0.2s ease, color 0.2s ease !important;
 }
 
 .info-head img {
@@ -3927,25 +3951,157 @@ p.name-company {
 .header-lang-badge {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 5px !important;
+  gap: 6px !important;
   font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: 12px !important;
   font-weight: 700 !important;
   color: #FFFFFF !important;
   text-transform: uppercase !important;
-  cursor: pointer;
+  cursor: pointer !important;
   white-space: nowrap !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+  user-select: none !important;
+}
+
+.header-lang-badge:hover,
+.header-lang-badge.uupm-lang-open {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .header-lang-badge img {
   width: 20px !important;
   height: 14px !important;
-  object-fit: cover;
-  border-radius: 2px;
+  object-fit: cover !important;
+  border-radius: 2px !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
 }
 
 .header-lang-badge i {
   font-size: 10px !important;
+  transition: transform 0.2s ease !important;
+}
+
+.header-lang-badge.uupm-lang-open i {
+  transform: rotate(180deg) !important;
+}
+
+/* Dropdown Language Selector Popup */
+.uupm-lang-dropdown {
+  position: absolute !important;
+  top: calc(100% + 8px) !important;
+  right: 0 !important;
+  min-width: 148px !important;
+  background: #FFFFFF !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+  padding: 6px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  z-index: 999999 !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  pointer-events: none;
+}
+
+.uupm-lang-dropdown.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+.uupm-lang-option {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  border: none !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #18181b !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  text-align: left !important;
+  transition: all 0.15s ease !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.uupm-lang-option:hover {
+  background: #FEF9E6 !important;
+  color: #B89307 !important;
+}
+
+.uupm-lang-option.active {
+  background: #FEF9E6 !important;
+  color: #B89307 !important;
+  font-weight: 700 !important;
+}
+
+.uupm-lang-option .uupm-opt-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.uupm-lang-option .uupm-opt-left img {
+  width: 20px !important;
+  height: 14px !important;
+  border-radius: 2px !important;
+  object-fit: cover !important;
+}
+
+.uupm-lang-option .uupm-opt-check {
+  font-size: 12px !important;
+  color: #B89307 !important;
+  opacity: 0;
+}
+
+.uupm-lang-option.active .uupm-opt-check {
+  opacity: 1 !important;
+}
+
+/* Hide Google Translate top banner, tooltips, and highlights */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#google_translate_element {
+  display: none !important;
 }
 
 /* 4. Bottom Row: Navigation Tabs under Hotline/Đặt lịch */
