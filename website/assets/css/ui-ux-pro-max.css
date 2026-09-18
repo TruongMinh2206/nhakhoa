@@ -5538,3 +5538,113 @@ a[href^="tel:"],
   }
 }
 
+/* ==========================================================================
+   INTERACTIVE PRICE CALCULATOR TABS & ANIMATED PANES
+   ========================================================================== */
+.gf-calc-tabs {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  justify-content: center !important;
+  margin-bottom: 30px !important;
+}
+
+.gf-calc-tab {
+  padding: 11px 24px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(234, 191, 14, 0.45) !important;
+  background: #FFFFFF !important;
+  color: #18181b !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  outline: none !important;
+  user-select: none !important;
+}
+
+.gf-calc-tab:hover {
+  border-color: #EABF0E !important;
+  background: #FFFDF5 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(234, 191, 14, 0.25) !important;
+}
+
+.gf-calc-tab.active {
+  background: linear-gradient(135deg, #EABF0E 0%, #D4AC0D 100%) !important;
+  border-color: #EABF0E !important;
+  color: #18181b !important;
+  box-shadow: 0 6px 20px rgba(234, 191, 14, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+@keyframes gfPriceFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.gf-price-pane {
+  transition: opacity 0.25s ease;
+}
+
+.gf-price-pane.active-pane,
+.gf-price-pane[style*="display: block"] {
+  animation: gfPriceFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* Featured Price Card: High-contrast title and gold border */
+.gf-calc-item .gf-calc-label[style*="--gf-gold-light"],
+.gf-calc-label[style*="--gf-gold-light"],
+.gf-calc-item[style*="--gf-gold"] .gf-calc-label {
+  color: #B89307 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.gf-calc-item[style*="--gf-gold"] {
+  border-color: #EABF0E !important;
+  background: #FFFDF5 !important;
+  box-shadow: 0 8px 24px rgba(234, 191, 14, 0.18) !important;
+}
+
+/* ==========================================================================
+   CLICKABLE FOOTER ADDRESS -> GOOGLE MAPS
+   ========================================================================== */
+.uupm-footer-address,
+.content-footer p:has(.fa-location-dot),
+.content-footer p:has(img[src*="Group"]),
+.gf-contact-row:has(.fa-location-dot) {
+  cursor: pointer !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none;
+}
+
+.uupm-footer-address:hover,
+.content-footer p:has(.fa-location-dot):hover,
+.content-footer p:has(img[src*="Group"]):hover,
+.gf-contact-row:has(.fa-location-dot):hover {
+  color: #EABF0E !important;
+  transform: translateX(4px);
+}
+
+.uupm-footer-address:hover i,
+.content-footer p:has(.fa-location-dot):hover i,
+.gf-contact-row:has(.fa-location-dot):hover .gf-contact-icon i {
+  color: #EABF0E !important;
+  transform: scale(1.2);
+}
+
+.uupm-footer-address:hover img,
+.content-footer p:has(img[src*="Group"]):hover img {
+  transform: scale(1.15);
+}
+
+

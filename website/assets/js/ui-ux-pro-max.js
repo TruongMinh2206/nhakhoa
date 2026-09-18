@@ -927,6 +927,142 @@
     });
   }
 
+  // 12b. Footer Address Click -> Google Maps
+  function initFooterAddressMap() {
+    const mapsUrl = 'https://maps.app.goo.gl/uF5jZ8gQ5bZ4uL4J8';
+
+    function isAddressElement(el) {
+      if (!el) return false;
+      const text = (el.textContent || '').trim();
+      const hasIcon = el.querySelector('.fa-location-dot, img[src*="Group"]');
+      const isAddrText = text.includes('Bắc Sơn') || text.includes('Bac Son') || text.includes('Địa chỉ');
+      const isNotOther = !text.includes('0862') && !text.includes('Hotline') && !text.includes('Email') && !text.includes('@') && !text.includes('Giờ làm việc') && !text.includes('Working Hours');
+      return (hasIcon || isAddrText) && isNotOther;
+    }
+
+    document.addEventListener('click', function (e) {
+      const p = e.target.closest('.content-footer p, .gf-contact-row, .box-footer p');
+      if (p && isAddressElement(p)) {
+        const link = e.target.closest('a');
+        if (link && (link.href.startsWith('tel:') || link.href.startsWith('mailto:'))) {
+          return;
+        }
+        e.preventDefault();
+        window.open(mapsUrl, '_blank', 'noopener,noreferrer');
+      }
+    });
+
+    document.querySelectorAll('.content-footer p, .gf-contact-row, .box-footer p').forEach(el => {
+      if (isAddressElement(el)) {
+        el.classList.add('uupm-footer-address');
+        el.setAttribute('title', 'Xem vị trí Nha Khoa Kim Dung trên Google Maps');
+        el.setAttribute('role', 'link');
+        el.setAttribute('tabindex', '0');
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            window.open(mapsUrl, '_blank', 'noopener,noreferrer');
+          }
+        });
+      }
+    });
+  }
+
+  // 12c. Quick Price Tabs Controller (Implant, Niềng răng, Răng sứ, Nhổ răng)
+  function initPriceTabs() {
+    window.switchGfPriceTab = function (index, clickedBtn) {
+      const idx = parseInt(index, 10);
+      const btn = clickedBtn || document.querySelectorAll('.gf-calc-tabs .gf-calc-tab')[idx];
+      const container = btn ? btn.closest('.gf-calc-tabs') : document.querySelector('.gf-calc-tabs');
+
+      if (container) {
+        const tabs = container.querySelectorAll('.gf-calc-tab');
+        tabs.forEach((tab, i) => {
+          if (tab === btn || i === idx) {
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+          } else {
+            tab.classList.remove('active');
+            tab.setAttribute('aria-selected', 'false');
+          }
+        });
+      }
+
+      const card = container ? container.closest('.gf-calc-card') || container.parentElement : document;
+      const panes = card.querySelectorAll('.gf-price-pane');
+
+      panes.forEach((pane, i) => {
+        const paneId = pane.id;
+        const matches = (paneId && paneId === `gf-price-pane-${idx}`) || i === idx;
+        if (matches) {
+          pane.style.display = 'block';
+          pane.classList.add('active-pane');
+        } else {
+          pane.style.display = 'none';
+          pane.classList.remove('active-pane');
+        }
+      });
+
+      if (localStorage.getItem('site_lang') === 'en' && typeof translateDomToEnglish === 'function') {
+        translateDomToEnglish();
+      }
+    };
+
+    document.querySelectorAll('.gf-calc-tabs .gf-calc-tab').forEach((tab, i) => {
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('tabindex', '0');
+      tab.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.switchGfPriceTab(i, this);
+      });
+      tab.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.switchGfPriceTab(i, this);
+        }
+      });
+    });
+  }
+
+  // Immediate global fallback assignment
+  window.switchGfPriceTab = function (index, clickedBtn) {
+    const idx = parseInt(index, 10);
+    const btn = clickedBtn || document.querySelectorAll('.gf-calc-tabs .gf-calc-tab')[idx];
+    const container = btn ? btn.closest('.gf-calc-tabs') : document.querySelector('.gf-calc-tabs');
+
+    if (container) {
+      const tabs = container.querySelectorAll('.gf-calc-tab');
+      tabs.forEach((tab, i) => {
+        if (tab === btn || i === idx) {
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+        } else {
+          tab.classList.remove('active');
+          tab.setAttribute('aria-selected', 'false');
+        }
+      });
+    }
+
+    const card = container ? container.closest('.gf-calc-card') || container.parentElement : document;
+    const panes = card.querySelectorAll('.gf-price-pane');
+
+    panes.forEach((pane, i) => {
+      const paneId = pane.id;
+      const matches = (paneId && paneId === `gf-price-pane-${idx}`) || i === idx;
+      if (matches) {
+        pane.style.display = 'block';
+        pane.classList.add('active-pane');
+      } else {
+        pane.style.display = 'none';
+        pane.classList.remove('active-pane');
+      }
+    });
+
+    if (localStorage.getItem('site_lang') === 'en' && typeof translateDomToEnglish === 'function') {
+      translateDomToEnglish();
+    }
+  };
+
   // 13. Full-Site Bilingual Language Switcher (Tiếng Việt <-> English)
   const DICT_VI_EN = [
     // Header Navigation
@@ -1054,8 +1190,43 @@
     { vi: 'Lần', en: 'Session' },
     { vi: '10 năm', en: '10 Years' },
     { vi: '5 năm', en: '5 Years' },
-    { vi: '3 năm', en: '3 Years' },
-    { vi: '1 năm', en: '1 Year' },
+    // Quick Price Calculator Tabs & Cards
+    { vi: 'Chi phí minh bạch', en: 'Transparent Pricing' },
+    { vi: 'Cấy Ghép Implant', en: 'Dental Implant' },
+    { vi: 'Niềng Răng Thẩm Mỹ', en: 'Cosmetic Braces' },
+    { vi: 'Răng Sứ Thẩm Mỹ', en: 'Porcelain Crowns' },
+    { vi: 'Nhổ Răng & Tổng Quát', en: 'Extraction & General' },
+    { vi: 'Implant Dentium (Hàn Quốc)', en: 'Implant Dentium (Korea)' },
+    { vi: 'Trụ + Abutment chính hãng · Bảo hành 10 năm', en: 'Genuine fixture + abutment · 10-year warranty' },
+    { vi: 'Implant Straumann (Thụy Sĩ)', en: 'Implant Straumann (Switzerland)' },
+    { vi: 'Tích hợp xương tức thì · Bảo hành trọn đời', en: 'Immediate osseointegration · Lifetime warranty' },
+    { vi: 'Implant Neodent (Brazil)', en: 'Implant Neodent (Brazil)' },
+    { vi: 'Công nghệ tập đoàn Straumann · Bảo hành 15 năm', en: 'Straumann Group technology · 15-year warranty' },
+    { vi: 'Mắc Cài Kim Loại Chuẩn', en: 'Standard Metal Braces' },
+    { vi: 'Hiệu quả cao, bền chắc · Trả góp từ 1tr/tháng', en: 'High efficiency, durable · Installment from 1M/mo' },
+    { vi: 'Mắc Cài Sứ Tự Buộc', en: 'Self-Ligating Ceramic Braces' },
+    { vi: 'Thẩm mỹ kín đáo, êm ái · Rút ngắn thời gian niềng', en: 'Discreet aesthetics · Shorter treatment time' },
+    { vi: 'Khay Trong Suốt Invisalign', en: 'Invisalign Clear Aligners' },
+    { vi: 'Nhập khẩu Hoa Kỳ · Tháo lắp linh hoạt, vô hình', en: 'USA imported · Removable & invisible' },
+    { vi: 'Răng Sứ Titan Chuẩn', en: 'Standard Titanium Porcelain' },
+    { vi: '1.500.000đ / Răng', en: '1,500,000 VND / Tooth' },
+    { vi: 'Ăn nhai bền chắc · Bảo hành chính hãng 5 năm', en: 'Strong chewing force · 5-year warranty' },
+    { vi: 'Toàn Sứ Cercon HT (Đức)', en: 'Cercon HT All-Ceramic (Germany)' },
+    { vi: '4.500.000đ / Răng', en: '4,500,000 VND / Tooth' },
+    { vi: 'Trong bóng tự nhiên · Bảo hành chính hãng 10 năm', en: 'Natural translucency · 10-year warranty' },
+    { vi: 'Dán Sứ Veneer Emax', en: 'Emax Porcelain Veneer' },
+    { vi: '6.500.000đ / Răng', en: '6,500,000 VND / Tooth' },
+    { vi: 'Siêu mỏng 0.3mm · Không mài nhỏ răng gốc', en: 'Ultra-thin 0.3mm · Minimal tooth prep' },
+    { vi: 'Lấy Cao Răng Sóng Siêu Âm', en: 'Ultrasonic Dental Scaling' },
+    { vi: '150.000đ - 250.000đ', en: '150,000 - 250,000 VND' },
+    { vi: 'Vệ sinh sạch mảng bám, êm ái, đánh bóng răng', en: 'Gentle plaque removal & teeth polishing' },
+    { vi: 'Nhổ Răng Khôn Piezotome', en: 'Piezotome Wisdom Tooth Extraction' },
+    { vi: '800.000đ - 2.500.000đ', en: '800,000 - 2,500,000 VND' },
+    { vi: 'Sóng siêu âm không đau, liền nướu nhanh', en: 'Painless ultrasound, fast tissue recovery' },
+    { vi: 'Hàn Trám Răng Thẩm Mỹ', en: 'Cosmetic Composite Filling' },
+    { vi: '300.000đ - 500.000đ', en: '300,000 - 500,000 VND' },
+    { vi: 'Composite thẩm mỹ trùng khớp màu men răng', en: 'Natural aesthetic composite enamel match' },
+    { vi: 'Xem đầy đủ bảng giá chi tiết các dịch vụ', en: 'View complete detailed price list' },
 
     // Section Titles
     { vi: 'VÌ SAO NÊN CHỌN NHA KHOA KIM DUNG?', en: 'WHY CHOOSE KIM DUNG DENTAL?' },
@@ -1436,6 +1607,8 @@
     initScrollRevealAnimations();
     initBookingParams();
     initHeaderAddressMap();
+    initFooterAddressMap();
+    initPriceTabs();
     initLanguageSwitcher();
   }
 
