@@ -1101,7 +1101,7 @@
           if (['script', 'style', 'noscript', 'textarea', 'code', 'pre'].includes(tag)) {
             return NodeFilter.FILTER_REJECT;
           }
-          if (parent.closest('.uupm-lang-dropdown') || parent.closest('.uupm-mobile-lang-switch')) {
+          if (parent.closest('.header-lang-badge') || parent.closest('.uupm-lang-dropdown') || parent.closest('.uupm-mobile-lang-switch')) {
             return NodeFilter.FILTER_REJECT;
           }
           return NodeFilter.FILTER_ACCEPT;
@@ -1259,7 +1259,7 @@
           img.alt = 'EN';
         }
         if (span) {
-          span.innerHTML = 'en <i class="fa-solid fa-angle-down"></i>';
+          span.innerHTML = 'EN <i class="fa-solid fa-chevron-down"></i>';
         }
       } else {
         if (img) {
@@ -1267,7 +1267,7 @@
           img.alt = 'VN';
         }
         if (span) {
-          span.innerHTML = 'vn <i class="fa-solid fa-angle-down"></i>';
+          span.innerHTML = 'VI <i class="fa-solid fa-chevron-down"></i>';
         }
       }
     });
@@ -1284,8 +1284,10 @@
 
     // 3. Apply DOM translation
     if (isEn) {
+      document.body.classList.add('site-lang-en');
       translateDomToEnglish();
     } else {
+      document.body.classList.remove('site-lang-en');
       if (document.querySelector('html.translated-ltr') || document.querySelector('font')) {
         localStorage.setItem('site_lang', 'vi');
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -1312,7 +1314,31 @@
     document.querySelectorAll('.uupm-lang-dropdown').forEach(d => d.classList.remove('show'));
   }
 
+  function initMobileHeaderLanguage() {
+    const logoBanner = document.querySelector('.logo-banner');
+    if (!logoBanner || document.getElementById('uupm-mobile-head-lang')) return;
+
+    const langBadge = document.createElement('div');
+    langBadge.id = 'uupm-mobile-head-lang';
+    langBadge.className = 'header-lang-badge uupm-mobile-head-badge';
+    const cur = localStorage.getItem('site_lang') || 'vi';
+    const isEn = cur === 'en';
+    langBadge.innerHTML = `
+      <img src="https://flagcdn.com/24x18/${isEn ? 'gb' : 'vn'}.png" alt="${isEn ? 'EN' : 'VI'}" class="lang-flag" width="20" height="20">
+      <span>${isEn ? 'EN' : 'VI'} <i class="fa-solid fa-chevron-down"></i></span>
+    `;
+
+    const toggle = logoBanner.querySelector('.uupm-mobile-toggle') || logoBanner.querySelector('.menu-res') || logoBanner.querySelector('.btn-support');
+    if (toggle && toggle.parentNode === logoBanner) {
+      logoBanner.insertBefore(langBadge, toggle);
+    } else {
+      logoBanner.appendChild(langBadge);
+    }
+  }
+
   function initLanguageSwitcher() {
+    initMobileHeaderLanguage();
+
     // Inject dropdown into all .header-lang-badge
     document.querySelectorAll('.header-lang-badge').forEach(badge => {
       if (!badge.querySelector('.uupm-lang-dropdown')) {
@@ -1321,14 +1347,14 @@
         dd.innerHTML = `
           <button type="button" class="uupm-lang-option" data-lang="vi">
             <div class="uupm-opt-left">
-              <img src="https://flagcdn.com/24x18/vn.png" alt="VN">
+              <img src="https://flagcdn.com/24x18/vn.png" alt="VN" style="width:20px;height:20px;border-radius:50%;object-fit:cover;">
               <span>Tiếng Việt</span>
             </div>
             <i class="fa-solid fa-check uupm-opt-check"></i>
           </button>
           <button type="button" class="uupm-lang-option" data-lang="en">
             <div class="uupm-opt-left">
-              <img src="https://flagcdn.com/24x18/gb.png" alt="EN">
+              <img src="https://flagcdn.com/24x18/gb.png" alt="EN" style="width:20px;height:20px;border-radius:50%;object-fit:cover;">
               <span>English</span>
             </div>
             <i class="fa-solid fa-check uupm-opt-check"></i>
@@ -1344,14 +1370,14 @@
       const mBox = document.createElement('div');
       mBox.id = 'uupm-mobile-lang-box';
       mBox.className = 'uupm-mobile-lang-switch';
-      mBox.style.cssText = 'display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;margin:12px 14px;background:#FEF9E6;border-radius:10px;border:1.2px solid #EABF0E;';
+      mBox.style.cssText = 'display:flex;align-items:center;justify-content:center;gap:10px;padding:12px;margin:12px 14px;background:#FFFFFF;border-radius:14px;border:1.5px solid #EABF0E;box-shadow:0 4px 12px rgba(234,191,14,0.12);';
       mBox.innerHTML = `
-        <button type="button" class="uupm-lang-option" data-lang="vi" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:700;font-size:13px;font-family:'Be Vietnam Pro',sans-serif;">
-          <img src="https://flagcdn.com/24x18/vn.png" alt="VN" style="width:20px;height:14px;border-radius:2px;">
+        <button type="button" class="uupm-lang-option" data-lang="vi" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:700;font-size:13px;font-family:'Be Vietnam Pro',sans-serif;">
+          <img src="https://flagcdn.com/24x18/vn.png" alt="VN" style="width:20px;height:20px;border-radius:50%;object-fit:cover;">
           <span>Tiếng Việt</span>
         </button>
-        <button type="button" class="uupm-lang-option" data-lang="en" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:700;font-size:13px;font-family:'Be Vietnam Pro',sans-serif;">
-          <img src="https://flagcdn.com/24x18/gb.png" alt="EN" style="width:20px;height:14px;border-radius:2px;">
+        <button type="button" class="uupm-lang-option" data-lang="en" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:700;font-size:13px;font-family:'Be Vietnam Pro',sans-serif;">
+          <img src="https://flagcdn.com/24x18/gb.png" alt="EN" style="width:20px;height:20px;border-radius:50%;object-fit:cover;">
           <span>English</span>
         </button>
       `;

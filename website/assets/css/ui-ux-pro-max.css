@@ -1147,28 +1147,30 @@ button.view-button::after,
   box-shadow: 0 0 0 4px rgba(234, 191, 14, 0.15);
 }
 
-/* Toast Notifications */
+/* Toast Notifications - Positioned at bottom right so header and language switcher are never blocked */
 .uupm-toast-container {
   position: fixed;
-  top: 24px;
-  right: 24px;
+  bottom: 28px;
+  right: 28px;
   z-index: 1000000;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 10px;
+  pointer-events: none;
 }
 
 .uupm-toast {
+  pointer-events: auto;
   background: #FFFFFF;
   color: var(--uupm-text);
   border-radius: var(--uupm-radius-md);
   box-shadow: var(--uupm-shadow-lg);
-  padding: 16px 20px;
+  padding: 14px 18px;
   display: flex;
   align-items: center;
   gap: 12px;
-  min-width: 300px;
-  max-width: 420px;
+  min-width: 260px;
+  max-width: 380px;
   border-left: 4px solid var(--uupm-primary);
   transform: translateX(120%);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1180,6 +1182,24 @@ button.view-button::after,
 
 .uupm-toast.toast-success {
   border-left-color: var(--uupm-success);
+}
+
+@media (max-width: 640px) {
+  .uupm-toast-container {
+    bottom: 20px;
+    right: 16px;
+    left: 16px;
+    align-items: center;
+  }
+  .uupm-toast {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    transform: translateY(120%);
+  }
+  .uupm-toast.show {
+    transform: translateY(0);
+  }
 }
 
 /* Modern Pricing Card & Tables */
@@ -3763,14 +3783,14 @@ p.name-company {
   display: flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
-  gap: 15px !important;
+  gap: 12px !important;
   background: #EABF0E !important;
   border: none !important;
   border-bottom-left-radius: 40px !important;
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
-  padding: 0 16px 0 36px !important;
+  padding: 0 14px 0 28px !important;
   height: 48px !important;
   box-sizing: border-box !important;
   margin: 0 0 6px 0 !important;
@@ -3924,6 +3944,17 @@ p.name-company {
   user-select: none;
   border-radius: 6px;
   padding: 4px 6px;
+  max-width: 290px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.info-head span {
+  display: inline-block !important;
+  max-width: 260px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 .info-head:hover {
@@ -3940,6 +3971,7 @@ p.name-company {
 .info-head i {
   color: #FFFFFF !important;
   font-size: 14px !important;
+  flex-shrink: 0 !important;
   transition: transform 0.2s ease, color 0.2s ease !important;
 }
 
@@ -3947,76 +3979,111 @@ p.name-company {
   display: none !important;
 }
 
-/* Vietnam Flag / Language Badge in Gold Bar */
+/* ==========================================================================
+   ULTRA-PREMIUM LUXURY LANGUAGE PILL (VI / EN)
+   Designed to match top-tier medical & luxury brand aesthetics
+   ========================================================================== */
+
 .header-lang-badge {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 6px !important;
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  color: #FFFFFF !important;
-  text-transform: uppercase !important;
+  gap: 7px !important;
+  height: 32px !important;
+  padding: 3px 12px 3px 5px !important;
+  border-radius: 9999px !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.06) !important;
   cursor: pointer !important;
   white-space: nowrap !important;
-  padding: 4px 8px !important;
-  border-radius: 6px !important;
-  background: rgba(255, 255, 255, 0.12) !important;
-  border: 1px solid rgba(255, 255, 255, 0.28) !important;
-  transition: all 0.2s ease !important;
   position: relative !important;
   user-select: none !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.header-lang-badge:hover,
+.header-lang-badge:hover {
+  background: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16), 0 0 0 2px rgba(254, 240, 138, 0.7) !important;
+}
+
 .header-lang-badge.uupm-lang-open {
-  background: rgba(255, 255, 255, 0.22) !important;
-  border-color: rgba(255, 255, 255, 0.5) !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18), 0 0 0 2.5px #EABF0E !important;
 }
 
+/* Flag inside badge - circular luxury emblem with subtle shadow */
+.header-lang-badge img.lang-flag,
 .header-lang-badge img {
-  width: 20px !important;
-  height: 14px !important;
+  width: 22px !important;
+  height: 22px !important;
+  border-radius: 50% !important;
   object-fit: cover !important;
-  border-radius: 2px !important;
-  display: inline-block !important;
-  vertical-align: middle !important;
+  display: block !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22) !important;
+  border: 1.5px solid #FFFFFF !important;
+  flex-shrink: 0 !important;
 }
 
-.header-lang-badge i {
-  font-size: 10px !important;
-  transition: transform 0.2s ease !important;
+/* Label text: VI / EN */
+.header-lang-badge span,
+.header-lang-badge .lang-code {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #18181b !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
 }
 
-.header-lang-badge.uupm-lang-open i {
+/* Arrow indicator */
+.header-lang-badge i,
+.header-lang-badge .fa-chevron-down,
+.header-lang-badge .fa-angle-down {
+  font-size: 9px !important;
+  color: #71717a !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+  margin-left: 1px !important;
+}
+
+.header-lang-badge.uupm-lang-open i,
+.header-lang-badge.uupm-lang-open .fa-chevron-down,
+.header-lang-badge.uupm-lang-open .fa-angle-down {
   transform: rotate(180deg) !important;
+  color: #B89307 !important;
 }
 
-/* Dropdown Language Selector Popup */
+/* Luxury Dropdown Container */
 .uupm-lang-dropdown {
   position: absolute !important;
   top: calc(100% + 8px) !important;
   right: 0 !important;
-  min-width: 148px !important;
+  min-width: 170px !important;
   background: #FFFFFF !important;
-  border-radius: 12px !important;
-  box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.06) !important;
   padding: 6px !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 3px !important;
+  gap: 4px !important;
   z-index: 999999 !important;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-6px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  transform: translateY(-8px) scale(0.96);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
   pointer-events: none;
 }
 
 .uupm-lang-dropdown.show {
   opacity: 1 !important;
   visibility: visible !important;
-  transform: translateY(0) !important;
+  transform: translateY(0) scale(1) !important;
   pointer-events: auto !important;
 }
 
@@ -4025,18 +4092,18 @@ p.name-company {
   align-items: center !important;
   justify-content: space-between !important;
   gap: 10px !important;
-  padding: 8px 10px !important;
-  border-radius: 8px !important;
+  padding: 9px 12px !important;
+  border-radius: 10px !important;
   background: transparent !important;
   border: none !important;
   font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: 13px !important;
   font-weight: 600 !important;
-  color: #18181b !important;
+  color: #27272a !important;
   cursor: pointer !important;
   text-decoration: none !important;
   text-align: left !important;
-  transition: all 0.15s ease !important;
+  transition: all 0.18s ease !important;
   width: 100% !important;
   box-sizing: border-box !important;
 }
@@ -4044,31 +4111,35 @@ p.name-company {
 .uupm-lang-option:hover {
   background: #FEF9E6 !important;
   color: #B89307 !important;
+  transform: translateX(2px) !important;
 }
 
 .uupm-lang-option.active {
   background: #FEF9E6 !important;
   color: #B89307 !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
 }
 
 .uupm-lang-option .uupm-opt-left {
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 9px !important;
 }
 
 .uupm-lang-option .uupm-opt-left img {
   width: 20px !important;
-  height: 14px !important;
-  border-radius: 2px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
   object-fit: cover !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+  flex-shrink: 0 !important;
 }
 
 .uupm-lang-option .uupm-opt-check {
   font-size: 12px !important;
   color: #B89307 !important;
   opacity: 0;
+  transition: opacity 0.18s ease !important;
 }
 
 .uupm-lang-option.active .uupm-opt-check {
@@ -4122,10 +4193,10 @@ body {
 .header-nav-list {
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  max-width: 690px !important;
-  gap: 20px !important;
+  justify-content: flex-end !important;
+  width: auto !important;
+  max-width: none !important;
+  gap: 16px !important;
   list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
@@ -4133,20 +4204,22 @@ body {
 
 .header-nav-list > li {
   position: relative !important;
+  flex-shrink: 0 !important;
 }
 
 .header-nav-list > li > a {
   font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: 14px !important;
+  font-size: 13.5px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.02em !important;
+  letter-spacing: 0.01em !important;
   color: #18181b !important;
   text-decoration: none !important;
-  padding: 12px 2px !important;
+  padding: 10px 2px !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 5px !important;
+  white-space: nowrap !important;
   transition: color 0.2s ease !important;
 }
 
@@ -4233,13 +4306,58 @@ nav.menu.w-menu {
 }
 
 /* 6. Responsive adjustments */
-@media (max-width: 1200px) {
+@media (max-width: 1366px) {
   .info-head {
+    display: none !important;
+  }
+  .content-menu .v1,
+  .header-top-gold-bar {
+    gap: 12px !important;
+    padding: 0 14px 0 32px !important;
+  }
+  .header-nav-list {
+    gap: 12px !important;
+  }
+  .header-nav-list > li > a {
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo-banner {
+    transform: scale(0.88);
+    transform-origin: left center;
+  }
+  .header-nav-list {
+    gap: 10px !important;
+  }
+  .header-nav-list > li > a {
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    padding: 8px 0 !important;
+  }
+  .item-hotline p,
+  .hotline-lbl {
     display: none !important;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1080px) {
+  .header-nav-list {
+    gap: 7px !important;
+  }
+  .header-nav-list > li > a {
+    font-size: 11.5px !important;
+    letter-spacing: 0 !important;
+  }
+  .header-cta-booking-btn {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 1024px) {
   header,
   .header {
     position: -webkit-sticky !important;
@@ -4261,6 +4379,86 @@ nav.menu.w-menu {
   .content-menu {
     display: none !important;
   }
+}
+
+.uupm-mobile-head-badge {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .uupm-mobile-head-badge {
+    display: inline-flex !important;
+    margin-left: auto !important;
+    margin-right: 10px !important;
+    height: 30px !important;
+    padding: 2px 10px 2px 4px !important;
+    border-color: #EABF0E !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* Universal Long-Text Responsive Layout Protections (Especially for English) */
+.gf-services-grid,
+.gf-pricing-grid,
+.gf-booking-grid,
+.row-20,
+.grid {
+  max-width: 100% !important;
+}
+
+.gf-service-card,
+.gf-pricing-card,
+.gf-doctor-card,
+.team-item {
+  height: auto !important;
+  min-height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+  overflow-wrap: break-word !important;
+}
+
+.gf-btn-primary,
+.gf-btn-outline,
+.uupm-btn,
+.btn-main {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.header-cta-booking-btn {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  flex-shrink: 0 !important;
+}
+
+.gf-section-heading,
+.gf-section-title,
+.news-hero-section h1,
+.news-hero-section h2,
+h1, h2, h3, h4 {
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+.uupm-pricing-table th,
+.uupm-pricing-table td,
+table th,
+table td {
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+.slider_slick .btn,
+.hero-action-buttons,
+.hero-btns {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  max-width: 100% !important;
 }
 
 /* Universal Hotline & Phone nowrap safeguard */
