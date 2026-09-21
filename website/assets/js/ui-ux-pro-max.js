@@ -1265,6 +1265,15 @@
     { vi: 'Dù thời gian trôi qua hay công việc đưa đi xa, mỗi khi cần chăm sóc răng miệng, Kim Dung vẫn là điểm tựa y khoa thân thuộc mà họ an tâm dẫn cả tổ ấm cùng quay trở lại.', en: 'No matter how much time passes or where life leads, whenever dental care is needed, Kim Dung is the welcoming haven where they confidently bring their entire family back.' },
     { vi: 'Từ những ngày đầu khởi dựng cho đến diện mạo hiện đại hôm nay, sự tin yêu và đồng hành bền bỉ của quý khách chính là tài sản vô giá nâng bước Kim Dung suốt 30 năm qua.', en: "From our earliest days to our modern clinic today, our patients' steadfast trust and companionship have been the most invaluable asset guiding Kim Dung throughout our 30-year journey." },
 
+    // Section 8: Đánh giá từ khách hàng (Google Reviews)
+    { vi: 'Khách hàng Quốc tế · Thái Nguyên', en: 'International Customer · Thai Nguyen' },
+    { vi: 'Khách hàng thực tế · Thái Nguyên & Hà Nội', en: 'Verified Customer · Thai Nguyen & Hanoi' },
+    { vi: 'Local Guide · Thái Nguyên', en: 'Google Local Guide · Thai Nguyen' },
+    { vi: 'Xem đánh giá của John Alexander trên Google Maps', en: "View John Alexander's review on Google Maps" },
+    { vi: 'Xem đánh giá của Bùi Văn Duy trên Google Maps', en: "View Bui Van Duy's review on Google Maps" },
+    { vi: 'Xem đánh giá của Việt Hồng trên Google Maps', en: "View Viet Hong's review on Google Maps" },
+    { vi: 'Địa điểm làm răng uy tín của Thái Nguyên và Hà Nội, cũng rất nhiều người lên đây làm răng. Từ trang thiết bị sạch sẽ, đảm bảo vệ sinh có phòng khử trùng dụng cụ mới nhập nguyên bộ từ Đức về.', en: 'A prestigious dental clinic in Thai Nguyen and Hanoi, trusted by many patients. The facilities are immaculate, with an instrument sterilization suite newly imported from Germany.' },
+    { vi: 'Đến làm răng mà cứ ngỡ mình đi nghỉ dưỡng ở khách sạn 5 sao. Cảm ơn nha khoa Kim Dung và đội ngũ nhân viên luôn nhiệt tình chu đáo.', en: 'Coming here for dental care felt like relaxing at a 5-star resort. Heartfelt thanks to Kim Dung Dental and the wonderful staff for being so warm and attentive.' },
 
     // Footer
     { vi: 'HỆ THỐNG NHA KHOA KIM DUNG', en: 'KIM DUNG DENTAL SYSTEM' },
