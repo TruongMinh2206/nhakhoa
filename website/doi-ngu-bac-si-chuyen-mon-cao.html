@@ -123,6 +123,12 @@
       
       <!-- CỘT NỘI DUNG CHÍNH -->
       <div class="lg:col-span-8 bg-white p-6 sm:p-10 rounded-2xl border border-gray-100 shadow-sm">
+        <div class="mb-4">
+          <a href="bac-si.html" class="doc-back-btn" title="Quay lại danh sách Bác sĩ" onclick="if(document.referrer && (document.referrer.includes('bac-si') || document.referrer.includes('doi-ngu'))) { history.back(); return false; }">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Quay lại Đội ngũ Bác sĩ</span>
+          </a>
+        </div>
         <div class="title-news-detail mb-6 pb-6 border-b border-gray-100">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase mb-3" style="background: #FFFDF6; color: #B89307; border: 1px solid #FDE68A;">
             <i class="fa-solid fa-user-doctor"></i> ĐỘI NGŨ CHUYÊN GIA ĐẦU NGÀNH
