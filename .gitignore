@@ -9,4 +9,6 @@ scratch/
 .system_generated/
 *.bak
 screenshot*.png
+.temp_*
+
 
