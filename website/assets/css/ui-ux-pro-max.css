@@ -5815,36 +5815,73 @@ a[href^="tel:"],
 }
 
 .gf-trust-content {
-  padding: 24px 20px 28px;
+  padding: 22px 18px 24px;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
 }
 
-.gf-trust-quote-icon {
-  color: rgba(234, 191, 14, 0.45);
-  font-size: 1.25rem;
+.gf-trust-pillar-tag {
+  display: inline-block;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #B89307 !important;
+  background: rgba(234, 191, 14, 0.12);
+  border: 1px solid rgba(234, 191, 14, 0.28);
+  padding: 3px 11px;
+  border-radius: 9999px;
   margin-bottom: 12px;
-  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.gf-trust-card:hover .gf-trust-quote-icon {
-  color: #EABF0E;
-  transform: translateY(-2px);
-}
-
-.gf-trust-desc {
+.gf-trust-quote-lead {
   font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  font-size: 0.98rem !important;
-  font-weight: 600 !important;
-  line-height: 1.65 !important;
-  color: #27272a !important;
-  margin: 0 !important;
-  word-wrap: break-word;
+  font-size: 1.02rem !important;
+  font-weight: 700 !important;
+  line-height: 1.52 !important;
+  color: #18181b !important;
+  margin: 0 0 10px 0 !important;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+@media (max-width: 640px) {
+  .gf-trust-quote-lead {
+    min-height: auto;
+    font-size: 1rem !important;
+  }
+}
+
+.gf-trust-divider {
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(234, 191, 14, 0.2), #EABF0E, rgba(234, 191, 14, 0.2));
+  border-radius: 99px;
+  margin: 2px auto 12px;
+  transition: width 0.35s ease;
+}
+
+.gf-trust-card:hover .gf-trust-divider {
+  width: 54px;
+}
+
+.gf-trust-subtext {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 400 !important;
+  line-height: 1.68 !important;
+  color: #52525b !important;
+  margin: 0 !important;
+  text-align: justify;
+  text-align-last: center;
+}
+
 
 
 

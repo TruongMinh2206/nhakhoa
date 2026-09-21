@@ -1248,10 +1248,23 @@
     { vi: '30 năm không chỉ được tính bằng thời gian.', en: '30 years is not merely measured by time.' },
     { vi: '30 năm được tính bằng những nụ cười đã được trao đi và những niềm tin được gửi lại.', en: '30 years is measured by every smile delivered and every trust returned.' },
     { vi: 'Video khách hàng', en: 'Customer Story' },
+    { vi: 'Gắn kết gia đình', en: 'Family Connection' },
+    { vi: 'Đồng hành từ thanh xuân', en: 'Lifelong Companionship' },
+    { vi: 'Điểm tựa y khoa thân thuộc', en: 'Familiar Dental Haven' },
+    { vi: 'Tri kỷ 30 năm phát triển', en: '30-Year Cherished Journey' },
+    { vi: '“Có những khách hàng giới thiệu cha mẹ, vợ/chồng, con cái.”', en: '“There are customers who introduce their parents, spouse, and children.”' },
     { vi: 'Có những khách hàng giới thiệu cha mẹ, vợ/chồng, con cái.', en: 'There are customers who introduce their parents, spouse, and children.' },
+    { vi: '“Có người đến Kim Dung khi còn trẻ.”', en: '“There are those who first came to Kim Dung in their youth.”' },
     { vi: 'Có người đến Kim Dung khi còn trẻ.', en: 'There are those who first came to Kim Dung in their youth.' },
+    { vi: '“Sau nhiều năm quay lại cùng gia đình.”', en: '“Returning years later together with their family.”' },
     { vi: 'Sau nhiều năm quay lại cùng gia đình.', en: 'Returning years later together with their family.' },
+    { vi: '“Có những khách hàng trở thành một phần trong hành trình phát triển của phòng khám.”', en: "“There are customers who have become an enduring part of our clinic's journey.”" },
     { vi: 'Có những khách hàng trở thành một phần trong hành trình phát triển của phòng khám.', en: "There are customers who have become an enduring part of our clinic's journey." },
+    { vi: 'Không có lời khẳng định nào quý giá hơn khi một người an tâm trao gửi nụ cười của đấng sinh thành, bạn đời và con cái cho cùng một đội ngũ bác sĩ suốt nhiều năm.', en: 'No affirmation is more profound than when a patient wholeheartedly entrusts the smiles and health of their parents, spouse, and children to our medical team across generations.' },
+    { vi: 'Bắt đầu từ những ngày thanh xuân tìm kiếm sự tự tin cho nụ cười, để rồi qua từng cột mốc trưởng thành trong cuộc sống, Kim Dung vẫn luôn là nơi được trao trọn niềm tin.', en: "Starting from youth's journey toward a confident smile, and continuing through life's meaningful milestones, Kim Dung remains their steadfast and trusted dental destination." },
+    { vi: 'Dù thời gian trôi qua hay công việc đưa đi xa, mỗi khi cần chăm sóc răng miệng, Kim Dung vẫn là điểm tựa y khoa thân thuộc mà họ an tâm dẫn cả tổ ấm cùng quay trở lại.', en: 'No matter how much time passes or where life leads, whenever dental care is needed, Kim Dung is the welcoming haven where they confidently bring their entire family back.' },
+    { vi: 'Từ những ngày đầu khởi dựng cho đến diện mạo hiện đại hôm nay, sự tin yêu và đồng hành bền bỉ của quý khách chính là tài sản vô giá nâng bước Kim Dung suốt 30 năm qua.', en: "From our earliest days to our modern clinic today, our patients' steadfast trust and companionship have been the most invaluable asset guiding Kim Dung throughout our 30-year journey." },
+
 
     // Footer
     { vi: 'HỆ THỐNG NHA KHOA KIM DUNG', en: 'KIM DUNG DENTAL SYSTEM' },
