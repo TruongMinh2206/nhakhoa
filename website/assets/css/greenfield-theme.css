@@ -4796,3 +4796,41 @@ a[href^="tel:"],
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
   }
 }
+
+/* ==========================================================================
+   DOCTOR DETAIL PAGE BOOKING SECTION SAFEGUARD
+   ========================================================================== */
+.gf-theme-root section.doc-booking-section,
+.gf-theme-root #dat-lich-kham,
+body.gf-theme-root .doc-booking-section,
+.doc-booking-section {
+  background: #18181b !important;
+  background: linear-gradient(135deg, #18181b 0%, #27272a 100%) !important;
+  color: #ffffff !important;
+  padding: 75px 0 !important;
+}
+
+.gf-theme-root section.doc-booking-section h2,
+.gf-theme-root #dat-lich-kham h2,
+body.gf-theme-root .doc-booking-info h2 {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.gf-theme-root section.doc-booking-section p,
+.gf-theme-root #dat-lich-kham p,
+body.gf-theme-root .doc-booking-info p {
+  color: #cbd5e1 !important;
+}
+
+.gf-theme-root section.doc-booking-section .doc-booking-perk,
+.gf-theme-root #dat-lich-kham .doc-booking-perk,
+body.gf-theme-root .doc-booking-perk span {
+  color: #f8fafc !important;
+}
+
+.gf-theme-root section.doc-booking-section .doc-booking-perk i,
+.gf-theme-root #dat-lich-kham .doc-booking-perk i {
+  color: #EABF0E !important;
+}
+
