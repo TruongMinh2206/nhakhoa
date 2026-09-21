@@ -4798,35 +4798,38 @@ a[href^="tel:"],
 }
 
 /* ==========================================================================
-   DOCTOR DETAIL PAGE BOOKING SECTION SAFEGUARD
+   DOCTOR DETAIL PAGE BOOKING SECTION SAFEGUARD (UNIFIED WITH WEB THEME)
    ========================================================================== */
 .gf-theme-root section.doc-booking-section,
 .gf-theme-root #dat-lich-kham,
 body.gf-theme-root .doc-booking-section,
 .doc-booking-section {
-  background: #18181b !important;
-  background: linear-gradient(135deg, #18181b 0%, #27272a 100%) !important;
-  color: #ffffff !important;
+  background: var(--gf-bg-main-gradient) !important;
+  color: #18181b !important;
   padding: 75px 0 !important;
+  border-top: 1px solid rgba(234, 191, 14, 0.2) !important;
+  border-bottom: 1px solid rgba(234, 191, 14, 0.2) !important;
 }
 
 .gf-theme-root section.doc-booking-section h2,
 .gf-theme-root #dat-lich-kham h2,
 body.gf-theme-root .doc-booking-info h2 {
-  color: #ffffff !important;
+  color: #18181b !important;
   text-shadow: none !important;
 }
 
 .gf-theme-root section.doc-booking-section p,
 .gf-theme-root #dat-lich-kham p,
 body.gf-theme-root .doc-booking-info p {
-  color: #cbd5e1 !important;
+  color: #475569 !important;
 }
 
 .gf-theme-root section.doc-booking-section .doc-booking-perk,
 .gf-theme-root #dat-lich-kham .doc-booking-perk,
+body.gf-theme-root .doc-booking-perk,
 body.gf-theme-root .doc-booking-perk span {
-  color: #f8fafc !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
 }
 
 .gf-theme-root section.doc-booking-section .doc-booking-perk i,

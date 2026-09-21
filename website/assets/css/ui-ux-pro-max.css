@@ -6229,12 +6229,19 @@ a[href^="tel:"],
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   gap: 36px;
-  align-items: start;
+  align-items: stretch;
+}
+.doc-cert-viewer-col {
+  height: 100%;
+  position: relative;
 }
 @media (max-width: 991px) {
   .doc-cert-grid {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+  .doc-cert-viewer-col {
+    height: auto;
   }
 }
 
@@ -6351,8 +6358,16 @@ a[href^="tel:"],
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
-  position: sticky;
-  top: 100px;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 110px !important;
+  z-index: 20;
+}
+@media (max-width: 991px) {
+  .doc-cert-viewer-card {
+    position: static !important;
+    top: auto !important;
+  }
 }
 .doc-cert-viewer-head {
   background: linear-gradient(90deg, #18181b 0%, #27272a 100%);
@@ -6767,9 +6782,10 @@ a[href^="tel:"],
 body.gf-theme-root .doc-booking-section,
 .doc-booking-section {
   padding: 75px 0 !important;
-  background: #18181b !important;
-  background: linear-gradient(135deg, #18181b 0%, #27272a 100%) !important;
-  color: #ffffff !important;
+  background: var(--gf-bg-main-gradient) !important;
+  color: #18181b !important;
+  border-top: 1px solid rgba(234, 191, 14, 0.2) !important;
+  border-bottom: 1px solid rgba(234, 191, 14, 0.2) !important;
 }
 .doc-booking-wrap {
   display: grid;
@@ -6789,7 +6805,7 @@ body.gf-theme-root .doc-booking-info h2,
 .doc-booking-info h2 {
   font-size: 2.2rem;
   font-weight: 800;
-  color: #ffffff !important;
+  color: #18181b !important;
   line-height: 1.25;
   margin: 0 0 14px;
 }
@@ -6797,7 +6813,7 @@ body.gf-theme-root .doc-booking-info h2,
 .gf-theme-root #dat-lich-kham p,
 body.gf-theme-root .doc-booking-info p,
 .doc-booking-info p {
-  color: #cbd5e1 !important;
+  color: #475569 !important;
   font-size: 1rem;
   line-height: 1.65;
   margin-bottom: 24px;
@@ -6814,8 +6830,9 @@ body.gf-theme-root .doc-booking-perk,
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.9rem;
-  color: #f8fafc !important;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1e293b !important;
 }
 .doc-booking-perk i {
   color: #EABF0E !important;
