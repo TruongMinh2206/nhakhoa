@@ -1242,6 +1242,17 @@
     { vi: 'CÂU HỎI THƯỜNG GẶP', en: 'FREQUENTLY ASKED QUESTIONS' },
     { vi: 'Hỏi & Đáp Nha Khoa', en: 'Dental Q&A' },
 
+    // Section 2 Giới thiệu: 30 Năm - Điều Quý Giá Nhất Là Niềm Tin
+    { vi: '30 NĂM', en: '30 YEARS' },
+    { vi: 'ĐIỀU QUÝ GIÁ NHẤT LÀ NIỀM TIN', en: 'THE MOST PRECIOUS VALUE IS TRUST' },
+    { vi: '30 năm không chỉ được tính bằng thời gian.', en: '30 years is not merely measured by time.' },
+    { vi: '30 năm được tính bằng những nụ cười đã được trao đi và những niềm tin được gửi lại.', en: '30 years is measured by every smile delivered and every trust returned.' },
+    { vi: 'Video khách hàng', en: 'Customer Story' },
+    { vi: 'Có những khách hàng giới thiệu cha mẹ, vợ/chồng, con cái.', en: 'There are customers who introduce their parents, spouse, and children.' },
+    { vi: 'Có người đến Kim Dung khi còn trẻ.', en: 'There are those who first came to Kim Dung in their youth.' },
+    { vi: 'Sau nhiều năm quay lại cùng gia đình.', en: 'Returning years later together with their family.' },
+    { vi: 'Có những khách hàng trở thành một phần trong hành trình phát triển của phòng khám.', en: "There are customers who have become an enduring part of our clinic's journey." },
+
     // Footer
     { vi: 'HỆ THỐNG NHA KHOA KIM DUNG', en: 'KIM DUNG DENTAL SYSTEM' },
     { vi: 'NHA KHOA KIM DUNG', en: 'KIM DUNG DENTAL CLINIC' },
