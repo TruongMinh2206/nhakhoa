@@ -820,73 +820,122 @@
   </section>
 
   <!-- 7. TÔI CÓ PHÙ HỢP KHÔNG? -->
-  <section id="phu-hop" class="py-16" style="background: var(--gf-bg-main-gradient) !important;">
+  <section id="phu-hop" class="py-16 scroll-mt-24" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <p class="gf-tagline">Tôi có phù hợp không?</p>
         <h2 class="gf-title-display mb-4">Ai Nên Lựa Chọn Cấy Ghép Implant?</h2>
         <p class="text-base max-w-2xl mx-auto leading-relaxed text-[#475569]" style="color:#475569 !important;">Đội ngũ bác sĩ chuyên khoa tại Kim Dung luôn thăm khám kỹ lưỡng và tư vấn phương án điều trị an toàn, tối ưu nhất.</p>
       </div>
-      <div class="grid lg:grid-cols-2 gap-12 items-start">
-        <div class="flex flex-col gap-4">
-          
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Mất 1 hoặc nhiều răng xen kẽ</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Cần khôi phục vị trí mất răng mà không muốn mài 2 răng thật bên cạnh để làm cầu răng.</p>
-          </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative">
+        <!-- Left Column: Clickable Indication Cards -->
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <!-- Card 1 -->
+          <a href="dat-lich.html" data-open-modal="booking" data-service="Trồng răng Implant" data-note="Tư vấn tình trạng: Mất 1 hoặc nhiều răng xen kẽ" class="group flex items-start gap-4 rounded-xl p-5 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#EABF0E] hover:-translate-y-0.5 cursor-pointer" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.28);text-decoration:none;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+              <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h3 class="font-bold text-[#18181b] text-sm group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Mất 1 hoặc nhiều răng xen kẽ</h3>
+                <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Tư vấn ngay</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </span>
+              </div>
+              <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Cần khôi phục vị trí mất răng mà không muốn mài 2 răng thật bên cạnh để làm cầu răng.</p>
+            </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a href="dat-lich.html" data-open-modal="booking" data-service="Trồng răng Implant" data-note="Tư vấn tình trạng: Mất toàn bộ răng một hàm hoặc hai hàm" class="group flex items-start gap-4 rounded-xl p-5 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#EABF0E] hover:-translate-y-0.5 cursor-pointer" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.28);text-decoration:none;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+              <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h3 class="font-bold text-[#18181b] text-sm group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Mất toàn bộ răng một hàm hoặc hai hàm</h3>
+                <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Tư vấn ngay</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </span>
+              </div>
+              <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Giải pháp phục hình toàn hàm All-on-4 hoặc All-on-6 giúp cố định trọn vẹn không cần tháo lắp.</p>
+            </div>
+          </a>
+
+          <!-- Card 3 -->
+          <a href="dat-lich.html" data-open-modal="booking" data-service="Trồng răng Implant" data-note="Tư vấn tình trạng: Răng bị hư tổn nặng, lung lay" class="group flex items-start gap-4 rounded-xl p-5 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#EABF0E] hover:-translate-y-0.5 cursor-pointer" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.28);text-decoration:none;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+              <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h3 class="font-bold text-[#18181b] text-sm group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Răng bị hư tổn nặng, lung lay</h3>
+                <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Tư vấn ngay</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </span>
+              </div>
+              <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Răng bị sâu vỡ lớn, viêm quanh cuống nặng không thể bảo tồn buộc phải nhổ bỏ.</p>
+            </div>
+          </a>
+
+          <!-- Card 4 -->
+          <a href="dat-lich.html" data-open-modal="booking" data-service="Trồng răng Implant" data-note="Tư vấn tình trạng: Khó chịu với hàm tháo lắp" class="group flex items-start gap-4 rounded-xl p-5 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#EABF0E] hover:-translate-y-0.5 cursor-pointer" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.28);text-decoration:none;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+              <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h3 class="font-bold text-[#18181b] text-sm group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Khó chịu với hàm tháo lắp</h3>
+                <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Tư vấn ngay</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </span>
+              </div>
+              <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Người đeo hàm giả tháo lắp bị lỏng lẻo, đau lợi, vướng víu và bất tiện khi ăn uống.</p>
+            </div>
+          </a>
+
+          <!-- Card 5 -->
+          <a href="dat-lich.html" data-open-modal="booking" data-service="Trồng răng Implant" data-note="Tư vấn tình trạng: Mất răng lâu năm bị tiêu xương hàm" class="group flex items-start gap-4 rounded-xl p-5 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#EABF0E] hover:-translate-y-0.5 cursor-pointer" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.28);text-decoration:none;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+              <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h3 class="font-bold text-[#18181b] text-sm group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Mất răng lâu năm bị tiêu xương hàm</h3>
+                <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Tư vấn ngay</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </span>
+              </div>
+              <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Xương ổ răng bị tiêu biến, tụt lợi khiến má hóp — cần cấy ghép implant kết hợp ghép xương để tái tạo khuôn hàm trẻ trung.</p>
+            </div>
+          </a>
+
+          <!-- Card 6 -->
+          <a href="dat-lich.html" data-open-modal="booking" data-service="Trồng răng Implant" data-note="Tư vấn tình trạng: Chăm sóc và bảo vệ sức khỏe răng toàn diện" class="group flex items-start gap-4 rounded-xl p-5 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#EABF0E] hover:-translate-y-0.5 cursor-pointer" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.28);text-decoration:none;">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+              <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h3 class="font-bold text-[#18181b] text-sm group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Chăm sóc và bảo vệ sức khỏe răng</h3>
+                <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Tư vấn ngay</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </span>
+              </div>
+              <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Dành cho mọi khách hàng mong muốn sở hữu hàm răng chắc khỏe, ăn nhai bền vững và tự tin rạng rỡ trọn đời.</p>
+            </div>
+          </a>
         </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Mất toàn bộ răng một hàm hoặc hai hàm</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Giải pháp phục hình toàn hàm All-on-4 hoặc All-on-6 giúp cố định trọn vẹn không cần tháo lắp.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Răng bị hư tổn nặng, lung lay</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Răng bị sâu vỡ lớn, viêm quanh cuống nặng không thể bảo tồn buộc phải nhổ bỏ.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Khó chịu với hàm tháo lắp</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Người đeo hàm giả tháo lắp bị lỏng lẻo, đau lợi, vướng víu và bất tiện khi ăn uống.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Chăm sóc và bảo vệ sức khỏe răng</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Dành cho mọi khách hàng mong muốn sở hữu hàm răng chắc khỏe, tự tin rạng rỡ.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 rounded-xl p-5 bg-white shadow-sm" style="background-color:#ffffff !important;border:1px solid rgba(234,191,14,0.28);box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:rgba(234,191,14,0.18);color:#B89307">
-            <svg width="20" height="20" style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-[#18181b] text-sm mb-1" style="color:#18181b !important;">Chăm sóc và bảo vệ sức khỏe răng</h3>
-            <p class="text-sm leading-relaxed text-[#475569]" style="color:#475569 !important;">Dành cho mọi khách hàng mong muốn sở hữu hàm răng chắc khỏe, tự tin rạng rỡ.</p>
-          </div>
-        </div>
-        </div>
-        <div class="flex flex-col gap-3">
-          <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-square" style="border:2px solid rgba(234,191,14,0.3);box-shadow:0 15px 35px rgba(0,0,0,0.06);">
+
+        <!-- Right Column: Sticky Image Container -->
+        <div class="lg:col-span-5 lg:sticky lg:top-28 flex flex-col gap-3 self-start">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] sm:aspect-square" style="border:2px solid rgba(234,191,14,0.3);box-shadow:0 15px 35px rgba(0,0,0,0.06);">
             <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/marketing/implant-gallery/smile-1.jpg" alt="Phục hồi toàn hàm Implant All-on-4 — Nha Khoa Kim Dung" class="w-full h-full object-cover object-center" loading="lazy"/>
           </div>
           <p class="text-xs text-center text-[#64748b]">Phục hồi toàn hàm Implant All-on-4 — Nha Khoa Kim Dung</p>

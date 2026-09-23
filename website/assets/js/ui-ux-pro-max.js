@@ -216,11 +216,28 @@
     }
 
     // Modal open/close handlers
-    const openModal = () => {
+    const openModal = (service, note) => {
+      if (service) {
+        const select = document.getElementById('uupm-service');
+        if (select) {
+          for (let opt of select.options) {
+            if (opt.value.toLowerCase().includes(service.toLowerCase()) || service.toLowerCase().includes(opt.value.toLowerCase())) {
+              opt.selected = true;
+              break;
+            }
+          }
+        }
+      }
+      if (note) {
+        const noteInput = document.getElementById('uupm-note');
+        if (noteInput) noteInput.value = note;
+      }
       modalOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
       setTimeout(() => document.getElementById('uupm-name')?.focus(), 100);
     };
+
+    window.openBookingModal = openModal;
 
     const closeModal = () => {
       modalOverlay.classList.remove('active');
@@ -253,7 +270,9 @@
     document.querySelectorAll('[data-open-modal="booking"]').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        openModal();
+        const service = btn.getAttribute('data-service');
+        const note = btn.getAttribute('data-note');
+        openModal(service, note);
       });
     });
 
