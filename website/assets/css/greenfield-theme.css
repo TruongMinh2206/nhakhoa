@@ -3751,14 +3751,18 @@ a[onclick*="selectDoctor"] svg,
   font-size: clamp(1.8rem, 3.6vw, 2.5rem) !important;
   font-weight: 800 !important;
   color: #18181b !important;
-  line-height: 1.3 !important;
+  line-height: 1.4 !important;
   margin-bottom: 22px !important;
 }
 .gf-about-nextstory-title span {
-  color: #EABF0E !important;
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  text-decoration-color: rgba(234, 191, 14, 0.45);
+  color: #D97706 !important;
+  text-decoration: none;
+}
+.gf-about-nextstory-title span.gf-underline {
+  text-decoration: underline !important;
+  text-underline-offset: 6px !important;
+  text-decoration-thickness: 3px !important;
+  text-decoration-color: #D97706 !important;
 }
 .gf-about-nextstory-narrative {
   max-width: 760px;
