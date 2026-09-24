@@ -1721,14 +1721,18 @@
     if (!form) return;
     const name = document.getElementById('gf-name')?.value.trim() || 'Quý khách';
     const phone = document.getElementById('gf-phone')?.value.trim() || '';
-    const doctor = document.getElementById('gf-doctor')?.value || 'Bác sĩ chuyên khoa';
-    const service = document.getElementById('gf-service')?.value || 'Tư vấn nha khoa';
+    const doctor = document.getElementById('gf-doctor')?.value?.trim();
+    const service = document.getElementById('gf-service')?.value?.trim();
 
     const submitBtn = form.querySelector('.gf-form-submit');
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i><span>Đang xác nhận lịch hẹn...</span>';
     }
+
+    const detailText = (doctor && service)
+      ? `Cảm ơn <strong>${name}</strong> đã đặt lịch hẹn với <strong>${doctor}</strong> (${service}). Đội ngũ bác sĩ và trợ lý y tế của Nha Khoa Kim Dung sẽ gọi tới số <strong>${phone}</strong> trong vòng 15 phút để xác nhận chi tiết.`
+      : `Cảm ơn <strong>${name}</strong> đã đăng ký tư vấn khám. Đội ngũ bác sĩ và trợ lý y tế của Nha Khoa Kim Dung sẽ gọi tới số <strong>${phone}</strong> trong vòng 15 phút để xác nhận và sắp xếp lịch khám phù hợp nhất.`;
 
     setTimeout(() => {
       form.innerHTML = `
@@ -1738,7 +1742,7 @@
           </div>
           <h3 style="font-size: 22px; font-weight: 800; color: #18181b; margin-bottom: 8px;">Đặt Lịch Khám Thành Công!</h3>
           <p style="font-size: 15px; color: #475569; max-width: 540px; margin: 0 auto 18px; line-height: 1.6;">
-            Cảm ơn <strong>${name}</strong> đã đặt lịch hẹn với <strong>${doctor}</strong> (${service}). Đội ngũ bác sĩ và trợ lý y tế của Nha Khoa Kim Dung sẽ gọi tới số <strong>${phone}</strong> trong vòng 15 phút để xác nhận chi tiết.
+            ${detailText}
           </p>
           <div style="display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 10px;">
             <a href="tel:0862960886" class="gf-btn-primary" style="padding: 10px 22px; font-size: 14px;">
