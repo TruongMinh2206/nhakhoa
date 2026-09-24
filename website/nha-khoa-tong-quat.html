@@ -190,22 +190,6 @@
       .has-scroll-anim #quy-trinh.is-revealed .step-anim-item:nth-child(4) { transition-delay: 0.36s; }
       .has-scroll-anim #quy-trinh.is-revealed .step-anim-item:nth-child(5) { transition-delay: 0.46s; }
 
-      /* Why Choose staggered */
-      .has-scroll-anim #tai-sao-chon .why-anim-card {
-        opacity: 0;
-        transform: translateY(28px);
-        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        will-change: opacity, transform;
-      }
-      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card:nth-child(1) { transition-delay: 0.06s; }
-      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card:nth-child(2) { transition-delay: 0.18s; }
-      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card:nth-child(3) { transition-delay: 0.30s; }
-      .has-scroll-anim #tai-sao-chon.is-revealed .why-anim-card:nth-child(4) { transition-delay: 0.42s; }
-
       /* FAQ staggered */
       .has-scroll-anim #faq .faq-anim-item {
         opacity: 0;
@@ -862,74 +846,7 @@
     </div>
   </section>
 
-  
-  <!-- 7. TẠI SAO CHỌN NHA KHOA KIM DUNG -->
-  <section id="tai-sao-chon" class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-14 anim-header">
-        <p class="gf-tagline">Tại sao chọn Kim Dung</p>
-        <h2 class="gf-title-display mb-5">Phòng khám nha khoa quốc tế tại Thái Nguyên</h2>
-        <p class="text-base max-w-xl mx-auto leading-relaxed text-[#475569]">Điều gì khiến chúng tôi khác biệt? Cam kết không ngừng về sự thoải mái, an toàn và kết quả tốt nhất cho bạn.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Card 1 -->
-        <div class="group rounded-2xl overflow-hidden flex flex-col sm:flex-row bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-xl transition-all duration-300 why-anim-card">
-          <div class="relative w-full sm:w-52 h-52 sm:h-auto min-h-[13rem] flex-shrink-0 overflow-hidden self-stretch">
-            <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/website/homepage/why-multilingual.webp" alt="Hỗ trợ đa ngôn ngữ" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
-          </div>
-          <div class="p-6 flex flex-col justify-center">
-            <div class="w-8 h-1 rounded-full mb-3" style="background-color:#EABF0E"></div>
-            <h3 class="font-bold text-[#18181b] text-lg mb-2">Hỗ trợ đa ngôn ngữ</h3>
-            <p class="text-sm leading-relaxed text-[#475569]">Nhân viên thông thạo tiếng Việt, Anh, Trung, Nhật, Pháp và Tây Ban Nha. Cảm thấy như ở nhà dù bạn nói ngôn ngữ nào.</p>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="group rounded-2xl overflow-hidden flex flex-col sm:flex-row bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-xl transition-all duration-300 why-anim-card">
-          <div class="relative w-full sm:w-52 h-52 sm:h-auto min-h-[13rem] flex-shrink-0 overflow-hidden self-stretch">
-            <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/website/homepage/why-standards.webp" alt="Tiêu chuẩn quốc tế" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
-          </div>
-          <div class="p-6 flex flex-col justify-center">
-            <div class="w-8 h-1 rounded-full mb-3" style="background-color:#EABF0E"></div>
-            <h3 class="font-bold text-[#18181b] text-lg mb-2">Tiêu chuẩn quốc tế</h3>
-            <p class="text-sm leading-relaxed text-[#475569]">Tiệt trùng đạt chuẩn ISO, trang thiết bị Đức và Hàn Quốc, quy trình ngang tầm các phòng khám hàng đầu thế giới.</p>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="group rounded-2xl overflow-hidden flex flex-col sm:flex-row bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-xl transition-all duration-300 why-anim-card">
-          <div class="relative w-full sm:w-52 h-52 sm:h-auto min-h-[13rem] flex-shrink-0 overflow-hidden self-stretch">
-            <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/website/homepage/why-technology.webp" alt="Công nghệ hiện đại" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
-          </div>
-          <div class="p-6 flex flex-col justify-center">
-            <div class="w-8 h-1 rounded-full mb-3" style="background-color:#EABF0E"></div>
-            <h3 class="font-bold text-[#18181b] text-lg mb-2">Công nghệ hiện đại</h3>
-            <p class="text-sm leading-relaxed text-[#475569]">Scan 3D, Digital Smile Design, chụp CBCT và phẫu thuật implant có hướng dẫn máy tính cho kết quả chính xác.</p>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="group rounded-2xl overflow-hidden flex flex-col sm:flex-row bg-white border border-[rgba(234,191,14,0.3)] shadow-sm hover:shadow-xl transition-all duration-300 why-anim-card">
-          <div class="relative w-full sm:w-52 h-52 sm:h-auto min-h-[13rem] flex-shrink-0 overflow-hidden self-stretch">
-            <img src="https://greenfield-clinic-files.s3.ap-southeast-1.amazonaws.com/website/homepage/why-tourism.webp" alt="Gói du lịch nha khoa" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
-          </div>
-          <div class="p-6 flex flex-col justify-center">
-            <div class="w-8 h-1 rounded-full mb-3" style="background-color:#EABF0E"></div>
-            <h3 class="font-bold text-[#18181b] text-lg mb-2">Gói du lịch nha khoa</h3>
-            <p class="text-sm leading-relaxed text-[#475569]">Đón sân bay, sắp xếp khách sạn và lịch điều trị. Tiết kiệm đến 65% so với giá phương Tây.</p>
-          </div>
-        </div>
-      </div>
-      <div class="mt-12 text-center">
-        <a class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-[#18181b] font-bold text-sm transition-transform hover:scale-105 shadow-md" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;" href="dat-lich.html">
-          Đặt lịch tư vấn miễn phí
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. BÁC SĨ CHUYÊN TRÁCH -->
+  <!-- 7. BÁC SĨ CHUYÊN TRÁCH -->
   <section id="bac-si" class="py-12 sm:py-16 md:py-20 scroll-mt-24" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 sm:mb-12">
@@ -993,7 +910,7 @@
     </div>
   </section>
 
-  <!-- 9. GIẢI ĐÁP THẮC MẮC (FAQ) -->
+  <!-- 8. GIẢI ĐÁP THẮC MẮC (FAQ) -->
   <section id="faq" class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 anim-header">
@@ -1389,7 +1306,7 @@
     // 3. Scroll Reveal Animation using IntersectionObserver
     if ('IntersectionObserver' in window) {
       document.documentElement.classList.add('has-scroll-anim');
-      var sections = document.querySelectorAll('#what-is, #loi-ich, #bang-gia, #quy-trinh, #cau-chuyen, #tai-sao-chon, #bac-si, #faq');
+      var sections = document.querySelectorAll('#what-is, #loi-ich, #bang-gia, #quy-trinh, #cau-chuyen, #bac-si, #faq');
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
