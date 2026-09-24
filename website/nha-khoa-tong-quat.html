@@ -140,6 +140,24 @@
       .has-scroll-anim #what-is.is-revealed .whatis-anim-item:nth-child(3) { transition-delay: 0.25s; }
       .has-scroll-anim #what-is.is-revealed .whatis-anim-item:nth-child(4) { transition-delay: 0.35s; }
 
+      /* Loi Ich Cards staggered */
+      .has-scroll-anim #loi-ich .loiich-anim-card {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .has-scroll-anim #loi-ich.is-revealed .loiich-anim-card {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .has-scroll-anim #loi-ich.is-revealed .loiich-anim-card:nth-child(1) { transition-delay: 0.05s; }
+      .has-scroll-anim #loi-ich.is-revealed .loiich-anim-card:nth-child(2) { transition-delay: 0.12s; }
+      .has-scroll-anim #loi-ich.is-revealed .loiich-anim-card:nth-child(3) { transition-delay: 0.19s; }
+      .has-scroll-anim #loi-ich.is-revealed .loiich-anim-card:nth-child(4) { transition-delay: 0.26s; }
+      .has-scroll-anim #loi-ich.is-revealed .loiich-anim-card:nth-child(5) { transition-delay: 0.33s; }
+      .has-scroll-anim #loi-ich.is-revealed .loiich-anim-card:nth-child(6) { transition-delay: 0.40s; }
+
       /* Pricing Cards staggered */
       .has-scroll-anim #bang-gia .price-anim-card {
         opacity: 0;
@@ -453,7 +471,152 @@
     </div>
   </section>
 
-  <!-- 3. BẢNG GIÁ & LỰA CHỌN -->
+  <!-- 3. LỢI ÍCH CỦA KHÁM TỔNG QUÁT -->
+  <section id="loi-ich" class="py-20 scroll-mt-24" style="background: var(--gf-bg-main-gradient) !important;">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 anim-header">
+        <p class="gf-tagline">TẠI SAO CẦN THĂM KHÁM ĐỊNH KỲ?</p>
+        <h2 class="gf-title-display mb-4">Lợi Ích Của Khám Răng Tổng Quát</h2>
+        <p class="text-[#475569] text-base max-w-2xl mx-auto leading-relaxed" style="color:#475569 !important;">Khám nha khoa định kỳ 6 tháng/lần là phương pháp chủ động và thông minh nhất để giữ gìn nụ cười khỏe đẹp, phòng ngừa triệt để các biến chứng và tối ưu chi phí điều trị lâu dài.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <a href="dat-lich.html" data-open-modal="booking" data-service="Khám tổng quát" data-note="Tư vấn khám tổng quát: Phát hiện sớm bệnh lý răng miệng" class="group rounded-2xl p-6 flex flex-col justify-between bg-white shadow-sm hover:shadow-xl hover:border-[#EABF0E] hover:-translate-y-1 transition-all duration-300 cursor-pointer loiich-anim-card" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);text-decoration:none;">
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+                <i class="fa-solid fa-magnifying-glass-chart text-xl"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Tư vấn ngay</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </span>
+            </div>
+            <h3 class="font-bold text-[#18181b] text-base mb-2 group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Phát hiện sớm bệnh lý âm thầm</h3>
+            <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Sâu kẽ răng, viêm tủy, tụt lợi hay mòn cổ chân răng giai đoạn đầu thường không gây đau nhức rõ rệt. Thăm khám định kỳ kết hợp phim X-quang giúp phát hiện ngay từ lúc ủ bệnh để xử lý dứt điểm nhẹ nhàng.</p>
+          </div>
+          <div class="pt-4 border-t border-[rgba(234,191,14,0.15)] mt-4 flex items-center text-xs font-semibold text-[#B89307]">
+            <span>Khám kỹ lưỡng & Chụp X-quang kỹ thuật số</span>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="dat-lich.html" data-open-modal="booking" data-service="Khám tổng quát" data-note="Tư vấn khám tổng quát: Bảo tồn răng thật tối đa" class="group rounded-2xl p-6 flex flex-col justify-between bg-white shadow-sm hover:shadow-xl hover:border-[#EABF0E] hover:-translate-y-1 transition-all duration-300 cursor-pointer loiich-anim-card" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);text-decoration:none;">
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+                <i class="fa-solid fa-tooth text-xl"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Tư vấn ngay</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </span>
+            </div>
+            <h3 class="font-bold text-[#18181b] text-base mb-2 group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Bảo tồn tối đa răng thật tự nhiên</h3>
+            <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Không gì thay thế tốt bằng chiếc răng thật của chính bạn. Thăm khám thường xuyên ngăn chặn vi khuẩn phá hủy ngà và tủy răng, loại bỏ nguy cơ răng lung lay hoặc buộc phải nhổ bỏ sớm ngoài ý muốn.</p>
+          </div>
+          <div class="pt-4 border-t border-[rgba(234,191,14,0.15)] mt-4 flex items-center text-xs font-semibold text-[#B89307]">
+            <span>Bảo vệ cấu trúc xương & ngà răng</span>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="dat-lich.html" data-open-modal="booking" data-service="Khám tổng quát" data-note="Tư vấn khám tổng quát: Tiết kiệm chi phí điều trị" class="group rounded-2xl p-6 flex flex-col justify-between bg-white shadow-sm hover:shadow-xl hover:border-[#EABF0E] hover:-translate-y-1 transition-all duration-300 cursor-pointer loiich-anim-card" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);text-decoration:none;">
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+                <i class="fa-solid fa-piggy-bank text-xl"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Tư vấn ngay</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </span>
+            </div>
+            <h3 class="font-bold text-[#18181b] text-base mb-2 group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Tiết kiệm tối đa chi phí điều trị</h3>
+            <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Chi phí lấy cao răng hay trám một vết sâu nông chỉ từ vài trăm nghìn đồng. Điều trị phòng ngừa từ sớm giúp bạn tiết kiệm hàng chục triệu đồng so với việc phải điều trị tủy, bọc sứ hay cấy ghép Implant khi bệnh nặng.</p>
+          </div>
+          <div class="pt-4 border-t border-[rgba(234,191,14,0.15)] mt-4 flex items-center text-xs font-semibold text-[#B89307]">
+            <span>Giải pháp tài chính thông minh trọn đời</span>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="dat-lich.html" data-open-modal="booking" data-service="Khám tổng quát" data-note="Tư vấn khám tổng quát: Hơi thở thơm tho & vệ sinh răng" class="group rounded-2xl p-6 flex flex-col justify-between bg-white shadow-sm hover:shadow-xl hover:border-[#EABF0E] hover:-translate-y-1 transition-all duration-300 cursor-pointer loiich-anim-card" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);text-decoration:none;">
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+                <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Tư vấn ngay</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </span>
+            </div>
+            <h3 class="font-bold text-[#18181b] text-base mb-2 group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Hơi thở thơm mát & Nụ cười tự tin</h3>
+            <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Lấy cao răng siêu âm và đánh bóng men răng định kỳ giúp loại bỏ hoàn toàn mảng bám vôi răng cứng đầu, giải quyết triệt để tình trạng chảy máu chân răng và mùi hôi miệng, giúp bạn tự tin trong mọi giao tiếp.</p>
+          </div>
+          <div class="pt-4 border-t border-[rgba(234,191,14,0.15)] mt-4 flex items-center text-xs font-semibold text-[#B89307]">
+            <span>Loại bỏ 100% mảng bám vi khuẩn</span>
+          </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="dat-lich.html" data-open-modal="booking" data-service="Khám tổng quát" data-note="Tư vấn khám tổng quát: Tầm soát sức khỏe toàn diện" class="group rounded-2xl p-6 flex flex-col justify-between bg-white shadow-sm hover:shadow-xl hover:border-[#EABF0E] hover:-translate-y-1 transition-all duration-300 cursor-pointer loiich-anim-card" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);text-decoration:none;">
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+                <i class="fa-solid fa-heart-pulse text-xl"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Tư vấn ngay</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </span>
+            </div>
+            <h3 class="font-bold text-[#18181b] text-base mb-2 group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Tầm soát sức khỏe toàn thân</h3>
+            <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Khoang miệng là tấm gương phản chiếu sức khỏe cơ thể. Khám tổng quát giúp bác sĩ phát hiện sớm các tổn thương tiền ung thư miệng và nhận diện các dấu hiệu liên quan đến bệnh tiểu đường, tim mạch hay huyết áp cao.</p>
+          </div>
+          <div class="pt-4 border-t border-[rgba(234,191,14,0.15)] mt-4 flex items-center text-xs font-semibold text-[#B89307]">
+            <span>Kiểm tra niêm mạc lưỡi & vòm họng</span>
+          </div>
+        </a>
+
+        <!-- Card 6 -->
+        <a href="dat-lich.html" data-open-modal="booking" data-service="Khám tổng quát" data-note="Tư vấn khám tổng quát: Hướng dẫn chăm sóc cá nhân hóa" class="group rounded-2xl p-6 flex flex-col justify-between bg-white shadow-sm hover:shadow-xl hover:border-[#EABF0E] hover:-translate-y-1 transition-all duration-300 cursor-pointer loiich-anim-card" style="background-color:#ffffff !important;border:1.5px solid rgba(234,191,14,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);text-decoration:none;">
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-[#EABF0E] group-hover:text-gray-900" style="background-color:rgba(234,191,14,0.18);color:#B89307">
+                <i class="fa-solid fa-clipboard-check text-xl"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B89307] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Tư vấn ngay</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </span>
+            </div>
+            <h3 class="font-bold text-[#18181b] text-base mb-2 group-hover:text-[#B89307] transition-colors" style="color:#18181b !important;">Kế hoạch chăm sóc chuẩn y khoa</h3>
+            <p class="text-sm text-[#475569] leading-relaxed" style="color:#475569 !important;">Mỗi người có đặc điểm men răng và khớp cắn riêng biệt. Bác sĩ Kim Dung sẽ hướng dẫn chi tiết cách chải răng đúng cách, chọn lựa bàn chải, chỉ nha khoa, tăm nước và chế độ dinh dưỡng tối ưu nhất cho riêng bạn.</p>
+          </div>
+          <div class="pt-4 border-t border-[rgba(234,191,14,0.15)] mt-4 flex items-center text-xs font-semibold text-[#B89307]">
+            <span>Tư vấn 1:1 cùng bác sĩ chuyên khoa</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Action Row -->
+      <div class="mt-12 flex flex-wrap justify-center items-center gap-4 anim-header">
+        <a href="dat-lich.html" data-open-modal="booking" data-service="Khám tổng quát" data-note="Đăng ký khám tổng quát định kỳ" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-sm transition-transform hover:scale-105 shadow-md cursor-pointer" style="background-color:#EABF0E;color:#18181b !important;text-decoration:none;">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          Đặt lịch khám tổng quát ngay
+        </a>
+        <a href="tel:0862960886" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm bg-white border border-[#18181b] hover:bg-[#18181b] hover:text-white transition-colors" style="text-decoration:none;color:#18181b;">
+          <i class="fa-solid fa-phone" style="color:#B89307;"></i>
+          Hotline tư vấn: 0862 960 886
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BẢNG GIÁ & LỰA CHỌN -->
   <div data-section="options" id="bang-gia" style="background: var(--gf-bg-main-gradient) !important;">
     <section class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -548,7 +711,7 @@
     </section>
   </div>
 
-  <!-- 4. QUY TRÌNH THĂM KHÁM -->
+  <!-- 5. QUY TRÌNH THĂM KHÁM -->
   <section id="quy-trinh" class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -645,7 +808,7 @@
     </div>
   </section>
 
-  <!-- 5. TẠI SAO CHỌN NHA KHOA KIM DUNG -->
+  <!-- 6. TẠI SAO CHỌN NHA KHOA KIM DUNG -->
   <section id="tai-sao-chon" class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-14 anim-header">
@@ -711,7 +874,7 @@
     </div>
   </section>
 
-  <!-- 6. GIẢI ĐÁP THẮC MẮC (FAQ) -->
+  <!-- 7. GIẢI ĐÁP THẮC MẮC (FAQ) -->
   <section id="faq" class="py-20" style="background: var(--gf-bg-main-gradient) !important;">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 anim-header">
@@ -816,7 +979,7 @@
     </div>
   </section>
 
-  <!-- 7. BẢN ĐỒ PHÒNG KHÁM -->
+  <!-- 8. BẢN ĐỒ PHÒNG KHÁM -->
   <section class="w-full relative overflow-hidden" style="line-height:0;">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.015522819932!2d105.82090457472937!3d21.58531716843156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313527215ddf2b1d%3A0x16cdc2be58540180!2sNha%20Khoa%20Kim%20Dung!5e0!3m2!1svi!2s!4v1753432423301!5m2!1svi!2s" width="100%" height="400" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Nha Khoa Kim Dung — 15 Bắc Sơn, TP. Thái Nguyên"></iframe>
   </section>
@@ -1107,7 +1270,7 @@
     // 3. Scroll Reveal Animation using IntersectionObserver
     if ('IntersectionObserver' in window) {
       document.documentElement.classList.add('has-scroll-anim');
-      var sections = document.querySelectorAll('#what-is, #bang-gia, #quy-trinh, #tai-sao-chon, #faq');
+      var sections = document.querySelectorAll('#what-is, #loi-ich, #bang-gia, #quy-trinh, #tai-sao-chon, #faq');
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
