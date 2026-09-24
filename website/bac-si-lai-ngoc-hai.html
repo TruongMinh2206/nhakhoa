@@ -799,20 +799,8 @@
               </div>
 
               <div class="doc-form-group">
-                <label class="doc-form-label" for="patient-service">Dịch vụ quan tâm</label>
-                <select id="patient-service" class="doc-form-select">
-                  <option value="veneer">Dán sứ Veneer thẩm mỹ</option>
-                  <option value="noi-nha">Điều trị tủy vi phẫu (Nội nha)</option>
-                  <option value="rang-khon">Tiểu phẫu nhổ răng khôn Piezotome</option>
-                  <option value="tong-quat">Khám nha khoa tổng quát / Trám răng</option>
-                  <option value="boc-su">Bọc răng sứ thẩm mỹ</option>
-                  <option value="khac">Khác (Tư vấn tổng quan)</option>
-                </select>
-              </div>
-
-              <div class="doc-form-group">
-                <label class="doc-form-label" for="patient-note">Ghi chú tình trạng / Ngày mong muốn</label>
-                <input type="text" id="patient-note" class="doc-form-input" placeholder="Ví dụ: Đau răng hàm dưới bên trái, muốn khám sáng mai..." />
+                <label class="doc-form-label" for="patient-note">Ghi chú tình trạng răng miệng (nếu có)</label>
+                <input type="text" id="patient-note" class="doc-form-input" placeholder="Mô tả sơ lược tình trạng răng hiện tại của bạn..." />
               </div>
 
               <button type="submit" class="doc-form-submit">
@@ -1056,9 +1044,9 @@ function handleDocBooking(e) {
   const form = document.getElementById('doc-appointment-form');
   const successMsg = document.getElementById('booking-success-msg');
   
-  const name = document.getElementById('patient-name').value;
-  const phone = document.getElementById('patient-phone').value;
-  const service = document.getElementById('patient-service').value;
+  const name = document.getElementById('patient-name')?.value || '';
+  const phone = document.getElementById('patient-phone')?.value || '';
+  const service = document.getElementById('patient-service')?.value || '';
 
   console.log("Booking submission:", { name, phone, service, doctor: "BS. Lại Ngọc Hải" });
 

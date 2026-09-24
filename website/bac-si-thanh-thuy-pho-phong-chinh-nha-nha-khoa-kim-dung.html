@@ -773,19 +773,8 @@
               </div>
 
               <div class="doc-form-group">
-                <label class="doc-form-label" for="patient-service">Dịch vụ cần tư vấn</label>
-                <select id="patient-service" class="doc-form-select">
-                  <option value="chinh-nha">Chỉnh nha mắc cài tự buộc / mắc cài sứ</option>
-                  <option value="nong-ham-mse">Kỹ thuật nong xương hàm MSE</option>
-                  <option value="implant">Cấy ghép Implant Nha khoa</option>
-                  <option value="rang-khon">Tiểu phẫu răng khôn Piezotome không đau</option>
-                  <option value="tong-quat">Khám tổng quát / Điều trị nha khoa khác</option>
-                </select>
-              </div>
-
-              <div class="doc-form-group">
-                <label class="doc-form-label" for="patient-note">Ghi chú tình trạng / Ngày mong muốn</label>
-                <input type="text" id="patient-note" class="doc-form-input" placeholder="Ví dụ: Răng khôn đau nhức, muốn khám sáng thứ 7..." />
+                <label class="doc-form-label" for="patient-note">Ghi chú tình trạng răng miệng (nếu có)</label>
+                <input type="text" id="patient-note" class="doc-form-input" placeholder="Mô tả sơ lược tình trạng răng hiện tại của bạn..." />
               </div>
 
               <button type="submit" class="doc-form-submit">
@@ -1030,9 +1019,9 @@ function handleDocBooking(e) {
   const form = document.getElementById('doc-appointment-form');
   const successMsg = document.getElementById('booking-success-msg');
   
-  const name = document.getElementById('patient-name').value;
-  const phone = document.getElementById('patient-phone').value;
-  const service = document.getElementById('patient-service').value;
+  const name = document.getElementById('patient-name')?.value || '';
+  const phone = document.getElementById('patient-phone')?.value || '';
+  const service = document.getElementById('patient-service')?.value || '';
 
   console.log("Booking submission:", { name, phone, service, doctor: "BS. Nguyễn Thị Thanh Thủy" });
 

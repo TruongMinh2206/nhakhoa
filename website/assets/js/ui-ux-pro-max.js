@@ -176,25 +176,8 @@
               <input type="tel" id="uupm-phone" name="phone" placeholder="Ví dụ: 0912 345 678" required pattern="[0-9\\s\\-\\.\\+]{9,15}">
             </div>
             <div class="uupm-form-group">
-              <label for="uupm-service">Dịch vụ quan tâm</label>
-              <select id="uupm-service" name="service">
-                <option value="Trồng răng Implant">Trồng răng Implant chuẩn Hàn/Mỹ</option>
-                <option value="Niềng răng thẩm mỹ">Niềng răng thẩm mỹ (Mắc cài / Khay trong suốt)</option>
-                <option value="Bọc răng sứ">Bọc răng sứ / Dán sứ Veneer cao cấp</option>
-                <option value="Nhổ răng khôn Piezotome">Nhổ răng khôn công nghệ siêu âm Piezotome</option>
-                <option value="Tẩy trắng răng">Tẩy trắng răng Laser Whitening</option>
-                <option value="Khám tổng quát & Cạo vôi">Khám tổng quát & Cạo vôi răng</option>
-                <option value="Nha khoa trẻ em">Nha khoa trẻ em không đau</option>
-                <option value="Dịch vụ khác">Dịch vụ khác / Khám tư vấn chung</option>
-              </select>
-            </div>
-            <div class="uupm-form-group">
-              <label for="uupm-date">Thời gian mong muốn khám</label>
-              <input type="date" id="uupm-date" name="date">
-            </div>
-            <div class="uupm-form-group">
-              <label for="uupm-note">Mô tả tình trạng răng (nếu có)</label>
-              <textarea id="uupm-note" name="note" rows="2" placeholder="Ví dụ: Răng đau nhức, muốn tư vấn bọc sứ..."></textarea>
+              <label for="uupm-note">Ghi chú tình trạng răng miệng (nếu có)</label>
+              <textarea id="uupm-note" name="note" rows="2" placeholder="Mô tả ngắn tình trạng răng hiện tại của bạn..."></textarea>
             </div>
             <button type="submit" class="uupm-btn uupm-btn-primary" style="width: 100%; margin-top: 8px;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
@@ -206,31 +189,15 @@
     `;
     document.body.appendChild(modalOverlay);
 
-    // Set default date to tomorrow
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const dateInput = document.getElementById('uupm-date');
-    if (dateInput) {
-      dateInput.value = tomorrow.toISOString().split('T')[0];
-      dateInput.min = new Date().toISOString().split('T')[0];
-    }
-
     // Modal open/close handlers
     const openModal = (service, note) => {
-      if (service) {
-        const select = document.getElementById('uupm-service');
-        if (select) {
-          for (let opt of select.options) {
-            if (opt.value.toLowerCase().includes(service.toLowerCase()) || service.toLowerCase().includes(opt.value.toLowerCase())) {
-              opt.selected = true;
-              break;
-            }
-          }
+      const noteInput = document.getElementById('uupm-note');
+      if (noteInput) {
+        if (note) {
+          noteInput.value = note;
+        } else if (service) {
+          noteInput.value = 'Quan tâm dịch vụ: ' + service;
         }
-      }
-      if (note) {
-        const noteInput = document.getElementById('uupm-note');
-        if (noteInput) noteInput.value = note;
       }
       modalOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -283,7 +250,6 @@
       const submitBtn = form.querySelector('button[type="submit"]');
       const name = document.getElementById('uupm-name').value.trim();
       const phone = document.getElementById('uupm-phone').value.trim();
-      const service = document.getElementById('uupm-service').value;
 
       if (!name || !phone) {
         showToast('Vui lòng điền đầy đủ Họ tên và Số điện thoại', 'info');
@@ -298,7 +264,7 @@
         submitBtn.innerHTML = 'Xác Nhận Đặt Hẹn Ngay';
         closeModal();
         form.reset();
-        showToast(`🎉 Cảm ơn ${name}! Nha Khoa Kim Dung đã ghi nhận lịch hẹn [${service}]. Bác sĩ sẽ gọi tới ${phone} trong ít phút để xác nhận.`);
+        showToast(`🎉 Cảm ơn ${name}! Nha Khoa Kim Dung đã ghi nhận thông tin đặt hẹn. Bác sĩ sẽ gọi tới ${phone} trong ít phút để xác nhận.`);
       }, 700);
     });
   }
@@ -1721,18 +1687,14 @@
     if (!form) return;
     const name = document.getElementById('gf-name')?.value.trim() || 'Quý khách';
     const phone = document.getElementById('gf-phone')?.value.trim() || '';
-    const doctor = document.getElementById('gf-doctor')?.value?.trim();
-    const service = document.getElementById('gf-service')?.value?.trim();
+    const doctor = document.getElementById('gf-doctor')?.value || 'Bác sĩ chuyên khoa';
+    const service = document.getElementById('gf-service')?.value || 'Tư vấn nha khoa';
 
     const submitBtn = form.querySelector('.gf-form-submit');
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i><span>Đang xác nhận lịch hẹn...</span>';
     }
-
-    const detailText = (doctor && service)
-      ? `Cảm ơn <strong>${name}</strong> đã đặt lịch hẹn với <strong>${doctor}</strong> (${service}). Đội ngũ bác sĩ và trợ lý y tế của Nha Khoa Kim Dung sẽ gọi tới số <strong>${phone}</strong> trong vòng 15 phút để xác nhận chi tiết.`
-      : `Cảm ơn <strong>${name}</strong> đã đăng ký tư vấn khám. Đội ngũ bác sĩ và trợ lý y tế của Nha Khoa Kim Dung sẽ gọi tới số <strong>${phone}</strong> trong vòng 15 phút để xác nhận và sắp xếp lịch khám phù hợp nhất.`;
 
     setTimeout(() => {
       form.innerHTML = `
@@ -1742,7 +1704,7 @@
           </div>
           <h3 style="font-size: 22px; font-weight: 800; color: #18181b; margin-bottom: 8px;">Đặt Lịch Khám Thành Công!</h3>
           <p style="font-size: 15px; color: #475569; max-width: 540px; margin: 0 auto 18px; line-height: 1.6;">
-            ${detailText}
+            Cảm ơn <strong>${name}</strong> đã đặt lịch hẹn với <strong>${doctor}</strong> (${service}). Đội ngũ bác sĩ và trợ lý y tế của Nha Khoa Kim Dung sẽ gọi tới số <strong>${phone}</strong> trong vòng 15 phút để xác nhận chi tiết.
           </p>
           <div style="display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 10px;">
             <a href="tel:0862960886" class="gf-btn-primary" style="padding: 10px 22px; font-size: 14px;">

@@ -603,14 +603,8 @@ function renderResults() {
         </div>
 
         <div style="margin-bottom: 24px;">
-          <label style="display: block; font-size: 13.5px; font-weight: 700; color: #334155; margin-bottom: 6px;">Bạn muốn được tư vấn về</label>
-          <select id="user-topic" class="quiz-select">
-            <option value="tong_quat"${defaultTopic === 'tong_quat' ? ' selected' : ''}>Đánh giá tổng quát</option>
-            <option value="tay_trang"${defaultTopic === 'tay_trang' ? ' selected' : ''}>Tẩy trắng &amp; Làm sáng nụ cười</option>
-            <option value="nieng_rang"${defaultTopic === 'nieng_rang' ? ' selected' : ''}>Niềng răng - Chỉnh nha</option>
-            <option value="implant"${defaultTopic === 'implant' ? ' selected' : ''}>Cấy ghép răng Implant</option>
-            <option value="rang_su">Bọc răng sứ thẩm mỹ</option>
-          </select>
+          <label style="display: block; font-size: 13.5px; font-weight: 700; color: #334155; margin-bottom: 6px;">Ghi chú tình trạng răng miệng (nếu có)</label>
+          <textarea id="user-note" class="quiz-input" rows="2" placeholder="Mô tả ngắn tình trạng răng hiện tại của bạn..."></textarea>
         </div>
 
         <button type="submit" class="quiz-submit-btn">

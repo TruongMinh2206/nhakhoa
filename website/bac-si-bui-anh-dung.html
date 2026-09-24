@@ -704,19 +704,8 @@
               </div>
 
               <div class="doc-form-group">
-                <label class="doc-form-label" for="patient-service">Dịch vụ cần tư vấn</label>
-                <select id="patient-service" class="doc-form-select">
-                  <option value="implant">Cấy ghép Implant đơn lẻ / Toàn hàm All-on-X</option>
-                  <option value="veneer">Dán sứ Veneer xâm lấn tối thiểu MANI</option>
-                  <option value="boc-rang-su">Bọc răng sứ thẩm mỹ bảo tồn tủy</option>
-                  <option value="rang-khon">Tiểu phẫu răng khôn Piezotome không đau</option>
-                  <option value="tong-quat">Khám &amp; Chụp phim CT 3D tư vấn miễn phí</option>
-                </select>
-              </div>
-
-              <div class="doc-form-group">
-                <label class="doc-form-label" for="patient-note">Ghi chú tình trạng / Ngày mong muốn</label>
-                <input type="text" id="patient-note" class="doc-form-input" placeholder="Ví dụ: Mất răng hàm dưới, muốn khám sáng thứ 7..." />
+                <label class="doc-form-label" for="patient-note">Ghi chú tình trạng răng miệng (nếu có)</label>
+                <input type="text" id="patient-note" class="doc-form-input" placeholder="Mô tả sơ lược tình trạng răng hiện tại của bạn..." />
               </div>
 
               <button type="submit" class="doc-form-submit">
@@ -961,9 +950,9 @@ function handleDocBooking(e) {
   const form = document.getElementById('doc-appointment-form');
   const successMsg = document.getElementById('booking-success-msg');
   
-  const name = document.getElementById('patient-name').value;
-  const phone = document.getElementById('patient-phone').value;
-  const service = document.getElementById('patient-service').value;
+  const name = document.getElementById('patient-name')?.value || '';
+  const phone = document.getElementById('patient-phone')?.value || '';
+  const service = document.getElementById('patient-service')?.value || '';
 
   console.log("Booking submission:", { name, phone, service, doctor: "BS. Bùi Anh Dũng" });
 

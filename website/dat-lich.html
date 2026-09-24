@@ -257,59 +257,9 @@
               </div>
             </div>
 
-            <div class="gf-book-row">
-              <div class="gf-book-group">
-                <label class="gf-book-label" for="booking-email">Địa chỉ Email</label>
-                <input type="email" id="booking-email" name="email" class="gf-book-input" placeholder="Ví dụ: email@gmail.com" autocomplete="email">
-              </div>
-              <div class="gf-book-group">
-                <label class="gf-book-label" for="booking-service">Dịch vụ quan tâm <span class="req">*</span></label>
-                <select id="booking-service" name="service" class="gf-book-select" required>
-                  <option value="" disabled selected>-- Chọn dịch vụ nha khoa --</option>
-                  <option value="Trồng răng Implant tiêu chuẩn Quốc tế">Trồng răng Implant tiêu chuẩn Quốc tế</option>
-                  <option value="Niềng răng Chỉnh nha thẩm mỹ">Niềng răng Chỉnh nha thẩm mỹ (Mắc cài / Invisalign)</option>
-                  <option value="Bọc răng sứ thẩm mỹ / Dán Veneer">Bọc răng sứ thẩm mỹ / Dán Veneer cao cấp</option>
-                  <option value="Nhổ răng khôn sóng siêu âm Piezotome">Nhổ răng khôn sóng siêu âm Piezotome không đau</option>
-                  <option value="Tẩy trắng răng Laser Whitening">Tẩy trắng răng Laser Whitening không ê buốt</option>
-                  <option value="Khám tổng quát & Lấy cao răng định kỳ">Khám tổng quát & Lấy cao răng định kỳ</option>
-                  <option value="Điều trị tủy & Hàn răng sâu thẩm mỹ">Điều trị tủy & Hàn răng sâu thẩm mỹ</option>
-                  <option value="Nha khoa trẻ em thân thiện">Nha khoa trẻ em thân thiện</option>
-                  <option value="Tư vấn tổng quát khác">Tư vấn tổng quát các bệnh lý răng miệng khác</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="gf-book-row">
-              <div class="gf-book-group">
-                <label class="gf-book-label" for="booking-doctor">Bác sĩ phụ trách mong muốn</label>
-                <select id="booking-doctor" name="doctor" class="gf-book-select">
-                  <option value="Bác sĩ chuyên khoa phù hợp nhất">Bác sĩ chuyên khoa phù hợp nhất (Phòng khám sắp xếp)</option>
-                  <option value="BS. CKI Thùy Chi - Trưởng phòng Chỉnh nha & Implant">BS. CKI Thùy Chi - Trưởng phòng Chỉnh nha & Implant</option>
-                  <option value="BS. Thanh Thủy - Phó phòng Chỉnh nha & Tiểu phẫu">BS. Thanh Thủy - Phó phòng Chỉnh nha & Tiểu phẫu</option>
-                  <option value="BS. Kim Dung - Sáng lập & Cố vấn Chuyên môn">BS. Kim Dung - Sáng lập & Cố vấn Chuyên môn</option>
-                  <option value="BS. Chuyên Khoa Phục Hình - Thẩm mỹ & Răng sứ">BS. Chuyên Khoa Phục Hình - Thẩm mỹ & Răng sứ</option>
-                </select>
-              </div>
-              <div class="gf-book-group">
-                <label class="gf-book-label" for="booking-date">Ngày mong muốn khám <span class="req">*</span></label>
-                <input type="date" id="booking-date" name="date" class="gf-book-input" required>
-              </div>
-            </div>
-
             <div class="gf-book-group">
-              <label class="gf-book-label" for="booking-time">Khung giờ thuận tiện <span class="req">*</span></label>
-              <select id="booking-time" name="time" class="gf-book-select" required>
-                <option value="08:30 - 10:00 (Sáng)">08:30 - 10:00 (Buổi Sáng)</option>
-                <option value="10:00 - 11:30 (Sáng)">10:00 - 11:30 (Buổi Sáng)</option>
-                <option value="13:30 - 15:00 (Chiều)">13:30 - 15:00 (Buổi Chiều)</option>
-                <option value="15:00 - 17:00 (Chiều)">15:00 - 17:00 (Buổi Chiều)</option>
-                <option value="17:00 - 19:00 (Tối)">17:00 - 19:00 (Buổi Tối)</option>
-              </select>
-            </div>
-
-            <div class="gf-book-group">
-              <label class="gf-book-label" for="booking-notes">Mô tả tình trạng răng miệng hoặc ghi chú thêm</label>
-              <textarea id="booking-notes" name="notes" class="gf-book-textarea" placeholder="Ví dụ: Răng hàm dưới đau nhức khi ăn nhai, muốn chụp X-quang kiểm tra răng khôn..."></textarea>
+              <label class="gf-book-label" for="booking-notes">Ghi chú tình trạng răng miệng (nếu có)</label>
+              <textarea id="booking-notes" name="notes" class="gf-book-textarea" placeholder="Mô tả ngắn tình trạng răng hiện tại của bạn..."></textarea>
             </div>
 
             <div class="gf-book-notice">
@@ -337,9 +287,7 @@
             <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 18px; margin-bottom: 20px; font-size: 0.92rem; line-height: 1.6;">
               <p class="mb-1"><strong>Khách hàng:</strong> <span id="rcpt-name"></span></p>
               <p class="mb-1"><strong>Số điện thoại:</strong> <span id="rcpt-phone"></span></p>
-              <p class="mb-1"><strong>Dịch vụ:</strong> <span id="rcpt-service"></span></p>
-              <p class="mb-1"><strong>Thời gian hẹn:</strong> <span id="rcpt-time"></span> ngày <span id="rcpt-date"></span></p>
-              <p class="mb-0"><strong>Bác sĩ tiếp nhận:</strong> <span id="rcpt-doctor"></span></p>
+              <p class="mb-0"><strong>Trạng thái:</strong> <span style="color:#15803D; font-weight:700;">Đã tiếp nhận yêu cầu tư vấn khám</span></p>
             </div>
             <p style="font-size: 0.9rem; color: #4B5563; margin-bottom: 16px;">
               Chuyên viên y tế của Nha Khoa Kim Dung sẽ gọi điện thoại xác nhận lại lịch hẹn cho quý khách trong ít phút.
@@ -443,16 +391,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Set min date to today and default date to tomorrow
-      var dateInput = document.getElementById('booking-date');
-      if (dateInput) {
-        var today = new Date();
-        var tomorrow = new Date();
-        tomorrow.setDate(today.getDate() + 1);
-        dateInput.min = today.toISOString().split('T')[0];
-        dateInput.value = tomorrow.toISOString().split('T')[0];
-      }
-
       var form = document.getElementById('gf-main-booking-form');
       var receipt = document.getElementById('booking-receipt');
       var btnReset = document.getElementById('btn-reset-booking');
@@ -464,52 +402,43 @@
 
           var nameInput = document.getElementById('booking-name');
           var phoneInput = document.getElementById('booking-phone');
-          var serviceInput = document.getElementById('booking-service');
-          var doctorInput = document.getElementById('booking-doctor');
-          var dateVal = document.getElementById('booking-date').value;
-          var timeVal = document.getElementById('booking-time').value;
 
-          if (!nameInput.value.trim()) {
+          if (!nameInput || !nameInput.value.trim()) {
             alert('Vui lòng nhập họ và tên của bạn.');
-            nameInput.focus();
+            if (nameInput) nameInput.focus();
             return;
           }
 
-          var phoneClean = phoneInput.value.trim().replace(/[\s\-\.]/g, '');
+          var phoneClean = phoneInput ? phoneInput.value.trim().replace(/[\s\-\.]/g, '') : '';
           if (!phoneClean || phoneClean.length < 9) {
             alert('Vui lòng nhập số điện thoại hợp lệ để phòng khám liên hệ xác nhận.');
-            phoneInput.focus();
-            return;
-          }
-
-          if (!serviceInput.value) {
-            alert('Vui lòng chọn dịch vụ nha khoa bạn đang quan tâm.');
-            serviceInput.focus();
+            if (phoneInput) phoneInput.focus();
             return;
           }
 
           var submitBtn = document.getElementById('gf-btn-submit-booking');
           if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang ghi nhận lịch hẹn...';
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang ghi nhận yêu cầu...';
           }
 
           setTimeout(function() {
             var randomId = 'KD-' + Math.floor(1000 + Math.random() * 9000);
-            document.getElementById('rcpt-code').textContent = randomId;
-            document.getElementById('rcpt-name').textContent = nameInput.value.trim();
-            document.getElementById('rcpt-phone').textContent = phoneInput.value.trim();
-            document.getElementById('rcpt-service').textContent = serviceInput.value;
-            document.getElementById('rcpt-time').textContent = timeVal;
-            document.getElementById('rcpt-date').textContent = dateVal;
-            document.getElementById('rcpt-doctor').textContent = doctorInput.value;
+            var rcptCode = document.getElementById('rcpt-code');
+            var rcptName = document.getElementById('rcpt-name');
+            var rcptPhone = document.getElementById('rcpt-phone');
+            if (rcptCode) rcptCode.textContent = randomId;
+            if (rcptName) rcptName.textContent = nameInput.value.trim();
+            if (rcptPhone) rcptPhone.textContent = phoneInput.value.trim();
 
             form.style.display = 'none';
-            receipt.classList.add('active');
-            receipt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (receipt) {
+              receipt.classList.add('active');
+              receipt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
 
             // Trigger notification
-            var notifyMsg = 'Chúc mừng quý khách ' + nameInput.value.trim() + '! Lịch hẹn (' + randomId + ') đã được ghi nhận thành công.';
+            var notifyMsg = 'Chúc mừng quý khách ' + nameInput.value.trim() + '! Yêu cầu tư vấn khám (' + randomId + ') đã được ghi nhận thành công.';
             var toastBox = document.createElement('div');
             toastBox.style.position = 'fixed';
             toastBox.style.bottom = '24px';
